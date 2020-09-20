@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<syntax name="parser3">
+    <meta>
+        <name>Parser3</name>
+        <type>script</type>
+        <preferred-file-extension>html</preferred-file-extension>
+    </meta>
+    
+    <detectors>
+        <extension priority="1.0">html,p</extension>
+    </detectors>
+
+	<identifiers>
+		<prefixes>
+			<string>$</string>
+			<string>^</string>
+			<string>@</string>
+		</prefixes>
+	</identifiers>
+
+	<!-- <indentation>
+		<increase>
+			<expression>(\{[^}\"']*$)|(\[[^\]\"']*$)|(\([^)\"']*$)</expression>
+		</increase>
+		<decrease>
+			<expression>^\s*(\s*/\*.*\*/\s*)*[\}\]\)\\]</expression>
+		</decrease>
+	</indentation> -->
+    
+    <comments>
+		<single>
+			<expression>#</expression>
+		</single>
+		<multiline>
+			<starts-with>
+				<expression>\^rem\{</expression>
+			</starts-with>
+			<ends-with>
+				<expression>\}</expression>
+			</ends-with>
+		</multiline>
+    </comments>
+    
+	<brackets>
+		<pair open="{" close="}" />
+		<pair open="[" close="]" />
+		<pair open="(" close=")" />
+	</brackets>
+
+    <surrounding-pairs>
+        <pair open="{" close="}" />
+        <pair open="[" close="]" />
+        <pair open="(" close=")" />
+        <pair open="&apos;" close="&apos;" />
+		<pair open="&quot;" close="&quot;" />
+		<pair open="`" close="`" />
+    </surrounding-pairs>
+
+	<scopes>
+		<include syntax="self" collection="comments" />
+		<include syntax="self" collection="definitions" />
+		<include syntax="self" collection="keywords" />
+		<include syntax="self" collection="values" />
+		<include syntax="self" collection="identifiers" />
+		<include syntax="self" collection="blocks" />
+		<include syntax="self" collection="syntax" />
+	</scopes>
+
+    <collections>
+
+		<!-- Comments -->
+		<collection name="comments">
+			<scope name="parser3.comment.single" spell-check="true">
+				<expression>^\#(.*)$</expression>
+				<capture number="1" name="parser3.comment.content" />
+			</scope>
+			<scope name="parser3.comment.block" spell-check="true">
+				<starts-with>
+					<expression>\^rem\{</expression>
+				</starts-with>
+				<ends-with>
+					<expression>\}</expression>
+				</ends-with>
+			</scope>
+		</collection>
+
+		<!-- Variables -->
+		<collection name="variables">
+		
+			<scope name="parser3.identifier.variable.core">
+				<!-- <strings word-boundary="false" suffix="\b"> -->
+				<strings word-boundary="false">
+					<string>$MAIN</string>
+					<string>$LIMITS</string>
+					<string>$MAIL</string>
+					<string>$SQL</string>
+					<string>$MIME-TYPES</string>           
+				</strings>
+			</scope>
+			
+			<scope name="parser3.identifier.variable">
+				<symbol type="variable" scope="local" />
+				<expression>(\$[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)</expression>
+				<capture number="1" name="parser3.identifier.name" />
+			</scope>
+		</collection>
+		
+	<!-- Definitions -->
+		<collection name="definitions">
+			
+			<scope name="parser3.definition.function">
+				<symbol type="function" />
+				<expression>^@([a-zA-Z_][a-zA-Z0-9_]*)\[[a-zA-Z0-9_;]*\]</expression>
+				<!-- <capture number="1" name="parser3.keyword" /> -->
+				<capture number="1" name="parser3.identifier.function.name" />
+			</scope>
+			
+			<!-- Constant -->
+			<!-- <scope name="parser3.definition.constant">
+				<symbol type="constant" scope="local" />
+				<expression>(?&lt;!\.)([A-Z][A-Z0-9_]*)\s*(\=)(?!\=)</expression>
+				<capture number="1" name="parser3.identifier.constant.name" />
+				<capture number="2" name="parser3.operator" />
+			</scope> -->
+			
+		</collection>
+		
+		<!-- Keywords -->
+		<collection name="keywords">
+			<scope name="parser3.keyword">
+				<strings>
+					<string>if</string>
+					<string>else</string>
+					<string>switch</string>
+					<string>while</string>
+					<string>for</string>
+					<string>foreach</string>
+					<string>break</string>
+					<string>continue</string>
+					<string>result</string>
+					<string>use</string>
+					<string>def</string>
+					<string>no</string>
+					<string>and</string>
+					<string>or</string>
+					<string>not</string>
+					<string>eq</string>
+					<string>ne</string>
+					<string>is</string>
+				</strings>
+			</scope>
+		
+			<!-- <scope name="parser3.keyword.pragmas">
+				<strings>
+					<string>strict</string>
+					<string>english</string>
+					<string>warnings</string>
+					<string>vars</string>
+					<string>subs</string>
+					<string>utf8</string>
+					<string>sigtrap</string>
+					<string>locale</string>
+					<string>open</string>
+					<string>less</string>
+					<string>integer</string>
+					<string>filetest</string>
+					<string>constant</string>
+					<string>bytes</string>
+					<string>diagnostics</string>
+				</strings>
+			</scope> -->
+		
+			<scope name="parser3.keyword.function">
+				<strings>
+					<string>connect</string>
+					<string>string</string>
+					<string>string:sql</string>
+					<string>table</string>
+					<string>table::create</string>
+					<string>table::load</string>
+					<string>table::sql</string>
+					<string>table</string>
+					<string>math:cos</string>
+					<string>math:sin</string>
+					<string>sleep</string>
+				</strings>
+			</scope>
+		</collection>
+
+		<!-- Values -->
+		<collection name="values">
+			<include syntax="self" collection="strings" />
+			<scope name="parser3.value.number">
+				<expression>\b(\-|\+)?(?:\d+(?:\.\d*)?|(?:\.\d+))(l|L|j|J)?\b</expression>
+			</scope>
+			<scope name="parser3.value.boolean">
+				<strings>
+					<string>true</string>
+					<string>false</string>
+				</strings>
+			</scope>
+		</collection>
+
+		<!-- Strings -->
+		<collection name="strings">
+			<scope name="parser3.string.double-quoted">
+				<expression>&quot;((?:[^&quot;\\]|\\.)*)(?:&quot;|$)</expression>
+				<capture number="1" name="parser3.string.double-quoted.text" />
+			</scope>
+			<scope name="parser3.string.single-quoted">
+				<expression>&apos;((?:[^&apos;\\]|\\.)*)(?:&apos;|$)</expression>
+				<capture number="1" name="parser3.string.single-quoted.text" />
+			</scope>
+			<scope name="parser3.string.single-quoted">
+				<expression>q([^\\q])((?:[^\1\\]|\\.)*)(?:\1|$)</expression>
+				<capture number="1" name="parser3.string.single-quoted.text" />
+			</scope>
+			<!-- <scope name="parser3.string.regex">
+				<expression>/([^/\\]|\\.)*(?:/|$)</expression>
+				<capture number="1" name="parser3.string.regex.text" />
+			</scope> -->
+		</collection>
+
+		<!-- Identifiers -->
+		<!-- <collection name="identifiers"> -->
+		<!--
+			<scope name="parser3.identifier.variable.hash">
+				<expression>\b%([a-zA-Z_][a-zA-Z0-9_]*)\b</expression>
+			</scope>
+			<scope name="parser3.identifier.variable.array">
+				<expression>\b@([a-zA-Z_][a-zA-Z0-9_]*)\b</expression>
+			</scope>
+			<scope name="parser3.identifier.variable.scalar">
+				<expression>\b\$([a-zA-Z_][a-zA-Z0-9_]*)\b</expression>
+			</scope>
+			<scope name="parser3.identifier.property">
+				<expression>\b(?&lt;=\.)([a-zA-Z_][a-zA-Z0-9_]*)(?!\()\b</expression>
+			</scope>
+		-->
+			<!-- <scope name="parser3.identifier.method"> -->
+				<!-- <expression>\b(?&lt;=\.)([a-zA-Z_][a-zA-Z0-9_]*)(?=\()\b</expression> -->
+				<!-- <expression>\b^([a-zA-Z_][a-zA-Z0-9_]*)\:([a-zA-Z_][a-zA-Z0-9_]*)\b</expression> -->
+			<!-- </scope> -->
+			<!-- <scope name="parser3.identifier.function"> -->
+				<!-- <expression>\b(?&lt;!\.)([a-zA-Z_][a-zA-Z0-9_]*)(?=\()\b</expression> -->
+				<!-- <expression>\b^([a-zA-Z_][a-zA-Z0-9_]*)\b</expression> -->
+			<!-- </scope> -->
+			<!-- <scope name="parser3.identifier"> -->
+				<!-- <expression>\b[a-zA-Z_][A-Za-z0-9_]*\b</expression> -->
+			<!-- </scope> -->
+		<!-- </collection> -->
+
+		<!-- Blocks -->
+		<collection name="blocks">
+			<scope name="parser3.block">
+				<symbol type="block">
+					<context behavior="subtree" />
+				</symbol>
+				<starts-with>
+					<expression>\{</expression>
+					<capture number="0" name="parser3.block.bracket" />
+				</starts-with>
+				<ends-with>
+					<expression>\}</expression>
+					<capture number="0" name="parser3.block.bracket" />
+				</ends-with>
+				<subscopes>
+					<include syntax="self" />
+				</subscopes>
+			</scope>
+		</collection>
+
+    	<!-- Syntax -->
+		<collection name="syntax">
+			<scope name="parser3.bracket">
+				<expression>[\(\[\{\)\]\}]</expression>
+			</scope>
+			<scope name="parser3.operator">
+				<expression>(\+|\-|\*|\*\*|/|%|\=|\=\=|!\=|\+\=|\-\=|\*\=|/\=|%\=|\*\*=|\&lt;|\&gt;|\&lt;\=|\&gt;=|!|&amp;&amp;|\|\|)</expression>
+			</scope>
+		</collection>
+	</collections>
+
+</syntax>
