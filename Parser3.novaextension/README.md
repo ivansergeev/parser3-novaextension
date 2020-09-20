@@ -1,4 +1,4 @@
-Parser 3 syntax support for the Panic Nova (Mac)
+Parser 3 syntax support
 
 Requirements
 
