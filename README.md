@@ -5,6 +5,7 @@ Current status: WIP
 # Requirements
 
 Panic Nova app (https://nova.app/)
+
 Parser 3.4.5 (http://www.parser.ru/en/)
 
 	File ext: *.p, *.html (can custom assign)
