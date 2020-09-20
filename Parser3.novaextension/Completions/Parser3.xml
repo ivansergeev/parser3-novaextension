@@ -7,30 +7,15 @@
         <set>parser3.entities</set>
     </provider> -->
     
-    <provider name="identifier">
+	<!-- "true|false" -->	
+    <provider name="constant">
         <syntax>parser3</syntax>
         <selector>*:not(string,comment)</selector>
-<!--
-        <expression>(?&lt;!\.)(?&lt;!def\s)\b[a-zA-Z_][a-zA-Z0-9_]*</expression>
-        
-        <symbols type="class">
-            <behavior prefix="=\s*">
-                <append>($[])</append>
-            </behavior>
-        </symbols>
-        <symbols type="function">
-            <behavior>
-                <arguments prefix="(" suffix=")" separator=", " />
-            </behavior>
-        </symbols>
-        <symbols type="constant,variable,argument,package" />
- -->        
-        <!-- <set>parser3.keywords</set> -->
-        <set>parser3.values.core</set>
-        <!-- <set>parser3.functions.core</set> -->
-        <!-- <set>parser3.exceptions.core</set> -->
+        <expression>([a-z]+)</expression>
+        <symbols type="constant" />
+        <set>parser3.core.values</set>
     </provider>
-    
+
     <!-- "$foo" -->
     <provider name="variable">
         <syntax>parser3</syntax>
@@ -46,32 +31,68 @@
         <selector>*:not(string,comment)</selector>
         <!-- <expression>(?&lt;!\-&gt;|\$)(\b[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)</expression> -->
         <expression>(\^[a-zA-Z0-9_\x7f-\xff]+)</expression>
-        
+
         <symbols type="function">
             <behavior>
-                <arguments prefix="[" suffix="]" separator="; " />
+                <arguments prefix="[" suffix="]" separator=";" />
             </behavior>
         </symbols>
 
         <symbols type="class,protocol" />
-        
+
         <set>parser3.keywords</set>
         <set>parser3.core.functions</set>
     </provider>
+
+    <!-- "^classes" -->
+    <provider name="classes">
+        <syntax>parser3</syntax>
+        <selector>*:not(string,comment)</selector>
+        <expression>(\^[a-zA-Z0-9_\x7f-\xff]+)</expression>
+        <symbols type="class" />
+        <set>parser3.core.classes</set>
+    </provider>
     
-    <!-- Entities -->
-	<!--
-    <set name="parser3.entities">
-        <completion string="&quot;" />
-        <completion string="&amp;" />
-        <completion string="&apos;" />
-        <completion string="&lt;" />
-        <completion string="&gt;" />
-    </set>
+	<!-- "$classes" -->
+    <provider name="classes">
+        <syntax>parser3</syntax>
+        <selector>*:not(string,comment)</selector>
+        <expression>(\$[a-zA-Z0-9_\x7f-\xff]+)</expression>
+        <symbols type="class" />
+        <set>parser3.core.classes.static</set>
+    </provider>
+
+    <!-- "$cookie" -->
+    <provider name="cookie">
+        <syntax>parser3</syntax>
+        <selector>*:not(string,comment)</selector>
+        <expression>(\$cookie)(\:[a-zA-Z0-9_\x7f-\xff]+)</expression>
+        <symbols type="property" />
+        <set>parser3.core.cookie</set>
+    </provider>
+   
+    <!-- "^curl" -->
+    <provider name="curl">
+        <syntax>parser3</syntax>
+        <selector>*:not(string,comment)</selector>
+        <expression>(\^curl)(\:[a-zA-Z0-9_\x7f-\xff]+)</expression>
+        <symbols type="method" />
+        <set>parser3.core.curl</set>
+    </provider>
+
+    <!-- "curl options" -->
+    <!-- 
+		<provider name="curl-options">
+        <syntax>parser3</syntax>
+        <selector>parser3.block.curl-options</selector>
+        <expression>(\$\.[a-zA-Z0-9_\x7f-\xff]+)</expression>
+        <symbols type="property" />
+        <set>parser3.core.curl.options</set>
+    </provider> 
 	-->
 
     <!-- Built-in values -->
-    <set name="parser3.values.core" symbol="constant">
+    <set name="parser3.core.values" symbol="constant">
         <completion string="true" />
         <completion string="false" />
     </set>
@@ -112,6 +133,168 @@
         <completion string="while" />
     </set>
 
+<!-- ^CLASSES -->
+
+	<set name="parser3.core.classes">
+		<completion string="^curl">
+			<behavior symbol="class">
+				<append>:</append>
+			</behavior>
+		</completion>
+		<completion string="^date">
+			<behavior symbol="class" />
+		</completion>
+		<completion string="^double">
+			<behavior symbol="class">
+				<append>:</append>
+			</behavior>
+		</completion>
+		<completion string="^int">
+			<behavior symbol="class">
+				<append>:</append>
+			</behavior>
+		</completion>
+		<completion string="^table">
+			<behavior symbol="class">
+				<append>::</append>
+			</behavior>
+		</completion>
+	</set>
+
+	<!-- $CLASSES -->
+		
+	<set name="parser3.core.classes.static">
+		<completion string="$console">
+			<behavior symbol="class">
+				<append>:</append>
+			</behavior>
+		</completion>
+		<completion string="$cookie">
+			<behavior symbol="class">
+				<append>:</append>
+			</behavior>
+		</completion>
+		<completion string="$env">
+			<behavior symbol="class">
+				<append>:</append>
+			</behavior>
+		</completion>
+		<completion string="$form">
+			<behavior symbol="class">
+				<append>:</append>
+			</behavior>
+		</completion>
+		<completion string="$math">
+			<behavior symbol="class">
+				<append>:</append>
+			</behavior>
+		</completion>
+		<completion string="$request">
+			<behavior symbol="class">
+				<append>:</append>
+			</behavior>
+		</completion>
+		<completion string="$response">
+			<behavior symbol="class">
+				<append>:</append>
+			</behavior>
+		</completion>
+	</set>
+	
+<!-- COOKIE -->
+
+	<set name="parser3.core.cookie">
+		<completion string="$cookie:fields">
+			<behavior symbol="property" />
+		</completion>
+	</set>
+
+<!-- CURL -->
+
+	<set name="parser3.core.curl">
+<!-- info -->	
+		<completion string="^curl:info">
+			<behavior symbol="method">
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="^curl:info">
+			<behavior symbol="method">
+				<append>[$[name]]</append>
+			</behavior>
+		</completion>
+		
+<!-- load -->	
+		<completion string="^curl:load">
+			<behavior symbol="method">
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="^curl:load">
+			<behavior symbol="method">
+				<append>[$[options]]</append>
+			</behavior>
+		</completion>
+<!-- options -->	
+		<completion string="^curl:options">
+			<behavior symbol="method">
+				<append>[$[options]]</append>
+			</behavior>
+		</completion>
+<!-- session -->	
+		<completion string="^curl:session">
+			<behavior symbol="method">
+				<append>{$[code]}</append>
+			</behavior>
+		</completion>
+<!-- version -->	
+		<completion string="^curl:version">
+			<behavior symbol="method">
+				<append>[]</append>
+			</behavior>
+		</completion>
+	</set>
+
+	<!-- CURL OPTIONS -->
+<!--		
+	<set name="parser3.core.curl.options">
+		<completion string="$.charset">
+			<behavior symbol="property">
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="$.content-type">
+			<behavior symbol="property">
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="$.library">
+			<behavior symbol="property">
+				<append>[$[path]]</append>
+			</behavior>
+		</completion>
+		<completion string="$.mode">
+			<behavior symbol="property">
+				<append>[$[text or binary]]</append>
+			</behavior>
+		</completion>
+		<completion string="$.name">
+			<behavior symbol="property">
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="$.response-charset">
+			<behavior symbol="property">
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="$.timeout">
+			<behavior symbol="property">
+				<append>()</append>
+			</behavior>
+		</completion>
+	</set>
+-->
 
     <set name="parser3.core.functions">
 <!-- A -->
