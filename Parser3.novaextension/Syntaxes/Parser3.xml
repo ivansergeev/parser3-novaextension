@@ -29,7 +29,7 @@
     
     <comments>
 		<single>
-			<expression>^\#(.*)$</expression>
+			<expression>#</expression>
 		</single>
 		<multiline>
 			<starts-with>
@@ -150,7 +150,21 @@
 					<string>is</string>
 				</strings>
 			</scope>
-		
+			<!-- <scope name="parser3.keyword.core.variables">
+				<strings>
+					<string>$MAIN</string>
+					<string>^MAIN</string>
+					<string>$LIMITS</string>
+					<string>^LIMITS</string>
+					<string>$MAIL</string>
+					<string>^MAIL</string>
+					<string>$SQL</string>
+					<string>^SQL</string>
+					<string>$MIME-TYPES</string>
+					<string>^MIME-TYPES</string>
+				</strings>
+			</scope>
+ -->		
 			<!-- <scope name="parser3.keyword.pragmas">
 				<strings>
 					<string>strict</string>
@@ -170,20 +184,51 @@
 					<string>diagnostics</string>
 				</strings>
 			</scope> -->
-		
+
 			<scope name="parser3.keyword.function">
 				<strings>
-					<string>connect</string>
-					<string>string</string>
+					<string>^cache</string>
+					<string>^connect</string>
+					<string>^sleep</string>
+				</strings>
+			</scope>
+			<scope name="parser3.keyword.class">
+				<strings>
+					<string>^string</string>
+					<string>^table</string>
+					<string>^math</string>
+				</strings>
+			</scope>
+			<scope name="parser3.keyword.static.method">
+				<strings>
+					<string>:base64</string>
+					<string>:idna</string>
+					<string>:js-unescape</string>
+					<string>:sql</string>
+					<string>::sql</string>
+					<string>:unescape</string>
+					<string>::create</string>
+					<string>::load</string>
+					<string>:cos</string>
+					<string>:sin</string>
+					<!-- <string>string:base64</string>
+					<string>string:idna</string>
+					<string>string:js-unescape</string>
 					<string>string:sql</string>
-					<string>table</string>
+					<string>string:unescape</string>
+					<string>string:sql</string>
 					<string>table::create</string>
 					<string>table::load</string>
 					<string>table::sql</string>
-					<string>table</string>
 					<string>math:cos</string>
-					<string>math:sin</string>
-					<string>sleep</string>
+					<string>math:sin</string> -->
+				</strings>
+			</scope>
+			<scope name="parser3.keyword.method">
+				<strings>
+					<string>.base64</string>
+					<string>.format</string>
+					<string>.int</string>
 				</strings>
 			</scope>
 		</collection>

@@ -91,6 +91,24 @@
     </provider> 
 	-->
 
+	<!-- "^string" -->
+	<provider name="string">
+		<syntax>parser3</syntax>
+		<selector>*:not(string,comment)</selector>
+		<expression>(\^string)(\:[a-zA-Z0-9_\x7f-\xff]+)</expression>
+		<symbols type="method" />
+		<set>parser3.core.string</set>
+	</provider>
+
+	<!-- "^table" -->
+	<provider name="table">
+		<syntax>parser3</syntax>
+		<selector>*:not(string,comment)</selector>
+		<expression>(\^table)(\:\:[a-zA-Z0-9_\x7f-\xff]+)</expression>
+		<symbols type="method" />
+		<set>parser3.core.table</set>
+	</provider>
+
     <!-- Built-in values -->
     <set name="parser3.core.values" symbol="constant">
         <completion string="true" />
@@ -150,6 +168,11 @@
 			</behavior>
 		</completion>
 		<completion string="^int">
+			<behavior symbol="class">
+				<append>:</append>
+			</behavior>
+		</completion>
+		<completion string="^string">
 			<behavior symbol="class">
 				<append>:</append>
 			</behavior>
@@ -296,6 +319,160 @@
 	</set>
 -->
 
+<!-- String -->
+
+	<set name="parser3.core.string">
+
+		<completion string="^string:base64">
+			<behavior symbol="method">
+				<append>[$[string]]</append>
+			</behavior>
+		</completion>
+		<completion string="^string:base64">
+			<behavior symbol="method">
+				<append>[$[string];$.strict(true)]</append>
+			</behavior>
+		</completion>
+		<completion string="^string:idna">
+			<behavior symbol="method">
+				<append>[$[string]]</append>
+			</behavior>
+		</completion>
+		<completion string="^string:js-unescape">
+			<behavior symbol="method">
+				<append>[$[string]]</append>
+			</behavior>
+		</completion>
+		<completion string="^string:sql">
+			<behavior symbol="method">
+				<append>{
+	$[sql]
+}</append>
+			</behavior>
+		</completion>
+		<completion string="^string:sql">
+			<behavior symbol="method">
+				<append>{
+	$[sql]
+}[
+	$.limit(1)
+	$.offset($[offset count])
+	$.default{$[code]}
+	$.default[$[string]]
+	$.default($[expression])
+	$.bind[$[variables hash]]
+]</append>
+			</behavior>
+		</completion>
+		<completion string="^string:unescape">
+			<behavior symbol="method">
+				<append>[$[js or uri];$[string]] </append>
+			</behavior>
+		</completion>
+		<completion string="^string:unescape">
+			<behavior symbol="method">
+				<append>[$[js or uri];$[string];
+	$.charset[$[charset]]
+] </append>
+			</behavior>
+		</completion>
+	</set>
+	
+	
+<!-- Table -->
+
+	<set name="parser3.core.table">
+
+<!-- table::create -->
+		<completion string="^table::create">
+			<behavior symbol="method">
+				<append>{$[data]}</append>
+			</behavior>
+		</completion>
+
+		<completion string="^table::create">
+			<behavior symbol="method">
+				<append>[nameless]{$[data]}</append>
+			</behavior>
+		</completion>
+
+		<completion string="^table::create">
+			<behavior symbol="method">
+				<append>{
+	$[data]
+}[
+	$.separator[$[separator symbol]]
+	$.encloser[$[encloser symbol]]
+]</append>
+			</behavior>
+		</completion>
+
+		<completion string="^table::create">
+			<behavior symbol="method">
+				<append>[$[table]]</append>
+			</behavior>
+		</completion>
+
+		<completion string="^table::create">
+			<behavior symbol="method">
+				<append>[$[table];
+	$.offset($[count])
+	$.offset[cur]
+	$.limit($[maximum])
+	$.reverse($[true/false])
+]</append>
+			</behavior>
+		</completion>
+
+<!-- table::load -->
+
+		<completion string="^table::load">
+			<behavior symbol="method">
+				<append>[$[file]]</append>
+			</behavior>
+		</completion>
+		<completion string="^table::load">
+			<behavior symbol="method">
+				<append>[$[file];
+	$.separator[$[separator symbol]]
+	$.encloser[$[encloser symbol]]
+]</append>
+			</behavior>
+		</completion>
+		<completion string="^table::load">
+			<behavior symbol="method">
+				<append>[nameless;$[file]]</append>
+			</behavior>
+		</completion>
+		<completion string="^table::load">
+			<behavior symbol="method">
+				<append>[nameless;$[file];
+	$.separator[$[separator symbol]]
+	$.encloser[$[encloser symbol]]
+]</append>
+			</behavior>
+		</completion>
+
+<!-- table::sql -->
+		<completion string="^table::sql">
+			<behavior symbol="method">
+				<append>{$[sql]}</append>
+			</behavior>
+		</completion>
+		<completion string="^table::sql">
+			<behavior symbol="method">
+				<append>{
+	$[sql]
+}[
+	$.limit($[limit count])
+	$.offset($[offset count])
+	$.bind[$[variables hash]]
+]</append>
+			</behavior>
+		</completion>
+	</set>
+	
+	
     <set name="parser3.core.functions">
 <!-- A -->
         <completion string="^apply-taint">
