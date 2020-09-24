@@ -14,7 +14,10 @@
         <expression>([a-z]+)</expression>
         <symbols type="constant" />
         <set>parser3.core.values</set>
+        <set>parser3.core.operator.logic</set>
     </provider>
+    
+	
 
     <!-- "$foo" -->
     <provider name="variable">
@@ -44,7 +47,7 @@
         <set>parser3.core.functions</set>
     </provider>
 
-    <!-- "^classes" -->
+<!-- "^classes" -->
     <provider name="classes">
         <syntax>parser3</syntax>
         <selector>*:not(string,comment)</selector>
@@ -53,7 +56,7 @@
         <set>parser3.core.classes</set>
     </provider>
     
-	<!-- "$classes" -->
+<!-- "$classes" -->
     <provider name="classes">
         <syntax>parser3</syntax>
         <selector>*:not(string,comment)</selector>
@@ -62,7 +65,7 @@
         <set>parser3.core.classes.static</set>
     </provider>
 
-    <!-- "$cookie" -->
+<!-- "$cookie" -->
     <provider name="cookie">
         <syntax>parser3</syntax>
         <selector>*:not(string,comment)</selector>
@@ -71,7 +74,7 @@
         <set>parser3.core.cookie</set>
     </provider>
    
-    <!-- "^curl" -->
+<!-- "^curl" -->
     <provider name="curl">
         <syntax>parser3</syntax>
         <selector>*:not(string,comment)</selector>
@@ -90,7 +93,26 @@
         <set>parser3.core.curl.options</set>
     </provider> 
 	-->
+	
+<!-- "^form:" -->
+	<provider name="form">
+		<syntax>parser3</syntax>
+		<selector>*:not(string,comment)</selector>
+		<expression>(\^form)(\:[a-zA-Z0-9_\x7f-\xff]+)</expression>
+		<symbols type="method" />
+		<set>parser3.core.form</set>
+	</provider>
+	
+<!-- "$form:" -->
+	<provider name="form.static">
+		<syntax>parser3</syntax>
+		<selector>*:not(string,comment)</selector>
+		<expression>(\$form)(\:[a-zA-Z0-9_\x7f-\xff]+)</expression>
+		<symbols type="property" />
+		<set>parser3.core.form.static</set>
+	</provider>
 
+	
 	<!-- "^string" -->
 	<provider name="string">
 		<syntax>parser3</syntax>
@@ -100,6 +122,15 @@
 		<set>parser3.core.string</set>
 	</provider>
 
+<!-- "^taint" -->
+	<provider name="taint-options">
+		<syntax>parser3</syntax>
+		<selector>parser3.block.taint.options</selector>
+		<expression>([a-z\-]+)</expression>
+		<symbols type="property" />
+		<set>parser3.core.taint.options</set>
+	</provider> 
+	
 	<!-- "^table" -->
 	<provider name="table">
 		<syntax>parser3</syntax>
@@ -109,10 +140,32 @@
 		<set>parser3.core.table</set>
 	</provider>
 
+	<!-- "^void" -->
+	<provider name="void">
+		<syntax>parser3</syntax>
+		<selector>*:not(string,comment)</selector>
+		<expression>(\^void)(\:[a-zA-Z0-9_\x7f-\xff]+)</expression>
+		<symbols type="method" />
+		<set>parser3.core.void</set>
+	</provider>
+
     <!-- Built-in values -->
     <set name="parser3.core.values" symbol="constant">
         <completion string="true" />
         <completion string="false" />
+    </set>
+   
+    <set name="parser3.core.operator.logic" symbol="constant">
+        <completion string="eq" />
+        <completion string="ne" />
+        <completion string="is" />
+        <completion string="in" />
+        <completion string="lt" />
+        <completion string="qt" />
+        <completion string="le" />
+        <completion string="ge" />
+        <completion string="-d" />
+        <completion string="-f" />
     </set>
     
     <set name="parser3.core.variables" symbol="variable">
@@ -124,24 +177,11 @@
     </set>
     
     <set name="parser3.keywords" symbol="statement">
-        <completion string="and" />
         <completion string="break" />
         <completion string="case" />
         <completion string="else" />
         <completion string="for" />
         <completion string="foreach" />
-        <completion string="if" />
-        <completion string="eq" />
-        <completion string="ne" />
-        <completion string="def" />
-        <completion string="is" />
-        <completion string="in" />
-        <completion string="lt" />
-        <completion string="qt" />
-        <completion string="le" />
-        <completion string="qe" />
-        <completion string="-f" />
-        <completion string="-d" />
         <completion string="result" />
         <completion string="static" />
         <completion string="switch" />
@@ -172,6 +212,11 @@
 				<append>:</append>
 			</behavior>
 		</completion>
+		<completion string="^form">
+			<behavior symbol="class">
+				<append>:</append>
+			</behavior>
+		</completion>
 		<completion string="^string">
 			<behavior symbol="class">
 				<append>:</append>
@@ -180,6 +225,11 @@
 		<completion string="^table">
 			<behavior symbol="class">
 				<append>::</append>
+			</behavior>
+		</completion>
+		<completion string="^void">
+			<behavior symbol="class">
+				<append>:</append>
 			</behavior>
 		</completion>
 	</set>
@@ -319,7 +369,32 @@
 	</set>
 -->
 
-<!-- String -->
+<!-- FORM -->
+	
+	<set name="parser3.core.form">
+		<completion string="^form:fields">
+			<behavior symbol="property">
+				<append>.</append>
+			</behavior>
+		</completion>
+		<completion string="^form:files">
+			<behavior symbol="property">
+				<append>.</append>
+			</behavior>
+		</completion>
+	</set>
+
+	<set name="parser3.core.form.static" symbol="property">
+		<completion string="$form:fields" />
+		<completion string="$form:files" />
+		<completion string="$form:imap" />
+		<completion string="$form:qtail" />
+		<completion string="$form:tables" />
+	</set>
+
+
+
+<!-- STRING -->
 
 	<set name="parser3.core.string">
 
@@ -379,7 +454,7 @@
 	</set>
 	
 	
-<!-- Table -->
+<!-- TABLE -->
 
 	<set name="parser3.core.table">
 
@@ -472,7 +547,49 @@
 		</completion>
 	</set>
 	
+<!-- TAINT -->
+	<set name="parser3.core.taint.options" symbol="property">
+		<completion string="as-is" />
+		<completion string="file-spec" />
+		<completion string="uri" />
+		<completion string="http-header" />
+		<completion string="mail-header" />
+		<completion string="sql" />
+		<completion string="js" />
+		<completion string="json" />
+		<completion string="parser-code" />
+		<completion string="regex" />
+		<completion string="xml" />
+		<completion string="html" />
+		<completion string="optimized-as-is" />
+		<completion string="optimized-xml" />
+		<completion string="optimized-html" />
+	</set>
+
+<!-- VOID -->
 	
+		<set name="parser3.core.void">
+	
+<!-- void:sql -->
+			<completion string="^void:sql">
+				<behavior symbol="method">
+					<append>{$[sql]}</append>
+				</behavior>
+			</completion>
+
+<!-- void:sql -->
+			<completion string="^void:sql">
+				<behavior symbol="method">
+					<append>{
+	$[sql]
+}[
+	$.bind[$[variables hash]]
+]</append>
+				</behavior>
+			</completion>
+		</set>
+
+
     <set name="parser3.core.functions">
 <!-- A -->
         <completion string="^apply-taint">
@@ -582,6 +699,7 @@
                 <append>[$[counter]]($[from];$[to]){$[code]}{$[code separator]}</append>
             </behavior>
         </completion>
+	
 <!-- G -->
 <!-- H -->
 <!-- I -->

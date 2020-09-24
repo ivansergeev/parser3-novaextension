@@ -7,7 +7,8 @@
     </meta>
     
     <detectors>
-        <extension priority="1.0">html,p</extension>
+        <extension priority="1.0">html,p,pt</extension>
+        <extension priority="0.9">h</extension>
     </detectors>
 
 	<identifiers>
@@ -33,10 +34,10 @@
 		</single>
 		<multiline>
 			<starts-with>
-				<expression>\^rem\{</expression>
+				<expression>^rem{</expression>
 			</starts-with>
 			<ends-with>
-				<expression>\}</expression>
+				<expression>}</expression>
 			</ends-with>
 		</multiline>
     </comments>
@@ -73,7 +74,7 @@
 		<collection name="comments">
 			<scope name="parser3.comment.single" spell-check="true">
 				<expression>^\#(.*)$</expression>
-				<capture number="1" name="parser3.comment.content" />
+				<capture number="1" name="parser3.comment.text" />
 			</scope>
 			<scope name="parser3.comment.block" spell-check="true">
 				<starts-with>
@@ -91,11 +92,11 @@
 			<scope name="parser3.identifier.variable.core">
 				<!-- <strings word-boundary="false" suffix="\b"> -->
 				<strings word-boundary="false">
-					<string>$MAIN</string>
-					<string>$LIMITS</string>
-					<string>$MAIL</string>
-					<string>$SQL</string>
-					<string>$MIME-TYPES</string>           
+					<string>MAIN</string>
+					<string>LIMITS</string>
+					<string>MAIL</string>
+					<string>SQL</string>
+					<string>MIME-TYPES</string>           
 				</strings>
 			</scope>
 			
@@ -128,109 +129,184 @@
 		
 		<!-- Keywords -->
 		<collection name="keywords">
+			
 			<scope name="parser3.keyword">
 				<strings>
+					<string>def</string>
+					<string>eq</string>
+					<string>ne</string>
+					<string>is</string>
+					<string>in</string>
+					<string>lt</string>
+					<string>qt</string>
+					<string>le</string>
+					<string>ge</string>
+					<string>-d</string>
+					<string>-f</string>
+				</strings>
+			</scope>
+			
+			<!-- [foo] -->			
+			<scope name="parser3.keyword.property">
+				<strings prefix="(\[)" suffix="(?=\])">
+					<string>as-is</string>
+					<string>file-spec</string>
+					<string>uri</string>
+					<string>http-header</string>
+					<string>mail-header</string>
+					<string>sql</string>
+					<string>js</string>
+					<string>json</string>
+					<string>parser-code</string>
+					<string>regex</string>
+					<string>xml</string>
+					<string>html</string>
+					<string>optimized-as-is</string>
+					<string>optimized-xml</string>
+					<string>optimized-html</string>
+				</strings>
+			</scope>
+			
+			<!-- ^foo({[ -->
+			<scope name="parser3.keyword.operator">
+				<strings prefix="(?&lt;=\^)" suffix="(?=\(|\{|\[)">
 					<string>if</string>
-					<string>else</string>
 					<string>switch</string>
 					<string>while</string>
 					<string>for</string>
 					<string>foreach</string>
 					<string>break</string>
 					<string>continue</string>
-					<string>result</string>
 					<string>use</string>
-					<string>def</string>
-					<string>no</string>
-					<string>and</string>
-					<string>or</string>
-					<string>not</string>
-					<string>eq</string>
-					<string>ne</string>
-					<string>is</string>
+					<string>cache</string>
+					<string>connect</string>
+					<string>sleep</string>
 				</strings>
 			</scope>
-			<!-- <scope name="parser3.keyword.core.variables">
-				<strings>
-					<string>$MAIN</string>
-					<string>^MAIN</string>
-					<string>$LIMITS</string>
-					<string>^LIMITS</string>
-					<string>$MAIL</string>
-					<string>^MAIL</string>
-					<string>$SQL</string>
-					<string>^SQL</string>
-					<string>$MIME-TYPES</string>
-					<string>^MIME-TYPES</string>
+			
+			<!-- ^foo. -->			
+			<scope name="parser3.keyword.operator.method">
+				<strings prefix="(?&lt;=\^)" suffix="(?=\.)">
+					<string>return</string>
 				</strings>
 			</scope>
- -->		
-			<!-- <scope name="parser3.keyword.pragmas">
-				<strings>
-					<string>strict</string>
-					<string>english</string>
-					<string>warnings</string>
-					<string>vars</string>
-					<string>subs</string>
-					<string>utf8</string>
-					<string>sigtrap</string>
-					<string>locale</string>
-					<string>open</string>
-					<string>less</string>
-					<string>integer</string>
-					<string>filetest</string>
-					<string>constant</string>
-					<string>bytes</string>
-					<string>diagnostics</string>
+			
+			<!-- $foo -->			
+			<scope name="parser3.keyword.operator.variables">
+				<strings prefix="(?&lt;=\$)">
+					<string>return</string>
 				</strings>
-			</scope> -->
+			</scope>
+			
+			<!-- $foo -->
+			<scope name="parser3.keyword.core.variables">
+				<strings prefix="(?&lt;=\$)">
+					<string>MAIN</string>
+					<string>LIMITS</string>
+					<string>MAIL</string>
+					<string>SQL</string>
+					<string>MIME-TYPES</string>
+				</strings>
+			</scope>
+			
+			<!-- ^foo -->			
+			<scope name="parser3.keyword.core.method">
+				<strings prefix="(?&lt;=\^)" suffix="(?=\.)">
+					<string>MAIN</string>
+					<string>LIMITS</string>
+					<string>MAIL</string>
+					<string>SQL</string>
+					<string>MIME-TYPES</string>
+				</strings>
+			</scope>
 
-			<scope name="parser3.keyword.function">
-				<strings>
-					<string>^cache</string>
-					<string>^connect</string>
-					<string>^sleep</string>
-				</strings>
-			</scope>
+			
+			<!-- ^foo: -->
 			<scope name="parser3.keyword.class">
-				<strings>
-					<string>^string</string>
-					<string>^table</string>
-					<string>^math</string>
+				<strings prefix="(?&lt;=\^)" suffix="(?=:)">
+					<string>form</string>
+					<string>math</string>
+					<string>string</string>
+					<string>table</string>
+					<string>void</string>
 				</strings>
 			</scope>
-			<scope name="parser3.keyword.static.method">
-				<strings>
-					<string>:base64</string>
-					<string>:idna</string>
-					<string>:js-unescape</string>
-					<string>:sql</string>
-					<string>::sql</string>
-					<string>:unescape</string>
-					<string>::create</string>
-					<string>::load</string>
-					<string>:cos</string>
-					<string>:sin</string>
-					<!-- <string>string:base64</string>
-					<string>string:idna</string>
-					<string>string:js-unescape</string>
-					<string>string:sql</string>
-					<string>string:unescape</string>
-					<string>string:sql</string>
-					<string>table::create</string>
-					<string>table::load</string>
-					<string>table::sql</string>
-					<string>math:cos</string>
-					<string>math:sin</string> -->
+			
+			<!-- $foo: -->
+			<scope name="parser3.keyword.class.static">
+				<strings prefix="(?&lt;=\$)" suffix="(?=:)">
+					<string>form</string>
 				</strings>
 			</scope>
-			<scope name="parser3.keyword.method">
-				<strings>
-					<string>.base64</string>
-					<string>.format</string>
-					<string>.int</string>
+			
+			<!-- :foo({[ -->
+			<scope name="parser3.keyword.class.method">
+				<strings prefix="(?&lt;=:)" suffix="(?=\(|\{|\[)">
+					<string>base64</string>
+					<string>idna</string>
+					<string>js-unescape</string>
+					<string>sql</string>
+					<string>unescape</string>
+					<string>create</string>
+					<string>load</string>
+					<string>cos</string>
+					<string>sin</string>
 				</strings>
 			</scope>
+		
+			<!-- :foo -->
+			<scope name="parser3.keyword.class.property">
+				<strings prefix="(?&lt;=:)">
+					<string>fields</string>
+					<string>files</string>
+					<string>imap</string>
+					<string>qtail</string>
+					<string>tables</string>
+				</strings>
+			</scope>
+			
+			<!-- .foo({[ -->
+			<scope name="parser3.keyword.class.instance.method">
+				<strings prefix="(?&lt;=\.)" suffix="(?=\(|\{|\[)">
+					<string>save</string>
+					<!-- string -->				
+					<string>base64</string>
+					<string>bool</string>
+					<string>int</string>
+					<string>idna</string>
+					<string>double</string>
+					<string>js-escape</string>
+					<string>format</string>
+					<string>left</string>
+					<string>length</string>
+					<string>lower</string>
+					<string>match</string>
+					<string>mid</string>
+					<string>pos</string>
+					<string>replace</string>
+					<string>right</string>
+					<string>split</string>
+					<string>trim</string>
+					<string>upper</string>
+					<!-- table -->
+					<string>append</string>
+					<string>columns</string>
+					<string>count</string>
+					<string>csv-string</string>
+					<string>flip</string>
+					<string>hash</string>
+					<string>insert</string>
+					<string>join</string>
+					<string>menu</string>
+					<string>line</string>
+					<string>foreach</string>
+					<string>offset</string>
+					<string>select</string>
+					<string>sort</string>
+				</strings>
+			</scope>
+			
+			
 		</collection>
 
 		<!-- Values -->
@@ -343,13 +419,43 @@
 					<capture number="2" name="parser3.bracket" />
 				</starts-with>
 				<ends-with>
-					<expression>(\])</expression>
+					<expression>(?=\])</expression>
 					<capture number="1" name="parser3.bracket" />
 				</ends-with>
 				<subscopes>
 				</subscopes>
 			</scope>
 		 -->
+			<scope name="parser3.block.sql">
+				<starts-with>
+					<expression>(sql)(\{)</expression>
+					<capture number="1" name="parser3.block.sql.keyword" />
+					<capture number="2" name="parser3.bracket" />
+				</starts-with>
+				<ends-with>
+					<expression>(?=\})</expression>
+					<capture number="1" name="parser3.bracket" />
+				</ends-with>
+				<subscopes>
+					
+				</subscopes>
+			</scope>
+			<scope name="parser3.block.taint.options">
+				<starts-with>
+					<expression>\^(taint|untaint|apply-taint)(\[)</expression>
+					<capture number="1" name="parser3.block.taint.keyword" />
+					<capture number="2" name="parser3.bracket" />
+				</starts-with>
+				<ends-with>
+					<expression>(?=\])</expression>
+					<capture number="1" name="parser3.bracket" />
+				</ends-with>
+				<subscopes>
+					<expression>(.*)</expression>
+					<capture number="1" name="parser3.keyword.property" />
+				</subscopes>
+			</scope>
+
 		</collection>
 
     	<!-- Syntax -->
