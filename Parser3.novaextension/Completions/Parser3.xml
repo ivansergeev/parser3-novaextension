@@ -16,8 +16,24 @@
         <set>parser3.core.values</set>
         <set>parser3.core.operator.logic</set>
     </provider>
-    
 	
+	<!-- "error types" -->	
+    <provider name="error.types">
+        <syntax>parser3</syntax>
+        <selector>*:not(string,comment)</selector>
+        <expression>([a-z]+)</expression>
+        <symbols type="constant" />
+        <set>parser3.keywords.error.types</set>
+    </provider>
+	
+	<!-- "@foo" -->	
+    <provider name="core.method">
+        <syntax>parser3</syntax>
+        <selector>*:not(string,comment)</selector>
+        <expression>^\@([a-zA-Z_]+)</expression>
+        <symbols type="method" />
+        <set>parser3.core.method</set>
+    </provider>
 
     <!-- "$foo" -->
     <provider name="variable">
@@ -32,7 +48,6 @@
     <provider name="function">
         <syntax>parser3</syntax>
         <selector>*:not(string,comment)</selector>
-        <!-- <expression>(?&lt;!\-&gt;|\$)(\b[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)</expression> -->
         <expression>(\^[a-zA-Z0-9_\x7f-\xff]+)</expression>
 
         <symbols type="function">
@@ -46,7 +61,8 @@
         <set>parser3.keywords</set>
         <set>parser3.core.functions</set>
     </provider>
-
+	
+	
 <!-- "^classes" -->
     <provider name="classes">
         <syntax>parser3</syntax>
@@ -195,6 +211,68 @@
         <completion string="$MIME-TYPES" />
     </set>
     
+	<set name="parser3.core.method" symbol="method">
+		<completion string="@auto">
+			<behavior>
+				<append>[]
+$[]</append>
+			</behavior>
+		</completion>
+		<completion string="@BASE">
+			<behavior>
+				<append>
+$[]</append>
+			</behavior>
+		</completion>
+		<completion string="@CLASS">
+			<behavior>
+				<append>
+$[]</append>
+			</behavior>
+		</completion>
+		<completion string="@create">
+			<behavior>
+				<append>[]
+$[]</append>
+			</behavior>
+		</completion>
+		<completion string="@main">
+			<behavior>
+				<append>[]
+$[]</append>
+			</behavior>
+		</completion>
+		<completion string="@postprocess">
+			<behavior>
+				<append>[body]
+$[]</append>
+			</behavior>
+		</completion>
+		<completion string="@OPTIONS">
+			<behavior>
+				<append>
+$[]</append>
+			</behavior>
+		</completion>
+		<completion string="@static">
+			<behavior>
+				<append>:$[name][]</append>
+			</behavior>
+		</completion>
+		<completion string="@USE">
+			<behavior>
+				<append>
+$[]</append>
+			</behavior>
+		</completion>
+		<completion string="@unhandled_exception">
+			<behavior>
+				<append>[exception;stack]
+$[]</append>
+			</behavior>
+		</completion>
+	</set>
+	
     <set name="parser3.keywords" symbol="statement">
         <completion string="break" />
         <completion string="case" />
@@ -209,6 +287,48 @@
         <completion string="use" />
         <completion string="while" />
     </set>
+	
+	<set name="parser3.keywords.types" symbol="constant">
+		<completion string="date" />
+		<completion string="hash" />
+		<completion string="junction" />
+		<completion string="file" />
+		<completion string="string" />
+		<completion string="table" />
+	</set>
+	
+	<set name="parser3.keywords.error.types" symbol="constant">
+		<completion string="parser.compile" />
+		<completion string="parser.runtime" />
+		<completion string="parser.interrupted" />
+		<completion string="number.zerodivision " />
+		<completion string="number.format" />
+		<completion string="file.missing" />
+		<completion string="file.access" />
+		<completion string="file.read" />
+		<completion string="file.execute" />
+		<completion string="date.range" />
+		<completion string="pcre.execute" />
+		<completion string="image.format" />
+		<completion string="sql.connect" />
+		<completion string="sql.execute" />
+		<completion string="xml" />
+		<completion string="smtp.connect" />
+		<completion string="smtp.execute" />
+		<completion string="email.format" />
+		<completion string="email.send" />
+		<completion string="http.host" />
+		<completion string="http.connect" />
+		<completion string="http.response" />
+		<completion string="http.status" />
+		<completion string="http.timeout" />
+		<completion string="curl.host" />
+		<completion string="curl.connect" />
+		<completion string="curl.status" />
+		<completion string="curl.ssl" />
+		<completion string="curl.timeout" />
+		<completion string="curl.fail" />
+	</set>
 
 <!-- ^CLASSES -->
 
@@ -432,7 +552,6 @@
 		<completion string="$form:qtail" />
 		<completion string="$form:tables" />
 	</set>
-
 
 
 <!-- STRING -->

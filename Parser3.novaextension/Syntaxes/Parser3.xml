@@ -117,6 +117,13 @@
 				<capture number="1" name="parser3.identifier.function.name" />
 			</scope>
 			
+			<scope name="parser3.definition.function.core">
+				<symbol type="function" />
+				<expression>^@([a-zA-Z_][a-zA-Z0-9_]*)</expression>
+				<!-- <capture number="1" name="parser3.keyword" /> -->
+				<capture number="1" name="parser3.identifier.function.name" />
+			</scope>
+			
 			<!-- Constant -->
 			<!-- <scope name="parser3.definition.constant">
 				<symbol type="constant" scope="local" />
@@ -166,7 +173,43 @@
 					<string>optimized-html</string>
 				</strings>
 			</scope>
-			
+
+			<!-- [foo] -->			
+			<scope name="parser3.keyword.error.types">
+				<strings>
+					<string>parser.compile</string>
+					<string>parser.runtime</string>
+					<string>parser.interrupted</string>
+					<string>number.zerodivision </string>
+					<string>number.format</string>
+					<string>file.missing</string>
+					<string>file.access</string>
+					<string>file.read</string>
+					<string>file.execute</string>
+					<string>date.range</string>
+					<string>pcre.execute</string>
+					<string>image.format</string>
+					<string>sql.connect</string>
+					<string>sql.execute</string>
+					<string>xml</string>
+					<string>smtp.connect</string>
+					<string>smtp.execute</string>
+					<string>email.format</string>
+					<string>email.send</string>
+					<string>http.host</string>
+					<string>http.connect</string>
+					<string>http.response</string>
+					<string>http.status</string>
+					<string>http.timeout</string>
+					<string>curl.host</string>
+					<string>curl.connect</string>
+					<string>curl.status</string>
+					<string>curl.ssl</string>
+					<string>curl.timeout</string>
+					<string>curl.fail</string>
+				</strings>
+			</scope>
+
 			<!-- ^foo({[ -->
 			<scope name="parser3.keyword.operator">
 				<strings prefix="(?&lt;=\^)" suffix="(?=\(|\{|\[)">
@@ -182,8 +225,26 @@
 					<string>return</string>
 					<string>sleep</string>
 					<string>switch</string>
+					<string>throw</string>
 					<string>while</string>
 					<string>use</string>
+				</strings>
+			</scope>
+			
+			<!-- @foo -->
+			<scope name="parser3.keyword.core.method">
+				<!-- <strings prefix="^(?&lt;=\@)"> -->
+				<strings prefix="^\@">
+					<string>auto</string>
+					<string>BASE</string>
+					<string>CLASS</string>
+					<string>create</string>
+					<string>main</string>
+					<string>postprocess</string>
+					<string>OPTIONS</string>
+					<string>static</string>
+					<string>USE</string>
+					<string>unhandled_exception</string>
 				</strings>
 			</scope>
 			
@@ -213,7 +274,7 @@
 			</scope>
 			
 			<!-- ^foo -->			
-			<scope name="parser3.keyword.core.method">
+			<scope name="parser3.keyword.core.variable.method">
 				<strings prefix="(?&lt;=\^)" suffix="(?=\.)">
 					<string>MAIN</string>
 					<string>LIMITS</string>
@@ -223,11 +284,12 @@
 				</strings>
 			</scope>
 
-			
 			<!-- ^foo: -->
 			<scope name="parser3.keyword.class">
 				<strings prefix="(?&lt;=\^)" suffix="(?=:)">
 					<string>cookie</string>
+					<string>curl</string>
+					<string>date</string>
 					<string>form</string>
 					<string>math</string>
 					<string>string</string>
@@ -244,28 +306,43 @@
 					<string>form</string>
 				</strings>
 			</scope>
-			
+
 			<!-- :foo({[ -->
 			<scope name="parser3.keyword.class.method">
 				<strings prefix="(?&lt;=:)" suffix="(?=\(|\{|\[)">
 					<string>base64</string>
+					<string>calendar</string>
+					<!-- <string>create</string> -->
+					<string>cos</string>
 					<string>idna</string>
 					<string>js-unescape</string>
+					<string>load</string>
+					<string>last-day</string>
+					<string>roll</string>
+					<string>sin</string>
 					<string>sql</string>
 					<string>unescape</string>
-					<string>create</string>
-					<string>load</string>
-					<string>cos</string>
-					<string>sin</string>
 				</strings>
 			</scope>
-		
+			
+			<!-- ::foo({[ -->
+			<scope name="parser3.keyword.class.method">
+				<strings prefix="(?&lt;=(::))" suffix="(?=\(|\{|\[)">
+					<string>create</string>
+					<string>now</string>
+					<string>today</string>
+					<string>unix-timestamp</string>
+				</strings>
+			</scope>
+
 			<!-- :foo -->
 			<scope name="parser3.keyword.class.property">
 				<strings prefix="(?&lt;=:)">
+					
 					<string>fields</string>
 					<string>files</string>
 					<string>imap</string>
+					
 					<string>line</string>
 					<string>qtail</string>
 					<string>tables</string>
@@ -276,6 +353,13 @@
 			<scope name="parser3.keyword.class.instance.method">
 				<strings prefix="(?&lt;=\.)" suffix="(?=\(|\{|\[)">
 					<string>save</string>
+					<!-- date -->
+					<string>gmt-string</string>
+					<string>iso-string</string>
+					<string>last-day</string>
+					<string>roll</string>
+					<string>sql-string</string>
+					<string>unix-timestamp</string>
 					<!-- string -->				
 					<string>base64</string>
 					<string>bool</string>
@@ -312,8 +396,6 @@
 					<string>sort</string>
 				</strings>
 			</scope>
-			
-			
 		</collection>
 
 		<!-- Values -->
@@ -443,10 +525,9 @@
 					<expression>(?=\})</expression>
 					<capture number="1" name="parser3.bracket" />
 				</ends-with>
-				<subscopes>
-					
-				</subscopes>
+				<subscopes></subscopes>
 			</scope>
+			
 			<scope name="parser3.block.taint.options">
 				<starts-with>
 					<expression>\^(taint|untaint|apply-taint)(\[)</expression>
@@ -462,7 +543,19 @@
 					<capture number="1" name="parser3.keyword.property" />
 				</subscopes>
 			</scope>
-
+			<scope name="parser3.block.try">
+				<starts-with>
+					<expression>(\^try)(\{)</expression>
+					<capture number="1" name="parser3.block.try.keyword" />
+					<capture number="2" name="parser3.bracket" />
+				</starts-with>
+				<ends-with>
+					<expression>(?=\})</expression>
+					<capture number="1" name="parser3.bracket" />
+				</ends-with>
+				<subscopes></subscopes>
+			</scope>
+			
 		</collection>
 
     	<!-- Syntax -->
