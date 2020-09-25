@@ -170,26 +170,29 @@
 			<!-- ^foo({[ -->
 			<scope name="parser3.keyword.operator">
 				<strings prefix="(?&lt;=\^)" suffix="(?=\(|\{|\[)">
-					<string>if</string>
-					<string>switch</string>
-					<string>while</string>
-					<string>for</string>
-					<string>foreach</string>
 					<string>break</string>
-					<string>continue</string>
-					<string>use</string>
 					<string>cache</string>
 					<string>connect</string>
+					<string>continue</string>
+					<string>eval</string>
+					<string>if</string>
+					<string>for</string>
+					<string>foreach</string>
+					<string>process</string>
+					<string>return</string>
 					<string>sleep</string>
+					<string>switch</string>
+					<string>while</string>
+					<string>use</string>
 				</strings>
 			</scope>
 			
 			<!-- ^foo. -->			
-			<scope name="parser3.keyword.operator.method">
+			<!-- <scope name="parser3.keyword.operator.method">
 				<strings prefix="(?&lt;=\^)" suffix="(?=\.)">
-					<string>return</string>
+					<string></string>
 				</strings>
-			</scope>
+			</scope> -->
 			
 			<!-- $foo -->			
 			<scope name="parser3.keyword.operator.variables">
@@ -224,6 +227,7 @@
 			<!-- ^foo: -->
 			<scope name="parser3.keyword.class">
 				<strings prefix="(?&lt;=\^)" suffix="(?=:)">
+					<string>cookie</string>
 					<string>form</string>
 					<string>math</string>
 					<string>string</string>
@@ -235,6 +239,8 @@
 			<!-- $foo: -->
 			<scope name="parser3.keyword.class.static">
 				<strings prefix="(?&lt;=\$)" suffix="(?=:)">
+					<string>console</string>
+					<string>cookie</string>
 					<string>form</string>
 				</strings>
 			</scope>
@@ -260,6 +266,7 @@
 					<string>fields</string>
 					<string>files</string>
 					<string>imap</string>
+					<string>line</string>
 					<string>qtail</string>
 					<string>tables</string>
 				</strings>

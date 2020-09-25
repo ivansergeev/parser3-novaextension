@@ -57,7 +57,7 @@
     </provider>
     
 <!-- "$classes" -->
-    <provider name="classes">
+    <provider name="classes.static">
         <syntax>parser3</syntax>
         <selector>*:not(string,comment)</selector>
         <expression>(\$[a-zA-Z0-9_\x7f-\xff]+)</expression>
@@ -65,13 +65,32 @@
         <set>parser3.core.classes.static</set>
     </provider>
 
+<!-- $console -->
+
+    <provider name="console">
+        <syntax>parser3</syntax>
+        <selector>*:not(string,comment)</selector>
+        <expression>(\$console)(\:[a-zA-Z0-9_\x7f-\xff]+)</expression>
+        <symbols type="property" />
+        <set>parser3.core.console.static</set>
+    </provider>
+
 <!-- "$cookie" -->
+
     <provider name="cookie">
+        <syntax>parser3</syntax>
+        <selector>*:not(string,comment)</selector>
+        <expression>(\^cookie)(\:[a-zA-Z0-9_\x7f-\xff]+)</expression>
+        <symbols type="property" />
+        <set>parser3.core.cookie</set>
+    </provider>
+    
+	<provider name="cookie.static">
         <syntax>parser3</syntax>
         <selector>*:not(string,comment)</selector>
         <expression>(\$cookie)(\:[a-zA-Z0-9_\x7f-\xff]+)</expression>
         <symbols type="property" />
-        <set>parser3.core.cookie</set>
+        <set>parser3.core.cookie.static</set>
     </provider>
    
 <!-- "^curl" -->
@@ -194,6 +213,11 @@
 <!-- ^CLASSES -->
 
 	<set name="parser3.core.classes">
+		<completion string="^cookie">
+			<behavior symbol="class">
+				<append>:</append>
+			</behavior>
+		</completion>
 		<completion string="^curl">
 			<behavior symbol="class">
 				<append>:</append>
@@ -274,12 +298,29 @@
 		</completion>
 	</set>
 	
+<!-- CONSOLE -->
+
+	<set name="parser3.core.console.static" >
+		<completion string="$console:line" symbol="property"/>
+		<completion string="$console:line" symbol="method">
+			<behavior>
+				<append>[$[text]]</append>
+			</behavior>
+		</completion>
+	</set>
+
 <!-- COOKIE -->
 
 	<set name="parser3.core.cookie">
-		<completion string="$cookie:fields">
-			<behavior symbol="property" />
+		<completion string="^cookie:fields">
+			<behavior symbol="property">
+				<append>.</append>
+			</behavior>
 		</completion>
+	</set>
+	
+	<set name="parser3.core.cookie.static" symbol="property">
+		<completion string="$cookie:fields" />
 	</set>
 
 <!-- CURL -->
