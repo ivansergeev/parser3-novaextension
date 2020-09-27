@@ -301,6 +301,9 @@
 					<string>cookie</string>
 					<string>curl</string>
 					<string>date</string>
+					<string>double</string>
+					<string>int</string>
+					<string>env</string>
 					<string>form</string>
 					<string>math</string>
 					<string>string</string>
@@ -314,6 +317,7 @@
 				<strings prefix="(?&lt;=\$)" suffix="(?=:)">
 					<string>console</string>
 					<string>cookie</string>
+					<string>env</string>
 					<string>form</string>
 				</strings>
 			</scope>
@@ -355,6 +359,10 @@
 					<string>line</string>
 					<string>qtail</string>
 					<string>tables</string>
+					<!-- env -->
+					<string>PARSER_VERSION</string>
+					<string>REMOTE_ADDR</string>
+					<string>HTTP_USER_AGENT</string>
 				</strings>
 			</scope>
 			
@@ -369,6 +377,17 @@
 					<string>roll</string>
 					<string>sql-string</string>
 					<string>unix-timestamp</string>
+					<!-- double -->
+					<!-- int -->					
+					<string>format</string>
+					<string>inc</string>
+					<string>dec</string>
+					<string>mul</string>
+					<string>div</string>
+					<string>mod</string>
+					<string>int</string>
+					<string>double</string>
+					<string>bool</string>
 					<!-- string -->				
 					<string>base64</string>
 					<string>bool</string>
@@ -406,8 +425,8 @@
 				</strings>
 			</scope>
 			
-			<!-- .foo({[ -->
-			<scope name="parser3.keyword.class.instance.values">
+			<!-- .foo -->
+			<scope name="parser3.keyword.class.instance.value">
 				<strings prefix="(?&lt;=\.)">
 					<!-- date -->
 					<string>month</string>

@@ -87,8 +87,38 @@
         <syntax>parser3</syntax>
         <selector>*:not(string,comment)</selector>
         <expression>(\^date)((\:|\:\:|\.)[a-zA-Z0-9_\x7f-\xff]+)</expression>
-        <symbols type="property" />
+        <symbols type="method" />
         <set>parser3.core.date</set>
+    </provider>
+
+<!-- ^double -->
+
+    <provider name="double">
+        <syntax>parser3</syntax>
+        <selector>*:not(string,comment)</selector>
+        <expression>(\^double)(\:[a-zA-Z0-9_\x7f-\xff]+)</expression>
+        <symbols type="property" />
+        <set>parser3.core.double</set>
+    </provider>
+
+<!-- ^int -->
+
+    <provider name="double">
+        <syntax>parser3</syntax>
+        <selector>*:not(string,comment)</selector>
+        <expression>(\^int)(\:[a-zA-Z0-9_\x7f-\xff]+)</expression>
+        <symbols type="property" />
+        <set>parser3.core.int</set>
+    </provider>
+
+<!-- $env -->
+
+    <provider name="env">
+        <syntax>parser3</syntax>
+        <selector>*:not(string,comment)</selector>
+        <expression>([\$\^]env)(\:[a-zA-Z0-9_\x7f-\xff]+)</expression>
+        <symbols type="property" />
+        <set>parser3.core.env</set>
     </provider>
 
 <!-- $console -->
@@ -156,7 +186,6 @@
 		<symbols type="property" />
 		<set>parser3.core.form.static</set>
 	</provider>
-
 	
 	<!-- "^string" -->
 	<provider name="string">
@@ -368,6 +397,11 @@ $[]</append>
 				<append>:</append>
 			</behavior>
 		</completion>
+		<completion string="^env">
+			<behavior symbol="class">
+				<append>:</append>
+			</behavior>
+		</completion>
 		<completion string="^form">
 			<behavior symbol="class">
 				<append>:</append>
@@ -525,6 +559,69 @@ $[]</append>
 		<completion string="^date:roll" symbol="method">
 			<behavior>
 				<append>[TZ][$[default timezone]]</append>
+			</behavior>
+		</completion>
+	</set>
+
+<!-- ^DOUBLE -->
+	
+	<set name="parser3.core.double">
+		<completion string="^double:sql" symbol="method">
+			<behavior>
+				<append>{$[]}</append>
+			</behavior>
+		</completion>
+		<completion string="^double:sql" symbol="method">
+			<behavior>
+				<append>{
+	$[sql]
+}[
+	$.limit(1)
+	$.offset($[value])
+	$.default{$[code]}
+	$.default($[expression])
+]</append>
+			</behavior>
+		</completion>
+	</set>
+
+<!-- ^INT -->
+	
+	<set name="parser3.core.int">
+		<completion string="^int:sql" symbol="method">
+			<behavior>
+				<append>{$[]}</append>
+			</behavior>
+		</completion>
+		<completion string="^int:sql" symbol="method">
+			<behavior>
+				<append>{
+	$[sql]
+}[
+	$.limit(1)
+	$.offset($[value])
+	$.default{$[code]}
+	$.default($[expression])
+]</append>
+			</behavior>
+		</completion>
+	</set>
+
+<!-- $ENV -->
+	
+	<set name="parser3.core.env">
+		<completion string="$env:fields" symbol="property"/>
+		<completion string="^env:fields" symbol="property">
+			<behavior>
+				<append>.</append>
+			</behavior>
+		</completion>
+		<completion string="$env:PARSER_VERSION" symbol="property"/>
+		<completion string="$env:REMOTE_ADDR" symbol="property"/>
+		<completion string="$env:HTTP_USER_AGENT" symbol="property"/>
+		<completion string="$env:HTTP_" symbol="property">
+			<behavior>
+				<append>$[]</append>
 			</behavior>
 		</completion>
 	</set>
