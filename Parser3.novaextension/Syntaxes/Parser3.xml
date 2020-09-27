@@ -19,15 +19,16 @@
 		</prefixes>
 	</identifiers>
 
-	<!-- <indentation>
+	<indentation>
 		<increase>
 			<expression>(\{[^}\"']*$)|(\[[^\]\"']*$)|(\([^)\"']*$)</expression>
 		</increase>
 		<decrease>
 			<expression>^\s*(\s*/\*.*\*/\s*)*[\}\]\)\\]</expression>
 		</decrease>
-	</indentation> -->
+	</indentation>
     
+
     <comments>
 		<single>
 			<expression>#</expression>
@@ -41,7 +42,7 @@
 			</ends-with>
 		</multiline>
     </comments>
-    
+
 	<brackets>
 		<pair open="{" close="}" />
 		<pair open="[" close="]" />
@@ -171,6 +172,16 @@
 					<string>optimized-as-is</string>
 					<string>optimized-xml</string>
 					<string>optimized-html</string>
+					<!-- date -->
+					<string>datetime</string>
+					<string>date</string>
+					<string>time</string>
+					<string>year</string>
+					<string>month</string>
+					<string>day</string>
+					<string>TZ</string>
+					<string>rus</string>
+					<string>eng</string>
 				</strings>
 			</scope>
 
@@ -243,8 +254,8 @@
 					<string>postprocess</string>
 					<string>OPTIONS</string>
 					<string>static</string>
-					<string>USE</string>
 					<string>unhandled_exception</string>
+					<string>USE</string>
 				</strings>
 			</scope>
 			
@@ -286,7 +297,7 @@
 
 			<!-- ^foo: -->
 			<scope name="parser3.keyword.class">
-				<strings prefix="(?&lt;=\^)" suffix="(?=:)">
+				<strings prefix="(?&lt;=\^)" suffix="(?=[:\.])">
 					<string>cookie</string>
 					<string>curl</string>
 					<string>date</string>
@@ -338,11 +349,9 @@
 			<!-- :foo -->
 			<scope name="parser3.keyword.class.property">
 				<strings prefix="(?&lt;=:)">
-					
 					<string>fields</string>
 					<string>files</string>
 					<string>imap</string>
-					
 					<string>line</string>
 					<string>qtail</string>
 					<string>tables</string>
@@ -396,6 +405,27 @@
 					<string>sort</string>
 				</strings>
 			</scope>
+			
+			<!-- .foo({[ -->
+			<scope name="parser3.keyword.class.instance.values">
+				<strings prefix="(?&lt;=\.)">
+					<!-- date -->
+					<string>month</string>
+					<string>year</string>
+					<string>day</string>
+					<string>hour</string>
+					<string>minute</string>
+					<string>second</string>
+					<string>weekday</string>
+					<string>week</string>
+					<string>week</string>
+					<string>weekyear</string>
+					<string>yearday</string>
+					<string>daylightsaving</string>
+					<string>TZ</string>
+				</strings>
+			</scope>
+			
 		</collection>
 
 		<!-- Values -->

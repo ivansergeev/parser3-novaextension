@@ -81,6 +81,16 @@
         <set>parser3.core.classes.static</set>
     </provider>
 
+<!-- ^date -->
+
+    <provider name="date">
+        <syntax>parser3</syntax>
+        <selector>*:not(string,comment)</selector>
+        <expression>(\^date)((\:|\:\:|\.)[a-zA-Z0-9_\x7f-\xff]+)</expression>
+        <symbols type="property" />
+        <set>parser3.core.date</set>
+    </provider>
+
 <!-- $console -->
 
     <provider name="console">
@@ -330,6 +340,8 @@ $[]</append>
 		<completion string="curl.fail" />
 	</set>
 
+
+
 <!-- ^CLASSES -->
 
 	<set name="parser3.core.classes">
@@ -417,7 +429,106 @@ $[]</append>
 			</behavior>
 		</completion>
 	</set>
+
+<!-- ^DATE -->
 	
+	<set name="parser3.core.date">
+		<completion string="^date::create" symbol="method">
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="^date::now" symbol="method">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="^date::now" symbol="method">
+			<behavior>
+				<append>[$[roll]]</append>
+			</behavior>
+		</completion>
+		<completion string="^date::today" symbol="method">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="^date::unix-timestamp" symbol="method">
+			<behavior>
+				<append>($[timestamp])</append>
+			</behavior>
+		</completion>
+		<completion string="^date.gmt-string" symbol="method">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="^date.iso-string" symbol="method">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="^date.iso-string" symbol="method">
+			<behavior>
+				<append>[
+	$.colon($[true/false])
+	$.ms($[false/false])
+	$.z($[false/true])
+]</append>
+			</behavior>
+		</completion>
+		<completion string="^date.last-day" symbol="method">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="^date.roll" symbol="method">
+			<behavior>
+				<append>[$[year|month|day]]($[value])</append>
+			</behavior>
+		</completion>
+		<completion string="^date.roll" symbol="method">
+			<behavior>
+				<append>[TZ][$[new timezone]]</append>
+			</behavior>
+		</completion>
+		<completion string="^date.sql-string" symbol="method">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="^date.sql-string" symbol="method">
+			<behavior>
+				<append>[$[datetime|date|time]]</append>
+			</behavior>
+		</completion>
+		<completion string="^date.unix-timestamp" symbol="method">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="^date:calendar" symbol="method">
+			<behavior>
+				<append>[$[rus|eng]]($[year];$[month])</append>
+			</behavior>
+		</completion>
+		<completion string="^date:calendar" symbol="method">
+			<behavior>
+				<append>[$[rus|eng]]($[year];$[month];$[day])</append>
+			</behavior>
+		</completion>
+		<completion string="^date:last-day" symbol="method">
+			<behavior>
+				<append>($[year];$[month])</append>
+			</behavior>
+		</completion>
+		<completion string="^date:roll" symbol="method">
+			<behavior>
+				<append>[TZ][$[default timezone]]</append>
+			</behavior>
+		</completion>
+	</set>
+
 <!-- CONSOLE -->
 
 	<set name="parser3.core.console.static" >
