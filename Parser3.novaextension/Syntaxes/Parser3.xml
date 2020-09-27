@@ -304,6 +304,7 @@
 					<string>double</string>
 					<string>int</string>
 					<string>env</string>
+					<string>file</string>
 					<string>form</string>
 					<string>math</string>
 					<string>string</string>
@@ -365,7 +366,7 @@
 					<string>HTTP_USER_AGENT</string>
 				</strings>
 			</scope>
-			
+
 			<!-- .foo({[ -->
 			<scope name="parser3.keyword.class.instance.method">
 				<strings prefix="(?&lt;=\.)" suffix="(?=\(|\{|\[)">
@@ -442,6 +443,19 @@
 					<string>yearday</string>
 					<string>daylightsaving</string>
 					<string>TZ</string>
+					<!-- file -->
+					<string>name</string>
+					<string>size</string>
+					<string>size</string>
+					<string>text</string>
+					<string>cdate</string>
+					<string>mdate</string>
+					<string>adate</string>
+					<string>stderr</string>
+					<string>status</string>
+					<string>mode</string>
+					<string>content-type</string>
+					<string>SERVER</string>
 				</strings>
 			</scope>
 			

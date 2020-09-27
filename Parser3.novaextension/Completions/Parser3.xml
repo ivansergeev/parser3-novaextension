@@ -103,7 +103,7 @@
 
 <!-- ^int -->
 
-    <provider name="double">
+    <provider name="int">
         <syntax>parser3</syntax>
         <selector>*:not(string,comment)</selector>
         <expression>(\^int)(\:[a-zA-Z0-9_\x7f-\xff]+)</expression>
@@ -136,18 +136,18 @@
     <provider name="cookie">
         <syntax>parser3</syntax>
         <selector>*:not(string,comment)</selector>
-        <expression>(\^cookie)(\:[a-zA-Z0-9_\x7f-\xff]+)</expression>
+        <expression>([\^\$]cookie)(\:[a-zA-Z0-9_\x7f-\xff]+)</expression>
         <symbols type="property" />
         <set>parser3.core.cookie</set>
     </provider>
     
-	<provider name="cookie.static">
+	<!-- <provider name="cookie.static">
         <syntax>parser3</syntax>
         <selector>*:not(string,comment)</selector>
         <expression>(\$cookie)(\:[a-zA-Z0-9_\x7f-\xff]+)</expression>
         <symbols type="property" />
         <set>parser3.core.cookie.static</set>
-    </provider>
+    </provider> -->
    
 <!-- "^curl" -->
     <provider name="curl">
@@ -169,23 +169,32 @@
     </provider> 
 	-->
 	
+<!-- "^file:" -->
+	<provider name="file">
+		<syntax>parser3</syntax>
+		<selector>*:not(string,comment)</selector>
+		<expression>(\^file)((\:|\:\:|\.)[a-zA-Z0-9_\x7f-\xff]+)</expression>
+		<symbols type="method" />
+		<set>parser3.core.file</set>
+	</provider>
+
 <!-- "^form:" -->
 	<provider name="form">
 		<syntax>parser3</syntax>
 		<selector>*:not(string,comment)</selector>
-		<expression>(\^form)(\:[a-zA-Z0-9_\x7f-\xff]+)</expression>
+		<expression>([\^\$]form)(\:[a-zA-Z0-9_\x7f-\xff]+)</expression>
 		<symbols type="method" />
 		<set>parser3.core.form</set>
 	</provider>
 	
 <!-- "$form:" -->
-	<provider name="form.static">
+	<!-- <provider name="form.static">
 		<syntax>parser3</syntax>
 		<selector>*:not(string,comment)</selector>
 		<expression>(\$form)(\:[a-zA-Z0-9_\x7f-\xff]+)</expression>
 		<symbols type="property" />
 		<set>parser3.core.form.static</set>
-	</provider>
+	</provider> -->
 	
 	<!-- "^string" -->
 	<provider name="string">
@@ -222,6 +231,8 @@
 		<symbols type="method" />
 		<set>parser3.core.void</set>
 	</provider>
+
+<!-- ------------------------------------------------------------------ -->
 
     <!-- Built-in values -->
     <set name="parser3.core.values" symbol="constant">
@@ -401,6 +412,9 @@ $[]</append>
 			<behavior symbol="class">
 				<append>:</append>
 			</behavior>
+		</completion>
+		<completion string="^file">
+			<behavior symbol="class" />
 		</completion>
 		<completion string="^form">
 			<behavior symbol="class">
@@ -639,15 +653,12 @@ $[]</append>
 
 <!-- COOKIE -->
 
-	<set name="parser3.core.cookie">
+	<set name="parser3.core.cookie" symbol="property">
 		<completion string="^cookie:fields">
 			<behavior symbol="property">
 				<append>.</append>
 			</behavior>
 		</completion>
-	</set>
-	
-	<set name="parser3.core.cookie.static" symbol="property">
 		<completion string="$cookie:fields" />
 	</set>
 
@@ -738,9 +749,15 @@ $[]</append>
 	</set>
 -->
 
+<!-- FILE -->
+	
+	<set name="parser3.core.file" symbol="property">
+		<!-- todo -->
+	</set>
+
 <!-- FORM -->
 	
-	<set name="parser3.core.form">
+	<set name="parser3.core.form" symbol="property">
 		<completion string="^form:fields">
 			<behavior symbol="property">
 				<append>.</append>
@@ -751,9 +768,6 @@ $[]</append>
 				<append>.</append>
 			</behavior>
 		</completion>
-	</set>
-
-	<set name="parser3.core.form.static" symbol="property">
 		<completion string="$form:fields" />
 		<completion string="$form:files" />
 		<completion string="$form:imap" />
@@ -1098,7 +1112,6 @@ $[]</append>
                 <append>[$[context]]{$[string]}[$[options]]</append>
             </behavior>
         </completion>
-       
 <!-- Q -->
 <!-- R -->
         <completion string="^rem">
@@ -1190,8 +1203,7 @@ $[]</append>
                 <append>[$[type of transformation]]{$[code]}</append>
             </behavior>
         </completion>
-       
-       
+
         <completion string="^use">
             <behavior symbol="function">
                 <append>[$[file]]</append>
@@ -1222,8 +1234,6 @@ $[]</append>
 <!-- X -->
 <!-- Y -->
 <!-- Z -->
- 
-       
     </set>
     
 </completions>
