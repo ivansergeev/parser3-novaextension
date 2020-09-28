@@ -207,15 +207,16 @@
 		<symbols type="method" />
 		<set>parser3.core.form</set>
 	</provider>
-	
-<!-- "$form:" -->
-	<!-- <provider name="form.static">
+
+<!-- "^hash::" -->
+	<provider name="hash">
 		<syntax>parser3</syntax>
 		<selector>*:not(string,comment)</selector>
-		<expression>(\$form)(\:[a-zA-Z0-9_\x7f-\xff]+)</expression>
-		<symbols type="property" />
-		<set>parser3.core.form.static</set>
-	</provider> -->
+		<expression>(?&lt;=\^hash\:\:)([a-z]+)</expression>
+		<symbols type="method" />
+		<set>parser3.core.hash</set>
+	</provider>
+
 	
 	<!-- "^string" -->
 	<provider name="string">
@@ -434,6 +435,8 @@ $[]</append>
 		<completion string="mode" />
 		<completion string="content-type" />
 		<completion string="SERVER" />
+		<!-- hash -->
+		<completion string="_default" />
 	</set>
 	
 	
@@ -510,6 +513,11 @@ $[]</append>
 		<completion string="^form">
 			<behavior symbol="class">
 				<append>:</append>
+			</behavior>
+		</completion>
+		<completion string="^hash">
+			<behavior symbol="class">
+				<append>::</append>
 			</behavior>
 		</completion>
 		<completion string="^string">
@@ -1106,6 +1114,34 @@ $[]</append>
 		<completion string="$form:qtail" />
 		<completion string="$form:tables" />
 	</set>
+	
+<!-- HASH -->
+
+	<set name="parser3.core.hash" symbol="method">
+		<completion string="create">
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="sql">
+			<behavior>
+				<append>{$[sql]}</append>
+			</behavior>
+		</completion>
+		<completion string="sql">
+			<behavior>
+				<append>{
+	$[sql]
+}[
+	$.limit($[limit])
+	$.offset($[offset])
+	$.distinct($[true|false])
+	$.bind[$[variables hash]]
+	$.type[$[hash|string|table]]
+]</append>
+			</behavior>
+		</completion>
+	</set>
 
 
 <!-- STRING -->
@@ -1282,26 +1318,26 @@ $[]</append>
 
 <!-- VOID -->
 	
-		<set name="parser3.core.void">
-	
-<!-- void:sql -->
-			<completion string="^void:sql">
-				<behavior symbol="method">
-					<append>{$[sql]}</append>
-				</behavior>
-			</completion>
+	<set name="parser3.core.void">
 
 <!-- void:sql -->
-			<completion string="^void:sql">
-				<behavior symbol="method">
-					<append>{
+		<completion string="^void:sql">
+			<behavior symbol="method">
+				<append>{$[sql]}</append>
+			</behavior>
+		</completion>
+
+<!-- void:sql -->
+		<completion string="^void:sql">
+			<behavior symbol="method">
+				<append>{
 	$[sql]
 }[
 	$.bind[$[variables hash]]
 ]</append>
-				</behavior>
-			</completion>
-		</set>
+			</behavior>
+		</completion>
+	</set>
 
 
     <set name="parser3.core.functions">

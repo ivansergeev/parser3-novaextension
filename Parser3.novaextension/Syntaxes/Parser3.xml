@@ -316,6 +316,7 @@
 					<string>env</string>
 					<string>file</string>
 					<string>form</string>
+					<string>hash</string>
 					<string>math</string>
 					<string>string</string>
 					<string>table</string>
