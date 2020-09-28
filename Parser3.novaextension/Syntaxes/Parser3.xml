@@ -606,6 +606,7 @@
 					<capture number="1" name="parser3.keyword.property" />
 				</subscopes>
 			</scope>
+
 			<scope name="parser3.block.try">
 				<starts-with>
 					<expression>(\^try)(\{)</expression>

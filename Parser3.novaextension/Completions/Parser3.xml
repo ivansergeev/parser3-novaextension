@@ -7,7 +7,7 @@
         <set>parser3.entities</set>
     </provider> -->
     
-	<!-- "true|false" -->	
+	<!-- "true|false" -->
     <provider name="constant">
         <syntax>parser3</syntax>
         <selector>*:not(string,comment)</selector>
@@ -624,15 +624,15 @@ $[]</append>
 <!-- $ENV -->
 	
 	<set name="parser3.core.env">
-		<completion string="$env:fields" symbol="property"/>
+		<completion string="$env:fields" symbol="property" />
 		<completion string="^env:fields" symbol="property">
 			<behavior>
 				<append>.</append>
 			</behavior>
 		</completion>
-		<completion string="$env:PARSER_VERSION" symbol="property"/>
-		<completion string="$env:REMOTE_ADDR" symbol="property"/>
-		<completion string="$env:HTTP_USER_AGENT" symbol="property"/>
+		<completion string="$env:PARSER_VERSION" symbol="property" />
+		<completion string="$env:REMOTE_ADDR" symbol="property" />
+		<completion string="$env:HTTP_USER_AGENT" symbol="property" />
 		<completion string="$env:HTTP_" symbol="property">
 			<behavior>
 				<append>$[]</append>
@@ -751,8 +751,144 @@ $[]</append>
 
 <!-- FILE -->
 	
-	<set name="parser3.core.file" symbol="property">
-		<!-- todo -->
+	<set name="parser3.core.file" symbol="method">
+
+		<completion string="^file::base64">
+			<behavior symbol="method">
+				<append>[$[text]]</append>
+			</behavior>
+		</completion>
+		
+		<completion string="^file::base64">
+			<behavior symbol="method">
+				<append>[$[text|binary];$[filename];$[text];
+	$.content-type[$[type]]
+]</append>
+			</behavior>
+		</completion>
+		
+		<completion string="^file::cgi">
+			<behavior symbol="method">
+				<append>[$[filename]]</append>
+			</behavior>
+		</completion>
+		
+		<completion string="^file::cgi">
+			<behavior symbol="method">
+				<append>[$[filename];$[env hash]]</append>
+			</behavior>
+		</completion>
+		
+		<completion string="^file::cgi">
+			<behavior symbol="method">
+				<append>[$[format];$[filename];$[env hash];$[arguments]]</append>
+			</behavior>
+		</completion>
+		
+		<completion string="^file::exec">
+			<behavior symbol="method">
+				<append>[$[filename]]</append>
+			</behavior>
+		</completion>
+		
+		<completion string="^file::exec">
+			<behavior symbol="method">
+				<append>[$[filename];$[env hash]]</append>
+			</behavior>
+		</completion>
+		
+		<completion string="^file::exec">
+			<behavior symbol="method">
+				<append>[$[text|binary];$[filename];$[env hash];$[arguments]]</append>
+			</behavior>
+		</completion>
+		
+		<completion string="^file::create">
+			<behavior symbol="method">
+				<append>[$[text|binary];$[filename];$[text]]</append>
+			</behavior>
+		</completion>
+		
+		<completion string="^file::create">
+			<behavior symbol="method">
+				<append>[$[text|binary];$[filename];$[text];
+	$.from-charset[$[charset]]
+	$.to-charset[$[charset]]
+	$.content-type[$[type]]
+]</append>
+			</behavior>
+		</completion>
+		
+		<completion string="^file::create">
+			<behavior symbol="method">
+				<append>[$[text];
+	$.from-charset[$[charset]]
+	$.to-charset[$[charset]]
+	$.content-type[$[type]]
+	$.name[$[filename]]
+	$.mode[$[text|binary]]
+]</append>
+			</behavior>
+		</completion>
+		
+		<completion string="^file::create">
+			<behavior symbol="method">
+				<append>[$[file];
+	$.from-charset[$[charset]]
+	$.to-charset[$[charset]]
+	$.content-type[$[type]]
+	$.name[$[filename]]
+	$.mode[$[text|binary]]
+]</append>
+			</behavior>
+		</completion>
+		
+		<completion string="^file::load">
+			<behavior symbol="method">
+				<append>[$[text|binary];$[filename]]</append>
+			</behavior>
+		</completion>
+		
+		<completion string="^file::load">
+			<behavior symbol="method">
+				<append>[$[text|binary];$[filename];$[options]]</append>
+			</behavior>
+		</completion>
+		
+		<completion string="^file::load">
+			<behavior symbol="method">
+				<append>[$[text|binary];$[filename];$[new filename]]</append>
+			</behavior>
+		</completion>
+		
+		<completion string="^file::load">
+			<behavior symbol="method">
+				<append>[$[text|binary];$[filename];$[new filename];$[options]]</append>
+			</behavior>
+		</completion>
+		
+		<completion string="^file::sql">
+			<behavior symbol="method">
+				<append>{$[sql]}</append>
+			</behavior>
+		</completion>
+		
+		<completion string="^file::sql">
+			<behavior symbol="method">
+				<append>{$[sql]}[
+	$.name[$[filename]]
+	$.content-type[$[type]]
+	$.limit(1)
+	$.offset($[value])
+]</append>
+			</behavior>
+		</completion>
+		
+		<completion string="^file::stat">
+			<behavior symbol="method">
+				<append>{$[filename]}</append>
+			</behavior>
+		</completion>
 	</set>
 
 <!-- FORM -->
