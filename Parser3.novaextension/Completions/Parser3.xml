@@ -288,6 +288,8 @@
         <completion string="MAIL" />
         <completion string="SQL" />
         <completion string="MIME-TYPES" />
+        <completion string="key" />
+        <completion string="value" />
     </set>
     
 	<set name="parser3.core.method" symbol="method">
@@ -380,6 +382,13 @@ $[]</append>
 		<completion string="text" />
 		<completion string="binary" />
 		<completion string="UTF-8" />
+		<completion string="first" />
+		<completion string="last" />
+		<completion string="key" />
+		<completion string="value" />
+		<completion string="hash" />
+		<completion string="desc" />
+		<completion string="asc" />
 	</set>
 	
 	<set name="parser3.keywords.error.types" symbol="constant">
@@ -443,6 +452,7 @@ $[]</append>
 		<completion string="content-type" />
 		<completion string="SERVER" />
 		<!-- hash -->
+		<completion string="fields" />
 		<completion string="_default" />
 	</set>
 	
@@ -481,6 +491,213 @@ $[]</append>
 ]</append>
 			</behavior>
 		</completion>
+
+<!-- date -->
+		<completion string="gmt-string">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="iso-string">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="iso-string">
+			<behavior>
+				<append>[
+	$.colon($[true/false])
+	$.ms($[false/false])
+	$.z($[false/true])
+]</append>
+			</behavior>
+		</completion>
+		<completion string="last-day">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="roll">
+			<behavior>
+				<append>[$[year|month|day]]($[value])</append>
+			</behavior>
+		</completion>
+		<completion string="roll">
+			<behavior>
+				<append>[TZ][$[new timezone]]</append>
+			</behavior>
+		</completion>
+		<completion string="sql-string">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="sql-string">
+			<behavior>
+				<append>[$[datetime|date|time]]</append>
+			</behavior>
+		</completion>
+		<completion string="unix-timestamp">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		
+<!-- hash -->
+		<completion string="_at">
+			<behavior>
+				<append>($[number])</append>
+			</behavior>
+		</completion>
+		<completion string="_at">
+			<behavior>
+				<append>[$[first|last]]</append>
+			</behavior>
+		</completion>
+		<completion string="at">
+			<behavior>
+				<append>($[number])</append>
+			</behavior>
+		</completion>
+		<completion string="at">
+			<behavior>
+				<append>[$[first|last]]</append>
+			</behavior>
+		</completion>
+		<completion string="at">
+			<behavior>
+				<append>($[number])[$[key|value|hash]]</append>
+			</behavior>
+		</completion>
+		<completion string="at">
+			<behavior>
+				<append>[$[first|last];$[key|value|hash]]</append>
+			</behavior>
+		</completion>
+		
+		<completion string="_count">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="count">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="_keys">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="_keys">
+			<behavior>
+				<append>[$[field]]</append>
+			</behavior>
+		</completion>
+		<completion string="keys">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="keys">
+			<behavior>
+				<append>[$[field]]</append>
+			</behavior>
+		</completion>
+		<completion string="contains">
+			<behavior>
+				<append>[$[key]]</append>
+			</behavior>
+		</completion>
+		<completion string="delete">
+			<behavior>
+				<append>[$[key]]</append>
+			</behavior>
+		</completion>
+		<completion string="delete">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="foreach">
+			<behavior>
+				<append>[key;value]{
+	$[]
+}</append>
+			</behavior>
+		</completion>
+		<completion string="foreach">
+			<behavior>
+				<append>[key;value]{
+	$[]
+}[$[separator]]</append>
+			</behavior>
+		</completion>
+		<completion string="foreach">
+			<behavior>
+				<append>[key;value]{
+	$[]
+}{
+	$[separator]
+}</append>
+			</behavior>
+		</completion>
+
+		<completion string="add">
+			<behavior>
+				<append>[$[hash]]</append>
+			</behavior>
+		</completion>
+		<completion string="intersection">
+			<behavior>
+				<append>[$[hash]]</append>
+			</behavior>
+		</completion>
+		<completion string="intersects">
+			<behavior>
+				<append>[$[hash]]</append>
+			</behavior>
+		</completion>
+		<completion string="sort">
+			<behavior>
+				<append>[$[key];$[value]]{
+	$[sort function by string]
+}</append>
+			</behavior>
+		</completion>
+		<completion string="sort">
+			<behavior>
+				<append>[$[key];$[value]]{
+	$[sort function by string]
+}[$[desc|asc]]</append>
+			</behavior>
+		</completion>
+		<completion string="sort">
+			<behavior>
+				<append>[$[key];$[value]](
+	$[sort function by number]
+)</append>
+			</behavior>
+		</completion>
+		<completion string="sort">
+			<behavior>
+				<append>[$[key];$[value]](
+	$[sort function by number]
+)[$[desc|asc]]</append>
+			</behavior>
+		</completion>
+		<completion string="sub">
+			<behavior>
+				<append>[$[hash]]</append>
+			</behavior>
+		</completion>
+		<completion string="union">
+			<behavior>
+				<append>[$[hash]]</append>
+			</behavior>
+		</completion>
+
 	</set>
 	
 <!-- ^CLASSES -->

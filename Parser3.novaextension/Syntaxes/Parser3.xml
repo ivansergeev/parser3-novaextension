@@ -193,11 +193,18 @@
 			
 			<!-- [foo] -->			
 			<scope name="parser3.keyword.property.attributes">
-				<strings prefix="(?&lt;=\[)" suffix="(?=;|\])">
+				<strings prefix="(?&lt;=\[|;)" suffix="(?=;|\])">
 					<!-- file -->
 					<string>text</string>
 					<string>binary</string>
 					<string>UTF-8</string>
+					<string>first</string>
+					<string>last</string>
+					<string>key</string>
+					<string>value</string>
+					<string>hash</string>
+					<string>desc</string>
+					<string>asc</string>
 				</strings>
 			</scope>
 			
