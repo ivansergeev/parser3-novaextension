@@ -184,7 +184,17 @@
 					<string>eng</string>
 				</strings>
 			</scope>
-
+			
+			<!-- [foo] -->			
+			<scope name="parser3.keyword.property.attributes">
+				<strings prefix="(\[)" suffix="(?=;)">
+					<!-- file -->
+					<string>text</string>
+					<string>binary</string>
+					<string>UTF-8</string>
+				</strings>
+			</scope>
+			
 			<!-- [foo] -->			
 			<scope name="parser3.keyword.error.types">
 				<strings>
@@ -338,6 +348,21 @@
 					<string>sin</string>
 					<string>sql</string>
 					<string>unescape</string>
+					<!-- file -->
+					<string>base64</string>
+					<string>basename</string>
+					<string>copy</string>
+					<string>crc32</string>
+					<string>delete</string>
+					<string>dirname</string>
+					<string>find</string>
+					<string>fullpath</string>
+					<string>justext</string>
+					<string>justname</string>
+					<string>list</string>
+					<string>lock</string>
+					<string>md5</string>
+					<string>move</string>
 				</strings>
 			</scope>
 			
@@ -348,6 +373,12 @@
 					<string>now</string>
 					<string>today</string>
 					<string>unix-timestamp</string>
+					<!-- file -->					
+					<string>base64</string>
+					<string>cgi</string>
+					<string>exec</string>
+					<string>sql</string>
+					<string>stat</string>
 				</strings>
 			</scope>
 
@@ -389,6 +420,12 @@
 					<string>int</string>
 					<string>double</string>
 					<string>bool</string>
+					<!-- file -->
+					<string>base64</string>
+					<string>crc32</string>
+					<string>md5</string>
+					<string>save</string>
+					<string>sql-string</string>
 					<!-- string -->				
 					<string>base64</string>
 					<string>bool</string>
@@ -437,7 +474,6 @@
 					<string>minute</string>
 					<string>second</string>
 					<string>weekday</string>
-					<string>week</string>
 					<string>week</string>
 					<string>weekyear</string>
 					<string>yearday</string>
@@ -588,7 +624,7 @@
 					<expression>(?=\})</expression>
 					<capture number="1" name="parser3.bracket" />
 				</ends-with>
-				<subscopes></subscopes>
+<!--				<subscopes></subscopes> -->
 			</scope>
 			
 			<scope name="parser3.block.taint.options">
@@ -617,7 +653,7 @@
 					<expression>(?=\})</expression>
 					<capture number="1" name="parser3.bracket" />
 				</ends-with>
-				<subscopes></subscopes>
+<!--				<subscopes></subscopes> -->
 			</scope>
 			
 		</collection>
