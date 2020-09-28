@@ -138,6 +138,12 @@
 		<!-- Keywords -->
 		<collection name="keywords">
 			
+			<!-- <scope name="parser3.keyword.symbol">
+				<strings>
+					<string>^</string>
+				</strings>
+			</scope> -->
+			
 			<scope name="parser3.keyword">
 				<strings>
 					<string>def</string>
@@ -187,7 +193,7 @@
 			
 			<!-- [foo] -->			
 			<scope name="parser3.keyword.property.attributes">
-				<strings prefix="(\[)" suffix="(?=;)">
+				<strings prefix="(?&lt;=\[)" suffix="(?=;|\])">
 					<!-- file -->
 					<string>text</string>
 					<string>binary</string>
