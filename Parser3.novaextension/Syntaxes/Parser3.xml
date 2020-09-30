@@ -330,6 +330,7 @@
 					<string>file</string>
 					<string>form</string>
 					<string>hash</string>
+					<string>hashfile</string>
 					<string>math</string>
 					<string>string</string>
 					<string>table</string>

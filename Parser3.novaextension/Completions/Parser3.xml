@@ -65,6 +65,15 @@
         <symbols type="variable" />
         <set>parser3.core.variables</set>
     </provider>
+   
+    <!-- "$.foo[({" -->
+    <provider name="variable">
+        <syntax>parser3</syntax>
+        <selector>*:not(comment)</selector>
+        <expression>(?&lt;=\$\.)(([a-zA-Z_][a-zA-Z_]*)?)</expression>
+        <symbols type="property" />
+        <set>parser3.core.options</set>
+    </provider>
 
     <!-- "^foo" -->
     <provider name="function">
@@ -225,6 +234,15 @@
 		<set>parser3.core.hash</set>
 	</provider>
 
+<!-- "^hashfile::" -->
+	<provider name="hashfile">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\^hashfile\:\:)([a-z]+)</expression>
+		<symbols type="method" />
+		<set>parser3.core.hashfile</set>
+	</provider>
+
 <!-- "^string" -->
 	<provider name="string">
 		<syntax>parser3</syntax>
@@ -292,6 +310,147 @@
         <completion string="value" />
     </set>
     
+	
+
+	<set name="parser3.core.options" symbol="property">
+		<completion string="bind">
+			<behavior>
+				<append>[hash]</append>
+			</behavior>
+		</completion>
+		<completion string="charset">
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="colon">
+			<behavior>
+				<append>($[true|false])</append>
+			</behavior>
+		</completion>
+		<completion string="content-type">
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="default">
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="default">
+			<behavior>
+				<append>{$[]}</append>
+			</behavior>
+		</completion>
+		<completion string="distinct">
+			<behavior>
+				<append>($[true|false])</append>
+			</behavior>
+		</completion>
+		<completion string="domain">
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="expires">
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="expires">
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="httponly">
+			<behavior>
+				<append>(true)</append>
+			</behavior>
+		</completion>
+		<completion string="file">
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="from-charset">
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="library">
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="limit">
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="lineno">
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="main">
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="mode">
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="ms">
+			<behavior>
+				<append>($[false|true])</append>
+			</behavior>
+		</completion>
+		<completion string="name">
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="type">
+			<behavior>
+				<append>[$[hash|string|table]]</append>
+			</behavior>
+		</completion>
+		<completion string="to-charset">
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="replace">
+			<behavior>
+				<append>($[false|true])</append>
+			</behavior>
+		</completion>
+		<completion string="response-charset">
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="offset">
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="value">
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="z">
+			<behavior>
+				<append>($[false|true])</append>
+			</behavior>
+		</completion>
+	</set>
+	
+		
 	<set name="parser3.core.method" symbol="method">
 		<completion string="auto">
 			<behavior>
@@ -372,6 +531,7 @@ $[]</append>
 	<set name="parser3.keywords.types" symbol="constant">
 		<completion string="date" />
 		<completion string="hash" />
+		<completion string="hashfile" />
 		<completion string="junction" />
 		<completion string="file" />
 		<completion string="string" />
@@ -469,6 +629,7 @@ $[]</append>
 				<append>[]</append>
 			</behavior>
 		</completion>
+		
 		<completion string="md5">
 			<behavior>
 				<append>[]</append>
@@ -698,6 +859,23 @@ $[]</append>
 			</behavior>
 		</completion>
 
+<!-- hashfile -->
+		<completion string="cleanup">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="hash">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="release">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+
 	</set>
 	
 <!-- ^CLASSES -->
@@ -744,6 +922,11 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="hash">
+			<behavior>
+				<append>::</append>
+			</behavior>
+		</completion>
+		<completion string="hashfile">
 			<behavior>
 				<append>::</append>
 			</behavior>
@@ -809,8 +992,6 @@ $[]</append>
 			</behavior>
 		</completion>
 	</set>
-
-
 
 <!-- ^DATE -->
 	
@@ -1339,6 +1520,16 @@ $[]</append>
 	$.bind[$[variables hash]]
 	$.type[$[hash|string|table]]
 ]</append>
+			</behavior>
+		</completion>
+	</set>
+
+<!-- HASHFILE -->
+
+	<set name="parser3.core.hashfile" symbol="method">
+		<completion string="open">
+			<behavior>
+				<append>[$[file]]</append>
 			</behavior>
 		</completion>
 	</set>
