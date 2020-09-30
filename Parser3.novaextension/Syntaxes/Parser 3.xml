@@ -335,10 +335,19 @@
 					<string>image</string>
 					<string>inet</string>
 					<string>json</string>
+					<string>mail</string>
 					<string>math</string>
+					<string>memcached</string>
+					<string>memory</string>
+					<string>reflection</string>
+					<string>regex</string>
+					<string>request</string>
+					<string>response</string>
+					<string>status</string>
 					<string>string</string>
 					<string>table</string>
 					<string>void</string>
+					<string>xdoc</string>
 				</strings>
 			</scope>
 			
@@ -349,6 +358,10 @@
 					<string>cookie</string>
 					<string>env</string>
 					<string>form</string>
+					<string>math</string>
+					<string>request</string>
+					<string>response</string>
+					<string>status</string>
 				</strings>
 			</scope>
 
@@ -390,6 +403,8 @@
 					<!-- inet -->
 					<string>string</string>
 					<string>parse</string>
+					<!-- mail -->
+					<string>send</string>
 					
 				</strings>
 			</scope>

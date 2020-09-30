@@ -67,7 +67,7 @@
     </provider>
    
     <!-- "$.foo[({" -->
-    <provider name="variable">
+    <provider name="options">
         <syntax>parser3</syntax>
         <selector>*:not(comment)</selector>
         <expression>(?&lt;=\$\.)(([a-zA-Z_][a-zA-Z_]*)?)</expression>
@@ -270,6 +270,15 @@
 		<set>parser3.core.json</set>
 	</provider>
 
+<!-- "^mail:" -->
+	<provider name="mail">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\^mail\:)([a-z]+)</expression>
+		<symbols type="method" />
+		<set>parser3.core.mail</set>
+	</provider>
+
 <!-- "^string" -->
 	<provider name="string">
 		<syntax>parser3</syntax>
@@ -337,6 +346,11 @@
     </set>
 
 	<set name="parser3.core.options" symbol="property">
+		<completion string="array">
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
 		<completion string="bind">
 			<behavior>
 				<append>[hash]</append>
@@ -357,6 +371,11 @@
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
+		<completion string="date">
+			<behavior>
+				<append>[$[sql-string|gmt-string|iso-string|unix-timestamp]]</append>
+			</behavior>
+		</completion>
 		<completion string="default">
 			<behavior>
 				<append>($[])</append>
@@ -367,9 +386,24 @@
 				<append>{$[]}</append>
 			</behavior>
 		</completion>
+		<completion string="depth">
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="double">
+			<behavior>
+				<append>($[false|true])</append>
+			</behavior>
+		</completion>
 		<completion string="distinct">
 			<behavior>
 				<append>($[true|false])</append>
+			</behavior>
+		</completion>
+		<completion string="distinct">
+			<behavior>
+				<append>[$[first|last|al]]</append>
 			</behavior>
 		</completion>
 		<completion string="domain">
@@ -387,12 +421,37 @@
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
+		<completion string="int">
+			<behavior>
+				<append>($[false|true])</append>
+			</behavior>
+		</completion>
+		<completion string="indent">
+			<behavior>
+				<append>($[false|true])</append>
+			</behavior>
+		</completion>
+		<completion string="html">
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
 		<completion string="httponly">
 			<behavior>
 				<append>(true)</append>
 			</behavior>
 		</completion>
 		<completion string="file">
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="file">
+			<behavior>
+				<append>[$[text|base64|stat]]</append>
+			</behavior>
+		</completion>
+		<completion string="from">
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
@@ -442,6 +501,11 @@
 				<append>[$[hash|string|table]]</append>
 			</behavior>
 		</completion>
+		<completion string="to">
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
 		<completion string="to-charset">
 			<behavior>
 				<append>[$[]]</append>
@@ -457,53 +521,22 @@
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
-		<completion string="offset">
-			<behavior>
-				<append>($[])</append>
-			</behavior>
-		</completion>
-		<completion string="value">
-			<behavior>
-				<append>[$[]]</append>
-			</behavior>
-		</completion>
-		<completion string="z">
-			<behavior>
-				<append>($[false|true])</append>
-			</behavior>
-		</completion>
-		
-		<completion string="depth">
-			<behavior>
-				<append>($[])</append>
-			</behavior>
-		</completion>
-		<completion string="double">
-			<behavior>
-				<append>($[false|true])</append>
-			</behavior>
-		</completion>
-		<completion string="int">
-			<behavior>
-				<append>($[false|true])</append>
-			</behavior>
-		</completion>
-		<completion string="distinct">
-			<behavior>
-				<append>[$[first|last|al]]</append>
-			</behavior>
-		</completion>
 		<completion string="object">
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
-		<completion string="array">
+		<completion string="offset">
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="options">
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
-		<completion string="taint">
+		<completion string="print-debug">
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
@@ -513,19 +546,14 @@
 				<append>($[false|true])</append>
 			</behavior>
 		</completion>
-		<completion string="indent">
+		<completion string="subject">
 			<behavior>
-				<append>($[false|true])</append>
+				<append>[$[]]</append>
 			</behavior>
 		</completion>
-		<completion string="date">
+		<completion string="taint">
 			<behavior>
-				<append>[$[sql-string|gmt-string|iso-string|unix-timestamp]]</append>
-			</behavior>
-		</completion>
-		<completion string="void">
-			<behavior>
-				<append>[$[null|string]]</append>
+				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="table">
@@ -533,9 +561,24 @@
 				<append>[$[object|array|compact]]</append>
 			</behavior>
 		</completion>
-		<completion string="file">
+		<completion string="text">
 			<behavior>
-				<append>[$[text|base64|stat]]</append>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="value">
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="void">
+			<behavior>
+				<append>[$[null|string]]</append>
+			</behavior>
+		</completion>
+		<completion string="z">
+			<behavior>
+				<append>($[false|true])</append>
 			</behavior>
 		</completion>
 		<completion string="xdoc">
@@ -543,6 +586,7 @@
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
+		
 		<completion string="_default">
 			<behavior>
 				<append>[$[]]</append>
@@ -1236,11 +1280,6 @@ $[]</append>
 				<append>:</append>
 			</behavior>
 		</completion>
-		<completion string="response">
-			<behavior>
-				<append>:</append>
-			</behavior>
-		</completion>
 		<completion string="table">
 			<behavior>
 				<append>::</append>
@@ -1296,7 +1335,7 @@ $[]</append>
 				<append>:</append>
 			</behavior>
 		</completion>
-		<completion string="statuc">
+		<completion string="status">
 			<behavior>
 				<append>:</append>
 			</behavior>
@@ -1916,7 +1955,21 @@ $[]</append>
 		</completion>
 	</set>
 
-
+<!-- MAIL -->
+	
+	<set name="parser3.core.mail" symbol="method">
+		<completion string="send">
+			<behavior>
+				<append>[
+	$.from[$[from]]
+	$.to[$[to]]
+	$.subject[$[subject]]
+	$.text[$[text]]
+]</append>
+			</behavior>
+		</completion>
+	</set>
+			
 <!-- STRING -->
 
 	<set name="parser3.core.string" symbol="method">
