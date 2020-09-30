@@ -320,7 +320,8 @@
 
 			<!-- ^foo: -->
 			<scope name="parser3.keyword.class">
-				<strings prefix="(?&lt;=\^)" suffix="(?=[:\.])">
+				<!-- <strings prefix="(?&lt;=\^)" suffix="(?=[:\.])"> -->
+				<strings prefix="(?&lt;=\^)" suffix="(?=:)">
 					<string>cookie</string>
 					<string>curl</string>
 					<string>date</string>
@@ -332,6 +333,7 @@
 					<string>hash</string>
 					<string>hashfile</string>
 					<string>image</string>
+					<string>inet</string>
 					<string>math</string>
 					<string>string</string>
 					<string>table</string>
@@ -379,6 +381,12 @@
 					<string>lock</string>
 					<string>md5</string>
 					<string>move</string>
+					<!-- inet -->
+					<string>aton</string>
+					<string>ip2name</string>
+					<string>name2ip</string>
+					<string>ntoa</string>
+					
 				</strings>
 			</scope>
 			
@@ -389,12 +397,16 @@
 					<string>now</string>
 					<string>today</string>
 					<string>unix-timestamp</string>
-					<!-- file -->					
+					<string>sql</string>
+					<!-- file -->
 					<string>base64</string>
 					<string>cgi</string>
 					<string>exec</string>
-					<string>sql</string>
 					<string>stat</string>
+					<!-- hashfile -->
+					<string>open</string>
+					<!-- image -->
+					<string>:measure</string>
 				</strings>
 			</scope>
 
@@ -418,6 +430,12 @@
 			<scope name="parser3.keyword.class.instance.method">
 				<strings prefix="(?&lt;=\.)" suffix="(?=\(|\{|\[)">
 					<string>save</string>
+					<string>sort</string>
+					<string>delete</string>
+					<string>foreach</string>
+					<string>length</string>
+					<string>replace</string>
+					
 					<!-- date -->
 					<string>gmt-string</string>
 					<string>iso-string</string>
@@ -436,13 +454,54 @@
 					<string>int</string>
 					<string>double</string>
 					<string>bool</string>
+					
 					<!-- file -->
 					<string>base64</string>
 					<string>crc32</string>
 					<string>md5</string>
 					<string>save</string>
 					<string>sql-string</string>
-					<!-- string -->				
+					
+					<!-- hash -->
+					<string>_at</string>
+					<string>at</string>
+					<string>_count</string>
+					<string>count</string>
+					<string>_keys</string>
+					<string>keys</string>
+					<string>contains</string>
+					<string>add</string>
+					<string>intersection</string>
+					<string>intersects</string>
+					<string>sub</string>
+					<string>union</string>
+					
+					<!-- hashfile -->
+					<string>cleanup</string>
+					<string>hash</string>
+					<string>release</string>
+
+					<!-- image -->
+					<string>gif</string>
+					<string>html</string>
+					<string>line-style</string>
+					<string>line-width</string>
+					<string>arc</string>
+					<string>bar</string>
+					<string>circle</string>
+					<string>copy</string>
+					<string>fill</string>
+					<string>font</string>
+					<string>line</string>
+					<string>pixel</string>
+					<string>polybar</string>
+					<string>polygon</string>
+					<string>polyline</string>
+					<string>rectangle</string>
+					<string>sector</string>
+					<string>text</string>
+					
+					<!-- string -->
 					<string>base64</string>
 					<string>bool</string>
 					<string>int</string>
@@ -451,16 +510,15 @@
 					<string>js-escape</string>
 					<string>format</string>
 					<string>left</string>
-					<string>length</string>
 					<string>lower</string>
 					<string>match</string>
 					<string>mid</string>
 					<string>pos</string>
-					<string>replace</string>
 					<string>right</string>
 					<string>split</string>
 					<string>trim</string>
 					<string>upper</string>
+					
 					<!-- table -->
 					<string>append</string>
 					<string>columns</string>
@@ -475,7 +533,7 @@
 					<string>foreach</string>
 					<string>offset</string>
 					<string>select</string>
-					<string>sort</string>
+					
 				</strings>
 			</scope>
 			

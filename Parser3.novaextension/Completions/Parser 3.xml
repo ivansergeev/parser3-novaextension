@@ -252,6 +252,15 @@
 		<set>parser3.core.image</set>
 	</provider>
 
+<!-- "^inet:" -->
+	<provider name="inet">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\^inet\:)([a-z]+)</expression>
+		<symbols type="method" />
+		<set>parser3.core.inet</set>
+	</provider>
+
 <!-- "^string" -->
 	<provider name="string">
 		<syntax>parser3</syntax>
@@ -1085,6 +1094,11 @@ $[]</append>
 				<append>::</append>
 			</behavior>
 		</completion>
+		<completion string="inet">
+			<behavior>
+				<append>:</append>
+			</behavior>
+		</completion>
 		<completion string="string">
 			<behavior>
 				<append>:</append>
@@ -1713,7 +1727,46 @@ $[]</append>
 		</completion>
 	</set>
 
+<!-- INET -->
 	
+	<set name="parser3.core.inet" symbol="method">
+		<completion string="aton">
+			<behavior>
+				<append>[$[ip string]]</append>
+			</behavior>
+		</completion>
+		<completion string="ip2name">
+			<behavior>
+				<append>[$[ip]]</append>
+			</behavior>
+		</completion>
+		<completion string="ip2name">
+			<behavior>
+				<append>[$[ip];
+	$.ipv[$[4|6|any]]
+]</append>
+			</behavior>
+		</completion>
+		<completion string="name2ip">
+			<behavior>
+				<append>[$[domain]]</append>
+			</behavior>
+		</completion>
+		<completion string="name2ip">
+			<behavior>
+				<append>[$[domain];
+	$.ipv[$[4|6|any]]
+	$.table($[true|false])				
+]</append>
+			</behavior>
+		</completion>
+		<completion string="ntoa">
+			<behavior>
+				<append>[$[ip number]]</append>
+			</behavior>
+		</completion>
+	</set>
+
 <!-- STRING -->
 
 	<set name="parser3.core.string" symbol="method">
