@@ -286,12 +286,23 @@
 	</provider>
 
 <!-- "^memcached:" -->
+
 	<provider name="memcached">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
 		<expression>(?&lt;=\^memcached\:\:)([a-z]+)</expression>
 		<symbols type="method" />
 		<set>parser3.core.memcached</set>
+	</provider>
+
+<!-- "^memory:" -->
+
+	<provider name="memory">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\^memory\:)([a-z]+)</expression>
+		<symbols type="method" />
+		<set>parser3.core.memory</set>
 	</provider>
 	
 <!-- "^string" -->
@@ -2225,7 +2236,18 @@ $[]</append>
 			</behavior>
 		</completion>
 	</set>
+
+
+<!-- MEMORY -->
 	
+	<set name="parser3.core.memory" symbol="method">
+		<completion string="compact">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+	</set>
+
 <!-- STRING -->
 
 	<set name="parser3.core.string" symbol="method">

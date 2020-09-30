@@ -437,6 +437,8 @@
 					<string>frac</string>
 					<string>uid64</string>
 					<string>uuid</string>
+					<!-- memory -->					
+					<string>compact</string>
 					
 				</strings>
 			</scope>
