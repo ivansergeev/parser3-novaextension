@@ -261,6 +261,15 @@
 		<set>parser3.core.inet</set>
 	</provider>
 
+<!-- "^json:" -->
+	<provider name="json">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\^json\:)([a-z]+)</expression>
+		<symbols type="method" />
+		<set>parser3.core.json</set>
+	</provider>
+
 <!-- "^string" -->
 	<provider name="string">
 		<syntax>parser3</syntax>
@@ -299,7 +308,6 @@
 
 <!-- SETS -->
 
-    <!-- Built-in values -->
     <set name="parser3.core.values" symbol="constant">
         <completion string="true" />
         <completion string="false" />
@@ -327,8 +335,6 @@
         <completion string="key" />
         <completion string="value" />
     </set>
-    
-	
 
 	<set name="parser3.core.options" symbol="property">
 		<completion string="bind">
@@ -466,9 +472,85 @@
 				<append>($[false|true])</append>
 			</behavior>
 		</completion>
-	</set>
-	
 		
+		<completion string="depth">
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="double">
+			<behavior>
+				<append>($[false|true])</append>
+			</behavior>
+		</completion>
+		<completion string="int">
+			<behavior>
+				<append>($[false|true])</append>
+			</behavior>
+		</completion>
+		<completion string="distinct">
+			<behavior>
+				<append>[$[first|last|al]]</append>
+			</behavior>
+		</completion>
+		<completion string="object">
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="array">
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="taint">
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="skip-unknown">
+			<behavior>
+				<append>($[false|true])</append>
+			</behavior>
+		</completion>
+		<completion string="indent">
+			<behavior>
+				<append>($[false|true])</append>
+			</behavior>
+		</completion>
+		<completion string="date">
+			<behavior>
+				<append>[$[sql-string|gmt-string|iso-string|unix-timestamp]]</append>
+			</behavior>
+		</completion>
+		<completion string="void">
+			<behavior>
+				<append>[$[null|string]]</append>
+			</behavior>
+		</completion>
+		<completion string="table">
+			<behavior>
+				<append>[$[object|array|compact]]</append>
+			</behavior>
+		</completion>
+		<completion string="file">
+			<behavior>
+				<append>[$[text|base64|stat]]</append>
+			</behavior>
+		</completion>
+		<completion string="xdoc">
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="_default">
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		
+	</set>
+
 	<set name="parser3.core.method" symbol="method">
 		<completion string="auto">
 			<behavior>
@@ -639,8 +721,8 @@ $[]</append>
 		<completion string="height" />
 		<completion string="exif" />
 	</set>
-	
-	
+
+
 	<set name="parser3.instance.method" symbol="method">
 		<!-- file -->
 		<completion string="base64">
@@ -1035,7 +1117,7 @@ $[]</append>
 			</behavior>
 		</completion>
 	</set>
-	
+
 <!-- ^CLASSES -->
 
 	<set name="parser3.core.classes" symbol="class">
@@ -1099,6 +1181,56 @@ $[]</append>
 				<append>:</append>
 			</behavior>
 		</completion>
+		<completion string="json">
+			<behavior>
+				<append>:</append>
+			</behavior>
+		</completion>
+		<completion string="mail">
+			<behavior>
+				<append>:</append>
+			</behavior>
+		</completion>
+		<completion string="math">
+			<behavior>
+				<append>:</append>
+			</behavior>
+		</completion>
+		<completion string="memcached">
+			<behavior>
+				<append>::</append>
+			</behavior>
+		</completion>
+		<completion string="memory">
+			<behavior>
+				<append>:</append>
+			</behavior>
+		</completion>
+		<completion string="reflection">
+			<behavior>
+				<append>:</append>
+			</behavior>
+		</completion>
+		<completion string="regex">
+			<behavior>
+				<append>::</append>
+			</behavior>
+		</completion>
+		<completion string="request">
+			<behavior>
+				<append>:</append>
+			</behavior>
+		</completion>
+		<completion string="response">
+			<behavior>
+				<append>:</append>
+			</behavior>
+		</completion>
+		<completion string="status">
+			<behavior>
+				<append>:</append>
+			</behavior>
+		</completion>
 		<completion string="string">
 			<behavior>
 				<append>:</append>
@@ -1119,10 +1251,15 @@ $[]</append>
 				<append>:</append>
 			</behavior>
 		</completion>
+		<completion string="xdoc">
+			<behavior>
+				<append>::</append>
+			</behavior>
+		</completion>
 	</set>
 
 <!-- $CLASSES STATIC -->
-		
+
 	<set name="parser3.core.classes.static" symbol="class">
 		<completion string="console">
 			<behavior>
@@ -1159,7 +1296,18 @@ $[]</append>
 				<append>:</append>
 			</behavior>
 		</completion>
+		<completion string="statuc">
+			<behavior>
+				<append>:</append>
+			</behavior>
+		</completion>
 	</set>
+
+
+
+
+
+<!-- CORE -->
 
 <!-- ^DATE -->
 	
@@ -1352,47 +1500,6 @@ $[]</append>
 			</behavior>
 		</completion>
 	</set>
-
-	<!-- CURL OPTIONS -->
-<!--		
-	<set name="parser3.core.curl.options">
-		<completion string="$.charset">
-			<behavior symbol="property">
-				<append>[]</append>
-			</behavior>
-		</completion>
-		<completion string="$.content-type">
-			<behavior symbol="property">
-				<append>[]</append>
-			</behavior>
-		</completion>
-		<completion string="$.library">
-			<behavior symbol="property">
-				<append>[$[path]]</append>
-			</behavior>
-		</completion>
-		<completion string="$.mode">
-			<behavior symbol="property">
-				<append>[$[text or binary]]</append>
-			</behavior>
-		</completion>
-		<completion string="$.name">
-			<behavior symbol="property">
-				<append>[]</append>
-			</behavior>
-		</completion>
-		<completion string="$.response-charset">
-			<behavior symbol="property">
-				<append>[]</append>
-			</behavior>
-		</completion>
-		<completion string="$.timeout">
-			<behavior symbol="property">
-				<append>()</append>
-			</behavior>
-		</completion>
-	</set>
--->
 
 <!-- FILE -->
 	
@@ -1767,6 +1874,49 @@ $[]</append>
 		</completion>
 	</set>
 
+<!-- JSON -->
+	
+	<set name="parser3.core.json" symbol="method">
+		<completion string="parse">
+			<behavior>
+				<append>[$[json string];]</append>
+			</behavior>
+		</completion>
+		<completion string="parse">
+			<behavior>
+				<append>[$[json string];
+	$.depth($[depth])
+	$.double($[true|false])
+	$.int($[true|false])
+	$.distinct[$[first|last|all]]
+	$.object[$[object method]]
+	$.array[$[array method]]
+	$.taint[$[taint method]]
+]</append>
+			</behavior>
+		</completion>
+		<completion string="string">
+			<behavior>
+				<append>[$[json];]</append>
+			</behavior>
+		</completion>
+		<completion string="string">
+			<behavior>
+				<append>[$[json];
+	$.skip-unknown($[true|false])
+	$.indent($[true|false])
+	$.date[$[sql-string|gmt-string|iso-string|unix-timestamp]]
+	$.void[$[null|string]]
+	$.table[object|array|compact]
+	$.file[text|base64|stat]
+	$.xdoc[$[params]]
+	$._default[$[method]]
+]</append>
+			</behavior>
+		</completion>
+	</set>
+
+
 <!-- STRING -->
 
 	<set name="parser3.core.string" symbol="method">
@@ -1963,7 +2113,10 @@ $[]</append>
 		</completion>
 	</set>
 
-<!-- OPERATORS -->
+
+
+
+<!-- CORE OPERATORS -->
 
     <set name="parser3.core.functions" symbol="function">
 <!-- A -->

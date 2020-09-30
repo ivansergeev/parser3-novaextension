@@ -334,6 +334,7 @@
 					<string>hashfile</string>
 					<string>image</string>
 					<string>inet</string>
+					<string>json</string>
 					<string>math</string>
 					<string>string</string>
 					<string>table</string>
@@ -386,6 +387,9 @@
 					<string>ip2name</string>
 					<string>name2ip</string>
 					<string>ntoa</string>
+					<!-- inet -->
+					<string>string</string>
+					<string>parse</string>
 					
 				</strings>
 			</scope>
