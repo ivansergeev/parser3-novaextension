@@ -588,6 +588,13 @@
 					<string>offset</string>
 					<string>select</string>
 					
+					<!-- memcached -->
+					<string>add</string>
+					<string>clear</string>
+					<string>delete</string>
+					<string>mget</string>
+					<string>release</string>
+					
 				</strings>
 			</scope>
 			

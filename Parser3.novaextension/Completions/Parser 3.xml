@@ -187,17 +187,6 @@
         <symbols type="method" />
         <set>parser3.core.curl</set>
     </provider>
-
-    <!-- "curl options" -->
-    <!-- 
-		<provider name="curl-options">
-        <syntax>parser3</syntax>
-        <selector>parser3.block.curl-options</selector>
-        <expression>(\$\.[a-zA-Z0-9_\x7f-\xff]+)</expression>
-        <symbols type="property" />
-        <set>parser3.core.curl.options</set>
-    </provider> 
-	-->
 	
 <!-- "^file:" -->
 	<provider name="file">
@@ -296,7 +285,15 @@
 		<set>parser3.core.math.static</set>
 	</provider>
 
-
+<!-- "^memcached:" -->
+	<provider name="memcached">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\^memcached\:\:)([a-z]+)</expression>
+		<symbols type="method" />
+		<set>parser3.core.memcached</set>
+	</provider>
+	
 <!-- "^string" -->
 	<provider name="string">
 		<syntax>parser3</syntax>
@@ -374,6 +371,11 @@
 				<append>[hash]</append>
 			</behavior>
 		</completion>
+		<completion string="binary-protocol">
+			<behavior>
+				<append>($[true|false])</append>
+			</behavior>
+		</completion>
 		<completion string="charset">
 			<behavior>
 				<append>[$[]]</append>
@@ -387,6 +389,11 @@
 		<completion string="content-type">
 			<behavior>
 				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="connect-timeout">
+			<behavior>
+				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="date">
@@ -529,6 +536,11 @@
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
+		<completion string="tcp-keepalive">
+			<behavior>
+				<append>($[false|true])</append>
+			</behavior>
+		</completion>
 		<completion string="replace">
 			<behavior>
 				<append>($[false|true])</append>
@@ -562,6 +574,11 @@
 		<completion string="skip-unknown">
 			<behavior>
 				<append>($[false|true])</append>
+			</behavior>
+		</completion>
+		<completion string="server">
+			<behavior>
+				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="subject">
@@ -1178,6 +1195,39 @@ $[]</append>
 				<append>($[x];$[y])[$[text]]</append>
 			</behavior>
 		</completion>
+		
+		<!-- memcached -->		
+		<completion string="add">
+			<behavior>
+				<append>[$[key];$[value]]</append>
+			</behavior>
+		</completion>
+		<completion string="clear">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="clear">
+			<behavior>
+				<append>($[seconds])</append>
+			</behavior>
+		</completion>
+		<completion string="delete">
+			<behavior>
+				<append>[$[key]]</append>
+			</behavior>
+		</completion>
+		<completion string="mget">
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="release">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		
 	</set>
 
 <!-- ^CLASSES -->
@@ -1339,6 +1389,11 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="math">
+			<behavior>
+				<append>:</append>
+			</behavior>
+		</completion>
+		<completion string="memcached">
 			<behavior>
 				<append>:</append>
 			</behavior>
@@ -2145,6 +2200,31 @@ $[]</append>
 		<completion string="PI" />
 		<completion string="E" />
 	</set>
+
+
+<!-- MEMCACHED -->
+	
+	<set name="parser3.core.memcached" symbol="method">
+		<completion string="open">
+			<behavior>
+				<append>[$[server1:port1,server2]]</append>
+			</behavior>
+		</completion>
+		<completion string="open">
+			<behavior>
+				<append>[$[server1:port1,server2]]($[time])</append>
+			</behavior>
+		</completion>
+		<completion string="open">
+			<behavior>
+				<append>[
+	$.server[$[server1:port1]] 
+	$.binary-protocol($[true|false])
+	$.connect-timeout($[timeout]) 
+]</append>
+			</behavior>
+		</completion>
+	</set>
 	
 <!-- STRING -->
 
@@ -2414,7 +2494,9 @@ $[]</append>
        
         <completion string="connect">
             <behavior>
-                <append>[$[connection string]]{$[code]}</append>
+                <append>[$[connection string]]{
+	$[code]
+}</append>
             </behavior>
         </completion>
         
