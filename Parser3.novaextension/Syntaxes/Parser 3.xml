@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <syntax name="parser3">
     <meta>
-        <name>Parser3</name>
+        <name>Parser 3</name>
         <type>script</type>
         <preferred-file-extension>html</preferred-file-extension>
     </meta>
@@ -331,6 +331,7 @@
 					<string>form</string>
 					<string>hash</string>
 					<string>hashfile</string>
+					<string>image</string>
 					<string>math</string>
 					<string>string</string>
 					<string>table</string>

@@ -243,6 +243,15 @@
 		<set>parser3.core.hashfile</set>
 	</provider>
 
+<!-- "^image::" -->
+	<provider name="image">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\^image\:\:)([a-z]+)</expression>
+		<symbols type="method" />
+		<set>parser3.core.image</set>
+	</provider>
+
 <!-- "^string" -->
 	<provider name="string">
 		<syntax>parser3</syntax>
@@ -534,6 +543,7 @@ $[]</append>
 		<completion string="hashfile" />
 		<completion string="junction" />
 		<completion string="file" />
+		<completion string="image" />
 		<completion string="string" />
 		<completion string="table" />
 	</set>
@@ -614,6 +624,11 @@ $[]</append>
 		<!-- hash -->
 		<completion string="fields" />
 		<completion string="_default" />
+		<!-- image -->
+		<completion string="src" />
+		<completion string="width" />
+		<completion string="height" />
+		<completion string="exif" />
 	</set>
 	
 	
@@ -870,12 +885,146 @@ $[]</append>
 				<append>[]</append>
 			</behavior>
 		</completion>
-		<completion string="release">
+<!-- image -->
+		<completion string="gif">
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
-
+		<completion string="gif">
+			<behavior>
+				<append>[$[filename]]</append>
+			</behavior>
+		</completion>
+		<completion string="html">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="html">
+			<behavior>
+				<append>[
+	$.border[$[border]]		
+	$.alt[$[alter text]]				
+]</append>
+			</behavior>
+		</completion>
+		<!-- static -->
+		<completion string="line-style">
+			<behavior>
+				<append>[$[***   ]]</append>
+			</behavior>
+		</completion>
+		<!-- static -->
+		<completion string="line-width">
+			<behavior>
+				<append>($[width])</append>
+			</behavior>
+		</completion>
+		<completion string="arc">
+			<behavior>
+				<append>($[center x];$[center y];$[width];$[height];$[start in degrees];$[end in degrees];$[color])</append>
+			</behavior>
+		</completion>
+		<completion string="bar">
+			<behavior>
+				<append>($[x0];$[y0];$[x1];$[y1];$[color])</append>
+			</behavior>
+		</completion>
+		<completion string="copy">
+			<behavior>
+				<append>[$[src image]]($[x1];$[y1];$[width];$[height];$[x2];$[y2])</append>
+			</behavior>
+		</completion>
+		<completion string="copy">
+			<behavior>
+				<append>[$[src image]]($[x1];$[y1];$[width 1];$[height 1];$[x2];$[y2];$[width 2];$[height 2];$[color])</append>
+			</behavior>
+		</completion>
+		<completion string="fill">
+			<behavior>
+				<append>($[x];$[y];$[color])</append>
+			</behavior>
+		</completion>
+		<completion string="font">
+			<behavior>
+				<append>[$[symbols];$[font image]]($[space width])</append>
+			</behavior>
+		</completion>
+		<completion string="font">
+			<behavior>
+				<append>[$[symbols];$[font image]]($[space width];$[symbol width])</append>
+			</behavior>
+		</completion>
+		<completion string="font">
+			<behavior>
+				<append>[$[symbols];$[font image]][
+	$.space(0)
+	$.width(0)
+	$.spacing(0)
+]</append>
+			</behavior>
+		</completion>
+		<completion string="length">
+			<behavior>
+				<append>[$[text]]</append>
+			</behavior>
+		</completion>
+		<completion string="line">
+			<behavior>
+				<append>($[x0];$[y0];$[x1];$[y1];$[color])</append>
+			</behavior>
+		</completion>
+		<completion string="pixel">
+			<behavior>
+				<append>($[x];$[y])</append>
+			</behavior>
+		</completion>
+		<completion string="pixel">
+			<behavior>
+				<append>($[x];$[y];$[color])</append>
+			</behavior>
+		</completion>
+		<completion string="polybar">
+			<behavior>
+				<append>($[color])[$[coordinates table]]</append>
+			</behavior>
+		</completion>
+		<completion string="polygon">
+			<behavior>
+				<append>($[color])[$[coordinates table]]</append>
+			</behavior>
+		</completion>
+		<completion string="polyline">
+			<behavior>
+				<append>($[color])[$[coordinates table]]</append>
+			</behavior>
+		</completion>
+		<completion string="rectangle">
+			<behavior>
+				<append>($[x0];$[y0];$[x1];$[y1];$[line color])</append>
+			</behavior>
+		</completion>
+		<completion string="replace">
+			<behavior>
+				<append>($[old color];$[new color])[$[coordinates table]]</append>
+			</behavior>
+		</completion>
+		<completion string="replace">
+			<behavior>
+				<append>($[old color];$[new color])</append>
+			</behavior>
+		</completion>
+		<completion string="sector">
+			<behavior>
+				<append>($[center x];$[center y];$[width];$[height];$[start in degrees];$[end in degrees];$[color])</append>
+			</behavior>
+		</completion>
+		<completion string="text">
+			<behavior>
+				<append>($[x];$[y])[$[text]]</append>
+			</behavior>
+		</completion>
 	</set>
 	
 <!-- ^CLASSES -->
@@ -927,6 +1076,11 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="hashfile">
+			<behavior>
+				<append>::</append>
+			</behavior>
+		</completion>
+		<completion string="image">
 			<behavior>
 				<append>::</append>
 			</behavior>
@@ -1534,7 +1688,32 @@ $[]</append>
 		</completion>
 	</set>
 
+<!-- IMAGE -->
 
+	<set name="parser3.core.image" symbol="method">
+		<completion string="create">
+			<behavior>
+				<append>($[x];$[y])</append>
+			</behavior>
+		</completion>
+		<completion string="create">
+			<behavior>
+				<append>($[x];$[y];$[color])</append>
+			</behavior>
+		</completion>
+		<completion string="load">
+			<behavior>
+				<append>[$[file]]</append>
+			</behavior>
+		</completion>
+		<completion string="measure">
+			<behavior>
+				<append>[$[file]]</append>
+			</behavior>
+		</completion>
+	</set>
+
+	
 <!-- STRING -->
 
 	<set name="parser3.core.string" symbol="method">
@@ -1593,6 +1772,7 @@ $[]</append>
 			</behavior>
 		</completion>
 	</set>
+
 
 <!-- TABLE -->
 

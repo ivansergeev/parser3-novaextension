@@ -2,20 +2,20 @@
 
 Current status: WIP
 
-# Requirements
+### Requirements
 
 Panic Nova app (https://nova.app/)
 
 Parser 3.4.5 (http://www.parser.ru/en/)
 
-	File ext: *.html, *.p, *.h (can custom assign)
+	File ext: *.html, *.p, *.pt, *.h (can custom assign)
 	Text encoding: Unicode (UTF-8)
 	Line endings: Unix (LF)
 
-# License
+### License
 
 Licensed under the MIT License
 
-# Author
+### Author
 
 Copyright (c) Ivan Sergeev (ivansergeev@gmail.com)
