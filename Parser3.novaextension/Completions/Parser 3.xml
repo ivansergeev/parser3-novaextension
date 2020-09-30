@@ -279,6 +279,24 @@
 		<set>parser3.core.mail</set>
 	</provider>
 
+<!-- "^math:" -->
+	<provider name="math">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\^math\:)([a-z]+)</expression>
+		<symbols type="method" />
+		<set>parser3.core.math</set>
+	</provider>
+
+	<provider name="math.static">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\$math\:)([a-z]+)</expression>
+		<symbols type="property" />
+		<set>parser3.core.math.static</set>
+	</provider>
+
+
 <!-- "^string" -->
 	<provider name="string">
 		<syntax>parser3</syntax>
@@ -1969,7 +1987,165 @@ $[]</append>
 			</behavior>
 		</completion>
 	</set>
+
+<!-- MATH -->
+	
+	<set name="parser3.core.math" symbol="method">
+		<completion string="abs">
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="sign">
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="convert">
+			<behavior>
+				<append>[$[]]($[from];$[to])</append>
+			</behavior>
+		</completion>
+		<completion string="crc32">
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="crypt">
+			<behavior>
+				<append>[$[password];$[salt]]</append>
+			</behavior>
+		</completion>
+		<completion string="degrees">
+			<behavior>
+				<append>($[radians])</append>
+			</behavior>
+		</completion>
+		<completion string="radians">
+			<behavior>
+				<append>($[degrees])</append>
+			</behavior>
+		</completion>
+		<completion string="digest">
+			<behavior>
+				<append>[$[algorithm];$[string ot file];
+	$.format[$[hex|base64]]
+	$.hmac[$[key]]
+]</append>
+			</behavior>
+		</completion>
+		<completion string="exp">
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="log">
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="log10">
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="md5">
+			<behavior>
+				<append>[$[string]]</append>
+			</behavior>
+		</completion>
+		<completion string="pow">
+			<behavior>
+				<append>[$[number];$[degree]]</append>
+			</behavior>
+		</completion>
+		<completion string="random">
+			<behavior>
+				<append>($[max])</append>
+			</behavior>
+		</completion>
+		<completion string="round">
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="floor">
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="ceiling">
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="sha1">
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="sin">
+			<behavior>
+				<append>($[radians])</append>
+			</behavior>
+		</completion>
+		<completion string="asin">
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="cos">
+			<behavior>
+				<append>($[radians])</append>
+			</behavior>
+		</completion>
+		<completion string="acos">
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="tan">
+			<behavior>
+				<append>($[radians])</append>
+			</behavior>
+		</completion>
+		<completion string="atan">
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="sqrt">
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="trunc">
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="frac">
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="uid64">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="uuid">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+	</set>
 			
+	<set name="parser3.core.math.static" symbol="property">
+		<completion string="PI" />
+		<completion string="E" />
+	</set>
+	
 <!-- STRING -->
 
 	<set name="parser3.core.string" symbol="method">
