@@ -363,6 +363,25 @@
 		<set>parser3.core.response.static</set>
 	</provider>
 
+<!-- "$status:" -->
+<!-- "^status:" -->
+
+	<provider name="status">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\^status\:)([a-z]+)</expression>
+		<symbols type="method" />
+		<set>parser3.core.status</set>
+	</provider>
+	
+	<provider name="status">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\$status\:)([a-z]+)</expression>
+		<symbols type="method" />
+		<set>parser3.core.status.static</set>
+	</provider>
+
 <!-- "^string" -->
 	<provider name="string">
 		<syntax>parser3</syntax>
@@ -868,6 +887,16 @@ $[]</append>
 		<completion string="width" />
 		<completion string="height" />
 		<completion string="exif" />
+		<!-- status -->
+		<completion string="utime" />
+		<completion string="stime" />
+		<completion string="maxrss" />
+		<completion string="tv_sec" />
+		<completion string="tv_usec" />
+		<completion string="used" />
+		<completion string="free" />
+		<completion string="ever_allocated_since_compact" />
+		<completion string="ever_allocated_since_start" />
 	</set>
 
 
@@ -2625,6 +2654,37 @@ $[]</append>
 		</completion>
 	</set>
 
+<!-- STATUS -->
+	
+	<set name="parser3.core.status" symbol="property">
+		<completion string="memory">
+			<behavior>
+				<append>.</append>
+			</behavior>
+		</completion>
+		<completion string="pid">
+			<behavior>
+				<append>.</append>
+			</behavior>
+		</completion>
+		<completion string="rusage">
+			<behavior>
+				<append>.</append>
+			</behavior>
+		</completion>
+		<completion string="tid">
+			<behavior>
+				<append>.</append>
+			</behavior>
+		</completion>
+	</set>
+	<set name="parser3.core.status.static" symbol="property">
+		<completion string="memory" />
+		<completion string="pid" />
+		<completion string="rusage" />
+		<completion string="tid" />
+	</set>
+	
 <!-- STRING -->
 
 	<set name="parser3.core.string" symbol="method">
