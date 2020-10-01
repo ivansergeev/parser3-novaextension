@@ -314,6 +314,16 @@
 		<symbols type="method" />
 		<set>parser3.core.reflection</set>
 	</provider>
+
+<!-- "^regex::" -->
+
+	<provider name="reflection">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\^regex\:\:)([a-z]+)</expression>
+		<symbols type="method" />
+		<set>parser3.core.regex</set>
+	</provider>
 	
 <!-- "^string" -->
 	<provider name="string">
@@ -2449,6 +2459,21 @@ $[]</append>
 		</completion>
 	</set>
 
+<!-- REGEX -->
+	
+	<set name="parser3.core.regex" symbol="method">
+		<completion string="create">
+			<behavior>
+				<append>[$[pattern]]</append>
+			</behavior>
+		</completion>
+		<completion string="create">
+			<behavior>
+				<append>[$[pattern][$[options]]</append>
+			</behavior>
+		</completion>
+	</set>
+	
 <!-- STRING -->
 
 	<set name="parser3.core.string" symbol="method">
