@@ -331,7 +331,7 @@
 	<provider name="request">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
-		<expression>(?&lt;=\^request\:)([a-z]+)</expression>
+		<expression>(?&lt;=\^request\:)([a-z-]+)</expression>
 		<symbols type="method" />
 		<set>parser3.core.request</set>
 	</provider>
@@ -339,9 +339,28 @@
 	<provider name="request">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
-		<expression>(?&lt;=\$request\:)([a-z]+)</expression>
+		<expression>(?&lt;=\$request\:)([a-z-]+)</expression>
 		<symbols type="method" />
 		<set>parser3.core.request.static</set>
+	</provider>
+
+<!-- "$response:" -->
+<!-- "^response:" -->
+
+	<provider name="response">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\^response\:)([a-z]+)</expression>
+		<symbols type="method" />
+		<set>parser3.core.response</set>
+	</provider>
+	
+	<provider name="response">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\$response\:)([a-z]+)</expression>
+		<symbols type="method" />
+		<set>parser3.core.response.static</set>
 	</provider>
 
 <!-- "^string" -->
@@ -2571,6 +2590,41 @@ $[]</append>
 		</completion>
 	</set>
 	
+<!-- RESPONSE -->
+
+	<set name="parser3.core.response" >
+		<completion string="clear" symbol="method">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="headers" symbol="property">
+			<behavior>
+				<append>.</append>
+			</behavior>
+		</completion>
+	</set>
+	
+	<set name="parser3.core.response.static" symbol="property">
+		<completion string="status" />
+		<completion string="headers" />
+		<completion string="body">
+			<behavior>
+				<append>[$[data]]</append>
+			</behavior>
+		</completion>
+		<completion string="charset">
+			<behavior>
+				<append>[$[charset]]</append>
+			</behavior>
+		</completion>
+		<completion string="download">
+			<behavior>
+				<append>[$[data]]</append>
+			</behavior>
+		</completion>
+	</set>
+
 <!-- STRING -->
 
 	<set name="parser3.core.string" symbol="method">
