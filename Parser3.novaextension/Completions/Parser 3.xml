@@ -43,7 +43,7 @@
     <provider name="error.types">
         <syntax>parser3</syntax>
         <selector>*:not(comment)</selector>
-        <expression>([a-z]+)</expression>
+        <expression>(?&lt;=[\s\[])([a-z\.]+)\s?(?=[\)\]])</expression>
         <symbols type="constant" />
         <set>parser3.keywords.error.types</set>
     </provider>
@@ -303,6 +303,16 @@
 		<expression>(?&lt;=\^memory\:)([a-z]+)</expression>
 		<symbols type="method" />
 		<set>parser3.core.memory</set>
+	</provider>
+
+<!-- "^reflection:" -->
+
+	<provider name="reflection">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\^reflection\:)([a-z]+)</expression>
+		<symbols type="method" />
+		<set>parser3.core.reflection</set>
 	</provider>
 	
 <!-- "^string" -->
@@ -2244,6 +2254,197 @@ $[]</append>
 		<completion string="compact">
 			<behavior>
 				<append>[]</append>
+			</behavior>
+		</completion>
+	</set>
+
+<!-- REFLECTION -->
+	
+	<set name="parser3.core.reflection" symbol="method">
+		<completion string="base">
+			<behavior>
+				<append>[$[class or object]]</append>
+			</behavior>
+		</completion>
+		<completion string="base_name">
+			<behavior>
+				<append>[$[class or object]]</append>
+			</behavior>
+		</completion>
+		<completion string="class">
+			<behavior>
+				<append>[$[object]]</append>
+			</behavior>
+		</completion>
+		<completion string="class_by_name">
+			<behavior>
+				<append>[$[classname]]</append>
+			</behavior>
+		</completion>
+		<completion string="class_name">
+			<behavior>
+				<append>[$[object]]</append>
+			</behavior>
+		</completion>
+		<completion string="classes">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="copy">
+			<behavior>
+				<append>[$[from];$[to]]</append>
+			</behavior>
+		</completion>
+		<completion string="create">
+			<behavior>
+				<append>[$[classname];$[constructor name];$[params]]</append>
+			</behavior>
+		</completion>
+		<completion string="create">
+			<behavior>
+				<append>[
+	$.class[$[classname]]
+	$.constructor[$[constructor name]]
+	$.arguments[
+		$.1[]
+		$.2[]
+		$.3[]
+	]
+]</append>
+			</behavior>
+		</completion>
+		<completion string="def">
+			<behavior>
+				<append>[class;$[classname]]</append>
+			</behavior>
+		</completion>
+		<completion string="delete">
+			<behavior>
+				<append>[$[object];$[fieldname]]</append>
+			</behavior>
+		</completion>
+		<completion string="delete">
+			<behavior>
+				<append>[$[class];$[fieldname]]</append>
+			</behavior>
+		</completion>
+		<completion string="dynamical">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="dynamical">
+			<behavior>
+				<append>[$[class or object]]</append>
+			</behavior>
+		</completion>
+		<completion string="field">
+			<behavior>
+				<append>[$[object];$[fieldname]]</append>
+			</behavior>
+		</completion>
+		<completion string="field">
+			<behavior>
+				<append>[$[class];$[fieldname]]</append>
+			</behavior>
+		</completion>
+		<completion string="fields">
+			<behavior>
+				<append>[$[class]]</append>
+			</behavior>
+		</completion>
+		<completion string="fields">
+			<behavior>
+				<append>[$[object]]</append>
+			</behavior>
+		</completion>
+		<completion string="fields_reference">
+			<behavior>
+				<append>[$[object]]</append>
+			</behavior>
+		</completion>
+		<completion string="filename">
+			<behavior>
+				<append>[$[object or class or method]]</append>
+			</behavior>
+		</completion>
+		<completion string="is">
+			<behavior>
+				<append>[$[element];$[type]]</append>
+			</behavior>
+		</completion>
+		<completion string="is">
+			<behavior>
+				<append>[$[element];$[type];$[context]]</append>
+			</behavior>
+		</completion>
+		<completion string="method">
+			<behavior>
+				<append>[$[object];$[fieldname]]</append>
+			</behavior>
+		</completion>
+		<completion string="method">
+			<behavior>
+				<append>[$[class];$[fieldname]]</append>
+			</behavior>
+		</completion>
+		<completion string="method_info">
+			<behavior>
+				<append>[$[classname];$[methodname]]</append>
+			</behavior>
+		</completion>
+		<completion string="method_info">
+			<behavior>
+				<append>[$[method]]</append>
+			</behavior>
+		</completion>
+		<completion string="methods">
+			<behavior>
+				<append>[$[classname]]</append>
+			</behavior>
+		</completion>
+		<completion string="methods">
+			<behavior>
+				<append>[$[classname];
+	$.reverse($[true|false])
+]</append>
+			</behavior>
+		</completion>
+		<completion string="mixin">
+			<behavior>
+				<append>[$[source];
+	$.to[]
+	$.name[]
+	$.methods($[true|false])
+	$.fields($[true|false])
+	$.overwrite($[false|true])
+]</append>
+			</behavior>
+		</completion>
+		<completion string="stack">
+			<behavior>
+				<append>[
+	$.args($[false|true])				
+	$.locals($[true|false])
+	$.limit()
+	$.offset()
+]</append>
+			</behavior>
+		</completion>
+		<completion string="tainting">
+			<behavior>
+				<append>[$[string]]</append>
+			</behavior>
+		</completion>
+		<completion string="tainting">
+			<behavior>
+				<append>[$[type];$[string]]</append>
+			</behavior>
+		</completion>
+		<completion string="uid">
+			<behavior>
+				<append>[$[object]]</append>
 			</behavior>
 		</completion>
 	</set>

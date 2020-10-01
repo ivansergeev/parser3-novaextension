@@ -439,7 +439,31 @@
 					<string>uuid</string>
 					<!-- memory -->					
 					<string>compact</string>
-					
+					<!-- reflection -->
+					<string>base</string>
+					<string>base_name</string>
+					<string>class</string>
+					<string>class_by_name</string>
+					<string>class_name</string>
+					<string>classes</string>
+					<string>copy</string>
+					<string>create</string>
+					<string>def</string>
+					<string>delete</string>
+					<string>dynamical</string>
+					<string>field</string>
+					<string>fields</string>
+					<string>fields_reference</string>
+					<string>filename</string>
+					<string>is</string>
+					<string>method</string>
+					<string>method_info</string>
+					<string>methods</string>
+					<string>mixin</string>
+					<string>stack</string>
+					<string>tainting</string>
+					<string>uid</string>
+
 				</strings>
 			</scope>
 			
