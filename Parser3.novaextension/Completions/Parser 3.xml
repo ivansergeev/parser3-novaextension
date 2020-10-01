@@ -524,6 +524,11 @@
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
+		<completion string="encloser">
+			<behavior>
+				<append>[$[symbol]]</append>
+			</behavior>
+		</completion>
 		<completion string="expires">
 			<behavior>
 				<append>($[])</append>
@@ -634,6 +639,11 @@
 				<append>($[false|true])</append>
 			</behavior>
 		</completion>
+		<completion string="reverse">
+			<behavior>
+				<append>($[false|true])</append>
+			</behavior>
+		</completion>
 		<completion string="response-charset">
 			<behavior>
 				<append>[$[]]</append>
@@ -667,6 +677,11 @@
 		<completion string="server">
 			<behavior>
 				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="separator">
+			<behavior>
+				<append>[$[symbol]]</append>
 			</behavior>
 		</completion>
 		<completion string="subject">
@@ -853,6 +868,9 @@ $[]</append>
 	</set>
 
 	<set name="parser3.instance.values" symbol="property">
+	
+		<completion string="fields" />
+		
 		<!-- date -->
 		<completion string="month" />
 		<completion string="year" />
@@ -880,7 +898,7 @@ $[]</append>
 		<completion string="content-type" />
 		<completion string="SERVER" />
 		<!-- hash -->
-		<completion string="fields" />
+		
 		<completion string="_default" />
 		<!-- image -->
 		<completion string="src" />
@@ -1505,6 +1523,300 @@ $[]</append>
 				<append>[]</append>
 			</behavior>
 		</completion>
+		
+		<!-- table -->
+		<completion string="append">
+			<behavior>
+				<append>{$[data]}</append>
+			</behavior>
+		</completion>
+		<completion string="append">
+			<behavior>
+				<append>[$[data or hash]]</append>
+			</behavior>
+		</completion>
+		<completion string="columns">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="columns">
+			<behavior>
+				<append>[$[fieldname]]</append>
+			</behavior>
+		</completion>
+		<completion string="count">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="count">
+			<behavior>
+				<append>[$[columns|cells|rows]]</append>
+			</behavior>
+		</completion>
+		<completion string="csv-string">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="csv-string">
+			<behavior>
+				<append>[
+	$.separator[$[separator symbol]]
+	$.encloser[$[encloser symbol]]
+]</append>
+			</behavior>
+		</completion>
+		<completion string="csv-string">
+			<behavior>
+				<append>[nameless]</append>
+			</behavior>
+		</completion>
+		<completion string="csv-string">
+			<behavior>
+				<append>[nameless;
+	$.separator[$[separator symbol]]
+	$.encloser[$[encloser symbol]]
+]</append>
+			</behavior>
+		</completion>
+		<completion string="flip">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="hash">
+			<behavior>
+				<append>[$[key]]</append>
+			</behavior>
+		</completion>
+		<completion string="hash">
+			<behavior>
+				<append>[$[key]][
+	$.type[$[hash|string|table]]
+	$.distinct($[0|1])
+	$.distinct[tables]				
+]</append>
+			</behavior>
+		</completion>
+		<completion string="hash">
+			<behavior>
+				<append>[$[key]][$[field]]</append>
+			</behavior>
+		</completion>
+		<completion string="hash">
+			<behavior>
+				<append>[$[key]][$[field]][
+	$.type[$[hash|string|table]]
+	$.distinct($[0|1])
+	$.distinct[tables]				
+]</append>
+			</behavior>
+		</completion>
+		<completion string="hash">
+			<behavior>
+				<append>[$[key]]{$[code]}</append>
+			</behavior>
+		</completion>
+		<completion string="hash">
+			<behavior>
+				<append>[$[key]]{$[code]}[
+	$.type[$[hash|string|table]]
+	$.distinct($[0|1])
+	$.distinct[tables]				
+]</append>
+			</behavior>
+		</completion>
+		<completion string="hash">
+			<behavior>
+				<append>[$[key]][$[table with fields]]</append>
+			</behavior>
+		</completion>
+		<completion string="hash">
+			<behavior>
+				<append>[$[key]][$[table with fields]][
+	$.type[$[hash|string|table]]
+	$.distinct($[0|1])
+	$.distinct[tables]				
+]</append>
+			</behavior>
+		</completion>
+		<completion string="insert">
+			<behavior>
+				<append>{$[data]}</append>
+			</behavior>
+		</completion>
+		<completion string="insert">
+			<behavior>
+				<append>[$[hash]]</append>
+			</behavior>
+		</completion>
+		<completion string="join">
+			<behavior>
+				<append>[$[table]]</append>
+			</behavior>
+		</completion>
+		<completion string="join">
+			<behavior>
+				<append>[$[table];
+	$.offset($[int])				
+	$.offset[cur]
+	$.limit($[max])
+	$.reverse($[true|false])
+]</append>
+			</behavior>
+		</completion>
+		<completion string="locate">
+			<behavior>
+				<append>[$[field];$[value]]</append>
+			</behavior>
+		</completion>
+		<completion string="locate">
+			<behavior>
+				<append>($[expression])</append>
+			</behavior>
+		</completion>
+		<completion string="locate">
+			<behavior>
+				<append>[$[field];$[value];
+	$.offset($[int])				
+	$.offset[cur]
+	$.limit($[max])
+	$.reverse($[true|false])
+]</append>
+			</behavior>
+		</completion>
+		<completion string="locate">
+			<behavior>
+				<append>($[expression])[
+	$.offset($[int])				
+	$.offset[cur]
+	$.limit($[max])
+	$.reverse($[true|false])
+]</append>
+			</behavior>
+		</completion>
+		<completion string="menu">
+			<behavior>
+				<append>{
+	$[]
+}</append>
+			</behavior>
+		</completion>
+		<completion string="menu">
+			<behavior>
+				<append>{
+	$[]
+}[$[separator]]</append>
+			</behavior>
+		</completion>
+		<completion string="menu">
+			<behavior>
+				<append>{
+	$[]
+}{
+	$[separator]
+}</append>
+			</behavior>
+		</completion>
+		<!-- foreach -->
+		<completion string="offset">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="line">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="offset">
+			<behavior>
+				<append>($[int])</append>
+			</behavior>
+		</completion>
+		<completion string="offset">
+			<behavior>
+				<append>[$[cur|set]]($[int])</append>
+			</behavior>
+		</completion>
+		<completion string="save">
+			<behavior>
+				<append>[$[path]]</append>
+			</behavior>
+		</completion>
+		<completion string="save">
+			<behavior>
+				<append>[$[path];
+					$.offset($[int])				
+	$.offset[cur]
+	$.limit($[max])
+	$.reverse($[true|false])
+]</append>
+			</behavior>
+		</completion>
+		<completion string="save">
+			<behavior>
+				<append>[nameless;$[path]]</append>
+			</behavior>
+		</completion>
+		<completion string="save">
+			<behavior>
+				<append>[nameless;$[path];
+	$.offset($[int])			
+	$.offset[cur]
+	$.limit($[max])
+	$.reverse($[true|false])
+]</append>
+			</behavior>
+		</completion>
+		<completion string="save">
+			<behavior>
+				<append>[append;$[path]]</append>
+			</behavior>
+		</completion>
+		<completion string="save">
+			<behavior>
+				<append>[append;$[path];
+	$.offset($[int])			
+	$.offset[cur]
+	$.limit($[max])
+	$.reverse($[true|false])
+]</append>
+			</behavior>
+		</completion>
+		<completion string="select">
+			<behavior>
+				<append>($[expression])[
+	$.offset($[int])
+	$.offset[cur]
+	$.limit($[max])
+	$.reverse($[true|false])
+]</append>
+			</behavior>
+		</completion>
+		<completion string="sort">
+			<behavior>
+				<append>{$[by string]}</append>
+			</behavior>
+		</completion>
+		<completion string="sort">
+			<behavior>
+				<append>{$[by string]}[$[asc|desc]]</append>
+			</behavior>
+		</completion>
+		<completion string="sort">
+			<behavior>
+				<append>($[by number])</append>
+			</behavior>
+		</completion>
+		<completion string="sort">
+			<behavior>
+				<append>($[by number])[$[asc|desc]]</append>
+			</behavior>
+		</completion>
+		
 	</set>
 
 <!-- ^CLASSES -->
