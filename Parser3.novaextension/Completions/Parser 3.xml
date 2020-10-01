@@ -1326,6 +1326,185 @@ $[]</append>
 			</behavior>
 		</completion>
 		
+		<!-- string -->
+		<completion string="base64">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="format">
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="int">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="int">
+			<behavior>
+				<append>($[default value])</append>
+			</behavior>
+		</completion>
+		<completion string="double">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="double">
+			<behavior>
+				<append>($[default value])</append>
+			</behavior>
+		</completion>
+		<completion string="bool">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="bool">
+			<behavior>
+				<append>($[default value])</append>
+			</behavior>
+		</completion>
+		<completion string="idna">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="js-escape">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="left">
+			<behavior>
+				<append>($[int])</append>
+			</behavior>
+		</completion>
+		<completion string="right">
+			<behavior>
+				<append>($[int])</append>
+			</behavior>
+		</completion>
+		<completion string="length">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="match">
+			<behavior>
+				<append>[$[pattern]]</append>
+			</behavior>
+		</completion>
+		<completion string="match">
+			<behavior>
+				<append>[$[pattern]][$[options]]</append>
+			</behavior>
+		</completion>
+		<completion string="match">
+			<behavior>
+				<append>[$[pattern]][$[options]]{$[replace]}</append>
+			</behavior>
+		</completion>
+		<completion string="match">
+			<behavior>
+				<append>[$[pattern]][$[options]]{$[replace]}{$[not found]}</append>
+			</behavior>
+		</completion>
+		<completion string="mid">
+			<behavior>
+				<append>($[position];$[length])</append>
+			</behavior>
+		</completion>
+		<completion string="mid">
+			<behavior>
+				<append>($[position])</append>
+			</behavior>
+		</completion>
+		<completion string="pos">
+			<behavior>
+				<append>[$[substring]]</append>
+			</behavior>
+		</completion>
+		<completion string="pos">
+			<behavior>
+				<append>[$[substring]]($[start position])</append>
+			</behavior>
+		</completion>
+		<completion string="replace">
+			<behavior>
+				<append>[$[table]]</append>
+			</behavior>
+		</completion>
+		<completion string="replace">
+			<behavior>
+				<append>[$[from];$[to]]</append>
+			</behavior>
+		</completion>
+		<completion string="save">
+			<behavior>
+				<append>[$[path]]</append>
+			</behavior>
+		</completion>
+		<completion string="save">
+			<behavior>
+				<append>[append;$[path]]</append>
+			</behavior>
+		</completion>
+		<completion string="save">
+			<behavior>
+				<append>[$[path];
+	$.charset[$[charset]] 
+	$.append($[true|false])
+]</append>
+			</behavior>
+		</completion>
+		<completion string="split">
+			<behavior>
+				<append>[$[separator]]</append>
+			</behavior>
+		</completion>
+		<completion string="split">
+			<behavior>
+				<append>[$[separator];$[options]]</append>
+			</behavior>
+		</completion>
+		<completion string="split">
+			<behavior>
+				<append>[$[separator];$[options];$[fieldname]]</append>
+			</behavior>
+		</completion>
+		<completion string="trim">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="trim">
+			<behavior>
+				<append>[$[both|left|right]]</append>
+			</behavior>
+		</completion>
+		<completion string="trim">
+			<behavior>
+				<append>[$[both|left|right];$[symbols]]</append>
+			</behavior>
+		</completion>
+		<completion string="trim">
+			<behavior>
+				<append>[$[symbols]]</append>
+			</behavior>
+		</completion>
+		<completion string="upper">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="lower">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
 	</set>
 
 <!-- ^CLASSES -->
