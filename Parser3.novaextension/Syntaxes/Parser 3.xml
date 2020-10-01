@@ -451,7 +451,9 @@
 					<string>stack</string>
 					<string>tainting</string>
 					<string>uid</string>
-
+					<!-- request -->
+					<string>charset</string>
+					<string>document-root</string>
 				</strings>
 			</scope>
 			
@@ -491,6 +493,18 @@
 					<!-- math -->
 					<string>PI</string>
 					<string>E</string>
+					<!-- request -->
+					<string>argv</string>
+					<string>body</string>
+					<string>post-charset</string>
+					<string>body-charset</string>
+					<string>body-charset</string>
+					<string>post-body</string>
+					<string>body-file</string>
+					<string>headers</string>
+					<string>method</string>
+					<string>query</string>
+					<string>uri</string>
 				</strings>
 			</scope>
 

@@ -324,7 +324,26 @@
 		<symbols type="method" />
 		<set>parser3.core.regex</set>
 	</provider>
+
+<!-- "$request:" -->
+<!-- "^request:" -->
+
+	<provider name="request">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\^request\:)([a-z]+)</expression>
+		<symbols type="method" />
+		<set>parser3.core.request</set>
+	</provider>
 	
+	<provider name="request">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\$request\:)([a-z]+)</expression>
+		<symbols type="method" />
+		<set>parser3.core.request.static</set>
+	</provider>
+
 <!-- "^string" -->
 	<provider name="string">
 		<syntax>parser3</syntax>
@@ -2460,7 +2479,7 @@ $[]</append>
 	</set>
 
 <!-- REGEX -->
-	
+
 	<set name="parser3.core.regex" symbol="method">
 		<completion string="create">
 			<behavior>
@@ -2470,6 +2489,84 @@ $[]</append>
 		<completion string="create">
 			<behavior>
 				<append>[$[pattern][$[options]]</append>
+			</behavior>
+		</completion>
+	</set>
+
+<!-- REQUEST -->
+
+	<set name="parser3.core.request" symbol="property">
+		<completion string="argv">
+			<behavior>
+				<append>.</append>
+			</behavior>
+		</completion>
+		<completion string="body">
+			<behavior>
+				<append>.</append>
+			</behavior>
+		</completion>
+		<completion string="post-charset">
+			<behavior>
+				<append>.</append>
+			</behavior>
+		</completion>
+		<completion string="body-charset">
+			<behavior>
+				<append>.</append>
+			</behavior>
+		</completion>
+		<completion string="post-body">
+			<behavior>
+				<append>.</append>
+			</behavior>
+		</completion>
+		<completion string="body-file">
+			<behavior>
+				<append>.</append>
+			</behavior>
+		</completion>
+		<completion string="headers">
+			<behavior>
+				<append>.</append>
+			</behavior>
+		</completion>
+		<completion string="method">
+			<behavior>
+				<append>.</append>
+			</behavior>
+		</completion>
+		<completion string="query">
+			<behavior>
+				<append>.</append>
+			</behavior>
+		</completion>
+		<completion string="uri">
+			<behavior>
+				<append>.</append>
+			</behavior>
+		</completion>
+	</set>
+	
+	<set name="parser3.core.request.static" symbol="property">
+		<completion string="argv" />
+		<completion string="body" />
+		<completion string="post-charset" />
+		<completion string="body-charset" />
+		<completion string="post-body" />
+		<completion string="body-file" />
+		<completion string="headers" />
+		<completion string="method" />
+		<completion string="query" />
+		<completion string="uri" />
+		<completion string="charset">
+			<behavior>
+				<append>[$[charset]]</append>
+			</behavior>
+		</completion>
+		<completion string="document-root">
+			<behavior>
+				<append>[$[path]]</append>
 			</behavior>
 		</completion>
 	</set>
@@ -2773,17 +2870,23 @@ $[]</append>
 <!-- F -->
         <completion string="for">
             <behavior>
-                <append>[$[counter]]($[from];$[to]){$[code]}</append>
+                <append>[$[counter]]($[from];$[to]){
+	$[code]
+}</append>
             </behavior>
         </completion>
         <completion string="for">
             <behavior>
-                <append>[$[counter]]($[from];$[to]){$[code]}[$[string separator]]</append>
+                <append>[$[counter]]($[from];$[to]){
+	$[code]
+}[$[string separator]]</append>
             </behavior>
         </completion>
         <completion string="for">
             <behavior>
-                <append>[$[counter]]($[from];$[to]){$[code]}{$[code separator]}</append>
+                <append>[$[counter]]($[from];$[to]){
+	$[code]
+}{$[code separator]}</append>
             </behavior>
         </completion>
 	
