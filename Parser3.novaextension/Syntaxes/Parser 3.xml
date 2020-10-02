@@ -67,6 +67,7 @@
 		<include syntax="self" collection="blocks" />
 		<include syntax="self" collection="syntax" />
 		<include syntax="self" collection="properties" />
+		<include syntax="self" collection="variables" />
 	</scopes>
 
     <collections>
@@ -78,6 +79,9 @@
 				<capture number="1" name="parser3.comment.text" />
 			</scope>
 			<scope name="parser3.comment.block" spell-check="true">
+				<symbol type="comment">
+					<context behavior="subtree" />
+				</symbol>
 				<starts-with>
 					<expression>\^rem\{</expression>
 				</starts-with>
@@ -478,7 +482,9 @@
 					<!-- hashfile -->
 					<string>open</string>
 					<!-- image -->
-					<string>:measure</string>
+					<string>measure</string>
+					<!-- xdoc -->
+					<string>load</string>
 				</strings>
 			</scope>
 
@@ -702,7 +708,7 @@
 		<collection name="variables">
 			<scope name="parser3.identifier.variable.core">
 				<!-- <strings word-boundary="false" suffix="\b"> -->
-				<strings word-boundary="false" suffix="\b">
+				<strings word-boundary="true" suffix="\b">
 					<string>LIMITS</string>
 					<string>MAIN</string>
 					<string>MAIL</string>
@@ -714,13 +720,13 @@
 			
 			<scope name="parser3.identifier.variable">
 				<!-- <symbol type="variable" scope="local" /> -->
-				<symbol type="variable" />
+				<symbol type="variable"  scope="local" />
 				<expression>(\$)([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)</expression>
 				<capture number="1" name="parser3.identifier.symbol" />
 				<capture number="2" name="parser3.identifier.name" />
 			</scope>
 		</collection>
-		
+
 		<!-- Values -->
 		<collection name="values">
 			<include syntax="self" collection="strings" />
@@ -817,7 +823,8 @@
 			</scope> 
 			
 			<scope name="parser3.identifier">
-				<expression>\b[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*\b</expression>
+				<!-- <expression>\b[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*\b</expression> -->
+				<expression>[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*</expression>
 			</scope>
 		</collection>
 

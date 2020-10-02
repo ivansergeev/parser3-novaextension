@@ -93,6 +93,15 @@
         <symbols type="class" />
         <set>parser3.core.classes</set>
     </provider>
+
+<!-- "^classes" -->
+    <provider name="custom.classes">
+        <syntax>parser3</syntax>
+        <selector>*:not(comment)</selector>
+        <expression>(?&lt;=\^)([a-z]+)</expression>
+        <symbols type="class" />
+        <set>parser3.custom.classes.</set>
+    </provider>
     
 <!-- "$classes" -->
     <provider name="classes.static">
@@ -418,7 +427,23 @@
 		<set>parser3.core.void</set>
 	</provider>
 
+<!-- "^xdoc" -->
+	<provider name="xdoc">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\^xdoc\:\:)([a-z0-9-]+)</expression>
+		<symbols type="method" />
+		<set>parser3.core.xdoc</set>
+	</provider>
+	
 <!-- SETS -->
+	
+<!-- <completion string="parseInt" symbol="function" result="Number">
+	<description>Parses a string argument and returns an integer of the specified radix or base.</description>
+	<behavior>
+		<append>($[string], $[radix])</append>
+	</behavior>
+</completion> -->
 
     <set name="parser3.core.values" symbol="constant">
         <completion string="true" />
@@ -2004,7 +2029,30 @@ $[]</append>
 		</completion>
 	</set>
 
-
+<!-- CUSTOM $CLASSES -->
+	<!-- 
+	<set name="parser3.custom.classes" symbol="class">
+		<completion string="Session">
+			<behavior>
+				<append>:</append>
+			</behavior>
+		</completion>
+		<completion string="Time">
+			<behavior>
+				<append>:</append>
+			</behavior>
+		</completion>
+		<completion string="Transaction">
+			<behavior>
+				<append>:</append>
+			</behavior>
+		</completion>
+		<completion string="Validate">
+			<behavior>
+				<append>:</append>
+			</behavior>
+		</completion>
+	</set> -->
 
 
 
@@ -3373,7 +3421,40 @@ $[]</append>
 	</set>
 
 
-
+<!-- XDOC -->
+	
+	<set name="parser3.core.xdoc" symbol="method">
+		<completion string="create">
+			<behavior>
+				<append>{$[xml]}</append>
+			</behavior>
+		</completion>
+		<completion string="create">
+			<behavior>
+				<append>[$[basepath]]{$[xml]}</append>
+			</behavior>
+		</completion>
+		<completion string="create">
+			<behavior>
+				<append>[$[tagname]]</append>
+			</behavior>
+		</completion>
+		<completion string="create">
+			<behavior>
+				<append>[$[basepath];$[tagname]]</append>
+			</behavior>
+		</completion>
+		<completion string="create">
+			<behavior>
+				<append>[$[file]]</append>
+			</behavior>
+		</completion>
+		<completion string="load">
+			<behavior>
+				<append>[$[filename]]</append>
+			</behavior>
+		</completion>
+	</set>
 
 <!-- CORE OPERATORS -->
 
