@@ -1,3 +1,3 @@
 ## Version 0.3
 
-Initial release. 
+Initial release. Basic language support.
