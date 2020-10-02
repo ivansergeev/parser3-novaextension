@@ -1,3 +1,3 @@
-## Version 0.1 (WIP)
+## Version 0.3
 
 Initial release. 
