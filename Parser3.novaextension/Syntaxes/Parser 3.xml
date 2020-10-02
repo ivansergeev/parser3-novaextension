@@ -27,7 +27,7 @@
 			<expression>^\s*(\s*/\*.*\*/\s*)*[\}\]\)\\]</expression>
 		</decrease>
 	</indentation>
-    
+
     <comments>
 		<single>
 			<expression>#</expression>
@@ -417,7 +417,7 @@
 					<string>clear</string>
 				</strings>
 			</scope>
-			
+
 			<!-- ::foo({[ -->
 			<scope name="parser3.keyword.class.method">
 				<strings prefix="(?&lt;=(::))" suffix="(?=\(|\{|\[)">
@@ -599,8 +599,7 @@
 					<string>delete</string>
 					<string>mget</string>
 					<string>release</string>
-					
-					
+
 				</strings>
 			</scope>
 			
@@ -651,9 +650,8 @@
 					<string>return</string>
 				</strings>
 			</scope>
-			
+
 			<scope name="parser3.identifier.variable">
-				<!-- <symbol type="variable" scope="local" /> -->
 				<symbol type="variable"  scope="local" />
 				<expression>(\$)([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)</expression>
 				<capture number="1" name="parser3.identifier.symbol" />
