@@ -1,8 +1,8 @@
 {
     "identifier": "org.ivansergeev.Parser3",
     "name": "Parser 3",
-    "description": "Parser 3 syntax support (www.parser.ru/en/)",
-    "vendor": "Ivan Sergeev",
+    "description": "Parser 3 syntax support",
+    "organization": "Ivan Sergeev",
     "version": "0.3",
     "categories": ["languages"],
 	"keywords": ["parser 3", "parser3"],
