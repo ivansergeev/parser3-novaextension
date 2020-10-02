@@ -437,13 +437,6 @@
 	</provider>
 	
 <!-- SETS -->
-	
-<!-- <completion string="parseInt" symbol="function" result="Number">
-	<description>Parses a string argument and returns an integer of the specified radix or base.</description>
-	<behavior>
-		<append>($[string], $[radix])</append>
-	</behavior>
-</completion> -->
 
     <set name="parser3.core.values" symbol="constant">
         <completion string="true" />
@@ -2028,31 +2021,6 @@ $[]</append>
 			</behavior>
 		</completion>
 	</set>
-
-<!-- CUSTOM $CLASSES -->
-	<!-- 
-	<set name="parser3.custom.classes" symbol="class">
-		<completion string="Session">
-			<behavior>
-				<append>:</append>
-			</behavior>
-		</completion>
-		<completion string="Time">
-			<behavior>
-				<append>:</append>
-			</behavior>
-		</completion>
-		<completion string="Transaction">
-			<behavior>
-				<append>:</append>
-			</behavior>
-		</completion>
-		<completion string="Validate">
-			<behavior>
-				<append>:</append>
-			</behavior>
-		</completion>
-	</set> -->
 
 
 

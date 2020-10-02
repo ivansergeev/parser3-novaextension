@@ -28,7 +28,6 @@
 		</decrease>
 	</indentation>
     
-
     <comments>
 		<single>
 			<expression>#</expression>
@@ -109,32 +108,10 @@
 				<capture number="2" name="parser3.identifier.function.name" />
 			</scope>
 			
-			<!-- Constant -->
-			<!-- <scope name="parser3.definition.constant">
-				<symbol type="constant" scope="local" />
-				<expression>(?&lt;!\.)([A-Z][A-Z0-9_]*)\s*(\=)(?!\=)</expression>
-				<capture number="1" name="parser3.identifier.constant.name" />
-				<capture number="2" name="parser3.operator" />
-			</scope> -->
-			
-			<!-- Constant -->
-			<!-- <scope name="parser3.definition.constant">
-				<symbol type="constant" scope="local" />
-				<expression>(?&lt;!\.)([A-Z][A-Z0-9_]*)\s*(\=)(?!\=)</expression>
-				<capture number="1" name="parser3.identifier.constant.name" />
-				<capture number="2" name="parser3.operator" />
-			</scope> -->
-			
 		</collection>
 		
 		<!-- Keywords -->
 		<collection name="keywords">
-			
-			<!-- <scope name="parser3.keyword.symbol">
-				<strings>
-					<string>^</string>
-				</strings>
-			</scope> -->
 			
 			<scope name="parser3.keyword">
 				<strings>
@@ -273,32 +250,7 @@
 					<string>USE</string>
 				</strings>
 			</scope>
-			
-			<!-- ^foo. -->			
-			<!-- <scope name="parser3.keyword.operator.method">
-				<strings prefix="(?&lt;=\^)" suffix="(?=\.)">
-					<string></string>
-				</strings>
-			</scope> -->
-			
-			<!-- $foo -->			
-			<!-- <scope name="parser3.keyword.operator.variables">
-				<strings prefix="(?&lt;=\$)">
-					<string>return</string>
-				</strings>
-			</scope> -->
-			
-			<!-- $foo -->
-			<!-- <scope name="parser3.keyword.core.variables">
-				<strings prefix="(?&lt;=\$)">
-					<string>MAIN</string>
-					<string>LIMITS</string>
-					<string>MAIL</string>
-					<string>SQL</string>
-					<string>MIME-TYPES</string>
-				</strings>
-			</scope> -->
-			
+
 			<!-- ^foo -->			
 			<scope name="parser3.keyword.core.variable.method">
 				<strings prefix="(?&lt;=\^)" suffix="(?=\.)">
@@ -686,24 +638,6 @@
 			
 		</collection>
 		
-		<!-- $foo -->			
-		<!-- <scope name="parser3.keyword.operator.variables">
-			<strings prefix="(?&lt;=\$)">
-				<string>return</string>
-			</strings>
-		</scope> -->
-		
-		<!-- $foo -->
-		<!-- <scope name="parser3.keyword.core.variables">
-			<strings prefix="(?&lt;=\$)">
-				<string>MAIN</string>
-				<string>LIMITS</string>
-				<string>MAIL</string>
-				<string>SQL</string>
-				<string>MIME-TYPES</string>
-			</strings>
-		</scope> -->
-		
 		<!-- Variables -->
 		<collection name="variables">
 			<scope name="parser3.identifier.variable.core">
@@ -760,70 +694,16 @@
 				<capture number="1" name="parser3.string.regex.text" />
 			</scope> -->
 		</collection>
-		
-		
-		<!-- <collection name="properties">
-			<scope name="parser3.property">
-				<symbol type="property" />
-				<starts-with>
-					<expression>\[</expression>
-					<capture number="0" name="parser3.property.bracket" />
-				</starts-with>
-				<ends-with>
-					<expression>\]</expression>
-					<capture number="0" name="parser3.property.bracket" />
-				</ends-with>
-				<subscopes>
-					<include syntax="self" />
-				</subscopes>
-			</scope>
-		</collection> -->
-		
-		<!-- Identifiers -->
-		<!-- <collection name="identifiers"> -->
-		<!--
-			<scope name="parser3.identifier.variable.hash">
-				<expression>\b%([a-zA-Z_][a-zA-Z0-9_]*)\b</expression>
-			</scope>
-			<scope name="parser3.identifier.variable.array">
-				<expression>\b@([a-zA-Z_][a-zA-Z0-9_]*)\b</expression>
-			</scope>
-			<scope name="parser3.identifier.variable.scalar">
-				<expression>\b\$([a-zA-Z_][a-zA-Z0-9_]*)\b</expression>
-			</scope>
-			<scope name="parser3.identifier.property">
-				<expression>\b(?&lt;=\.)([a-zA-Z_][a-zA-Z0-9_]*)(?!\()\b</expression>
-			</scope>
-		-->
-			<!-- <scope name="parser3.identifier.method"> -->
-				<!-- <expression>\b(?&lt;=\.)([a-zA-Z_][a-zA-Z0-9_]*)(?=\()\b</expression> -->
-				<!-- <expression>\b^([a-zA-Z_][a-zA-Z0-9_]*)\:([a-zA-Z_][a-zA-Z0-9_]*)\b</expression> -->
-			<!-- </scope> -->
-			<!-- <scope name="parser3.identifier.function"> -->
-				<!-- <expression>\b(?&lt;!\.)([a-zA-Z_][a-zA-Z0-9_]*)(?=\()\b</expression> -->
-				<!-- <expression>\b^([a-zA-Z_][a-zA-Z0-9_]*)\b</expression> -->
-			<!-- </scope> -->
-			<!-- <scope name="parser3.identifier"> -->
-				<!-- <expression>\b[a-zA-Z_][A-Za-z0-9_]*\b</expression> -->
-			<!-- </scope> -->
-		<!-- </collection> -->
 
 		<!-- Identifiers -->
 		<collection name="identifiers">
 			<include syntax="self" collection="variables" />
-			<!-- <scope name="php.identifier.property">
-				<expression>\b(?&lt;=-&gt;)([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)\s*(?!\()\b</expression>
-			</scope>
-			<scope name="php.identifier.method">
-				<expression>\b(?&lt;=-&gt;)([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)\s*(?=\()</expression>
-			</scope>
-			-->
+
 			<scope name="parser3.identifier.method">
 				<expression>\^([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\\\x7f-\xff]*)</expression>
 			</scope> 
 			
 			<scope name="parser3.identifier">
-				<!-- <expression>\b[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*\b</expression> -->
 				<expression>[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*</expression>
 			</scope>
 		</collection>
@@ -846,24 +726,7 @@
 					<include syntax="self" />
 				</subscopes>
 			</scope>
-		<!-- 
-			<scope name="parser3.block.curl-options">
-				<symbol type="block">
-					<context behavior="subtree" />
-				</symbol>
-				<starts-with>
-					<expression>(\^curl\:options)(\[)</expression>
-					<capture number="1" name="parser3.block.curl-options.keyword" />
-					<capture number="2" name="parser3.bracket" />
-				</starts-with>
-				<ends-with>
-					<expression>(?=\])</expression>
-					<capture number="1" name="parser3.bracket" />
-				</ends-with>
-				<subscopes>
-				</subscopes>
-			</scope>
-		 -->
+		
 			<scope name="parser3.block.sql">
 				<starts-with>
 					<expression>(sql)(\{)</expression>
@@ -874,7 +737,6 @@
 					<expression>(?=\})</expression>
 					<capture number="1" name="parser3.bracket" />
 				</ends-with>
-<!--				<subscopes></subscopes> -->
 			</scope>
 			
 			<scope name="parser3.block.taint.options">
@@ -903,7 +765,6 @@
 					<expression>(?=\})</expression>
 					<capture number="1" name="parser3.bracket" />
 				</ends-with>
-<!--				<subscopes></subscopes> -->
 			</scope>
 			
 		</collection>
