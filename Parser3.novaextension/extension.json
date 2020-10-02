@@ -4,5 +4,8 @@
     "description": "Parser 3 syntax support (www.parser.ru/en/)",
     "author": "Ivan Sergeev",
     "version": "0.3",
-    "categories": ["languages"]
+    "categories": ["languages"],
+	
+	"repository": "https://github.com/ivansergeev/parser3-novaextension",
+	"bugs": "https://github.com/ivansergeev/parser3-novaextension/issues"
 }
