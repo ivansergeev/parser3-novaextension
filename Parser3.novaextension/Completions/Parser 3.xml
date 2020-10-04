@@ -939,32 +939,38 @@ $[]</append>
 	<set name="parser3.instance.method" symbol="method">
 		<!-- file -->
 		<completion string="base64">
+			<description>file</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="crc32">
+			<description>file</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		
 		<completion string="md5">
+			<description>file</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="sql-string">
+			<description>file</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="save">
+			<description>file</description>
 			<behavior>
 				<append>[$[text|binary];$[filename]]</append>
 			</behavior>
 		</completion>
 		<completion string="save">
+			<description>file</description>
 			<behavior>
 				<append>[$[text|binary];$[filename];
 	$.charset[$[charset]]
@@ -974,16 +980,19 @@ $[]</append>
 
 <!-- date -->
 		<completion string="gmt-string">
+			<description>date</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="iso-string">
+			<description>date</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="iso-string">
+			<description>date</description>
 			<behavior>
 				<append>[
 	$.colon($[true/false])
@@ -993,31 +1002,37 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="last-day">
+			<description>date</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="roll">
+			<description>date</description>
 			<behavior>
 				<append>[$[year|month|day]]($[value])</append>
 			</behavior>
 		</completion>
 		<completion string="roll">
+			<description>date</description>
 			<behavior>
 				<append>[TZ][$[new timezone]]</append>
 			</behavior>
 		</completion>
 		<completion string="sql-string">
+			<description>date</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="sql-string">
+			<description>date</description>
 			<behavior>
 				<append>[$[datetime|date|time]]</append>
 			</behavior>
 		</completion>
 		<completion string="unix-timestamp">
+			<description>date</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
@@ -1025,82 +1040,98 @@ $[]</append>
 		
 <!-- hash -->
 		<completion string="_at">
+			<description>hash</description>
 			<behavior>
 				<append>($[number])</append>
 			</behavior>
 		</completion>
 		<completion string="_at">
+			<description>hash</description>
 			<behavior>
 				<append>[$[first|last]]</append>
 			</behavior>
 		</completion>
 		<completion string="at">
+			<description>hash</description>
 			<behavior>
 				<append>($[number])</append>
 			</behavior>
 		</completion>
 		<completion string="at">
+			<description>hash</description>
 			<behavior>
 				<append>[$[first|last]]</append>
 			</behavior>
 		</completion>
 		<completion string="at">
+			<description>hash</description>
 			<behavior>
 				<append>($[number])[$[key|value|hash]]</append>
 			</behavior>
 		</completion>
 		<completion string="at">
+			<description>hash</description>
 			<behavior>
 				<append>[$[first|last];$[key|value|hash]]</append>
 			</behavior>
 		</completion>
 		
 		<completion string="_count">
+			<description>hash</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="count">
+			<description>hash</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="_keys">
+			<description>hash</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="_keys">
+			<description>hash</description>
 			<behavior>
 				<append>[$[field]]</append>
 			</behavior>
 		</completion>
 		<completion string="keys">
+			<description>hash</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="keys">
+			<description>hash</description>
 			<behavior>
 				<append>[$[field]]</append>
 			</behavior>
 		</completion>
 		<completion string="contains">
+			<description>hash</description>
 			<behavior>
 				<append>[$[key]]</append>
 			</behavior>
 		</completion>
 		<completion string="delete">
+			<description>hash</description>
 			<behavior>
 				<append>[$[key]]</append>
 			</behavior>
 		</completion>
 		<completion string="delete">
+			<description>hash</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="foreach">
+			<description>hash</description>
 			<behavior>
 				<append>[key;value]{
 	$[]
@@ -1108,6 +1139,7 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="foreach">
+			<description>hash</description>
 			<behavior>
 				<append>[key;value]{
 	$[]
@@ -1115,6 +1147,7 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="foreach">
+			<description>hash</description>
 			<behavior>
 				<append>[key;value]{
 	$[]
@@ -1125,21 +1158,25 @@ $[]</append>
 		</completion>
 
 		<completion string="add">
+			<description>hash</description>
 			<behavior>
 				<append>[$[hash]]</append>
 			</behavior>
 		</completion>
 		<completion string="intersection">
+			<description>hash</description>
 			<behavior>
 				<append>[$[hash]]</append>
 			</behavior>
 		</completion>
 		<completion string="intersects">
+			<description>hash</description>
 			<behavior>
 				<append>[$[hash]]</append>
 			</behavior>
 		</completion>
 		<completion string="sort">
+			<description>hash</description>
 			<behavior>
 				<append>[$[key];$[value]]{
 	$[sort function by string]
@@ -1147,6 +1184,7 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="sort">
+			<description>hash</description>
 			<behavior>
 				<append>[$[key];$[value]]{
 	$[sort function by string]
@@ -1154,6 +1192,7 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="sort">
+			<description>hash</description>
 			<behavior>
 				<append>[$[key];$[value]](
 	$[sort function by number]
@@ -1161,6 +1200,7 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="sort">
+			<description>hash</description>
 			<behavior>
 				<append>[$[key];$[value]](
 	$[sort function by number]
@@ -1168,11 +1208,13 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="sub">
+			<description>hash</description>
 			<behavior>
 				<append>[$[hash]]</append>
 			</behavior>
 		</completion>
 		<completion string="union">
+			<description>hash</description>
 			<behavior>
 				<append>[$[hash]]</append>
 			</behavior>
@@ -1180,32 +1222,38 @@ $[]</append>
 
 <!-- hashfile -->
 		<completion string="cleanup">
+			<description>hashfile</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="hash">
+			<description>hashfile</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 <!-- image -->
 		<completion string="gif">
+			<description>image</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="gif">
+			<description>image</description>
 			<behavior>
 				<append>[$[filename]]</append>
 			</behavior>
 		</completion>
 		<completion string="html">
+			<description>image</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="html">
+			<description>image</description>
 			<behavior>
 				<append>[
 	$.border[$[border]]		
@@ -1215,52 +1263,62 @@ $[]</append>
 		</completion>
 		<!-- static -->
 		<completion string="line-style">
+			<description>image</description>
 			<behavior>
 				<append>[$[***   ]]</append>
 			</behavior>
 		</completion>
 		<!-- static -->
 		<completion string="line-width">
+			<description>image</description>
 			<behavior>
 				<append>($[width])</append>
 			</behavior>
 		</completion>
 		<completion string="arc">
+			<description>image</description>
 			<behavior>
 				<append>($[center x];$[center y];$[width];$[height];$[start in degrees];$[end in degrees];$[color])</append>
 			</behavior>
 		</completion>
 		<completion string="bar">
+			<description>image</description>
 			<behavior>
 				<append>($[x0];$[y0];$[x1];$[y1];$[color])</append>
 			</behavior>
 		</completion>
 		<completion string="copy">
+			<description>image</description>
 			<behavior>
 				<append>[$[src image]]($[x1];$[y1];$[width];$[height];$[x2];$[y2])</append>
 			</behavior>
 		</completion>
 		<completion string="copy">
+			<description>image</description>
 			<behavior>
 				<append>[$[src image]]($[x1];$[y1];$[width 1];$[height 1];$[x2];$[y2];$[width 2];$[height 2];$[color])</append>
 			</behavior>
 		</completion>
 		<completion string="fill">
+			<description>image</description>
 			<behavior>
 				<append>($[x];$[y];$[color])</append>
 			</behavior>
 		</completion>
 		<completion string="font">
+			<description>image</description>
 			<behavior>
 				<append>[$[symbols];$[font image]]($[space width])</append>
 			</behavior>
 		</completion>
 		<completion string="font">
+			<description>image</description>
 			<behavior>
 				<append>[$[symbols];$[font image]]($[space width];$[symbol width])</append>
 			</behavior>
 		</completion>
 		<completion string="font">
+			<description>image</description>
 			<behavior>
 				<append>[$[symbols];$[font image]][
 	$.space(0)
@@ -1270,61 +1328,73 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="length">
+			<description>image</description>
 			<behavior>
 				<append>[$[text]]</append>
 			</behavior>
 		</completion>
 		<completion string="line">
+			<description>image</description>
 			<behavior>
 				<append>($[x0];$[y0];$[x1];$[y1];$[color])</append>
 			</behavior>
 		</completion>
 		<completion string="pixel">
+			<description>image</description>
 			<behavior>
 				<append>($[x];$[y])</append>
 			</behavior>
 		</completion>
 		<completion string="pixel">
+			<description>image</description>
 			<behavior>
 				<append>($[x];$[y];$[color])</append>
 			</behavior>
 		</completion>
 		<completion string="polybar">
+			<description>image</description>
 			<behavior>
 				<append>($[color])[$[coordinates table]]</append>
 			</behavior>
 		</completion>
 		<completion string="polygon">
+			<description>image</description>
 			<behavior>
 				<append>($[color])[$[coordinates table]]</append>
 			</behavior>
 		</completion>
 		<completion string="polyline">
+			<description>image</description>
 			<behavior>
 				<append>($[color])[$[coordinates table]]</append>
 			</behavior>
 		</completion>
 		<completion string="rectangle">
+			<description>image</description>
 			<behavior>
 				<append>($[x0];$[y0];$[x1];$[y1];$[line color])</append>
 			</behavior>
 		</completion>
 		<completion string="replace">
+			<description>image</description>
 			<behavior>
 				<append>($[old color];$[new color])[$[coordinates table]]</append>
 			</behavior>
 		</completion>
 		<completion string="replace">
+			<description>image</description>
 			<behavior>
 				<append>($[old color];$[new color])</append>
 			</behavior>
 		</completion>
 		<completion string="sector">
+			<description>image</description>
 			<behavior>
 				<append>($[center x];$[center y];$[width];$[height];$[start in degrees];$[end in degrees];$[color])</append>
 			</behavior>
 		</completion>
 		<completion string="text">
+			<description>image</description>
 			<behavior>
 				<append>($[x];$[y])[$[text]]</append>
 			</behavior>
@@ -1332,31 +1402,37 @@ $[]</append>
 		
 		<!-- memcached -->		
 		<completion string="add">
+			<description>memcached</description>
 			<behavior>
 				<append>[$[key];$[value]]</append>
 			</behavior>
 		</completion>
 		<completion string="clear">
+			<description>memcached</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="clear">
+			<description>memcached</description>
 			<behavior>
 				<append>($[seconds])</append>
 			</behavior>
 		</completion>
 		<completion string="delete">
+			<description>memcached</description>
 			<behavior>
 				<append>[$[key]]</append>
 			</behavior>
 		</completion>
 		<completion string="mget">
+			<description>memcached</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="release">
+			<description>memcached</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
@@ -1364,131 +1440,157 @@ $[]</append>
 		
 		<!-- string -->
 		<completion string="base64">
+			<description>string</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="format">
+			<description>string</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="int">
+			<description>string</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="int">
+			<description>string</description>
 			<behavior>
 				<append>($[default value])</append>
 			</behavior>
 		</completion>
 		<completion string="double">
+			<description>string</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="double">
+			<description>string</description>
 			<behavior>
 				<append>($[default value])</append>
 			</behavior>
 		</completion>
 		<completion string="bool">
+			<description>string</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="bool">
+			<description>string</description>
 			<behavior>
 				<append>($[default value])</append>
 			</behavior>
 		</completion>
 		<completion string="idna">
+			<description>string</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="js-escape">
+			<description>string</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="left">
+			<description>string</description>
 			<behavior>
 				<append>($[int])</append>
 			</behavior>
 		</completion>
 		<completion string="right">
+			<description>string</description>
 			<behavior>
 				<append>($[int])</append>
 			</behavior>
 		</completion>
 		<completion string="length">
+			<description>string</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="match">
+			<description>string</description>
 			<behavior>
 				<append>[$[pattern]]</append>
 			</behavior>
 		</completion>
 		<completion string="match">
+			<description>string</description>
 			<behavior>
 				<append>[$[pattern]][$[options]]</append>
 			</behavior>
 		</completion>
 		<completion string="match">
+			<description>string</description>
 			<behavior>
 				<append>[$[pattern]][$[options]]{$[replace]}</append>
 			</behavior>
 		</completion>
 		<completion string="match">
+			<description>string</description>
 			<behavior>
 				<append>[$[pattern]][$[options]]{$[replace]}{$[not found]}</append>
 			</behavior>
 		</completion>
 		<completion string="mid">
+			<description>string</description>
 			<behavior>
 				<append>($[position];$[length])</append>
 			</behavior>
 		</completion>
 		<completion string="mid">
+			<description>string</description>
 			<behavior>
 				<append>($[position])</append>
 			</behavior>
 		</completion>
 		<completion string="pos">
+			<description>string</description>
 			<behavior>
 				<append>[$[substring]]</append>
 			</behavior>
 		</completion>
 		<completion string="pos">
+			<description>string</description>
 			<behavior>
 				<append>[$[substring]]($[start position])</append>
 			</behavior>
 		</completion>
 		<completion string="replace">
+			<description>string</description>
 			<behavior>
 				<append>[$[table]]</append>
 			</behavior>
 		</completion>
 		<completion string="replace">
+			<description>string</description>
 			<behavior>
 				<append>[$[from];$[to]]</append>
 			</behavior>
 		</completion>
 		<completion string="save">
+			<description>string</description>
 			<behavior>
 				<append>[$[path]]</append>
 			</behavior>
 		</completion>
 		<completion string="save">
+			<description>string</description>
 			<behavior>
 				<append>[append;$[path]]</append>
 			</behavior>
 		</completion>
 		<completion string="save">
+			<description>string</description>
 			<behavior>
 				<append>[$[path];
 	$.charset[$[charset]] 
@@ -1497,46 +1599,55 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="split">
+			<description>string</description>
 			<behavior>
 				<append>[$[separator]]</append>
 			</behavior>
 		</completion>
 		<completion string="split">
+			<description>string</description>
 			<behavior>
 				<append>[$[separator];$[options]]</append>
 			</behavior>
 		</completion>
 		<completion string="split">
+			<description>string</description>
 			<behavior>
 				<append>[$[separator];$[options];$[fieldname]]</append>
 			</behavior>
 		</completion>
 		<completion string="trim">
+			<description>string</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="trim">
+			<description>string</description>
 			<behavior>
 				<append>[$[both|left|right]]</append>
 			</behavior>
 		</completion>
 		<completion string="trim">
+			<description>string</description>
 			<behavior>
 				<append>[$[both|left|right];$[symbols]]</append>
 			</behavior>
 		</completion>
 		<completion string="trim">
+			<description>string</description>
 			<behavior>
 				<append>[$[symbols]]</append>
 			</behavior>
 		</completion>
 		<completion string="upper">
+			<description>string</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="lower">
+			<description>string</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
@@ -1544,41 +1655,49 @@ $[]</append>
 		
 		<!-- table -->
 		<completion string="append">
+			<description>table</description>
 			<behavior>
 				<append>{$[data]}</append>
 			</behavior>
 		</completion>
 		<completion string="append">
+			<description>table</description>
 			<behavior>
 				<append>[$[data or hash]]</append>
 			</behavior>
 		</completion>
 		<completion string="columns">
+			<description>table</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="columns">
+			<description>table</description>
 			<behavior>
 				<append>[$[fieldname]]</append>
 			</behavior>
 		</completion>
 		<completion string="count">
+			<description>table</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="count">
+			<description>table</description>
 			<behavior>
 				<append>[$[columns|cells|rows]]</append>
 			</behavior>
 		</completion>
 		<completion string="csv-string">
+			<description>table</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="csv-string">
+			<description>table</description>
 			<behavior>
 				<append>[
 	$.separator[$[separator symbol]]
@@ -1587,11 +1706,13 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="csv-string">
+			<description>table</description>
 			<behavior>
 				<append>[nameless]</append>
 			</behavior>
 		</completion>
 		<completion string="csv-string">
+			<description>table</description>
 			<behavior>
 				<append>[nameless;
 	$.separator[$[separator symbol]]
@@ -1600,16 +1721,19 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="flip">
+			<description>table</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="hash">
+			<description>table</description>
 			<behavior>
 				<append>[$[key]]</append>
 			</behavior>
 		</completion>
 		<completion string="hash">
+			<description>table</description>
 			<behavior>
 				<append>[$[key]][
 	$.type[$[hash|string|table]]
@@ -1619,11 +1743,13 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="hash">
+			<description>table</description>
 			<behavior>
 				<append>[$[key]][$[field]]</append>
 			</behavior>
 		</completion>
 		<completion string="hash">
+			<description>table</description>
 			<behavior>
 				<append>[$[key]][$[field]][
 	$.type[$[hash|string|table]]
@@ -1633,11 +1759,13 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="hash">
+			<description>table</description>
 			<behavior>
 				<append>[$[key]]{$[code]}</append>
 			</behavior>
 		</completion>
 		<completion string="hash">
+			<description>table</description>
 			<behavior>
 				<append>[$[key]]{$[code]}[
 	$.type[$[hash|string|table]]
@@ -1647,11 +1775,13 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="hash">
+			<description>table</description>
 			<behavior>
 				<append>[$[key]][$[table with fields]]</append>
 			</behavior>
 		</completion>
 		<completion string="hash">
+			<description>table</description>
 			<behavior>
 				<append>[$[key]][$[table with fields]][
 	$.type[$[hash|string|table]]
@@ -1661,21 +1791,25 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="insert">
+			<description>table</description>
 			<behavior>
 				<append>{$[data]}</append>
 			</behavior>
 		</completion>
 		<completion string="insert">
+			<description>table</description>
 			<behavior>
 				<append>[$[hash]]</append>
 			</behavior>
 		</completion>
 		<completion string="join">
+			<description>table</description>
 			<behavior>
 				<append>[$[table]]</append>
 			</behavior>
 		</completion>
 		<completion string="join">
+			<description>table</description>
 			<behavior>
 				<append>[$[table];
 	$.offset($[int])				
@@ -1686,16 +1820,19 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="locate">
+			<description>table</description>
 			<behavior>
 				<append>[$[field];$[value]]</append>
 			</behavior>
 		</completion>
 		<completion string="locate">
+			<description>table</description>
 			<behavior>
 				<append>($[expression])</append>
 			</behavior>
 		</completion>
 		<completion string="locate">
+			<description>table</description>
 			<behavior>
 				<append>[$[field];$[value];
 	$.offset($[int])				
@@ -1706,6 +1843,7 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="locate">
+			<description>table</description>
 			<behavior>
 				<append>($[expression])[
 	$.offset($[int])				
@@ -1716,6 +1854,7 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="menu">
+			<description>table</description>
 			<behavior>
 				<append>{
 	$[]
@@ -1723,6 +1862,7 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="menu">
+			<description>table method, with string separator</description>
 			<behavior>
 				<append>{
 	$[]
@@ -1730,6 +1870,7 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="menu">
+			<description>table method, with code separator</description>
 			<behavior>
 				<append>{
 	$[]
@@ -1740,31 +1881,37 @@ $[]</append>
 		</completion>
 		<!-- foreach -->
 		<completion string="offset">
+			<description>table</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="line">
+			<description>table</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string="offset">
+			<description>table</description>
 			<behavior>
 				<append>($[int])</append>
 			</behavior>
 		</completion>
 		<completion string="offset">
+			<description>table</description>
 			<behavior>
 				<append>[$[cur|set]]($[int])</append>
 			</behavior>
 		</completion>
 		<completion string="save">
+			<description>table</description>
 			<behavior>
 				<append>[$[path]]</append>
 			</behavior>
 		</completion>
 		<completion string="save">
+			<description>table</description>
 			<behavior>
 				<append>[$[path];
 					$.offset($[int])				
@@ -1775,11 +1922,13 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="save">
+			<description>table</description>
 			<behavior>
 				<append>[nameless;$[path]]</append>
 			</behavior>
 		</completion>
 		<completion string="save">
+			<description>table method, with options</description>
 			<behavior>
 				<append>[nameless;$[path];
 	$.offset($[int])			
@@ -1790,11 +1939,13 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="save">
+			<description>table</description>
 			<behavior>
 				<append>[append;$[path]]</append>
 			</behavior>
 		</completion>
 		<completion string="save">
+			<description>table method, with options</description>
 			<behavior>
 				<append>[append;$[path];
 	$.offset($[int])			
@@ -1805,6 +1956,7 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="select">
+			<description>table</description>
 			<behavior>
 				<append>($[expression])[
 	$.offset($[int])
@@ -1815,26 +1967,166 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="sort">
+			<description>table</description>
 			<behavior>
 				<append>{$[by string]}</append>
 			</behavior>
 		</completion>
 		<completion string="sort">
+			<description>table</description>
 			<behavior>
 				<append>{$[by string]}[$[asc|desc]]</append>
 			</behavior>
 		</completion>
 		<completion string="sort">
+			<description>table</description>
 			<behavior>
 				<append>($[by number])</append>
 			</behavior>
 		</completion>
 		<completion string="sort">
+			<description>table</description>
 			<behavior>
 				<append>($[by number])[$[asc|desc]]</append>
 			</behavior>
 		</completion>
+	<!-- xdoc -->
+		<completion string="createElement">
+			<description>xdoc</description>
+			<behavior>
+				<append>[$[tagName]]</append>
+			</behavior>
+		</completion>
+		<completion string="createDocumentFragment">
+			<description>xdoc</description>
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="createTextNode">
+			<description>xdoc</description>
+			<behavior>
+				<append>[$[data]]</append>
+			</behavior>
+		</completion>
+		<completion string="createComment">
+			<description>xdoc</description>
+			<behavior>
+				<append>[$[data]]</append>
+			</behavior>
+		</completion>
+		<completion string="createCDATASection">
+			<description>xdoc</description>
+			<behavior>
+				<append>[$[data]]</append>
+			</behavior>
+		</completion>
+		<completion string="createProcessingInstruction">
+			<description>xdoc</description>
+			<behavior>
+				<append>[$[target];$[data]]</append>
+			</behavior>
+		</completion>
+		<completion string="createAttribute">
+			<description>xdoc</description>
+			<behavior>
+				<append>[$[name]]</append>
+			</behavior>
+		</completion>
+		<completion string="createEntityReference">
+			<description>xdoc</description>
+			<behavior>
+				<append>[$[name]]</append>
+			</behavior>
+		</completion>
+		<completion string="getElementsByTagName">
+			<description>xdoc</description>
+			<behavior>
+				<append>[$[tagname]]</append>
+			</behavior>
+		</completion>
 		
+		<completion string="importNode">
+			<description>xdoc</description>
+			<behavior>
+				<append>[$[imported node]](deep)</append>
+			</behavior>
+		</completion>
+		<completion string="createElementNS">
+			<description>xdoc</description>
+			<behavior>
+				<append>[$[namespace url];$[qualified name]]</append>
+			</behavior>
+		</completion>
+		<completion string="createAttributeNS">
+			<description>xdoc</description>
+			<behavior>
+				<append>[$[namespace url];$[qualified name]]</append>
+			</behavior>
+		</completion>
+		<completion string="getElementsByTagNameNS">
+			<description>xdoc</description>
+			<behavior>
+				<append>[$[namespace url];$[local name]]</append>
+			</behavior>
+		</completion>
+		<completion string="getElementById">
+			<description>xdoc</description>
+			<behavior>
+				<append>[$[element id]]</append>
+			</behavior>
+		</completion>
+		
+		<completion string="file">
+			<description>xdoc</description>
+			<behavior>
+				<append>[$[element id]]</append>
+			</behavior>
+		</completion>
+		
+		<completion string="save">
+			<description>saving xdoc to file</description>
+			<behavior>
+				<append>[$[path];
+	$.method[]
+	$.indent[$[yes|no]] 
+	$.omit-xml-declaration[$[no|yes]]
+	$.charset[$[charset]]
+]</append>
+			</behavior>
+		</completion>
+	
+		<completion string="string">
+			<description>xdoc</description>
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		
+		<completion string="string">
+			<description>converting xdoc into string</description>
+			<behavior>
+				<append>[
+	$.method[]
+	$.indent[$[yes|no]] 
+	$.omit-xml-declaration[$[no|yes]]
+	$.charset[$[charset]]
+]</append>
+			</behavior>
+		</completion>
+		
+		<completion string="transform">
+			<description>xdoc</description>
+			<behavior>
+				<append>[$[template]]</append>
+			</behavior>
+		</completion>
+		<completion string="transform">
+			<description>xdoc</description>
+			<behavior>
+				<append>[$[template]][$[xslt-parameters]]</append>
+			</behavior>
+		</completion>
 	</set>
 
 <!-- ^CLASSES -->
