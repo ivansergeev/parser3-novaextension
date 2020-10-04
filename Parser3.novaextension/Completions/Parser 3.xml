@@ -3688,31 +3688,37 @@ $[]</append>
 	
 	<set name="parser3.core.xdoc" symbol="method">
 		<completion string="create">
+			<description>Creating a document based on specified XML</description>
 			<behavior>
 				<append>{$[xml]}</append>
 			</behavior>
 		</completion>
 		<completion string="create">
+			<description>Creating a document based on specified XML</description>
 			<behavior>
 				<append>[$[basepath]]{$[xml]}</append>
 			</behavior>
 		</completion>
 		<completion string="create">
+			<description>Creating a new empty document</description>
 			<behavior>
 				<append>[$[tagname]]</append>
 			</behavior>
 		</completion>
 		<completion string="create">
+			<description>Creating a new empty document</description>
 			<behavior>
 				<append>[$[basepath];$[tagname]]</append>
 			</behavior>
 		</completion>
 		<completion string="create">
+			<description>Creating a document based on specified file</description>
 			<behavior>
 				<append>[$[file]]</append>
 			</behavior>
 		</completion>
 		<completion string="load">
+			<description>Loading XML from disk or HTTP-server or other source</description>
 			<behavior>
 				<append>[$[filename]]</append>
 			</behavior>
