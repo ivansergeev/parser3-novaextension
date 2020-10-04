@@ -75,15 +75,23 @@
         <set>parser3.core.options</set>
     </provider>
 
-    <!-- "^foo" -->
-    <provider name="function">
-        <syntax>parser3</syntax>
-        <selector>*:not(comment)</selector>
-        <expression>(?&lt;=\^)([a-zA-Z0-9_\x7f-\xff]+)</expression>
-        <symbols type="class" />
-        <set>parser3.core.functions</set>
-    </provider>
-	
+
+<!-- ^foo[a;b;c] -->
+
+	<provider name="method">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\^)\b([a-zA-Z_][a-zA-Z0-9_]*)</expression>
+		<symbols type="method">
+			<behavior>
+				<arguments prefix="[" suffix="]" separator=";" />
+			</behavior>
+		</symbols>
+		<symbols type="argument" />
+		
+		<set>parser3.core.methods</set>
+		
+	</provider>
 	
 <!-- "^classes" -->
     <provider name="classes">
@@ -3727,7 +3735,7 @@ $[]</append>
 
 <!-- CORE OPERATORS -->
 
-    <set name="parser3.core.functions" symbol="function">
+    <set name="parser3.core.methods" symbol="function">
 <!-- A -->
         <completion string="apply-taint">
             <behavior>
