@@ -3,7 +3,7 @@
     "name": "Parser 3",
     "description": "Parser 3 syntax support",
     "organization": "Ivan Sergeev",
-    "version": "0.3",
+    "version": "0.3.2",
     "categories": ["languages"],
 	"keywords": ["parser 3", "parser3"],
 	"license": "MIT",
