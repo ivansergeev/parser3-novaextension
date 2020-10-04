@@ -890,49 +890,52 @@ $[]</append>
 		<completion string="fields" />
 		
 		<!-- date -->
-		<completion string="month" />
-		<completion string="year" />
-		<completion string="day" />
-		<completion string="hour" />
-		<completion string="minute" />
-		<completion string="second" />
-		<completion string="weekday" />
-		<completion string="week" />
-		<completion string="weekyear" />
-		<completion string="yearday" />
-		<completion string="daylightsaving" />
-		<completion string="TZ" />
+		<completion string="month" description="date field" />
+		<completion string="year" description="date field" />
+		<completion string="day" description="date field" />
+		<completion string="hour" description="date field" />
+		<completion string="minute" description="date field" />
+		<completion string="second" description="date field" />
+		<completion string="weekday" description="date field" />
+		<completion string="week" description="date field" />
+		<completion string="weekyear" description="date field" />
+		<completion string="yearday" description="date field" />
+		<completion string="daylightsaving" description="date field" />
+		<completion string="TZ" description="date field" />
 		<!-- file -->
-		<completion string="name" />
-		<completion string="size" />
-		<completion string="size" />
-		<completion string="text" />
-		<completion string="cdate" />
-		<completion string="mdate" />
-		<completion string="adate" />
-		<completion string="stderr" />
-		<completion string="status" />
-		<completion string="mode" />
-		<completion string="content-type" />
-		<completion string="SERVER" />
+		<completion string="name" description="file field" />
+		<completion string="size" description="file field" />
+		<completion string="size" description="file field" />
+		<completion string="text" description="file field" />
+		<completion string="cdate" description="file field" />
+		<completion string="mdate" description="file field" />
+		<completion string="adate" description="file field" />
+		<completion string="stderr" description="file field" />
+		<completion string="status" description="file field" />
+		<completion string="mode" description="file field" />
+		<completion string="content-type" description="file field" />
+		<completion string="SERVER" description="file field" />
 		<!-- hash -->
-		
-		<completion string="_default" />
+		<completion string="_default" description="hash field" />
 		<!-- image -->
-		<completion string="src" />
-		<completion string="width" />
-		<completion string="height" />
-		<completion string="exif" />
+		<completion string="src" description="image field" />
+		<completion string="width" description="image field" />
+		<completion string="height" description="image field" />
+		<completion string="exif" description="image field" />
 		<!-- status -->
-		<completion string="utime" />
-		<completion string="stime" />
-		<completion string="maxrss" />
-		<completion string="tv_sec" />
-		<completion string="tv_usec" />
-		<completion string="used" />
-		<completion string="free" />
-		<completion string="ever_allocated_since_compact" />
-		<completion string="ever_allocated_since_start" />
+		<completion string="utime" description="status field" />
+		<completion string="stime" description="status field" />
+		<completion string="maxrss" description="status field" />
+		<completion string="tv_sec" description="status field" />
+		<completion string="tv_usec" description="status field" />
+		<completion string="used" description="status field" />
+		<completion string="free" description="status field" />
+		<completion string="ever_allocated_since_compact" description="status field" />
+		<completion string="ever_allocated_since_start" description="status field" />
+		<!-- xdoc -->
+		<completion string="doctype" description="xdoc field" />
+		<completion string="documentElement" description="xdoc field" />
+		<completion string="search-namespaces" description="xdoc field" />
 	</set>
 
 
