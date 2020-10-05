@@ -1,3 +1,8 @@
+## Version 0.3.3
+
+Added:
+* user variables autocomplete
+
 ## Version 0.3.2
 
 Added:

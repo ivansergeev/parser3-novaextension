@@ -104,7 +104,8 @@
 					<capture number="2" name="parser3.identifier.method.name" />
 				</starts-with>
 				<ends-with>
-					<expression>\s*$</expression>
+					<!-- <expression>\s*$</expression> -->
+					<expression>$</expression>
 				</ends-with>
 				<subscopes>
 					<cut-off>
@@ -152,7 +153,8 @@
 		</collection>
 		
 		<!-- Arguments -->
-		<collection name="arguments">
+		<!-- 
+			<collection name="arguments">
 			<scope name="parser3.arguments">
 				<include syntax="self" collection="comments" />
 				<starts-with>
@@ -174,7 +176,8 @@
 					</scope>
 				</subscopes>
 			</scope>
-		</collection>
+		</collection> 
+	-->
 		
 		<!-- Keywords -->
 		<collection name="keywords">
