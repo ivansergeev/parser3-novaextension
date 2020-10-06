@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <completions>
 
+	<!-- "true/false" -->
+    <provider name="boolean">
+        <syntax>parser3</syntax>
+        <selector>*:not(comment)</selector>
+        <expression>([a-zA-Z-]+)</expression>
+        <symbols type="constant" />
+        <set>parser3.core.boolean</set>
+    </provider>
+	
 	<!-- "foo" -->
     <provider name="constant">
         <syntax>parser3</syntax>
         <selector>*:not(comment)</selector>
         <expression>(?&lt;=\s)([a-zA-Z-]+)</expression>
         <symbols type="constant" />
-        <set>parser3.core.values</set>
         <set>parser3.core.operator.logic</set>
         <set>parser3.keywords.types</set>
     </provider>
@@ -88,7 +96,6 @@
 			</behavior>
 		</symbols>
 		<symbols type="variable">
-			<!-- <behavior></behavior> -->
 		</symbols>
 		<symbols type="argument" />
 		<set>parser3.core.methods</set>
@@ -447,7 +454,7 @@
 	
 <!-- SETS -->
 
-    <set name="parser3.core.values" symbol="constant">
+    <set name="parser3.core.boolean" symbol="constant">
         <completion string="true" />
         <completion string="false" />
     </set>
@@ -3756,7 +3763,7 @@ $[]</append>
         </completion>
         <completion string="break">
             <behavior>
-                <append>($[expression])</append>
+                <append>($[condition])</append>
             </behavior>
         </completion>
 <!-- C -->
@@ -3801,6 +3808,24 @@ $[]</append>
             </behavior>
         </completion>
        
+        <completion string="case">
+			<description>string to compare</description>
+            <behavior>
+                <append>[$[]]{}</append>
+            </behavior>
+        </completion>
+        <completion string="case">
+			<description>mathematical expression</description>
+            <behavior>
+                <append>($[]){}</append>
+            </behavior>
+        </completion>
+        <completion string="case">
+            <behavior>
+                <append>[DEFAULT]{}</append>
+            </behavior>
+        </completion>
+		
         <completion string="connect">
             <behavior>
                 <append>[$[connection string]]{
@@ -3816,7 +3841,7 @@ $[]</append>
         </completion>
         <completion string="continue">
             <behavior>
-                <append>($[expression])</append>
+                <append>($[condition])</append>
             </behavior>
         </completion>
 <!-- D -->
@@ -3840,17 +3865,21 @@ $[]</append>
             </behavior>
         </completion>
         <completion string="for">
+			<description>with string delimiter</description>
             <behavior>
                 <append>[$[counter]]($[from];$[to]){
 	$[code]
-}[$[string separator]]</append>
+}[$[string delimiter]]</append>
             </behavior>
         </completion>
         <completion string="for">
+			<description>with code delimiter</description>
             <behavior>
                 <append>[$[counter]]($[from];$[to]){
 	$[code]
-}{$[code separator]}</append>
+}{
+	$[code delimiter]
+}</append>
             </behavior>
         </completion>
 	
@@ -3911,13 +3940,19 @@ $[]</append>
         </completion>
 
         <completion string="switch">
+			<description>string to compare</description>
             <behavior>
-                <append>[$[string]]{$[code]}</append>
+                <append>[$[string]]{
+	$[code]
+}</append>
             </behavior>
         </completion>
         <completion string="switch">
+			<description>mathematical expression</description>
             <behavior>
-                <append>($[expression]){$[code]}</append>
+                <append>($[expression]){
+	$[code]
+}</append>
             </behavior>
         </completion>
 <!-- T -->
@@ -3954,13 +3989,25 @@ $[]</append>
         </completion>
 
         <completion string="try">
+			<description>try{ code }{ exception handler }</description>
             <behavior>
-                <append>{$[code]}{$[exception code]}</append>
+                <append>{
+	$[code]
+}{
+	$[exception handler]
+}</append>
             </behavior>
         </completion>
         <completion string="try">
+			<description>try{ code }{ exception handler }{ code which will be executed anyway }</description>
             <behavior>
-                <append>{$[code]}{$[exception code]}{$[code]}</append>
+                <append>{
+	$[code]
+}{
+	$[exception handler]
+}{
+	$[ code ]
+}</append>
             </behavior>
         </completion>
 
@@ -3990,17 +4037,27 @@ $[]</append>
 <!-- W -->
         <completion string="while">
             <behavior>
-                <append>($[expression]){$[code]}</append>
+                <append>($[condition]){
+	$[code]
+}</append>
             </behavior>
         </completion>
         <completion string="while">
+			<description>with string delimiter</description>
             <behavior>
-                <append>($[expression]){$[code]}[$[string separator]]</append>
+                <append>($[condition]){
+	$[code]
+}[$[string delimiter]]</append>
             </behavior>
         </completion>
         <completion string="while">
+			<description>with code delimiter</description>
             <behavior>
-                <append>($[expression]){$[code]}{$[code separator]}</append>
+                <append>($[condition]){
+	$[code]
+}{
+	$[code delimiter]
+}</append>
             </behavior>
         </completion>
 <!-- X -->

@@ -7,10 +7,6 @@ Added:
 
 Added:
 * user methods autocomplete with description (from the comments above)
-
-## Version 0.3.1
-
-Added:
 * xdoc methods and fields
 * instance methods and fields descriptions
 
