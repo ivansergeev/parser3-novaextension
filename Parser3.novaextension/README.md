@@ -1,8 +1,23 @@
 # Parser 3 syntax support
 
-### Requirements
 
-Parser 3.4.5 (http://www.parser.ru/en/)
+Parser 3 — simple and convenient object-oriented language which allows creating good sites in short time.
 
-* File ext: *.p, *.pt, *.html, *.h
+* Cares about your security
+* Detailed language documentation
+* XML, XSL, XPath and DOM support
+* JSON and memcached support
+* Support of object-oriented programmers
+* Native UTF-8 support (as well as other code pages)
+* Uniformed database support (MySQL, PgSQL, Oracle, SQLite and ODBC)
+* Available in source code and Linux distributions
+* Ideal for "Hello, world!" applicaion
 
+More information on http://www.parser.ru/en/
+
+
+## Requirements
+
+Syntax support is implemented for Parser 3.4.5
+
+Extension support: *.html, *.p, *.pt, *.p3, *.h
