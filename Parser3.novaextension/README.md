@@ -11,7 +11,7 @@ Parser 3 — simple and convenient object-oriented language which allows creatin
 * Native UTF-8 support (as well as other code pages)
 * Uniformed database support (MySQL, PgSQL, Oracle, SQLite and ODBC)
 * Available in source code and Linux distributions
-* Ideal for "Hello, world!" applicaion
+* Ideal for "Hello, world!" application
 
 More information on http://www.parser.ru/en/
 
