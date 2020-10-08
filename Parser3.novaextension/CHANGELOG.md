@@ -1,3 +1,9 @@
+## Version 0.3.4
+
+Added:
+* few options
+* options description
+
 ## Version 0.3.3
 
 Added:

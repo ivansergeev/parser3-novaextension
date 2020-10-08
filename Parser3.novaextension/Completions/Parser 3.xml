@@ -42,7 +42,7 @@
     <provider name="instance.method">
         <syntax>parser3</syntax>
         <selector>*:not(comment)</selector>
-        <expression>(?&lt;=\.)([a-zA-Z-]+)</expression>
+        <expression>(?&lt;=\w\.)([a-zA-Z-]+)</expression>
         <symbols type="method" />
         <set>parser3.instance.method</set>
     </provider>
@@ -55,7 +55,7 @@
         <symbols type="constant" />
         <set>parser3.keywords.error.types</set>
     </provider>
-	
+
 	<!-- "@foo" -->	
     <provider name="core.method">
         <syntax>parser3</syntax>
@@ -473,6 +473,7 @@
     </set>
     
     <set name="parser3.core.variables" symbol="variable">
+        <completion string="CLASS_PATH" />
         <completion string="MAIN" />
         <completion string="LIMITS" />
         <completion string="MAIL" />
@@ -484,287 +485,425 @@
 
 	<set name="parser3.core.options" symbol="property">
 		<completion string="array">
+			<description>json:parse parameter. If defined the specified method will be called for every parsing array.</description>
 			<behavior>
-				<append>[$[]]</append>
+				<append>[$[method name]]</append>
+			</behavior>
+		</completion>
+		<completion string="any-status">
+			<description>If boolean is false, and received status is not equal to 200, system exception http.status will be thrown.</description>
+			<behavior>
+				<append>(true)</append>
 			</behavior>
 		</completion>
 		<completion string="bind">
+			<description>void:sql, string:sql, table::sql parameter</description>
 			<behavior>
 				<append>[hash]</append>
 			</behavior>
 		</completion>
+		<completion string="body">
+			<description>Text body of the query.</description>
+			<behavior>
+				<append>[$[string]]</append>
+			</behavior>
+		</completion>
 		<completion string="binary-protocol">
+			<description>memcached::open parameter</description>
 			<behavior>
 				<append>($[true|false])</append>
 			</behavior>
 		</completion>
 		<completion string="charset">
+			<description></description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
+		<completion string="class-name">
+			<description>json:string parameter. Objects of any class (including mentioned date, table and file) could be serialized with user's method.</description>
+			<behavior>
+				<append>[$[method name]]</append>
+			</behavior>
+		</completion>
 		<completion string="colon">
+			<description>date.iso-string parameter. Exclude the colon from the time zone. By default, do not exclude.</description>
 			<behavior>
 				<append>($[true|false])</append>
 			</behavior>
 		</completion>
 		<completion string="content-type">
+			<description>curl:options, curl:load parameter</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="connect-timeout">
+			<description>memcached::open parameter</description>
 			<behavior>
-				<append>($[])</append>
+				<append>($[seconds])</append>
+			</behavior>
+		</completion>
+		<completion string="cookies">
+			<description>Hash with list of cookies to be passed to HTTP-server.</description>
+			<behavior>
+				<append>($[hash])</append>
 			</behavior>
 		</completion>
 		<completion string="date">
+			<description>json:string parameter. Defines format of objects of class date (see the methods of class date with the same names).</description>
 			<behavior>
 				<append>[$[sql-string|gmt-string|iso-string|unix-timestamp]]</append>
 			</behavior>
 		</completion>
 		<completion string="default">
+			<description></description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="default">
+			<description></description>
 			<behavior>
 				<append>{$[]}</append>
 			</behavior>
 		</completion>
 		<completion string="depth">
+			<description>json:parse parameter. Maximum depth. Default is 19.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="double">
+			<description>json:parse parameter. Stores real numbers as objects of class double. Default is true.</description>
 			<behavior>
 				<append>($[false|true])</append>
 			</behavior>
 		</completion>
 		<completion string="distinct">
+			<description>hash::sql, table.hash parameter</description>
 			<behavior>
 				<append>($[true|false])</append>
 			</behavior>
 		</completion>
 		<completion string="distinct">
+			<description>json:parse parameter. The way of processing elements with identical names.</description>
 			<behavior>
 				<append>[$[first|last|al]]</append>
 			</behavior>
 		</completion>
 		<completion string="domain">
+			<description>cookie parameter. Specifies domain from which the cookie may be accessed.</description>
 			<behavior>
-				<append>[$[]]</append>
+				<append>[$[doman name]]</append>
 			</behavior>
 		</completion>
 		<completion string="encloser">
+			<description>table parameter. Specifies column encloser character.</description>
 			<behavior>
 				<append>[$[symbol]]</append>
 			</behavior>
 		</completion>
+		<completion string="enctype">
+			<description>Possible values are: application/x-www-form-urlencoded or multipart/form-data.</description>
+			<behavior>
+				<append>[$[content type]]</append>
+			</behavior>
+		</completion>
 		<completion string="expires">
+			<description>hashfile, cookie, memcached parameter</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="expires">
+			<description>hashfile, cookie parameter</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="int">
+			<description>json:parse parameter. If true, stores integer numbers as objects of class int. If false, stores integer numbers as strings.</description>
 			<behavior>
 				<append>($[false|true])</append>
 			</behavior>
 		</completion>
 		<completion string="indent">
+			<description>json:string parameter. If this option is set to true the resulting JSON-string will be formatted using tab characters.</description>
 			<behavior>
 				<append>($[false|true])</append>
 			</behavior>
 		</completion>
-		<completion string="html">
+		<completion string="indent">
+			<description>json:string parameter. The option is also can be specified as user-predefined indent's prefix string.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
+		<completion string="headers">
+			<description>Hash with additional HTTP-headers to be passed to HTTP-server.</description>
+			<behavior>
+				<append>[$[http-headers hash]]</append>
+			</behavior>
+		</completion>
+		<completion string="html">
+			<description>mail:send parameter</description>
+			<behavior>
+				<append>{$[]}</append>
+			</behavior>
+		</completion>
 		<completion string="httponly">
+			<description>cookie parameter</description>
 			<behavior>
 				<append>(true)</append>
 			</behavior>
 		</completion>
 		<completion string="file">
+			<description></description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="file">
+			<description>json:string parameter. Defines format of bodies of objects of class file.</description>
 			<behavior>
 				<append>[$[text|base64|stat]]</append>
 			</behavior>
 		</completion>
+		<completion string="form">
+			<description>Request parameters.</description>
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
 		<completion string="from">
+			<description>mail:send parameter</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="from-charset">
+			<description></description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="library">
+			<description>curl:options, curl:load parameter. Full path to dynamical libcurl library.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="limit">
+			<description>*:sql, reflection:stack, table::create, table.join, table.locate, table.select parameter</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="lineno">
+			<description>process parameter. A line number in file, where this string cames from. May be negative.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="main">
+			<description>process parameter. A new name for main method, declared in code in string.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="mode">
+			<description>file::create, curl:options, curl:load parameter. The mode of the created file object.</description>
 			<behavior>
-				<append>[$[]]</append>
+				<append>[$[text|binary]]</append>
+			</behavior>
+		</completion>
+		<completion string="method">
+			<description>The name of HTTP-method should be specified in uppercase only.</description>
+			<behavior>
+				<append>[$[GET|POST]]</append>
 			</behavior>
 		</completion>
 		<completion string="ms">
+			<description>date.iso-string parameter. Add milliseconds, always .000  (2002-04-29T12:00:00.000+03:00). By default, do not add.</description>
 			<behavior>
 				<append>($[false|true])</append>
 			</behavior>
 		</completion>
 		<completion string="name">
+			<description></description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="type">
+			<description></description>
 			<behavior>
 				<append>[$[hash|string|table]]</append>
 			</behavior>
 		</completion>
 		<completion string="to">
+			<description>mail:send parameter</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="to-charset">
+			<description></description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="tcp-keepalive">
+			<description>memcached parameter</description>
 			<behavior>
 				<append>($[false|true])</append>
 			</behavior>
 		</completion>
 		<completion string="replace">
+			<description>process parameter. The exception occurs in case of loading class if a class with the same name was already loaded</description>
 			<behavior>
 				<append>($[false|true])</append>
 			</behavior>
 		</completion>
 		<completion string="reverse">
+			<description>reflection:methods, table::create, table.join, table.locate, table.select parameter</description>
 			<behavior>
-				<append>($[false|true])</append>
+				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="response-charset">
+			<description>Force specify charset for response body.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="object">
+			<description>json:parse parameter. If defined the specified method will be called for every parsing object.</description>
 			<behavior>
-				<append>[$[]]</append>
+				<append>[$[method name]]</append>
 			</behavior>
 		</completion>
 		<completion string="offset">
+			<description>*:sql, reflection:stack, table::create, table.join, table.locate, table.select parameter</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
+		<completion string="omit-post-charset">
+			<description>Don't add charset info to HTTP-header content-type for outgoing POST request.</description>
+			<behavior>
+				<append>(true)</append>
+			</behavior>
+		</completion>
 		<completion string="options">
+			<description></description>
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="path">
+			<description>cookie parameter. Specifies subsection of the site from which the cookie may be accessed.</description>
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="password">
+			<description>These are request parameters to server, which uses standard HTTP-authorization.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="print-debug">
+			<description>mail:send parameter. The message text will be printed instead of sending message.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="skip-unknown">
+			<description>json:string parameter. By default (false) only the objects of classes void, bool, string, int, double, date, table, hash и file are accepted.</description>
 			<behavior>
 				<append>($[false|true])</append>
 			</behavior>
 		</completion>
 		<completion string="server">
+			<description></description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="separator">
+			<description>table parameter. Specifies column separator character.</description>
 			<behavior>
 				<append>[$[symbol]]</append>
 			</behavior>
 		</completion>
 		<completion string="subject">
+			<description>mail:send parameter</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="taint">
+			<description>json:parse parameter. Defines the transformation type for all strings in the output.</description>
 			<behavior>
-				<append>[$[]]</append>
+				<append>[$[type]]</append>
 			</behavior>
 		</completion>
 		<completion string="table">
+			<description>json:string parameter. Defines format of objects of class table.</description>
 			<behavior>
 				<append>[$[object|array|compact]]</append>
 			</behavior>
 		</completion>
 		<completion string="text">
+			<description>mail:send parameter</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="value">
+			<description></description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="void">
+			<description>json:string parameter. Defines format of objects of class void.</description>
 			<behavior>
 				<append>[$[null|string]]</append>
 			</behavior>
 		</completion>
+		<completion string="user">
+			<description>These are request parameters to server, which uses standard HTTP-authorization.</description>
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
 		<completion string="z">
+			<description>date.iso-string parameter. Write the UTC time zone as 00:00 (2002-04-29T09:00:00+00:00)</description>
 			<behavior>
 				<append>($[false|true])</append>
 			</behavior>
 		</completion>
 		<completion string="xdoc">
+			<description>json:string parameter. Options for converting into text.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
-		
 		<completion string="_default">
+			<description>Default hash key.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
-		
+		<completion string="_default">
+			<description>json:string parameter</description>
+			<behavior>
+				<append>[$[method reference or name]]</append>
+			</behavior>
+		</completion>
 	</set>
 
 	<set name="parser3.core.method" symbol="method">

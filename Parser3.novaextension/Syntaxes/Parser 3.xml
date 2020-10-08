@@ -147,7 +147,7 @@
 				<capture number="1" name="parser3.identifiers.at" />
 				<capture number="2" name="parser3.identifier.function.name" />
 			</scope>
-			
+
 		</collection>
 		
 		<!-- Keywords -->
@@ -294,6 +294,7 @@
 			<!-- ^foo -->			
 			<scope name="parser3.keyword.core.variable.method">
 				<strings prefix="(?&lt;=\^)" suffix="(?=\.)">
+					<string>CLASS_PATH</string>
 					<string>MAIN</string>
 					<string>LIMITS</string>
 					<string>MAIL</string>
@@ -682,6 +683,7 @@
 			<scope name="parser3.identifier.variable.core">
 				<!-- <strings word-boundary="false" suffix="\b"> -->
 				<strings word-boundary="true" suffix="\b">
+					<string>CLASS_PATH</string>
 					<string>LIMITS</string>
 					<string>MAIN</string>
 					<string>MAIL</string>
