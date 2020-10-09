@@ -523,6 +523,20 @@
 					<string>rusage</string>
 					<string>tid</string>
 
+					<!-- xdoc -->
+					<string>ELEMENT_NODE</string>
+					<string>ATTRIBUTE_NODE</string>
+					<string>TEXT_NODE</string>
+					<string>CDATA_SECTION_NODE</string>
+					<string>ENTITY_REFERENCE_NODE</string>
+					<string>ENTITY_NODE</string>
+					<string>PROCESSING_INSTRUCTION_NODE</string>
+					<string>COMMENT_NODE</string>
+					<string>DOCUMENT_NODE</string>
+					<string>DOCUMENT_TYPE_NODE</string>
+					<string>DOCUMENT_FRAGMENT_NODE</string>
+					<string>NOTATION_NODE</string>
+					
 				</strings>
 			</scope>
 
@@ -641,6 +655,55 @@
 					<string>mget</string>
 					<string>release</string>
 
+					<!-- xdoc -->
+					<string>createElement</string>
+					<string>createDocumentFragment</string>
+					<string>createTextNode</string>
+					<string>createComment</string>
+					<string>createCDATASection</string>
+					<string>createProcessingInstruction</string>
+					<string>createAttribute</string>
+					<string>createEntityReference</string>
+					<string>getElementsByTagName</string>
+					<string>importNode</string>
+					<string>createElementNS</string>
+					<string>createAttributeNS</string>
+					<string>getElementsByTagNameNS</string>
+					<string>getElementById</string>
+					<string>file</string>
+					<!-- <string>save</string> -->
+					<string>string</string>
+					<string>transform</string>
+					
+					<!-- xnode -->
+					<string>insertBefore</string>
+					<string>replaceChild</string>
+					<string>removeChild</string>
+					<string>appendChild</string>
+					<string>hasChildNodes</string>
+					<string>cloneNode</string>
+					<string>getAttribute</string>
+					<string>setAttribute</string>
+					<string>removeAttribute</string>
+					<string>getAttributeNode</string>
+					<string>setAttributeNode</string>
+					<string>removeAttributeNode</string>
+					<string>getElementsByTagName</string>
+					<string>normalize</string>
+					<string>getAttributeNS</string>
+					<string>setAttributeNS</string>
+					<string>removeAttributeNS</string>
+					<string>getAttributeNodeNS</string>
+					<string>setAttributeNodeNS</string>
+					<string>getElementsByTagNameNS</string>
+					<string>hasAttribute</string>
+					<string>hasAttributeNS</string>
+					<string>hasAttributes</string>
+					<string>select</string>
+					<string>selectSingle</string>
+					<string>selectString</string>
+					<string>selectNumber</string>
+					<string>selectBool</string>
 				</strings>
 			</scope>
 			
@@ -673,6 +736,33 @@
 					<string>mode</string>
 					<string>content-type</string>
 					<string>SERVER</string>
+					<!-- xdoc -->
+					<string>doctype</string>
+					<string>documentElement</string>
+					<string>search-namespaces</string>
+					<!-- xnode -->
+					<string>nodeName</string>
+					<string>nodeValue</string>
+					<string>nodeType</string>
+					<string>parentNode</string>
+					<string>childNodes</string>
+					<string>firstChild</string>
+					<string>lastChild</string>
+					<string>previousSibling</string>
+					<string>nextSibling</string>
+					<string>attributes</string>
+					<string>prefix</string>
+					<string>namespaceURI</string>
+					<string>tagName</string>
+					<string>name</string>
+					<string>specified</string>
+					<string>value</string>
+					<string>target</string>
+					<string>data</string>
+					<string>entities</string>
+					<string>notations</string>
+					<string>publicId</string>
+					<string>systemId</string>
 				</strings>
 			</scope>
 			

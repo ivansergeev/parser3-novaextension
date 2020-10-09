@@ -1,3 +1,10 @@
+## Version 0.3.5
+
+Added:
+* xnode
+* few xdoc options
+* xdoc constants
+
 ## Version 0.3.4
 
 Added:

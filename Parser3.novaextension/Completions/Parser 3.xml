@@ -453,6 +453,15 @@
 		<set>parser3.core.xdoc</set>
 	</provider>
 	
+<!-- "$xdoc" -->
+	<provider name="xdoc">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\$xdoc\:)([a-z0-9-]+)</expression>
+		<!-- <symbols type="constant" /> -->
+		<set>parser3.core.xdoc.constant</set>
+	</provider>
+	
 <!-- SETS -->
 
     <set name="parser3.core.boolean" symbol="constant">
@@ -611,6 +620,12 @@
 				<append>[$[content type]]</append>
 			</behavior>
 		</completion>
+		<completion string="encoding">
+			<description>xdoc parameter</description>
+			<behavior>
+				<append>[$[charset]]</append>
+			</behavior>
+		</completion>
 		<completion string="expires">
 			<description>hashfile, cookie, memcached parameter</description>
 			<behavior>
@@ -639,6 +654,12 @@
 			<description>json:string parameter. The option is also can be specified as user-predefined indent's prefix string.</description>
 			<behavior>
 				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="indent">
+			<description>xdoc parameter</description>
+			<behavior>
+				<append>[no]</append>
 			</behavior>
 		</completion>
 		<completion string="headers">
@@ -725,6 +746,12 @@
 				<append>[$[GET|POST]]</append>
 			</behavior>
 		</completion>
+		<completion string="method">
+			<description>xdoc parameter</description>
+			<behavior>
+				<append>[html]</append>
+			</behavior>
+		</completion>
 		<completion string="ms">
 			<description>date.iso-string parameter. Add milliseconds, always .000  (2002-04-29T12:00:00.000+03:00). By default, do not add.</description>
 			<behavior>
@@ -795,6 +822,12 @@
 			<description>Don't add charset info to HTTP-header content-type for outgoing POST request.</description>
 			<behavior>
 				<append>(true)</append>
+			</behavior>
+		</completion>
+		<completion string="omit-xml-declaration">
+			<description>xdoc parameter</description>
+			<behavior>
+				<append>[yes]</append>
 			</behavior>
 		</completion>
 		<completion string="options">
@@ -1044,7 +1077,7 @@ $[]</append>
 	<set name="parser3.instance.property" symbol="property">
 	
 		<completion string="fields" />
-		
+		<completion string="name" />
 		<!-- date -->
 		<completion string="month" description="date field" />
 		<completion string="year" description="date field" />
@@ -1059,7 +1092,7 @@ $[]</append>
 		<completion string="daylightsaving" description="date field" />
 		<completion string="TZ" description="date field" />
 		<!-- file -->
-		<completion string="name" description="file field" />
+		
 		<completion string="size" description="file field" />
 		<completion string="size" description="file field" />
 		<completion string="text" description="file field" />
@@ -1092,6 +1125,30 @@ $[]</append>
 		<completion string="doctype" description="xdoc field" />
 		<completion string="documentElement" description="xdoc field" />
 		<completion string="search-namespaces" description="xdoc field" />
+		<!-- xnode -->
+		<completion string="nodeName" description="xnode field (DOM1-interface Node)" />
+		<completion string="nodeValue" description="xnode field (DOM1-interface Node)" />
+		<completion string="nodeType" description="xnode field (DOM1-interface Node)" />
+		<completion string="parentNode" description="xnode field (DOM1-interface Node)" />
+		<completion string="childNodes" description="xnode field (DOM1-interface Node)" />
+		<completion string="firstChild" description="xnode field (DOM1-interface Node)" />
+		<completion string="lastChild" description="xnode field (DOM1-interface Node)" />
+		<completion string="previousSibling" description="xnode field (DOM1-interface Node)" />
+		<completion string="nextSibling" description="xnode field (DOM1-interface Node)" />
+		<completion string="attributes" description="xnode field (DOM1-interface Node)" />
+		<completion string="ownerDocument" description="xnode field (DOM1-interface Node)" />
+		<completion string="prefix" description="xnode field (DOM2-interface Node)" />
+		<completion string="namespaceURI" description="xnode field (DOM2-interface Node)" />
+		<completion string="tagName" description="xnode field (DOM1-interface Element)" />
+		<!-- <completion string="name" description="xnode field (DOM1-interface Attr)" /> -->
+		<completion string="specified" description="xnode field (DOM1-interface Attr)" />
+		<completion string="value" description="xnode field (DOM1-interface Attr)" />
+		<completion string="target" description="xnode field (DOM1-interface ProcessingInstruction)" />
+		<completion string="data" description="xnode field (DOM1-interface ProcessingInstruction)" />
+		<completion string="entities" description="xnode field (DOM1-interface DocumentType)" />
+		<completion string="notations" description="xnode field (DOM1-interface DocumentType)" />
+		<completion string="publicId" description="xnode field (DOM1-interface Notation)" />
+		<completion string="systemId" description="xnode field (DOM1-interface Notation)" />
 	</set>
 
 
@@ -2286,6 +2343,177 @@ $[]</append>
 				<append>[$[template]][$[xslt-parameters]]</append>
 			</behavior>
 		</completion>
+		
+<!-- xnode -->
+		<completion string="insertBefore">
+			<description>xnode (DOM1-interface Node)</description>
+			<behavior>
+				<append>[$[new child];$[ref child]]</append>
+			</behavior>
+		</completion>
+		<completion string="replaceChild">
+			<description>xnode (DOM1-interface Node)</description>
+			<behavior>
+				<append>[$[new child];$[old child]]</append>
+			</behavior>
+		</completion>
+		<completion string="removeChild">
+			<description>xnode (DOM1-interface Node)</description>
+			<behavior>
+				<append>[$[old child]]</append>
+			</behavior>
+		</completion>
+		<completion string="appendChild">
+			<description>xnode (DOM1-interface Node)</description>
+			<behavior>
+				<append>[$[new child]]</append>
+			</behavior>
+		</completion>
+		<completion string="hasChildNodes">
+			<description>xnode (DOM1-interface Node)</description>
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="cloneNode">
+			<description>xnode (DOM1-interface Node)</description>
+			<behavior>
+				<append>($[deep])</append>
+			</behavior>
+		</completion>
+		<completion string="getAttribute">
+			<description>xnode (DOM1-interface Element)</description>
+			<behavior>
+				<append>[$[name]]</append>
+			</behavior>
+		</completion>
+		<completion string="setAttribute">
+			<description>xnode (DOM1-interface Element)</description>
+			<behavior>
+				<append>[$[name];$[value]]</append>
+			</behavior>
+		</completion>
+		<completion string="removeAttribute">
+			<description>xnode (DOM1-interface Element)</description>
+			<behavior>
+				<append>[$[name]]</append>
+			</behavior>
+		</completion>
+		<completion string="getAttributeNode">
+			<description>xnode (DOM1-interface Element)</description>
+			<behavior>
+				<append>[$[name]]</append>
+			</behavior>
+		</completion>
+		<completion string="setAttributeNode">
+			<description>xnode (DOM1-interface Element)</description>
+			<behavior>
+				<append>[$[new attr]]</append>
+			</behavior>
+		</completion>
+		<completion string="removeAttributeNode">
+			<description>xnode (DOM1-interface Element)</description>
+			<behavior>
+				<append>[$[old attr]]</append>
+			</behavior>
+		</completion>
+		<completion string="getElementsByTagName">
+			<description>xnode (DOM1-interface Element)</description>
+			<behavior>
+				<append>[$[name]]</append>
+			</behavior>
+		</completion>
+		<completion string="normalize">
+			<description>xnode (DOM1-interface Element)</description>
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="getAttributeNS">
+			<description>xnode (DOM2-interface Element)</description>
+			<behavior>
+				<append>[$[namespace URI];$[local name]]</append>
+			</behavior>
+		</completion>
+		<completion string="setAttributeNS">
+			<description>xnode (DOM2-interface Element)</description>
+			<behavior>
+				<append>[$[namespace URI];$[qualified name];$[value]]</append>
+			</behavior>
+		</completion>
+		<completion string="removeAttributeNS">
+			<description>xnode (DOM2-interface Element)</description>
+			<behavior>
+				<append>[$[namespace URI];$[local name]]</append>
+			</behavior>
+		</completion>
+		<completion string="getAttributeNodeNS">
+			<description>xnode (DOM2-interface Element)</description>
+			<behavior>
+				<append>[$[namespace URI];$[local name]]</append>
+			</behavior>
+		</completion>
+		<completion string="setAttributeNodeNS">
+			<description>xnode (DOM2-interface Element)</description>
+			<behavior>
+				<append>[$[new attr]]</append>
+			</behavior>
+		</completion>
+		<completion string="getElementsByTagNameNS">
+			<description>xnode (DOM2-interface Element)</description>
+			<behavior>
+				<append>[$[namespace URI];$[local name]]</append>
+			</behavior>
+		</completion>
+		<completion string="hasAttribute">
+			<description>xnode (DOM2-interface Element)</description>
+			<behavior>
+				<append>($[name])</append>
+			</behavior>
+		</completion>
+		<completion string="hasAttributeNS">
+			<description>xnode (DOM2-interface Element)</description>
+			<behavior>
+				<append>($[namespace URI];$[local name])</append>
+			</behavior>
+		</completion>
+		<completion string="hasAttributes">
+			<description>xnode (DOM2-interface Element)</description>
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		
+		<completion string="select">
+			<description>XPath search for node</description>
+			<behavior>
+				<append>[$[XPath-query]]</append>
+			</behavior>
+		</completion>
+		<completion string="selectSingle">
+			<description>XPath search for single node</description>
+			<behavior>
+				<append>[$[XPath-query]]</append>
+			</behavior>
+		</completion>
+		<completion string="selectString">
+			<description>XPath search for a string</description>
+			<behavior>
+				<append>[$[XPath-query]]</append>
+			</behavior>
+		</completion>
+		<completion string="selectNumber">
+			<description>XPath search for a number</description>
+			<behavior>
+				<append>[$[XPath-query]]</append>
+			</behavior>
+		</completion>
+		<completion string="selectBool">
+			<description>XPath search for a boolean value</description>
+			<behavior>
+				<append>[$[XPath-query]]</append>
+			</behavior>
+		</completion>
 	</set>
 
 <!-- ^CLASSES -->
@@ -2467,6 +2695,11 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="status">
+			<behavior>
+				<append>:</append>
+			</behavior>
+		</completion>
+		<completion string="xdoc">
 			<behavior>
 				<append>:</append>
 			</behavior>
@@ -3880,7 +4113,23 @@ $[]</append>
 			</behavior>
 		</completion>
 	</set>
-
+	
+	
+	<set name="parser3.core.xdoc.constant" symbol="constant">
+		<completion string="ELEMENT_NODE"><description>1</description></completion>
+		<completion string="ATTRIBUTE_NODE"><description>2</description></completion>
+		<completion string="TEXT_NODE"><description>3</description></completion>
+		<completion string="CDATA_SECTION_NODE"><description>4</description></completion>
+		<completion string="ENTITY_REFERENCE_NODE"><description>5</description></completion>
+		<completion string="ENTITY_NODE"><description>6</description></completion>
+		<completion string="PROCESSING_INSTRUCTION_NODE"><description>7</description></completion>
+		<completion string="COMMENT_NODE"><description>8</description></completion>
+		<completion string="DOCUMENT_NODE"><description>9</description></completion>
+		<completion string="DOCUMENT_TYPE_NODE"><description>10</description></completion>
+		<completion string="DOCUMENT_FRAGMENT_NODE"><description>11</description></completion>
+		<completion string="NOTATION_NODE"><description>12</description></completion>
+	</set>
+	
 <!-- CORE OPERATORS -->
 
     <set name="parser3.core.methods" symbol="function">
