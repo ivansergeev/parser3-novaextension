@@ -97,8 +97,8 @@
 		<collection name="directives">
 			
 			<scope name="parser3.directives.block.sql">
-				<symbol type="directive">
-					<context behavior="subtree" foldable="false" />
+				<symbol type="block">
+					<context behavior="subtree" foldable="true" />
 				</symbol>
 				<starts-with>
 					<expression>sql\{</expression>
@@ -118,6 +118,25 @@
 					</scope>
 				</subscopes>
 			</scope>
+			
+			<!-- <scope name="parser3.directives.block.hash">
+				<symbol type="property">
+					<context behavior="subtree" foldable="true" />
+				</symbol>
+				<starts-with>
+					<expression>\[</expression>
+				</starts-with>
+				<ends-with>
+					<expression>\]</expression>
+				</ends-with>
+				<subscopes>
+					<include syntax="self" collection="comments" />
+					<include syntax="self" collection="keywords" />
+					<include syntax="self" collection="variables" />
+					<include syntax="self" collection="blocks" />
+				</subscopes>
+			</scope> -->
+			
 		</collection>
 		
 	<!-- Definitions -->
@@ -178,12 +197,9 @@
 				<capture number="2" name="parser3.identifier.function.name" />
 			</scope>
 			
-			
-
 		</collection>
 		
-		
-		
+
 		
 		<!-- Keywords -->
 		<collection name="keywords">
@@ -201,6 +217,17 @@
 					<string>ge</string>
 					<string>-d</string>
 					<string>-f</string>
+				</strings>
+			</scope>
+			
+			<!-- $.foo[] -->			
+			<scope name="parser3.keyword.options">
+				<!-- <strings prefix="(\$\.)" suffix="(?=[\[\{\(])"> -->
+				<strings prefix="(\$\.)" >
+					<string>array</string>
+					<string>any-status</string>
+					<string>bind</string>
+					<string>body</string>
 				</strings>
 			</scope>
 			
@@ -800,10 +827,6 @@
 					<string>systemId</string>
 				</strings>
 			</scope>
-			
-			
-			
-			
 
 		</collection>
 		
@@ -896,23 +919,23 @@
 					<include syntax="self" />
 				</subscopes>
 			</scope>
-
+		
 			<scope name="parser3.block.hash">
-				<symbol type="block">
-					<context behavior="subtree" />
-				</symbol>
+				<symbol type="block" />
 				<starts-with>
 					<expression>\[</expression>
-					<capture number="0" name="parser3.bracket" />
+					<capture number="0" name="parser3.block.bracket" />
 				</starts-with>
 				<ends-with>
 					<expression>\]</expression>
-					<capture number="0" name="parser3.bracket" />
+					<capture number="0" name="parser3.block.bracket" />
 				</ends-with>
 				<subscopes>
 					<include syntax="self" />
 				</subscopes>
 			</scope>
+
+			
 
 			<!-- <scope name="parser3.block.taint.options">
 				<starts-with>
