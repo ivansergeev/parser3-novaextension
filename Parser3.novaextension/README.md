@@ -1,4 +1,4 @@
-# Parser 3 syntax support
+# Parser 3 extension
 
 
 Parser 3 — simple and convenient object-oriented language which allows creating good sites in short time.

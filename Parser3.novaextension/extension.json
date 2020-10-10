@@ -1,9 +1,9 @@
 {
     "identifier": "ivansergeev.Parser3",
     "name": "Parser 3",
-    "description": "Parser 3 syntax support",
+    "description": "Parser 3 language support",
     "organization": "Ivan Sergeev",
-    "version": "0.3.5",
+    "version": "0.3.6",
     "categories": ["languages", "completions"],
 	"keywords": ["parser 3", "parser3"],
 	"license": "MIT",

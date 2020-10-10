@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<syntax name="parser3">
+<syntax name="parser3" subsyntax="true">
     <meta>
         <name>Parser 3</name>
         <type>script</type>
@@ -67,6 +67,8 @@
 		<include syntax="self" collection="syntax" />
 		<include syntax="self" collection="properties" />
 		<include syntax="self" collection="variables" />
+		<include syntax="self" collection="sql" />
+
 	</scopes>
 
     <collections>
@@ -219,7 +221,7 @@
 			
 			<!-- [foo] -->			
 			<scope name="parser3.keyword.error.types">
-				<strings>
+				<strings case-insensitive="false">
 					<string>parser.compile</string>
 					<string>parser.runtime</string>
 					<string>parser.interrupted</string>
@@ -277,7 +279,7 @@
 			<!-- @foo -->
 			<scope name="parser3.keyword.core.method">
 				<!-- <strings prefix="^(?&lt;=\@)"> -->
-				<strings prefix="^\@">
+				<strings prefix="^\@" case-insensitive="false">
 					<string>auto</string>
 					<string>BASE</string>
 					<string>CLASS</string>
@@ -293,7 +295,7 @@
 
 			<!-- ^foo -->			
 			<scope name="parser3.keyword.core.variable.method">
-				<strings prefix="(?&lt;=\^)" suffix="(?=\.)">
+				<strings prefix="(?&lt;=\^)" suffix="(?=\.)" case-insensitive="false">
 					<string>CLASS_PATH</string>
 					<string>MAIN</string>
 					<string>LIMITS</string>
@@ -766,6 +768,308 @@
 				</strings>
 			</scope>
 			
+			<scope name="sql.keyword">
+				<strings case-insensitive="true">
+					<string>ABSOLUTE</string>
+					<string>ACTION</string>
+					<string>ADA</string>
+					<string>ADD</string>
+					<string>ALL</string>
+					<string>ALLOCATE</string>
+					<string>ALTER</string>
+					<string>AND</string>
+					<string>ANY</string>
+					<string>ARE</string>
+					<string>AS</string>
+					<string>ASC</string>
+					<string>ASSERTION</string>
+					<string>AT</string>
+					<string>AUTHORIZATION</string>
+					<string>AVG</string>
+					<string>BEGIN</string>
+					<string>BETWEEN</string>
+					<string>BIT</string>
+					<string>BIT_LENGTH</string>
+					<string>BOTH</string>
+					<string>BTREE</string>
+					<string>BY</string>
+					<string>CASCADE</string>
+					<string>CASCADED</string>
+					<string>CASE</string>
+					<string>CAST</string>
+					<string>CATALOG</string>
+					<string>CHAR</string>
+					<string>CHARACTER</string>
+					<string>CHARACTER_LENGTH</string>
+					<string>CHAR_LENGTH</string>
+					<string>CHARSET</string>
+					<string>CHECK</string>
+					<string>CLOSE</string>
+					<string>COALESCE</string>
+					<string>COLLATE</string>
+					<string>COLLATION</string>
+					<string>COLUMN</string>
+					<string>COMMIT</string>
+					<string>CONNECT</string>
+					<string>CONNECTION</string>
+					<string>CONSTRAINT</string>
+					<string>CONSTRAINTS</string>
+					<string>CONTINUE</string>
+					<string>CONVERT</string>
+					<string>CORRESPONDING</string>
+					<string>COUNT</string>
+					<string>CREATE</string>
+					<string>CROSS</string>
+					<string>CURRENT</string>
+					<string>CURRENT_DATE</string>
+					<string>CURRENT_TIME</string>
+					<string>CURRENT_TIMESTAMP</string>
+					<string>CURRENT_USER</string>
+					<string>CURSOR</string>
+					<string>DATE</string>
+					<string>DAY</string>
+					<string>DEALLOCATE</string>
+					<string>DEC</string>
+					<string>DECIMAL</string>
+					<string>DECLARE</string>
+					<string>DEFAULT</string>
+					<string>DEFERRABLE</string>
+					<string>DEFERRED</string>
+					<string>DELETE</string>
+					<string>DESC</string>
+					<string>DESCRIBE</string>
+					<string>DESCRIPTOR</string>
+					<string>DIAGNOSTICS</string>
+					<string>DISCONNECT</string>
+					<string>DISTINCT</string>
+					<string>DOMAIN</string>
+					<string>DOUBLE</string>
+					<string>DROP</string>
+					<string>ELSE</string>
+					<string>END</string>
+					<string>END-EXEC</string>
+					<string>ENGINE</string>
+					<string>ESCAPE</string>
+					<string>EXCEPT</string>
+					<string>EXCEPTION</string>
+					<string>EXEC</string>
+					<string>EXECUTE</string>
+					<string>EXISTS</string>
+					<string>EXTERNAL</string>
+					<string>EXTRACT</string>
+					<string>FETCH</string>
+					<string>FIRST</string>
+					<string>FLOAT</string>
+					<string>FOR</string>
+					<string>FOREIGN</string>
+					<string>FORTRAN</string>
+					<string>FOUND</string>
+					<string>FROM</string>
+					<string>FULL</string>
+					<string>GET</string>
+					<string>GLOBAL</string>
+					<string>GO</string>
+					<string>GOTO</string>
+					<string>GRANT</string>
+					<string>GROUP</string>
+					<string>HAVING</string>
+					<string>HOUR</string>
+					<string>IDENTITY</string>
+					<string>IF</string>
+					<string>IMMEDIATE</string>
+					<string>IN</string>
+					<string>INCLUDE</string>
+					<string>INDEX</string>
+					<string>INDICATOR</string>
+					<string>INITIALLY</string>
+					<string>INNER</string>
+					<string>INPUT</string>
+					<string>INSENSITIVE</string>
+					<string>INSERT</string>
+					<string>INT</string>
+					<string>INTEGER</string>
+					<string>INTERSECT</string>
+					<string>INTERVAL</string>
+					<string>INTO</string>
+					<string>IS</string>
+					<string>ISOLATION</string>
+					<string>JOIN</string>
+					<string>KEY</string>
+					<string>LANGUAGE</string>
+					<string>LAST</string>
+					<string>LEADING</string>
+					<string>LEFT</string>
+					<string>LEVEL</string>
+					<string>LIKE</string>
+					<string>LOCAL</string>
+					<string>LOCK</string>
+					<string>LOWER</string>
+					<string>MATCH</string>
+					<string>MAX</string>
+					<string>MIN</string>
+					<string>MINUTE</string>
+					<string>MODULE</string>
+					<string>MONTH</string>
+					<string>NAMES</string>
+					<string>NATIONAL</string>
+					<string>NATURAL</string>
+					<string>NCHAR</string>
+					<string>NEXT</string>
+					<string>NO</string>
+					<string>NONE</string>
+					<string>NOT</string>
+					<string>NULLIF</string>
+					<string>NUMERIC</string>
+					<string>OCTET_LENGTH</string>
+					<string>OF</string>
+					<string>ON</string>
+					<string>ONLY</string>
+					<string>OPEN</string>
+					<string>OPTION</string>
+					<string>OR</string>
+					<string>ORDER</string>
+					<string>OUTER</string>
+					<string>OUTPUT</string>
+					<string>OVERLAPS</string>
+					<string>PAD</string>
+					<string>PARTIAL</string>
+					<string>PASCAL</string>
+					<string>POSITION</string>
+					<string>PRECISION</string>
+					<string>PREPARE</string>
+					<string>PRESERVE</string>
+					<string>PRIMARY</string>
+					<string>PRIOR</string>
+					<string>PRIVILEGES</string>
+					<string>PROCEDURE</string>
+					<string>PUBLIC</string>
+					<string>READ</string>
+					<string>REAL</string>
+					<string>REFERENCES</string>
+					<string>RELATIVE</string>
+					<string>RESTRICT</string>
+					<string>REVOKE</string>
+					<string>RIGHT</string>
+					<string>ROLLBACK</string>
+					<string>ROWS</string>
+					<string>SCHEMA</string>
+					<string>SCROLL</string>
+					<string>SECOND</string>
+					<string>SECTION</string>
+					<string>SELECT</string>
+					<string>SESSION</string>
+					<string>SESSION_USER</string>
+					<string>SET</string>
+					<string>SIZE</string>
+					<string>SMALLINT</string>
+					<string>SOME</string>
+					<string>SPACE</string>
+					<string>SQL</string>
+					<string>SQLCA</string>
+					<string>SQLCODE</string>
+					<string>SQLERROR</string>
+					<string>SQLSTATE</string>
+					<string>SQLWARNING</string>
+					<string>SUBSTRING</string>
+					<string>SUM</string>
+					<string>SYSTEM_USER</string>
+					<string>TABLE</string>
+					<string>TABLES</string>
+					<string>TEMPORARY</string>
+					<string>THEN</string>
+					<string>TIME</string>
+					<string>TIMESTAMP</string>
+					<string>TIMEZONE_HOUR</string>
+					<string>TIMEZONE_MINUTE</string>
+					<string>TO</string>
+					<string>TRAILING</string>
+					<string>TRANSACTION</string>
+					<string>TRANSLATE</string>
+					<string>TRANSLATION</string>
+					<string>TRIM</string>
+					<string>UNION</string>
+					<string>UNIQUE</string>
+					<string>UNKNOWN</string>
+					<string>UNLOCK</string>
+					<string>UPDATE</string>
+					<string>UPPER</string>
+					<string>USAGE</string>
+					<string>USER</string>
+					<string>USING</string>
+					<string>VALUE</string>
+					<string>VALUES</string>
+					<string>VARCHAR</string>
+					<string>VARYING</string>
+					<string>VIEW</string>
+					<string>WHEN</string>
+					<string>WHENEVER</string>
+					<string>WHERE</string>
+					<string>WITH</string>
+					<string>WORK</string>
+					<string>WRITE</string>
+					<string>YEAR</string>
+					<string>ZONE</string>
+				</strings>
+			</scope>
+			
+			<scope name="sql.identifier.type.core">
+				<strings>
+					<string>bigint</string>
+					<string>bigserial</string>
+					<string>bit</string>
+					<string>bit varying</string>
+					<string>bool</string>
+					<string>boolean</string>
+					<string>box</string>
+					<string>bytea</string>
+					<string>char</string>
+					<string>character</string>
+					<string>character varying</string>
+					<string>cidr</string>
+					<string>circle</string>
+					<string>date</string>
+					<string>datetime</string>
+					<string>double precision</string>
+					<string>float</string>
+					<string>float8</string>
+					<string>hstore</string>
+					<string>inet</string>
+					<string>int</string>
+					<string>int4</string>
+					<string>int8</string>
+					<string>integer</string>
+					<string>interval</string>
+					<string>json</string>
+					<string>jsonb</string>
+					<string>line</string>
+					<string>lseg</string>
+					<string>macaddr</string>
+					<string>money</string>
+					<string>numeric</string>
+					<string>path</string>
+					<string>pg_lsn</string>
+					<string>point</string>
+					<string>polygon</string>
+					<string>real</string>
+					<string>serial</string>
+					<string>serial8</string>
+					<string>smallint</string>
+					<string>smallserial</string>
+					<string>text</string>
+					<string>time</string>
+					<string>timestamp</string>
+					<string>timestampz</string>
+					<string>tinyint</string>
+					<string>tsquery</string>
+					<string>tsvector</string>
+					<string>txid_snapshot</string>
+					<string>uuid</string>
+					<string>xml</string>
+					<string>unsigned</string>
+					<string>varchar</string>
+				</strings>
+			</scope>
+
 		</collection>
 		
 		<!-- Variables -->
@@ -858,18 +1162,28 @@
 				</subscopes>
 			</scope>
 		
-			<scope name="parser3.block.sql">
+			<scope name="parser3.block.sql"  spell-check="true" lookup="dictionary">
+				<symbol type="block">
+						<context behavior="subtree" />
+					</symbol>
 				<starts-with>
-					<expression>(sql)(\{)</expression>
-					<capture number="1" name="parser3.block.sql.keyword" />
-					<capture number="2" name="parser3.bracket" />
+					<!-- <expression>(sql)(\{)</expression> -->
+					<expression>sql\{</expression>
+					<!-- <capture number="1" name="parser3.block.sql.keyword" /> -->
+					<!-- <capture number="2" name="parser3.bracket" /> -->
+					<capture number="0" name="parser3.sql.start" />
 				</starts-with>
 				<ends-with>
-					<expression>(?=\})</expression>
-					<capture number="1" name="parser3.bracket" />
+					<!-- <expression>(?=\})</expression> -->
+					<expression>\}</expression>
+					<!-- <capture number="0" name="parser3.sql.start" /> -->
+					<capture number="0" name="parser3.bracket" />
 				</ends-with>
+				<subscopes>
+					<include syntax="self" collection="sql" />
+				</subscopes>
 			</scope>
-			
+
 			<scope name="parser3.block.hash">
 				<symbol type="block">
 					<context behavior="subtree" />
@@ -886,7 +1200,7 @@
 					<include syntax="self" />
 				</subscopes>
 			</scope>
-			
+
 			<scope name="parser3.block.taint.options">
 				<starts-with>
 					<expression>\^(taint|untaint|apply-taint)(\[)</expression>
@@ -915,6 +1229,48 @@
 				</ends-with>
 			</scope>
 			
+		</collection>
+
+		<collection name="sql">
+			
+			<!-- <include syntax="self" collection="types" /> -->
+			
+			
+			
+			<scope name="sql.identifier.type.attribute">
+				<strings>
+					<string>auto_increment</string>
+				</strings>
+			</scope>
+			
+			<!-- <include syntax="self" collection="values" /> -->
+			<scope name="sql.value.number">
+				<expression>\b[0-9]+(?:\.[0-9]+)?(?:(?:e|E)(?:\+|\-)?[0-9]+)?\b</expression>
+			</scope>
+			<scope name="sql.value.boolean">
+				<strings case-insensitive="true">
+					<string>TRUE</string>
+					<string>FALSE</string>
+				</strings>
+			</scope>
+			<scope name="sql.value.null">
+				<strings case-insensitive="true">
+					<string>NULL</string>
+				</strings>
+			</scope>
+			
+			<scope name="sql.bracket">
+				<expression>[\(\[\{\)\]\}]</expression>
+			</scope>
+			<scope name="sql.operator.equals">
+				<expression>=</expression>
+			</scope>
+			<scope name="sql.comma">
+				<expression>,</expression>
+			</scope>
+			<scope name="sql.semicolon">
+				<expression>;</expression>
+			</scope>
 		</collection>
 
     	<!-- Syntax -->
