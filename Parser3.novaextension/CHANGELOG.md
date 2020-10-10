@@ -1,7 +1,7 @@
 ## Version 0.3.6
 
 Added:
-* sql highlighting
+* sql support
 
 ## Version 0.3.5
 
