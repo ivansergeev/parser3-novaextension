@@ -4,7 +4,7 @@
     "description": "Parser 3 language support",
     "organization": "Ivan Sergeev",
     "version": "0.3.7",
-    "categories": ["languages", "completions"],
+    "categories": ["languages", "completions", "themes"],
 	"keywords": ["parser 3", "parser3"],
 	"license": "MIT",
 	"repository": "https://github.com/ivansergeev/parser3-novaextension",

@@ -1,3 +1,11 @@
+## Version 0.3.7
+
+Added:
+* Parser 3 theme (initial release)
+
+Fix:
+* version 0.3.6 doesn't work correctly
+
 ## Version 0.3.6
 
 Added:
