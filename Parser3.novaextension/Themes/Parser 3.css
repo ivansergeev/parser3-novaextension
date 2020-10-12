@@ -296,9 +296,7 @@ style.value.color.named {
 
 /* Parser 3 */
 
-/* directives.block.hash {
-	color: yellow;
-} */
+
 
 string {
 	color: #E4D8CB;
@@ -323,14 +321,20 @@ identifier.variable {
 	color: #A3B7FC;
 }
 
-sql.keyword {
-	color: hsb(268, 34%, 100%);
-}
-
 directives.block.sql 
 {
 	color: #E7EAFE;
 }
+
+sql.keyword {
+	color: hsb(268, 34%, 100%);
+}
+
+/* 
+directives.block.hash {
+	color: yellow;
+}
+*/
 
 core.options {
 	color: hsb(210, 60%, 100%);

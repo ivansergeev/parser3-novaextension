@@ -515,6 +515,18 @@
 				<append>(true)</append>
 			</behavior>
 		</completion>
+		<completion string="accept_encoding">
+			<description>curl parameter (CURLOPT_ACCEPT_ENCODING). Compresion for the request: gzip or deflate.</description>
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="autoreferer">
+			<description>curl parameter (CURLOPT_AUTOREFERER). Set the Referer header automatically.</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
 		<completion string="bind">
 			<description>void:sql, string:sql, table::sql parameter</description>
 			<behavior>
@@ -531,6 +543,18 @@
 			<description>memcached::open parameter</description>
 			<behavior>
 				<append>($[true|false])</append>
+			</behavior>
+		</completion>
+		<completion string="cainfo">
+			<description>curl parameter (CURLOPT_CAINFO)</description>
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="capath">
+			<description>curl parameter (CURLOPT_CAPATH)</description>
+			<behavior>
+				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="charset">
@@ -557,16 +581,64 @@
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
+		<completion string="connecttimeout">
+			<description>curl parameter (CURLOPT_CONNECTTIMEOUT). The maximum time in seconds that you allow the connection to the server to take.</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="connecttimeout_ms">
+			<description>curl parameter (CURLOPT_CONNECTTIMEOUT_MS). The maximum time in milliseconds that you allow the connection to the server to take.</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
 		<completion string="connect-timeout">
 			<description>memcached::open parameter</description>
 			<behavior>
 				<append>($[seconds])</append>
 			</behavior>
 		</completion>
+		<completion string="cookie">
+			<description>curl parameter (CURLOPT_COOKIE). String with cookies (name1=content1; name2=content2;...).</description>
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
 		<completion string="cookies">
 			<description>Hash with list of cookies to be passed to HTTP-server.</description>
 			<behavior>
 				<append>($[hash])</append>
+			</behavior>
+		</completion>
+		<completion string="cookielist">
+			<description>curl parameter (CURLOPT_COOKIELIST). String with cookies.</description>
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="cookiesession">
+			<description>curl parameter (CURLOPT_COOKIESESSION)</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="copypostfields">
+			<description>curl parameter (CURLOPT_COPYPOSTFIELDS). The body of POST-request.</description>
+			<behavior>
+				<append>[$[string or file]]</append>
+			</behavior>
+		</completion>
+		<completion string="crlfile">
+			<description>curl parameter (CURLOPT_CRLFILE)</description>
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="customrequest">
+			<description>curl parameter (CURLOPT_CUSTOMREQUEST). Custom HTTP method.</description>
+			<behavior>
+				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="date">
@@ -647,6 +719,12 @@
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
+		<completion string="ignore_content_length">
+			<description>curl parameter (CURLOPT_IGNORE_CONTENT_LENGTH). Ignore the Content-Length header. This is useful for Apache 1.x which will report incorrect content length for files over 2GB.</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
 		<completion string="int">
 			<description>json:parse parameter. If true, stores integer numbers as objects of class int. If false, stores integer numbers as strings.</description>
 			<behavior>
@@ -671,6 +749,24 @@
 				<append>[no]</append>
 			</behavior>
 		</completion>
+		<completion string="interface">
+			<description>curl parameter (CURLOPT_INTERFACE). Interface name to use as outgoing network interface.</description>
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="ipresolve">
+			<description>curl parameter (CURLOPT_IPRESOLVE). 1-use IPv4 (default), 2-use IPv6.</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="issuercert">
+			<description>curl parameter (CURLOPT_ISSUERCERT). Filename holding a CA certificate.</description>
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
 		<completion string="headers">
 			<description>Hash with additional HTTP-headers to be passed to HTTP-server.</description>
 			<behavior>
@@ -689,6 +785,54 @@
 				<append>(true)</append>
 			</behavior>
 		</completion>
+		<completion string="http_content_decoding">
+			<description>curl parameter (CURLOPT_HTTP_CONTENT_DECODING)</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="http_transfer_decoding">
+			<description>curl parameter (CURLOPT_HTTP_TRANSFER_DECODING)</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="httpauth">
+			<description>curl parameter (CURLOPT_HTTPAUTH). HTTP-authorization method.</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="httpget">
+			<description>curl parameter (CURLOPT_HTTPGET). Use GET HTTP method.</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="httpheader">
+			<description>curl parameter (CURLOPT_HTTPHEADER). HTTP-headers.</description>
+			<behavior>
+				<append>[$[hash]]</append>
+			</behavior>
+		</completion>
+		<completion string="httppost">
+			<description>curl parameter (CURLOPT_HTTPPOST). Multipart/formdata HTTP POST to be made to pass data on to the server.</description>
+			<behavior>
+				<append>[$[hash]]</append>
+			</behavior>
+		</completion>
+		<completion string="httpproxytunnel">
+			<description>curl parameter (CURLOPT_HTTPPROXYTUNNEL). Tunnel all operations through a given HTTP proxy.</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="failonerror">
+			<description>curl parameter (CURLOPT_FAILONERROR). Fail if HTTP code returned is equal or larger then 400.</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
 		<completion string="file">
 			<description></description>
 			<behavior>
@@ -701,10 +845,28 @@
 				<append>[$[text|base64|stat]]</append>
 			</behavior>
 		</completion>
+		<completion string="followlocation">
+			<description>curl parameter (CURLOPT_FOLLOWLOCATION). Follow any Location header.</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="forbid_reuse">
+			<description>curl parameter (CURLOPT_FORBID_REUSE)</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
 		<completion string="form">
 			<description>Request parameters.</description>
 			<behavior>
 				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="fresh_connect">
+			<description>curl parameter (CURLOPT_FRESH_CONNECT). Next transfer will use a new connection by force.</description>
+			<behavior>
+				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="from">
@@ -715,6 +877,12 @@
 		</completion>
 		<completion string="from-charset">
 			<description></description>
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="keypasswd">
+			<description>curl parameter (CURLOPT_KEYPASSWD). The password required to use the private key.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
@@ -733,6 +901,42 @@
 		</completion>
 		<completion string="lineno">
 			<description>process parameter. A line number in file, where this string cames from. May be negative.</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="localport">
+			<description>curl parameter (CURLOPT_LOCALPORT). Local port.</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="low_speed_limit">
+			<description>curl parameter (CURLOPT_LOW_SPEED_LIMIT). The transfer speed in bytes per second during low_speed_time.</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="low_speed_time">
+			<description>curl parameter (CURLOPT_LOW_SPEED_TIME). The maxinum time in seconds that the transfer should be below the low_speed_limit for the library to consider it is too slow and abort.</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="maxconnects">
+			<description>curl parameter (CURLOPT_MAXCONNECTS). The maximum amount of simultaneously open connections. </description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="maxfilesize">
+			<description>curl parameter (CURLOPT_MAXFILESIZE). If the file requested is larger than this value, the transfer will not start.</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="maxredirs">
+			<description>curl parameter (CURLOPT_MAXREDIRS). Maximum number or redirects.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
@@ -773,6 +977,12 @@
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
+		<completion string="nobody">
+			<description>curl parameter (CURLOPT_NOBODY). Use HEAD method.</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
 		<completion string="type">
 			<description></description>
 			<behavior>
@@ -795,6 +1005,18 @@
 			<description>memcached parameter</description>
 			<behavior>
 				<append>($[false|true])</append>
+			</behavior>
+		</completion>
+		<completion string="range">
+			<description>curl parameter (CURLOPT_RANGE). The specified range you want.</description>
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="referer">
+			<description>curl parameter (CURLOPT_REFERER). Referer header.</description>
+			<behavior>
+				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="replace">
@@ -857,16 +1079,64 @@
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
+		<completion string="password">
+			<description>curl parameter (CURLOPT_PASSWORD). Password.</description>
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
 		<completion string="post">
-			<description>curl parameter. Use POST method.</description>
+			<description>curl parameter (CURLOPT_POST). Use POST method.</description>
 			<behavior>
 				<append>(1)</append>
 			</behavior>
 		</completion>
+		<completion string="port">
+			<description>curl parameter (CURLOPT_PORT). Port.</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
 		<completion string="postfields">
-			<description>curl parameter. The body of POST-request.</description>
+			<description>curl parameter (CURLOPT_POSTFIELDS). The body of POST-request.</description>
 			<behavior>
 				<append>[$[string or file]]</append>
+			</behavior>
+		</completion>
+		<completion string="postredir">
+			<description>curl parameter (CURLOPT_POSTREDIR)</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="proxy">
+			<description>curl parameter (CURLOPT_PROXY). Proxy-server address.</description>
+			<behavior>
+				<append>[$[string]]</append>
+			</behavior>
+		</completion>
+		<completion string="proxyauth">
+			<description>curl parameter (CURLOPT_PROXYAUTH). Authorization type (see httpauth).</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="proxyport">
+			<description>curl parameter (CURLOPT_PROXYPORT). Proxy-server port.</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="proxytype">
+			<description>curl parameter (CURLOPT_PROXYTYPE). Proxy type: 0 - HTTP, 1 - HTTP_1_0, 4 - SOCKS4, 5 - SOCKS5, 6 - SOCKS4A, 7 - SOCKS5_HOSTNAME. </description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="proxyuserpwd">
+			<description>curl parameter (CURLOPT_PROXYUSERPWD). Proxy-server user name and password.</description>
+			<behavior>
+				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="print-debug">
@@ -883,6 +1153,78 @@
 		</completion>
 		<completion string="server">
 			<description></description>
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="ssl_cipher_list">
+			<description>curl perameter (CURLOPT_SSL_CIPHER_LIST)</description>
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="ssl_sessionid_cache">
+			<description>curl perameter (CURLOPT_SSL_SESSIONID_CACHE). Enable or disable SSL session-ID caching.</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="ssl_verifyhost">
+			<description>curl perameter (CURLOPT_SSL_VERIFYHOST). Verifies that the server cert is for the server it is known as.</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="ssl_verifypeer">
+			<description>curl perameter (CURLOPT_SSL_VERIFYPEER). Verifies the authenticity of the peer's certificate.</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="sslcert">
+			<description>curl perameter (CURLOPT_SSLCERT). File name of your certificate.</description>
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="sslcerttype">
+			<description>curl perameter (CURLOPT_SSLCERTTYPE). SSL-certificate type.</description>
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="sslengine">
+			<description>curl perameter (CURLOPT_SSLENGINE)</description>
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="sslengine_default">
+			<description>curl perameter (CURLOPT_SSLENGINE_DEFAULT)</description>
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="sslkey">
+			<description>curl perameter (CURLOPT_SSLKEY). File name of your private key.</description>
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="sslkeytype">
+			<description>curl perameter (CURLOPT_SSLKEYTYPE). SSL-key type.</description>
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="sslversion">
+			<description>curl perameter (CURLOPT_SSLVERSION). Protocol version for SSL/TLS connection: 0 - default, 1 - TLSv1 (TLS 1.x), 2 - SSLv2, 3 - SSLv3, 4 - TLSv1_0, 5 - TLSv1_1, 6 - TLSv1_2.</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="stderr">
+			<description>curl perameter (CURLOPT_STDERR). Redirect stderr into specified stream.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
@@ -917,6 +1259,18 @@
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
+		<completion string="timeout">
+			<description>curl parameter (CURLOPT_TIMEOUT). Timeout in seconds.</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="timeout_ms">
+			<description>curl parameter (CURLOPT_TIMEOUT_MS). Timeout in miliseconds.</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
 		<completion string="value">
 			<description></description>
 			<behavior>
@@ -933,6 +1287,42 @@
 			<description>These are request parameters to server, which uses standard HTTP-authorization.</description>
 			<behavior>
 				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="unrestricted_auth">
+			<description>curl parameter (CURLOPT_UNRESTRICTED_AUTH). Continue to send authentication when following locations, even when hostname changed.</description>
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="url">
+			<description>curl parameter (CURLOPT_URL)</description>
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="useragent">
+			<description>curl parameter (CURLOPT_USERAGENT). User-Agent header.</description>
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="username">
+			<description>curl parameter (CURLOPT_USERNAME). User name.</description>
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="userpwd">
+			<description>curl parameter (CURLOPT_USERPWD). User name and password.</description>
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="verbose">
+			<description>curl parameter (CURLOPT_VERBOSE). Display a lot of verbose information about its operations into stderr.</description>
+			<behavior>
+				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="z">

@@ -882,15 +882,27 @@
 				<strings prefix="(?&lt;=\$\.)">
 					<string>array</string>
 					<string>any-status</string>
+					<string>accept_encoding</string>
+					<string>autoreferer</string>
 					<string>bind</string>
 					<string>body</string>
 					<string>binary-protocol</string>
+					<string>cainfo</string>
+					<string>capath</string>
 					<string>charset</string>
 					<string>class-name</string>
 					<string>colon</string>
 					<string>content-type</string>
 					<string>connect-timeout</string>
+					<string>connecttimeout</string>
+					<string>connecttimeout_ms</string>
+					<string>cookie</string>
 					<string>cookies</string>
+					<string>cookielist</string>
+					<string>cookiesession</string>
+					<string>copypostfields</string>
+					<string>crlfile</string>
+					<string>customrequest</string>
 					<string>date</string>
 					<string>default</string>
 					<string>depth</string>
@@ -901,31 +913,50 @@
 					<string>enctype</string>
 					<string>encoding</string>
 					<string>expires</string>
-					<string>int</string>
-					<string>indent</string>
-					<string>headers</string>
-					<string>html</string>
-					<string>httponly</string>
+					<string>failonerror</string>
 					<string>file</string>
 					<string>form</string>
 					<string>followlocation</string>
+					<string>forbid_reuse</string>
+					<string>fresh_connect</string>
 					<string>from</string>
 					<string>from-charset</string>
+					<string>headers</string>
+					<string>html</string>
+					<string>httponly</string>
+					<string>http_content_decoding</string>
+					<string>http_transfer_decoding</string>
+					<string>httpauth</string>
+					<string>httpget</string>
+					<string>httpheader</string>
+					<string>httppost</string>
+					<string>httpproxytunnel</string>
+					<string>int</string>
+					<string>indent</string>
+					<string>ignore_content_length</string>
+					<string>interface</string>
+					<string>ipresolve</string>
+					<string>issuercert</string>
+					<string>keypasswd</string>
 					<string>library</string>
 					<string>limit</string>
 					<string>lineno</string>
+					<string>localport</string>
+					<string>low_speed_limit</string>
+					<string>low_speed_time</string>
 					<string>main</string>
+					<string>maxconnects</string>
+					<string>maxfilesize</string>
+					<string>maxredirs</string>
 					<string>mode</string>
 					<string>method</string>
 					<string>ms</string>
 					<string>name</string>
+					<string>nobody</string>
 					<string>type</string>
 					<string>to</string>
 					<string>to-charset</string>
 					<string>tcp-keepalive</string>
-					<string>replace</string>
-					<string>reverse</string>
-					<string>response-charset</string>
 					<string>object</string>
 					<string>offset</string>
 					<string>omit-post-charset</string>
@@ -933,23 +964,51 @@
 					<string>options</string>
 					<string>path</string>
 					<string>post</string>
+					<string>port</string>
 					<string>postfields</string>
+					<string>postredir</string>
+					<string>proxy</string>
+					<string>proxyauth</string>
+					<string>proxyport</string>
+					<string>proxytype</string>
+					<string>proxyuserpwd</string>
 					<string>password</string>
 					<string>print-debug</string>
+					<string>range</string>
+					<string>referer</string>
+					<string>replace</string>
+					<string>reverse</string>
+					<string>response-charset</string>
 					<string>skip-unknown</string>
 					<string>server</string>
 					<string>separator</string>
+					<string>ssl_cipher_list</string>
+					<string>ssl_sessionid_cache</string>
+					<string>ssl_verifyhost</string>
 					<string>ssl_verifypeer</string>
+					<string>sslcert</string>
+					<string>sslcerttype</string>
+					<string>sslengine</string>
+					<string>sslengine_default</string>
+					<string>sslkey</string>
+					<string>sslkeytype</string>
+					<string>sslversion</string>
+					<string>stderr</string>
 					<string>subject</string>
 					<string>taint</string>
 					<string>table</string>
 					<string>timeout</string>
+					<string>timeout_ms</string>
 					<string>text</string>
 					<string>value</string>
 					<string>void</string>
 					<string>user</string>
-					<string>useragent</string>
+					<string>unrestricted_auth</string>
 					<string>url</string>
+					<string>useragent</string>
+					<string>username</string>
+					<string>userpwd</string>
+					<string>verbose</string>
 					<string>z</string>
 					<string>xdoc</string>
 					<string>_default</string>
