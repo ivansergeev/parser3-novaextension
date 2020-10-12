@@ -243,16 +243,16 @@ definition.method method.name {
 
 /* Tags */
 tag {
-    color: hsb(166, 40%, 78%);
+	color: #C79089;
 }
 tag.framework {
-    color: hsb(258, 40%, 87%);
+    color: #C79089;
 }
 tag.attribute.name {
-    color: hsb(95, 54%, 82%);
+	color: #EFADA5;
 }
 tag.attribute.value {
-    color: hsb(5, 62%, 100%);
+	color: #E4D8CB;
 }
 tag.attribute.value.link {
     color: hsb(210, 60%, 100%);
@@ -303,7 +303,6 @@ string {
 }
 
 value.number {
-	/* color: #F1749B; */
 	color: #EF705F;
 }
 
@@ -329,12 +328,6 @@ directives.block.sql
 sql.keyword {
 	color: hsb(268, 34%, 100%);
 }
-
-/* 
-directives.block.hash {
-	color: yellow;
-}
-*/
 
 core.options {
 	color: hsb(210, 60%, 100%);

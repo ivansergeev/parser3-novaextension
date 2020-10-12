@@ -3,6 +3,7 @@
     <meta>
         <name>Parser 3</name>
         <type>script</type>
+		<parent>html</parent>
         <preferred-file-extension>html</preferred-file-extension>
     </meta>
     
@@ -30,7 +31,7 @@
 
     <comments>
 		
-		<!-- doesn't work :-( -->
+		<!-- doesn't work with shortcut :-( -->
 		<!-- 
 		<single>
 				<expression>#</expression>
@@ -63,6 +64,7 @@
     </surrounding-pairs>
 
 	<scopes>
+		<include syntax="html" />
 		<include syntax="self" collection="comments" />
 		<include syntax="self" collection="definitions" />
 		<include syntax="self" collection="directives" />
@@ -74,8 +76,6 @@
 		<include syntax="self" collection="syntax" />
 		<include syntax="self" collection="properties" />
 		<include syntax="self" collection="variables" />
-		
-
 	</scopes>
 
     <collections>
@@ -128,36 +128,7 @@
 						<expression>\^([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\\\x7f-\xff]*)</expression>
 					</scope>
 				</subscopes>
-			</scope>
-
-		<!-- 
-			<scope name="parser3.directives.block.hash">
-				<symbol type="block">
-					<context behavior="subtree" foldable="true" />
-				</symbol>
-				<starts-with>
-					<expression>(?&lt;=\[)</expression>
-				</starts-with>
-				<ends-with>
-					<expression>(?=\])</expression>
-				</ends-with>
-				<subscopes>
-					<cut-off>
-						<expression>(?=(?:\^(table|int|double|string|void|file)))</expression>
-					</cut-off>
-					<include syntax="self" collection="comments" />
-					<include syntax="self" collection="property" />
-					<include syntax="self" collection="sql" />
-					<include syntax="self" collection="keywords" />
-					<include syntax="self" collection="variables" />
-					<include syntax="self" collection="blocks" />
-					<scope name="parser3.identifier.method.call">
-						<expression>\^([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\\\x7f-\xff]*)</expression>
-					</scope>
-				</subscopes>
-			</scope> 
-		-->
-			
+			</scope>			
 		</collection>
 		
 	<!-- Definitions -->
@@ -347,7 +318,6 @@
 			
 			<!-- @foo -->
 			<scope name="parser3.keyword.core.method">
-				<!-- <strings prefix="^(?&lt;=\@)"> -->
 				<strings prefix="^\@" case-insensitive="false">
 					<string>auto</string>
 					<string>BASE</string>
@@ -376,7 +346,6 @@
 
 			<!-- ^foo: -->
 			<scope name="parser3.keyword.class">
-				<!-- <strings prefix="(?&lt;=\^)" suffix="(?=[:\.])"> -->
 				<strings prefix="(?&lt;=\^)" suffix="(?=:)">
 					<string>cookie</string>
 					<string>curl</string>
@@ -1020,7 +989,6 @@
 		<!-- Variables -->
 		<collection name="variables">
 			<scope name="parser3.identifier.variable.core">
-				<!-- <strings word-boundary="false" suffix="\b"> -->
 				<strings word-boundary="true" suffix="\b">
 					<string>CLASS_PATH</string>
 					<string>LIMITS</string>

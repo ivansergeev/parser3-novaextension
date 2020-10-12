@@ -2,6 +2,10 @@
 
 Added:
 * all supported curl options
+* HTML and CSS support (experimental feature)
+
+Changed:
+* Parser 3 theme
 
 ## Version 0.3.8
 
@@ -25,7 +29,7 @@ Fix:
 ## Version 0.3.6
 
 Added:
-* sql support
+* SQL support
 
 ## Version 0.3.5
 
