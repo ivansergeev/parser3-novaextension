@@ -29,9 +29,14 @@
 	</indentation>
 
     <comments>
+		
+		<!-- doesn't work :-( -->
+		<!-- 
 		<single>
-			<expression>#</expression>
+				<expression>#</expression>
 		</single>
+		-->
+		
 		<multiline>
 			<starts-with>
 				<expression>^rem{</expression>
@@ -77,10 +82,12 @@
 
 		<!-- Comments -->
 		<collection name="comments">
+			
 			<scope name="parser3.comment.single" spell-check="true">
 				<expression>^\#(.*)$</expression>
-				<capture number="1" name="parser3.comment.text" />
+				<!-- <capture number="1" name="parser3.comment.text" /> -->
 			</scope>
+			
 			<scope name="parser3.comment.block" spell-check="true">
 				<symbol type="comment">
 					<context behavior="subtree" />
@@ -102,10 +109,13 @@
 					<context behavior="subtree" foldable="true" />
 				</symbol>
 				<starts-with>
-					<expression>sql\{</expression>
+					<expression>(sql)(\{)</expression>
+					<capture number="1" name="parser3.keyword.class.method" />
+					<capture number="2" name="parser3.bracket" />
 				</starts-with>
 				<ends-with>
-					<expression>\}</expression>
+					<expression>(\})</expression>
+					<capture number="1" name="parser3.bracket" />
 				</ends-with>
 				<subscopes>
 					<include syntax="self" collection="comments" />
@@ -397,6 +407,38 @@
 				</strings>
 			</scope>
 			
+			<!-- foo -->
+			<scope name="parser3.keyword.class.type">
+				<strings>
+					<string>cookie</string>
+					<string>curl</string>
+					<string>date</string>
+					<string>double</string>
+					<string>int</string>
+					<string>env</string>
+					<string>file</string>
+					<string>form</string>
+					<string>hash</string>
+					<string>hashfile</string>
+					<string>image</string>
+					<string>inet</string>
+					<string>json</string>
+					<string>mail</string>
+					<string>math</string>
+					<string>memcached</string>
+					<string>memory</string>
+					<string>reflection</string>
+					<string>regex</string>
+					<string>request</string>
+					<string>response</string>
+					<string>status</string>
+					<string>string</string>
+					<string>table</string>
+					<string>void</string>
+					<string>xdoc</string>
+				</strings>
+			</scope>
+			
 			<!-- $foo: -->
 			<scope name="parser3.keyword.class.static">
 				<strings prefix="(?&lt;=\$)" suffix="(?=:)">
@@ -610,6 +652,9 @@
 					<string>foreach</string>
 					<string>length</string>
 					<string>replace</string>
+					
+					<!-- exception -->
+					<string>handled</string>
 					
 					<!-- date -->
 					<string>gmt-string</string>
@@ -863,6 +908,7 @@
 					<string>httponly</string>
 					<string>file</string>
 					<string>form</string>
+					<string>followlocation</string>
 					<string>from</string>
 					<string>from-charset</string>
 					<string>library</string>
@@ -886,18 +932,24 @@
 					<string>omit-xml-declaration</string>
 					<string>options</string>
 					<string>path</string>
+					<string>post</string>
+					<string>postfields</string>
 					<string>password</string>
 					<string>print-debug</string>
 					<string>skip-unknown</string>
 					<string>server</string>
 					<string>separator</string>
+					<string>ssl_verifypeer</string>
 					<string>subject</string>
 					<string>taint</string>
 					<string>table</string>
+					<string>timeout</string>
 					<string>text</string>
 					<string>value</string>
 					<string>void</string>
 					<string>user</string>
+					<string>useragent</string>
+					<string>url</string>
 					<string>z</string>
 					<string>xdoc</string>
 					<string>_default</string>
@@ -1018,7 +1070,7 @@
 		<collection name="sql">
 			
 			<scope name="sql.keyword">
-				<strings case-insensitive="true">
+				<strings case-insensitive="false">
 					<string>ABSOLUTE</string>
 					<string>ACTION</string>
 					<string>ADA</string>
@@ -1167,6 +1219,7 @@
 					<string>NO</string>
 					<string>NONE</string>
 					<string>NOT</string>
+					<string>NOW</string>
 					<string>NULLIF</string>
 					<string>NUMERIC</string>
 					<string>OCTET_LENGTH</string>
@@ -1232,6 +1285,7 @@
 					<string>TIMEZONE_MINUTE</string>
 					<string>TO</string>
 					<string>TRAILING</string>
+					<string>TRUNCATE</string>
 					<string>TRANSACTION</string>
 					<string>TRANSLATE</string>
 					<string>TRANSLATION</string>
@@ -1350,7 +1404,7 @@
 				</symbol>
 				<expression>\{</expression>
 			</scope>
-			<scope name="json.bracket.codeblock.end">
+			<scope name="parser3.bracket.codeblock.end">
 				<symbol type="block">
 					<context behavior="end" />
 				</symbol>
@@ -1362,7 +1416,7 @@
 				</symbol>
 				<expression>\[</expression>
 			</scope>
-			<scope name="json.bracket.hashblock.end">
+			<scope name="parser3.bracket.hashblock.end">
 				<symbol type="block">
 					<context behavior="end" />
 				</symbol>

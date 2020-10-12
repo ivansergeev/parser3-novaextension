@@ -301,28 +301,41 @@ style.value.color.named {
 } */
 
 string {
-	color: sandybrown;
+	color: #E4D8CB;
 }
 
 value.number {
-	color: #F1749B;
+	/* color: #F1749B; */
+	color: #EF705F;
 }
 
-core.options {
+identifier.method.name
+{
 	color: hsb(210, 60%, 100%);
+}
+
+identifier.method.call {
+	color: #BBD554;
 }
 
 identifier.variable {
 	
 	color: #A3B7FC;
 }
+
 sql.keyword {
 	color: hsb(268, 34%, 100%);
 }
 
-identifier.method.call {
-	color: yellowgreen;
+directives.block.sql 
+{
+	color: #E7EAFE;
 }
+
+core.options {
+	color: hsb(210, 60%, 100%);
+}
+
 
 keyword.property {
 	color: lightyellow;

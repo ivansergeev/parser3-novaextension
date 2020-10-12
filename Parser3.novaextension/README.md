@@ -1,5 +1,7 @@
 # Parser 3 extension
 
+The extension provides Parser 3 syntax highlighting and code completion.
+
 
 Parser 3 — simple and convenient object-oriented language which allows creating good sites in short time.
 

@@ -857,6 +857,18 @@
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
+		<completion string="post">
+			<description>curl parameter. Use POST method.</description>
+			<behavior>
+				<append>(1)</append>
+			</behavior>
+		</completion>
+		<completion string="postfields">
+			<description>curl parameter. The body of POST-request.</description>
+			<behavior>
+				<append>[$[string or file]]</append>
+			</behavior>
+		</completion>
 		<completion string="print-debug">
 			<description>mail:send parameter. The message text will be printed instead of sending message.</description>
 			<behavior>
@@ -1162,6 +1174,14 @@ $[]</append>
 
 
 	<set name="parser3.instance.method" symbol="method">
+		<!-- exception -->
+		<completion string="handled">
+			<description>exception</description>
+			<behavior>
+				<append>(true)</append>
+			</behavior>
+		</completion>
+		
 		<!-- file -->
 		<completion string="base64">
 			<description>file</description>
@@ -2763,7 +2783,11 @@ $[]</append>
 		<completion string="CONTINUE" />
 		<completion string="CONVERT" />
 		<completion string="CORRESPONDING" />
-		<completion string="COUNT" />
+		<completion string="COUNT">
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
 		<completion string="CREATE" />
 		<completion string="CROSS" />
 		<completion string="CURRENT" />
@@ -2844,12 +2868,20 @@ $[]</append>
 		<completion string="LANGUAGE" />
 		<completion string="LAST" />
 		<completion string="LEADING" />
-		<completion string="LEFT" />
+		<completion string="LEFT">
+			<behavior>
+				<append>($[string], $[length])</append>
+			</behavior>
+		</completion>
 		<completion string="LEVEL" />
 		<completion string="LIKE" />
 		<completion string="LOCAL" />
 		<completion string="LOCK" />
-		<completion string="LOWER" />
+		<completion string="LOWER">
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
 		<completion string="MATCH" />
 		<completion string="MAX" />
 		<completion string="MIN" />
@@ -2864,6 +2896,11 @@ $[]</append>
 		<completion string="NO" />
 		<completion string="NONE" />
 		<completion string="NOT" />
+		<completion string="NOW">
+			<behavior>
+				<append>()</append>
+			</behavior>
+		</completion>
 		<completion string="NULLIF" />
 		<completion string="NUMERIC" />
 		<completion string="OCTET_LENGTH" />
@@ -2895,7 +2932,11 @@ $[]</append>
 		<completion string="RELATIVE" />
 		<completion string="RESTRICT" />
 		<completion string="REVOKE" />
-		<completion string="RIGHT" />
+		<completion string="RIGHT">
+			<behavior>
+				<append>($[string], $[length])</append>
+			</behavior>
+		</completion>
 		<completion string="ROLLBACK" />
 		<completion string="ROWS" />
 		<completion string="SCHEMA" />
@@ -2917,7 +2958,11 @@ $[]</append>
 		<completion string="SQLSTATE" />
 		<completion string="SQLWARNING" />
 		<completion string="SUBSTRING" />
-		<completion string="SUM" />
+		<completion string="SUM">
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
 		<completion string="SYSTEM_USER" />
 		<completion string="TABLE" />
 		<completion string="TABLES" />
@@ -2931,14 +2976,23 @@ $[]</append>
 		<completion string="TRAILING" />
 		<completion string="TRANSACTION" />
 		<completion string="TRANSLATE" />
+		<completion string="TRUNCATE" />
 		<completion string="TRANSLATION" />
-		<completion string="TRIM" />
+		<completion string="TRIM">
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
 		<completion string="UNION" />
 		<completion string="UNIQUE" />
 		<completion string="UNKNOWN" />
 		<completion string="UNLOCK" />
 		<completion string="UPDATE" />
-		<completion string="UPPER" />
+		<completion string="UPPER">
+			<behavior>
+				<append>($[])</append>
+			</behavior>
+		</completion>
 		<completion string="USAGE" />
 		<completion string="USER" />
 		<completion string="USING" />

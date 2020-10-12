@@ -1,3 +1,14 @@
+## Version 0.3.8
+
+Changed:
+* Multiline comment `^rem{...}` by default (⌘+/). Unfortunately, a single-line comment `#` doesn't work by keyboard shortcut.
+* Parser 3 theme correction
+
+Added:
+* few curl options
+* few sql keywords
+* highlighting class types
+
 ## Version 0.3.7
 
 Added:
