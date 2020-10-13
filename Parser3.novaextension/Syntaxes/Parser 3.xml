@@ -104,6 +104,8 @@
 		<!--  Directives -->
 		<collection name="directives">
 			
+			<!-- SQL -->
+
 			<scope name="parser3.directives.block.sql">
 				<symbol type="block">
 					<context behavior="subtree" foldable="true" />
@@ -128,7 +130,53 @@
 						<expression>\^([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\\\x7f-\xff]*)</expression>
 					</scope>
 				</subscopes>
-			</scope>			
+			</scope>
+						
+			<!-- TAINT -->
+
+			<scope name="parser3.directives.block.apply-taint">
+				<starts-with>
+					<expression>(?&lt;=\^apply\-taint\[)</expression>
+					<capture number="1" name="parser3.keyword.operator" />
+					<capture number="2" name="parser3.bracket" />
+				</starts-with>
+				<ends-with>
+					<expression>(?=\]\[)</expression>
+					<capture number="1" name="parser3.bracket" />
+				</ends-with>
+				<subscopes>
+					<include syntax="self" collection="taint" />
+				</subscopes>
+			</scope>
+			
+			<scope name="parser3.directives.block.taint">
+				<starts-with>
+					<expression>(?&lt;=\^taint\[)</expression>
+					<capture number="1" name="parser3.keyword.operator" />
+				</starts-with>
+				<ends-with>
+					<expression>(?=\]\[)</expression>
+					<capture number="1" name="parser3.bracket" />
+				</ends-with>
+				<subscopes>
+					<include syntax="self" collection="taint" />
+				</subscopes>
+			</scope>	
+			
+			<scope name="parser3.directives.block.untaint">
+				<starts-with>
+					<expression>(?&lt;=\^untaint\[)</expression>
+					<capture number="1" name="parser3.keyword.operator" />
+				</starts-with>
+				<ends-with>
+					<expression>(?=\]\{)</expression>
+					<capture number="1" name="parser3.bracket" />
+				</ends-with>
+				<subscopes>
+					<include syntax="self" collection="taint" />
+				</subscopes>
+			</scope>
+			
 		</collection>
 		
 	<!-- Definitions -->
@@ -190,8 +238,30 @@
 			</scope>
 			
 		</collection>
-		
 
+		<!-- Taint -->
+		<collection name="taint">
+			<scope name="parser3.keyword.property">
+				<strings prefix="(?&lt;=\[)" suffix="(?=\])">
+					<string>as-is</string>
+					<string>file-spec</string>
+					<string>uri</string>
+					<string>http-header</string>
+					<string>mail-header</string>
+					<string>sql</string>
+					<string>js</string>
+					<string>json</string>
+					<string>parser-code</string>
+					<string>regex</string>
+					<string>xml</string>
+					<string>html</string>
+					<string>optimized-as-is</string>
+					<string>optimized-xml</string>
+					<string>optimized-html</string>
+				</strings>
+			</scope>
+		</collection>
+		
 		<!-- Keywords -->
 		<collection name="keywords">
 			
@@ -214,21 +284,6 @@
 			<!-- [foo] -->			
 			<scope name="parser3.keyword.property">
 				<strings prefix="(?&lt;=\[)" suffix="(?=\])">
-					<string>as-is</string>
-					<string>file-spec</string>
-					<string>uri</string>
-					<string>http-header</string>
-					<string>mail-header</string>
-					<string>sql</string>
-					<string>js</string>
-					<string>json</string>
-					<string>parser-code</string>
-					<string>regex</string>
-					<string>xml</string>
-					<string>html</string>
-					<string>optimized-as-is</string>
-					<string>optimized-xml</string>
-					<string>optimized-html</string>
 					<!-- date -->
 					<string>datetime</string>
 					<string>date</string>
@@ -241,6 +296,8 @@
 					<string>eng</string>
 				</strings>
 			</scope>
+			
+			
 			
 			<!-- [foo] -->			
 			<scope name="parser3.keyword.property.attributes">
@@ -298,6 +355,7 @@
 			<!-- ^foo({[ -->
 			<scope name="parser3.keyword.operator">
 				<strings prefix="(?&lt;=\^)" suffix="(?=\(|\{|\[)">
+					<string>apply-taint</string>
 					<string>break</string>
 					<string>cache</string>
 					<string>connect</string>
@@ -311,8 +369,10 @@
 					<string>sleep</string>
 					<string>switch</string>
 					<string>throw</string>
+					<string>taint</string>
 					<string>while</string>
 					<string>use</string>
+					<string>untaint</string>
 				</strings>
 			</scope>
 			
@@ -1047,7 +1107,7 @@
 			<include syntax="self" collection="variables" />
 
 			<scope name="parser3.identifier.method.call">
-				<expression>\^([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\\\x7f-\xff]*)</expression>
+				<expression>\^([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\-\\\x7f-\xff]*)</expression>
 			</scope> 
 			
 			<scope name="parser3.identifier">
@@ -1076,7 +1136,7 @@
 				</subscopes>
 			</scope>
 		
-			<!-- <scope name="parser3.block.hash">
+			<scope name="parser3.block.hash">
 				<symbol type="block">
 					<context behavior="subtree" foldable="true" />
 				</symbol>
@@ -1089,7 +1149,7 @@
 				<subscopes>
 					<include syntax="self" />
 				</subscopes>
-			</scope> -->
+			</scope>
 			
 		</collection>
 		
@@ -1437,7 +1497,7 @@
 				</symbol>
 				<expression>\}</expression>
 			</scope>
-			<!-- <scope name="parser3.bracket.hashblock.start">
+			<scope name="parser3.bracket.hashblock.start">
 				<symbol type="block">
 					<context behavior="start" />
 				</symbol>
@@ -1448,7 +1508,7 @@
 					<context behavior="end" />
 				</symbol>
 				<expression>\]</expression>
-			</scope> -->
+			</scope>
 			<scope name="parser3.bracket">
 				<expression>[\(\)]</expression>
 			</scope>

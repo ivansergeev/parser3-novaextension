@@ -1,3 +1,19 @@
+## Version 0.4
+
+Switching to deeper work with Parser 3 blocks.
+
+Added:
+* highlighting and completing the transformation type only for the tainted context
+
+	`^apply-taint[transformation type][...]`
+	
+	`^taint[transformation type][...]`
+	
+	`^untaint[transformation type]{...}`
+
+Fix:
+* highlighting `apply-taint`, `taint` and `untaint`
+
 ## Version 0.3.9
 
 Added:
