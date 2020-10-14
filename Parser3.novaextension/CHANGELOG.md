@@ -1,7 +1,14 @@
 ## Version 0.4.1
 
 Added:
-* highlighting and completing a logical operator for logical conditions only
+* highlighting and completing logical operators, boolean values, exceptions types and class types for logical conditions only
+* `$result` and `$exception` variable
+* `$exception` fields (type, source etc.)
+* highlighting properties for exception, hash, image, status
+* SQL completing only at the first level in the sql block (like `^void:sql{...}`). Nested blocks (if, switch etc.) will only highlight SQL operators.
+
+Changed:
+* Parser 3 theme
 
 ## Version 0.4
 

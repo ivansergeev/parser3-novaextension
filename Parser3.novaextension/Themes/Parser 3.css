@@ -338,6 +338,10 @@ keyword.property {
 	color: lightyellow;
 }
 
+keyword.class.instance.property{
+	color: #D4D7FB;
+}
+
 keyword.error.types {
 	color: salmon;
 }

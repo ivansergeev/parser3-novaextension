@@ -2,26 +2,24 @@
 <completions>
 
 	<!-- "true/false" -->
-    <provider name="boolean">
+    <!-- <provider name="boolean">
         <syntax>parser3</syntax>
         <selector>*:not(comment, directives.block.taint, directives.block.untaint, directives.block.apply-taint)</selector>
-        <!-- <expression>([a-zA-Z-]+)</expression> -->
         <expression>([a-z]+)</expression>
         <symbols type="constant" />
         <set>parser3.core.boolean</set>
-    </provider>
+    </provider> -->
 	
 	<!-- "foo" -->
-    <provider name="constant">
+    <!-- <provider name="constant">
         <syntax>parser3</syntax>
         <selector>*:not(comment, directives.block.taint, directives.block.untaint, directives.block.apply-taint)</selector>
-        <!-- <expression>(?&lt;=\s)([a-zA-Z-]+)</expression> -->
-        <!-- <expression>([a-zA-Z-]+)</expression> -->
+        
         <expression>([a-zA-Z]+)</expression>
         <symbols type="constant" />
-        <!-- <set>parser3.core.operator.logic</set> -->
+        
         <set>parser3.keywords.types</set>
-    </provider>
+    </provider> -->
     
 	<!-- "[foo]" -->
 	<provider name="constant">
@@ -50,14 +48,14 @@
         <set>parser3.instance.method</set>
     </provider>
 	
-	<!-- "error types" -->	
-    <provider name="error.types">
+	<!-- "exception types" -->	
+    <!-- <provider name="exception.types">
         <syntax>parser3</syntax>
         <selector>*:not(comment, directives.block.taint, directives.block.untaint, directives.block.apply-taint)</selector>
         <expression>(?&lt;=[\s\[])([a-z\.]+)\s?(?=[\)\]])</expression>
         <symbols type="constant" />
-        <set>parser3.keywords.error.types</set>
-    </provider>
+        <set>parser3.keywords.exception.types</set>
+    </provider> -->
 
 	<!-- "@foo" -->	
     <provider name="core.method">
@@ -141,12 +139,15 @@
     </provider>
 
 
-<!-- if -->  
+<!-- Logic -->  
 	<provider name="constant">
 		<syntax>parser3</syntax>
 		<selector>directives.block.logic</selector>
 		<expression>([a-zA-Z-]+)</expression>
 		<set>parser3.core.operator.logic</set>
+		<set>parser3.core.boolean</set>
+		<set>parser3.keywords.exception.types</set>
+		<set>parser3.keywords.class.types</set>
 	</provider>
 	
 <!-- ^date -->
@@ -555,6 +556,8 @@
         <completion string="MIME-TYPES" />
         <completion string="key" />
         <completion string="value" />
+        <completion string="result" />
+        <completion string="exception" />
     </set>
 
 	<set name="parser3.core.options" symbol="property">
@@ -1468,30 +1471,33 @@ $[]</append>
 		</completion>
 	</set>
 	
-    <set name="parser3.keywords" symbol="statement">
-        <completion string="break" />
-        <completion string="case" />
-        <completion string="else" />
-        <completion string="for" />
-        <completion string="foreach" />
-        <completion string="result" />
-        <completion string="static" />
-        <completion string="switch" />
-        <completion string="throw" />
-        <completion string="try" />
-        <completion string="use" />
-        <completion string="while" />
-    </set>
-	
-	<set name="parser3.keywords.types" symbol="constant">
+	<set name="parser3.keywords.class.types" symbol="constant">
+		<completion string="cookie" />
+		<completion string="curl" />
 		<completion string="date" />
+		<completion string="double" />
+		<completion string="int" />
+		<completion string="env" />
+		<completion string="file" />
+		<completion string="form" />
 		<completion string="hash" />
 		<completion string="hashfile" />
-		<completion string="junction" />
-		<completion string="file" />
 		<completion string="image" />
+		<completion string="inet" />
+		<completion string="json" />
+		<completion string="mail" />
+		<completion string="math" />
+		<completion string="memcached" />
+		<completion string="memory" />
+		<completion string="reflection" />
+		<completion string="regex" />
+		<completion string="request" />
+		<completion string="response" />
+		<completion string="status" />
 		<completion string="string" />
 		<completion string="table" />
+		<completion string="void" />
+		<completion string="xdoc" />
 	</set>
 	
 	<set name="parser3.keywords.property" symbol="property">
@@ -1507,7 +1513,7 @@ $[]</append>
 		<completion string="asc" />
 	</set>
 	
-	<set name="parser3.keywords.error.types" symbol="constant">
+	<set name="parser3.keywords.exception.types" symbol="constant">
 		<completion string="parser.compile" />
 		<completion string="parser.runtime" />
 		<completion string="parser.interrupted" />
@@ -1557,9 +1563,18 @@ $[]</append>
 		<completion string="yearday" description="date field" />
 		<completion string="daylightsaving" description="date field" />
 		<completion string="TZ" description="date field" />
-		<!-- file -->
 		
-		<completion string="size" description="file field" />
+		<!-- exception -->
+		<completion string="type" description="exception field" />
+		<completion string="source" description="exception field" />
+		<completion string="file" description="exception field" />
+		<completion string="lineno" description="exception field" />
+		<completion string="colno" description="exception field" />
+		<completion string="comment" description="exception field" />
+		<completion string="handled" description="exception field" />
+		
+		<!-- file -->
+
 		<completion string="size" description="file field" />
 		<completion string="text" description="file field" />
 		<completion string="cdate" description="file field" />
@@ -5004,16 +5019,16 @@ $[]</append>
         <completion string="case">
 			<description>string to compare</description>
             <behavior>
-                <append>[$[]]{
-	
+                <append>[$[string]]{
+	$[code]
 }</append>
             </behavior>
         </completion>
         <completion string="case">
 			<description>mathematical expression</description>
             <behavior>
-                <append>($[]){
-	
+                <append>($[expression]){
+	$[code]
 }</append>
             </behavior>
         </completion>
@@ -5142,7 +5157,12 @@ $[]</append>
 			<description>string to compare</description>
             <behavior>
                 <append>[$[string]]{
-	$[code]
+	^case[$[1]]{
+		
+	}
+	^case[$[2]]{
+		
+	}
 }</append>
             </behavior>
         </completion>
@@ -5150,7 +5170,12 @@ $[]</append>
 			<description>mathematical expression</description>
             <behavior>
                 <append>($[expression]){
-	$[code]
+	^case($[1]){
+		
+	}
+	^case($[2]){
+		
+	}
 }</append>
             </behavior>
         </completion>
