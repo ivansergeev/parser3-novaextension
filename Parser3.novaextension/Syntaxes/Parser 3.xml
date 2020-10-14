@@ -65,9 +65,10 @@
 
 	<scopes>
 		<include syntax="html" />
+		
 		<include syntax="self" collection="comments" />
 		<include syntax="self" collection="definitions" />
-		<include syntax="self" collection="directives" />
+		<include syntax="self" collection="directives" />		
 		<include syntax="self" collection="keywords" />
 		<include syntax="self" collection="property" />
 		<include syntax="self" collection="values" />
@@ -132,22 +133,23 @@
 				</subscopes>
 			</scope>
 			
-			<!-- IF -->
-			
-			<!-- <scope name="parser3.directives.block.if-statement">
+			<!-- LOGIC -->
+
+			<scope name="parser3.directives.block.logic">
 				<starts-with>
-					<expression>(?&lt;=\^if\()</expression>
-					<capture number="1" name="parser3.keyword.operator" />
+					<expression>(?&lt;=\()</expression>
+					<capture number="1" name="parser3.bracket" />
 				</starts-with>
 				<ends-with>
-					<expression>(?=\)\{)</expression>
+					<expression>(?=\))</expression>
 					<capture number="1" name="parser3.bracket" />
 				</ends-with>
 				<subscopes>
-					<include syntax="self" collection="if-statement" />
+					<scope name="parser3.keyword.logic">
+						<expression>(?&lt;=[\s\(])(eq|def|ne|is|in|lt|qt|le|ge|-[df])(?=\s)</expression>
+					</scope>
 				</subscopes>
-			</scope> -->
-			
+			</scope>
 			
 			<!-- TAINT -->
 
@@ -256,25 +258,14 @@
 			
 		</collection>
 		
-		<!-- IF -->
-		<!-- <collection name="if-statement">
+		<!-- LOGIC -->
+
+		<!-- <collection name="logic-operator">
 			<scope name="parser3.keyword.logic">
-				<strings prefix="(?&lt;=[\s\(])" suffix="(?=\s)">
-					<string>def</string>
-					<string>eq</string>
-					<string>ne</string>
-					<string>is</string>
-					<string>in</string>
-					<string>lt</string>
-					<string>qt</string>
-					<string>le</string>
-					<string>ge</string>
-					<string>-d</string>
-					<string>-f</string>
-				</strings>
+				<expression>(?&lt;=[\s\(])(eq|def|ne|is|in|lt|qt|le|ge|-[df])(?=\s)</expression>
 			</scope>
 		</collection> -->
-		
+
 		<!-- TAINT -->
 		<collection name="taint">
 			<scope name="parser3.keyword.property">
@@ -300,10 +291,8 @@
 		
 		<!-- Keywords -->
 		<collection name="keywords">
-			
-			
-			
-			<!-- [foo] -->			
+
+			<!-- [foo] -->
 			<scope name="parser3.keyword.property">
 				<strings prefix="(?&lt;=\[)" suffix="(?=\])">
 					<!-- date -->
@@ -318,8 +307,6 @@
 					<string>eng</string>
 				</strings>
 			</scope>
-			
-			
 			
 			<!-- [foo] -->			
 			<scope name="parser3.keyword.property.attributes">
@@ -1067,7 +1054,6 @@
 			</scope>
 		</collection>
 		
-		
 		<!-- Variables -->
 		<collection name="variables">
 			<scope name="parser3.identifier.variable.core">
@@ -1083,7 +1069,7 @@
 			</scope>
 
 			<scope name="parser3.identifier.variable">
-				<symbol type="variable"  scope="local" />
+				<symbol type="variable" scope="local" />
 				<expression>(\$)([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)</expression>
 				<capture number="1" name="parser3.identifier.symbol" />
 				<capture number="2" name="parser3.identifier.name" />
@@ -1133,7 +1119,7 @@
 			</scope> 
 			
 			<scope name="parser3.identifier">
-				<expression>[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*</expression>
+				<expression>[a-zA-Z_-\x7f-\xff][a-zA-Z0-9_-\x7f-\xff]*</expression>
 			</scope>
 			
 		</collection>

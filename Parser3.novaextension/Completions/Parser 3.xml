@@ -5,7 +5,8 @@
     <provider name="boolean">
         <syntax>parser3</syntax>
         <selector>*:not(comment, directives.block.taint, directives.block.untaint, directives.block.apply-taint)</selector>
-        <expression>([a-zA-Z-]+)</expression>
+        <!-- <expression>([a-zA-Z-]+)</expression> -->
+        <expression>([a-z]+)</expression>
         <symbols type="constant" />
         <set>parser3.core.boolean</set>
     </provider>
@@ -14,9 +15,11 @@
     <provider name="constant">
         <syntax>parser3</syntax>
         <selector>*:not(comment, directives.block.taint, directives.block.untaint, directives.block.apply-taint)</selector>
-        <expression>(?&lt;=\s)([a-zA-Z-]+)</expression>
+        <!-- <expression>(?&lt;=\s)([a-zA-Z-]+)</expression> -->
+        <!-- <expression>([a-zA-Z-]+)</expression> -->
+        <expression>([a-zA-Z]+)</expression>
         <symbols type="constant" />
-        <set>parser3.core.operator.logic</set>
+        <!-- <set>parser3.core.operator.logic</set> -->
         <set>parser3.keywords.types</set>
     </provider>
     
@@ -138,6 +141,14 @@
     </provider>
 
 
+<!-- if -->  
+	<provider name="constant">
+		<syntax>parser3</syntax>
+		<selector>directives.block.logic</selector>
+		<expression>([a-zA-Z-]+)</expression>
+		<set>parser3.core.operator.logic</set>
+	</provider>
+	
 <!-- ^date -->
 
     <provider name="date">
@@ -478,16 +489,61 @@
     </set>
    
     <set name="parser3.core.operator.logic" symbol="constant">
-        <completion string="eq" />
-        <completion string="ne" />
-        <completion string="is" />
-        <completion string="in" />
-        <completion string="lt" />
-        <completion string="qt" />
-        <completion string="le" />
-        <completion string="ge" />
-        <completion string="-d" />
-        <completion string="-f" />
+        <completion string="def">
+			<behavior>
+				<append> </append>
+			</behavior>
+		</completion>
+        <completion string="eq">
+			<behavior>
+				<append> </append>
+			</behavior>
+		</completion>
+        <completion string="ne">
+			<behavior>
+				<append> </append>
+			</behavior>
+		</completion>
+        <completion string="is">
+			<behavior>
+				<append> </append>
+			</behavior>
+		</completion>
+        <completion string="in">
+			<behavior>
+				<append> </append>
+			</behavior>
+		</completion>
+        <completion string="lt">
+			<behavior>
+				<append> </append>
+			</behavior>
+		</completion>
+        <completion string="qt">
+			<behavior>
+				<append> </append>
+			</behavior>
+		</completion>
+        <completion string="le">
+			<behavior>
+				<append> </append>
+			</behavior>
+		</completion>
+        <completion string="ge">
+			<behavior>
+				<append> </append>
+			</behavior>
+		</completion>
+        <completion string="-d">
+			<behavior>
+				<append> </append>
+			</behavior>
+		</completion>
+        <completion string="-f">
+			<behavior>
+				<append> </append>
+			</behavior>
+		</completion>
     </set>
     
     <set name="parser3.core.variables" symbol="variable">

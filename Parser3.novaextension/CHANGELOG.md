@@ -1,9 +1,14 @@
+## Version 0.4.1
+
+Added:
+* highlighting and completing a logical operator for logical conditions only
+
 ## Version 0.4
 
 Switching to deeper work with Parser 3 blocks.
 
 Added:
-* highlighting and completing the transformation type only for the tainted context
+* highlighting and completing the transformation type for the tainted context only
 
 	`^apply-taint[transformation type][...]`
 	
