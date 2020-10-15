@@ -1130,12 +1130,12 @@
 		<!-- Variables -->
 		<collection name="variables">
 			<scope name="parser3.identifier.variable.core">
-				<strings word-boundary="true" suffix="\b">
+				<strings word-boundary="true" scope="local" prefix="(?&lt;=\$)" suffix="\b">
 					<string>CLASS_PATH</string>
 					<string>LIMITS</string>
 					<string>MAIN</string>
 					<string>MAIL</string>
-					<string>MIME-TYPES</string>  
+					<string>MIME-TYPES</string>
 					<string>SQL</string>
 					<string>result</string>
 					<string>exception</string>
@@ -1145,11 +1145,21 @@
 			</scope>
 
 			<scope name="parser3.identifier.variable">
-				<symbol type="variable" scope="local" />
-				<expression>(\$)([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)</expression>
+				<symbol type="variable" scope="private" />
+				<expression>(?&lt;=\$)(?!(result|exception|key|value|CLASS_PATH|LIMITS|MAIN|MAIL|MIME-TYPES|SQL)\b)([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)</expression>
 				<capture number="1" name="parser3.identifier.symbol" />
-				<capture number="2" name="parser3.identifier.name" />
+				<capture number="2" name="parser3.identifier.variable.name" />
 			</scope>
+
+			<!-- the variable from the parameter doesn't work :-( -->
+			<!-- 
+			<scope name="parser3.identifier.variable.parameter">
+				<symbol type="variable" scope="private" />
+				<expression>^@[a-zA-Z_][a-zA-Z0-9_]*\[([a-zA-Z_]\w*)*\]$</expression>
+				<capture number="1" name="parser3.identifier.variable.name" />
+			</scope>
+			-->
+
 		</collection>
 
 		<!-- Values -->
@@ -1594,7 +1604,7 @@
 
     	<!-- Syntax -->
 		<collection name="syntax">
-			<scope name="parser3.bracket.block.start">
+			<!-- <scope name="parser3.bracket.block.start">
 				<symbol type="block">
 					<context behavior="start" />
 				</symbol>
@@ -1605,7 +1615,7 @@
 					<context behavior="end" />
 				</symbol>
 				<expression>\}</expression>
-			</scope>
+			</scope> -->
 			<!-- 
 			<scope name="parser3.bracket.hashblock.start">
 				<symbol type="block">

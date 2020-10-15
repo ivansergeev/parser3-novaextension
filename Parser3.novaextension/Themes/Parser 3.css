@@ -294,9 +294,8 @@ style.value.color.named {
     color: hsb(210, 60%, 100%);
 }
 
+
 /* Parser 3 */
-
-
 
 string {
 	color: #E4D8CB;
@@ -338,8 +337,9 @@ keyword.property {
 	color: lightyellow;
 }
 
+keyword.class.property,
 keyword.class.instance.property{
-	color: #D4D7FB;
+	color: #D2CAFB;
 }
 
 keyword.error.types {

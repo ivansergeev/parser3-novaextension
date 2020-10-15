@@ -1,3 +1,8 @@
+## Version 0.4.2
+
+Changed:
+* variables `$result`,`$exception`,`$key`, `$value`, `$CLASS_PATH`, `$LIMITS`, `$MAIN`, `$MAIL`, `$MIME-TYPES` and `$SQL` no longer duplicated in auto-completion
+
 ## Version 0.4.1
 
 Added:
