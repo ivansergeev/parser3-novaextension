@@ -1,88 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <completions>
 
-	<!-- "true/false" -->
-    <!-- <provider name="boolean">
-        <syntax>parser3</syntax>
-        <selector>*:not(comment, directives.block.taint, directives.block.untaint, directives.block.apply-taint)</selector>
-        <expression>([a-z]+)</expression>
-        <symbols type="constant" />
-        <set>parser3.core.boolean</set>
-    </provider> -->
-	
-	<!-- "foo" -->
-    <!-- <provider name="constant">
-        <syntax>parser3</syntax>
-        <selector>*:not(comment, directives.block.taint, directives.block.untaint, directives.block.apply-taint)</selector>
-        
-        <expression>([a-zA-Z]+)</expression>
-        <symbols type="constant" />
-        
-        <set>parser3.keywords.types</set>
-    </provider> -->
-    
 	<!-- "[foo]" -->
 	<provider name="constant">
-        <syntax>parser3</syntax>
-        <selector>*:not(comment, directives.block.taint, directives.block.untaint, directives.block.apply-taint)</selector>
-        <expression>(?&lt;=\[)([a-zA-Z-]+)(?=;|\])</expression>
-        <symbols type="property" />
-        <set>parser3.keywords.property</set>
-    </provider>
+		<syntax>parser3</syntax>
+		<selector>*:not(comment, directives.block.taint, directives.block.untaint, directives.block.apply-taint)</selector>
+		<expression>(?&lt;=\[)([a-zA-Z-]+)(?=;|\])</expression>
+		<symbols type="property" />
+		<set>parser3.keywords.property</set>
+	</provider>
 
 	<!-- .foo -->
-    <provider name="instance.property">
-        <syntax>parser3</syntax>
-        <selector>*:not(comment)</selector>
-        <expression>(?&lt;=\.)([a-zA-Z_][a-zA-Z-_]*)</expression>
-        <symbols type="property" />
-        <set>parser3.instance.property</set>
-    </provider>
+	<provider name="instance.property">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\.)([a-zA-Z_][a-zA-Z-_]*)</expression>
+		<symbols type="property" />
+		<set>parser3.instance.property</set>
+	</provider>
 
 	<!-- .foo[ -->
-    <provider name="instance.method">
-        <syntax>parser3</syntax>
-        <selector>*:not(comment)</selector>
-        <expression>(?&lt;=\w\.)([a-zA-Z-]+)</expression>
-        <symbols type="method" />
-        <set>parser3.instance.method</set>
-    </provider>
-	
-	<!-- "exception types" -->	
-    <!-- <provider name="exception.types">
-        <syntax>parser3</syntax>
-        <selector>*:not(comment, directives.block.taint, directives.block.untaint, directives.block.apply-taint)</selector>
-        <expression>(?&lt;=[\s\[])([a-z\.]+)\s?(?=[\)\]])</expression>
-        <symbols type="constant" />
-        <set>parser3.keywords.exception.types</set>
-    </provider> -->
+	<provider name="instance.method">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\w\.)([a-zA-Z-]+)</expression>
+		<symbols type="method" />
+		<set>parser3.instance.method</set>
+	</provider>
 
 	<!-- "@foo" -->	
-    <provider name="core.method">
-        <syntax>parser3</syntax>
-        <selector>*:not(comment)</selector>
-        <expression>(?&lt;=^\@)([a-zA-Z_]+)</expression>
-        <symbols type="method" />
-        <set>parser3.core.method</set>
-    </provider>
+	<provider name="core.method">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=^\@)([a-zA-Z_]+)</expression>
+		<symbols type="method" />
+		<set>parser3.core.method</set>
+	</provider>
 
-    <!-- "$foo" -->
-    <provider name="variable">
-        <syntax>parser3</syntax>
-        <selector>*:not(comment)</selector>
-        <expression>(?&lt;=\$)(?!(result|exception|key|value|CLASS_PATH|LIMITS|MAIN|MAIL|MIME-TYPES|SQL)\b)(([a-zA-Z_][a-zA-Z_]*)?)</expression>
-        <symbols type="variable" />
-        <set>parser3.core.variables</set>
-    </provider>
+	<!-- "$foo" -->
+	<provider name="variable">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\$)(?!(result|exception|key|value|CLASS_PATH|LIMITS|MAIN|MAIL|MIME-TYPES|SQL)\b)(([a-zA-Z_][a-zA-Z_]*)?)</expression>
+		<symbols type="variable" />
+		<set>parser3.core.variables</set>
+	</provider>
 
-    <!-- "$.foo[({" -->
-    <provider name="options">
-        <syntax>parser3</syntax>
-        <selector>*:not(comment)</selector>
-        <!-- <selector>directives.block.hash</selector> -->
-        <expression>(?&lt;=\$\.)(([a-zA-Z_][a-zA-Z_-]*)?)</expression>        
-        <set>parser3.core.options</set>
-    </provider>
+	<!-- "$.foo[({" -->
+	<provider name="options">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<!-- <selector>directives.block.hash</selector> -->
+		<expression>(?&lt;=\$\.)(([a-zA-Z_][a-zA-Z_-]*)?)</expression>		
+		<set>parser3.core.options</set>
+	</provider>
 
 
 <!-- ^foo[a;b;c] -->
@@ -103,40 +74,40 @@
 	</provider>
 	
 <!-- "^classes" -->
-    <provider name="classes">
-        <syntax>parser3</syntax>
-        <selector>*:not(comment)</selector>
-        <expression>(?&lt;=\^)([a-z_-]+)</expression>
-        <symbols type="class" />
-        <set>parser3.core.classes</set>
-    </provider>
+	<provider name="classes">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\^)([a-z_-]+)</expression>
+		<symbols type="class" />
+		<set>parser3.core.classes</set>
+	</provider>
 
 <!-- "^classes" -->
-    <provider name="custom.classes">
-        <syntax>parser3</syntax>
-        <selector>*:not(comment)</selector>
-        <expression>(?&lt;=\^)([a-z_-]+)</expression>
-        <symbols type="class" />
-        <set>parser3.custom.classes.</set>
-    </provider>
-    
+	<provider name="custom.classes">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\^)([a-z_-]+)</expression>
+		<symbols type="class" />
+		<set>parser3.custom.classes.</set>
+	</provider>
+	
 <!-- "$classes" -->
-    <provider name="classes.static">
-        <syntax>parser3</syntax>
-        <selector>*:not(comment)</selector>
-        <expression>(?&lt;=\$)([a-z]+)</expression>
-        <symbols type="class" />
-        <set>parser3.core.classes.static</set>
-    </provider>
+	<provider name="classes.static">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\$)([a-z]+)</expression>
+		<symbols type="class" />
+		<set>parser3.core.classes.static</set>
+	</provider>
 
 <!-- "SQL" -->
-    <provider name="sql">
-        <syntax>parser3</syntax>
-        <selector>directives.block.sql</selector>
-        <expression>(?&lt;=\s)([a-zA-Z_][a-zA-Z0-9-_]*)</expression>
-        <set>parser3.sql</set>
-        <set>parser3.sql.types</set>
-    </provider>
+	<provider name="sql">
+		<syntax>parser3</syntax>
+		<selector>directives.block.sql</selector>
+		<expression>(?&lt;=\s)([a-zA-Z_][a-zA-Z0-9-_]*)</expression>
+		<set>parser3.sql</set>
+		<set>parser3.sql.types</set>
+	</provider>
 
 
 <!-- Logic -->  
@@ -152,88 +123,88 @@
 	
 <!-- ^date -->
 
-    <provider name="date">
-        <syntax>parser3</syntax>
-        <selector>*:not(comment)</selector>
-        <expression>(?&lt;=\^date\:)(\:?[a-z-]+)</expression>
-        <symbols type="method" />
-        <set>parser3.core.date</set>
-    </provider>
+	<provider name="date">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\^date\:)(\:?[a-z-]+)</expression>
+		<symbols type="method" />
+		<set>parser3.core.date</set>
+	</provider>
 
 <!-- ^double -->
 
-    <provider name="double">
-        <syntax>parser3</syntax>
-        <selector>*:not(comment)</selector>
-        <expression>(?&lt;=\^double\:)([a-z]+)</expression>
-        <symbols type="method" />
-        <set>parser3.core.double</set>
-    </provider>
+	<provider name="double">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\^double\:)([a-z]+)</expression>
+		<symbols type="method" />
+		<set>parser3.core.double</set>
+	</provider>
 
 <!-- ^int -->
 
-    <provider name="int">
-        <syntax>parser3</syntax>
-        <selector>*:not(comment)</selector>
-        <expression>(?&lt;=\^int\:)([a-z]+)</expression>
-        <symbols type="method" />
-        <set>parser3.core.int</set>
-    </provider>
+	<provider name="int">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\^int\:)([a-z]+)</expression>
+		<symbols type="method" />
+		<set>parser3.core.int</set>
+	</provider>
 
 <!-- $env -->
 
-    <provider name="env">
-        <syntax>parser3</syntax>
-        <selector>*:not(comment)</selector>
-        <expression>(?&lt;=\$env\:)([a-zA-Z0-9_]+)</expression>
-        <symbols type="property" />
-        <set>parser3.core.env</set>
-    </provider>
-    
+	<provider name="env">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\$env\:)([a-zA-Z0-9_]+)</expression>
+		<symbols type="property" />
+		<set>parser3.core.env</set>
+	</provider>
+	
 	<provider name="env.method">
-        <syntax>parser3</syntax>
-        <selector>*:not(comment)</selector>
-        <expression>(?&lt;=\^env\:)([a-zA-Z0-9_]+)</expression>
-        <symbols type="property" />
-        <set>parser3.core.env.method</set>
-    </provider>
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\^env\:)([a-zA-Z0-9_]+)</expression>
+		<symbols type="property" />
+		<set>parser3.core.env.method</set>
+	</provider>
 
 <!-- $console -->
 
-    <provider name="console">
-        <syntax>parser3</syntax>
-        <selector>*:not(comment)</selector>
-        <expression>(?&lt;=\$console\:)([a-z]+)</expression>
-        <symbols type="property,method" />
-        <set>parser3.core.console.static</set>
-    </provider>
+	<provider name="console">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\$console\:)([a-z]+)</expression>
+		<symbols type="property,method" />
+		<set>parser3.core.console.static</set>
+	</provider>
 
 <!-- "$cookie" -->
 
-    <provider name="cookie">
-        <syntax>parser3</syntax>
-        <selector>*:not(comment)</selector>
-        <expression>(?&lt;=\$cookie\:)([a-z]+)</expression>
-        <symbols type="property" />
-        <set>parser3.core.cookie</set>
-    </provider>
-    
+	<provider name="cookie">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\$cookie\:)([a-z]+)</expression>
+		<symbols type="property" />
+		<set>parser3.core.cookie</set>
+	</provider>
+	
 	<provider name="cookie.static">
-        <syntax>parser3</syntax>
-        <selector>*:not(comment)</selector>
-        <expression>(?&lt;=\^cookie\:)([a-z]+)</expression>
-        <symbols type="property" />
-        <set>parser3.core.cookie.static</set>
-    </provider>
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\^cookie\:)([a-z]+)</expression>
+		<symbols type="property" />
+		<set>parser3.core.cookie.static</set>
+	</provider>
    
 <!-- "^curl" -->
-    <provider name="curl">
-        <syntax>parser3</syntax>
-        <selector>*:not(comment)</selector>
-        <expression>(?&lt;=\^curl\:)([a-z]+)</expression>
-        <symbols type="method" />
-        <set>parser3.core.curl</set>
-    </provider>
+	<provider name="curl">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\^curl\:)([a-z]+)</expression>
+		<symbols type="method" />
+		<set>parser3.core.curl</set>
+	</provider>
 	
 <!-- "^file:" -->
 	<provider name="file">
@@ -484,81 +455,81 @@
 	
 <!-- SETS -->
 
-    <set name="parser3.core.boolean" symbol="constant">
-        <completion string="true" />
-        <completion string="false" />
-    </set>
+	<set name="parser3.core.boolean" symbol="constant">
+		<completion string="true" />
+		<completion string="false" />
+	</set>
    
-    <set name="parser3.core.operator.logic" symbol="constant">
-        <completion string="def">
+	<set name="parser3.core.operator.logic" symbol="constant">
+		<completion string="def">
 			<behavior>
 				<append> </append>
 			</behavior>
 		</completion>
-        <completion string="eq">
+		<completion string="eq">
 			<behavior>
 				<append> </append>
 			</behavior>
 		</completion>
-        <completion string="ne">
+		<completion string="ne">
 			<behavior>
 				<append> </append>
 			</behavior>
 		</completion>
-        <completion string="is">
+		<completion string="is">
 			<behavior>
 				<append> </append>
 			</behavior>
 		</completion>
-        <completion string="in">
+		<completion string="in">
 			<behavior>
 				<append> </append>
 			</behavior>
 		</completion>
-        <completion string="lt">
+		<completion string="lt">
 			<behavior>
 				<append> </append>
 			</behavior>
 		</completion>
-        <completion string="qt">
+		<completion string="qt">
 			<behavior>
 				<append> </append>
 			</behavior>
 		</completion>
-        <completion string="le">
+		<completion string="le">
 			<behavior>
 				<append> </append>
 			</behavior>
 		</completion>
-        <completion string="ge">
+		<completion string="ge">
 			<behavior>
 				<append> </append>
 			</behavior>
 		</completion>
-        <completion string="-d">
+		<completion string="-d">
 			<behavior>
 				<append> </append>
 			</behavior>
 		</completion>
-        <completion string="-f">
+		<completion string="-f">
 			<behavior>
 				<append> </append>
 			</behavior>
 		</completion>
-    </set>
-    
-    <set name="parser3.core.variables" symbol="variable">
-        <completion string="CLASS_PATH" />
-        <completion string="MAIN" />
-        <completion string="LIMITS" />
-        <completion string="MAIL" />
-        <completion string="SQL" />
-        <completion string="MIME-TYPES" />
-        <completion string="key" />
-        <completion string="value" />
-        <completion string="result" />
-        <completion string="exception" />
-    </set>
+	</set>
+	
+	<set name="parser3.core.variables" symbol="variable">
+		<completion string="CLASS_PATH" />
+		<completion string="MAIN" />
+		<completion string="LIMITS" />
+		<completion string="MAIL" />
+		<completion string="SQL" />
+		<completion string="MIME-TYPES" />
+		<completion string="key" />
+		<completion string="value" />
+		<completion string="result" />
+		<completion string="exception" />
+	</set>
 
 	<set name="parser3.core.options" symbol="property">
 		<completion string="array">
@@ -4951,160 +4922,160 @@ $[]</append>
 	
 <!-- CORE OPERATORS -->
 
-    <set name="parser3.core.methods" symbol="function">
+	<set name="parser3.core.methods" symbol="function">
 <!-- A -->
-        <completion string="apply-taint">
-            <behavior>
-                <append>[$[text]]</append>
-            </behavior>
-        </completion>
-        <completion string="apply-taint">
-            <behavior>
-                <append>[$[type of transformation]][$[text]]</append>
-            </behavior>
-        </completion>
+		<completion string="apply-taint">
+			<behavior>
+				<append>[$[text]]</append>
+			</behavior>
+		</completion>
+		<completion string="apply-taint">
+			<behavior>
+				<append>[$[type of transformation]][$[text]]</append>
+			</behavior>
+		</completion>
 <!-- B -->
-        <completion string="break">
-            <behavior>
-                <append>[]</append>
-            </behavior>
-        </completion>
-        <completion string="break">
-            <behavior>
-                <append>($[condition])</append>
-            </behavior>
-        </completion>
+		<completion string="break">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="break">
+			<behavior>
+				<append>($[condition])</append>
+			</behavior>
+		</completion>
 <!-- C -->
-        <completion string="cache">
-            <behavior>
-                <append>[]</append>
-            </behavior>
-        </completion>
-        <completion string="cache">
-            <behavior>
-                <append>[$[file or date]]</append>
-            </behavior>
-        </completion>
-        <completion string="cache">
-            <behavior>
-                <append>($[seconds])</append>
-            </behavior>
-        </completion>
-        <completion string="cache">
-            <behavior>
-                <append>[$[file]]($[seconds])</append>
-            </behavior>
-        </completion>
-        <completion string="cache">
-            <behavior>
-                <append>[$[file]]($[seconds]){$[code]}</append>
-            </behavior>
-        </completion>
-        <completion string="cache">
-            <behavior>
-                <append>[$[file]]($[seconds]){$[code]}{$[exception handled]}</append>
-            </behavior>
-        </completion>
-        <completion string="cache">
-            <behavior>
-                <append>[$[file]][$[date]]{$[code]}</append>
-            </behavior>
-        </completion>
-        <completion string="cache">
-            <behavior>
-                <append>[$[file]][$[date]]{$[code]}{$[exception handled]}</append>
-            </behavior>
-        </completion>
-       
-        <completion string="case">
+		<completion string="cache">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="cache">
+			<behavior>
+				<append>[$[file or date]]</append>
+			</behavior>
+		</completion>
+		<completion string="cache">
+			<behavior>
+				<append>($[seconds])</append>
+			</behavior>
+		</completion>
+		<completion string="cache">
+			<behavior>
+				<append>[$[file]]($[seconds])</append>
+			</behavior>
+		</completion>
+		<completion string="cache">
+			<behavior>
+				<append>[$[file]]($[seconds]){$[code]}</append>
+			</behavior>
+		</completion>
+		<completion string="cache">
+			<behavior>
+				<append>[$[file]]($[seconds]){$[code]}{$[exception handled]}</append>
+			</behavior>
+		</completion>
+		<completion string="cache">
+			<behavior>
+				<append>[$[file]][$[date]]{$[code]}</append>
+			</behavior>
+		</completion>
+		<completion string="cache">
+			<behavior>
+				<append>[$[file]][$[date]]{$[code]}{$[exception handled]}</append>
+			</behavior>
+		</completion>
+	   
+		<completion string="case">
 			<description>string to compare</description>
-            <behavior>
-                <append>[$[string]]{
+			<behavior>
+				<append>[$[string]]{
 	$[code]
 }</append>
-            </behavior>
-        </completion>
-        <completion string="case">
+			</behavior>
+		</completion>
+		<completion string="case">
 			<description>mathematical expression</description>
-            <behavior>
-                <append>($[expression]){
+			<behavior>
+				<append>($[expression]){
 	$[code]
 }</append>
-            </behavior>
-        </completion>
-        <completion string="case">
-            <behavior>
-                <append>[DEFAULT]{
+			</behavior>
+		</completion>
+		<completion string="case">
+			<behavior>
+				<append>[DEFAULT]{
 	$[]
 }</append>
-            </behavior>
-        </completion>
+			</behavior>
+		</completion>
 		
-        <completion string="connect">
-            <behavior>
-                <append>[$[connection string]]{
+		<completion string="connect">
+			<behavior>
+				<append>[$[connection string]]{
 	$[code]
 }</append>
-            </behavior>
-        </completion>
-        
-        <completion string="continue">
-            <behavior>
-                <append>[]</append>
-            </behavior>
-        </completion>
-        <completion string="continue">
-            <behavior>
-                <append>($[condition])</append>
-            </behavior>
-        </completion>
+			</behavior>
+		</completion>
+		
+		<completion string="continue">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="continue">
+			<behavior>
+				<append>($[condition])</append>
+			</behavior>
+		</completion>
 <!-- D -->
 <!-- E -->
-        <completion string="eval">
-            <behavior>
-                <append>($[expression])</append>
-            </behavior>
-        </completion>
-        <completion string="eval">
-            <behavior>
-                <append>($[expression])[$[format string]]</append>
-            </behavior>
-        </completion>
+		<completion string="eval">
+			<behavior>
+				<append>($[expression])</append>
+			</behavior>
+		</completion>
+		<completion string="eval">
+			<behavior>
+				<append>($[expression])[$[format string]]</append>
+			</behavior>
+		</completion>
 <!-- F -->
-        <completion string="for">
-            <behavior>
-                <append>[$[counter]]($[from];$[to]){
+		<completion string="for">
+			<behavior>
+				<append>[$[counter]]($[from];$[to]){
 	$[code]
 }</append>
-            </behavior>
-        </completion>
-        <completion string="for">
+			</behavior>
+		</completion>
+		<completion string="for">
 			<description>with string delimiter</description>
-            <behavior>
-                <append>[$[counter]]($[from];$[to]){
+			<behavior>
+				<append>[$[counter]]($[from];$[to]){
 	$[code]
 }[$[string delimiter]]</append>
-            </behavior>
-        </completion>
-        <completion string="for">
+			</behavior>
+		</completion>
+		<completion string="for">
 			<description>with code delimiter</description>
-            <behavior>
-                <append>[$[counter]]($[from];$[to]){
+			<behavior>
+				<append>[$[counter]]($[from];$[to]){
 	$[code]
 }{
 	$[code delimiter]
 }</append>
-            </behavior>
-        </completion>
+			</behavior>
+		</completion>
 	
 <!-- G -->
 <!-- H -->
 <!-- I -->
-        <completion string="if">
-            <behavior>
-                <append>($[expression]){$[code]}</append>
-            </behavior>
-        </completion>
+		<completion string="if">
+			<behavior>
+				<append>($[expression]){$[code]}</append>
+			</behavior>
+		</completion>
 <!-- J -->
 <!-- K -->
 <!-- L -->
@@ -5112,51 +5083,51 @@ $[]</append>
 <!-- N -->
 <!-- O -->
 <!-- P -->
-        <completion string="process">
-            <behavior>
-                <append>{$[string]}</append>
-            </behavior>
-        </completion>
-        <completion string="process">
-            <behavior>
-                <append>[$[context]]{$[string]}</append>
-            </behavior>
-        </completion>
-        <completion string="process">
-            <behavior>
-                <append>[$[context]]{$[string]}[$[options]]</append>
-            </behavior>
-        </completion>
+		<completion string="process">
+			<behavior>
+				<append>{$[string]}</append>
+			</behavior>
+		</completion>
+		<completion string="process">
+			<behavior>
+				<append>[$[context]]{$[string]}</append>
+			</behavior>
+		</completion>
+		<completion string="process">
+			<behavior>
+				<append>[$[context]]{$[string]}[$[options]]</append>
+			</behavior>
+		</completion>
 <!-- Q -->
 <!-- R -->
-        <completion string="rem">
-            <behavior>
-                <append>{$[comment]}</append>
-            </behavior>
-        </completion>
-        
-        <completion string="return">
-            <behavior>
-                <append>[]</append>
-            </behavior>
-        </completion>
-        <completion string="return">
-            <behavior>
-                <append>[$[result]]</append>
-            </behavior>
-        </completion>
+		<completion string="rem">
+			<behavior>
+				<append>{$[comment]}</append>
+			</behavior>
+		</completion>
+		
+		<completion string="return">
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="return">
+			<behavior>
+				<append>[$[result]]</append>
+			</behavior>
+		</completion>
 
 <!-- S -->
-        <completion string="sleep">
-            <behavior>
-                <append>($[seconds])</append>
-            </behavior>
-        </completion>
+		<completion string="sleep">
+			<behavior>
+				<append>($[seconds])</append>
+			</behavior>
+		</completion>
 
-        <completion string="switch">
+		<completion string="switch">
 			<description>string to compare</description>
-            <behavior>
-                <append>[$[string]]{
+			<behavior>
+				<append>[$[string]]{
 	^case[$[1]]{
 		
 	}
@@ -5164,12 +5135,12 @@ $[]</append>
 		
 	}
 }</append>
-            </behavior>
-        </completion>
-        <completion string="switch">
+			</behavior>
+		</completion>
+		<completion string="switch">
 			<description>mathematical expression</description>
-            <behavior>
-                <append>($[expression]){
+			<behavior>
+				<append>($[expression]){
 	^case($[1]){
 		
 	}
@@ -5177,116 +5148,116 @@ $[]</append>
 		
 	}
 }</append>
-            </behavior>
-        </completion>
+			</behavior>
+		</completion>
 <!-- T -->
-        <completion string="taint">
-            <behavior>
-                <append>[$[text]]</append>
-            </behavior>
-        </completion>
-        <completion string="taint">
-            <behavior>
-                <append>[$[type of transformation]][$[text]]</append>
-            </behavior>
-        </completion>
-        
-        <completion string="throw">
-            <behavior>
-                <append>[$[type]]</append>
-            </behavior>
-        </completion>
-        <completion string="throw">
-            <behavior>
-                <append>[$[type];$[source]]</append>
-            </behavior>
-        </completion>
-        <completion string="throw">
-            <behavior>
-                <append>[$[type];$[source];$[comment]]</append>
-            </behavior>
-        </completion>
-        <completion string="throw">
-            <behavior>
-                <append>[$[hash]]</append>
-            </behavior>
-        </completion>
+		<completion string="taint">
+			<behavior>
+				<append>[$[text]]</append>
+			</behavior>
+		</completion>
+		<completion string="taint">
+			<behavior>
+				<append>[$[type of transformation]][$[text]]</append>
+			</behavior>
+		</completion>
+		
+		<completion string="throw">
+			<behavior>
+				<append>[$[type]]</append>
+			</behavior>
+		</completion>
+		<completion string="throw">
+			<behavior>
+				<append>[$[type];$[source]]</append>
+			</behavior>
+		</completion>
+		<completion string="throw">
+			<behavior>
+				<append>[$[type];$[source];$[comment]]</append>
+			</behavior>
+		</completion>
+		<completion string="throw">
+			<behavior>
+				<append>[$[hash]]</append>
+			</behavior>
+		</completion>
 
-        <completion string="try">
+		<completion string="try">
 			<description>try{ code }{ exception handler }</description>
-            <behavior>
-                <append>{
+			<behavior>
+				<append>{
 	$[code]
 }{
 	$[exception handler]
 }</append>
-            </behavior>
-        </completion>
-        <completion string="try">
+			</behavior>
+		</completion>
+		<completion string="try">
 			<description>try{ code }{ exception handler }{ code which will be executed anyway }</description>
-            <behavior>
-                <append>{
+			<behavior>
+				<append>{
 	$[code]
 }{
 	$[exception handler]
 }{
 	$[ code ]
 }</append>
-            </behavior>
-        </completion>
+			</behavior>
+		</completion>
 
 <!-- U -->
-        <completion string="untaint">
-            <behavior>
-                <append>{$[code]}</append>
-            </behavior>
-        </completion>
-        <completion string="untaint">
-            <behavior>
-                <append>[$[type of transformation]]{$[code]}</append>
-            </behavior>
-        </completion>
+		<completion string="untaint">
+			<behavior>
+				<append>{$[code]}</append>
+			</behavior>
+		</completion>
+		<completion string="untaint">
+			<behavior>
+				<append>[$[type of transformation]]{$[code]}</append>
+			</behavior>
+		</completion>
 
-        <completion string="use">
-            <behavior>
-                <append>[$[file]]</append>
-            </behavior>
-        </completion>
-        <completion string="use">
-            <behavior>
-                <append>[$[file];$[options]]</append>
-            </behavior>
-        </completion>
+		<completion string="use">
+			<behavior>
+				<append>[$[file]]</append>
+			</behavior>
+		</completion>
+		<completion string="use">
+			<behavior>
+				<append>[$[file];$[options]]</append>
+			</behavior>
+		</completion>
 <!-- V -->
 <!-- W -->
-        <completion string="while">
-            <behavior>
-                <append>($[condition]){
+		<completion string="while">
+			<behavior>
+				<append>($[condition]){
 	$[code]
 }</append>
-            </behavior>
-        </completion>
-        <completion string="while">
+			</behavior>
+		</completion>
+		<completion string="while">
 			<description>with string delimiter</description>
-            <behavior>
-                <append>($[condition]){
+			<behavior>
+				<append>($[condition]){
 	$[code]
 }[$[string delimiter]]</append>
-            </behavior>
-        </completion>
-        <completion string="while">
+			</behavior>
+		</completion>
+		<completion string="while">
 			<description>with code delimiter</description>
-            <behavior>
-                <append>($[condition]){
+			<behavior>
+				<append>($[condition]){
 	$[code]
 }{
 	$[code delimiter]
 }</append>
-            </behavior>
-        </completion>
+			</behavior>
+		</completion>
 <!-- X -->
 <!-- Y -->
 <!-- Z -->
-    </set>
-    
+	</set>
+	
 </completions>

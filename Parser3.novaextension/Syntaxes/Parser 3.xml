@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <syntax name="parser3">
-    <meta>
-        <name>Parser 3</name>
-        <type>script</type>
+	<meta>
+		<name>Parser 3</name>
+		<type>script</type>
 		<parent>html</parent>
-        <preferred-file-extension>html</preferred-file-extension>
-    </meta>
-    
-    <detectors>
-        <extension priority="1.0">html,p,pt,p3</extension>
-        <extension priority="0.9">h</extension>
-    </detectors>
+		<preferred-file-extension>html</preferred-file-extension>
+	</meta>
+	
+	<detectors>
+		<extension priority="1.0">html,p,pt,p3</extension>
+		<extension priority="0.9">h</extension>
+	</detectors>
 
 	<identifiers>
 		<prefixes>
@@ -29,7 +29,7 @@
 		</decrease>
 	</indentation>
 
-    <comments>
+	<comments>
 		
 		<!-- doesn't work with shortcut :-( -->
 		<!-- 
@@ -46,7 +46,7 @@
 				<expression>}</expression>
 			</ends-with>
 		</multiline>
-    </comments>
+	</comments>
 
 	<brackets>
 		<pair open="{" close="}" />
@@ -54,14 +54,14 @@
 		<pair open="(" close=")" />
 	</brackets>
 
-    <surrounding-pairs>
-        <pair open="{" close="}" />
-        <pair open="[" close="]" />
-        <pair open="(" close=")" />
-        <pair open="&apos;" close="&apos;" />
+	<surrounding-pairs>
+		<pair open="{" close="}" />
+		<pair open="[" close="]" />
+		<pair open="(" close=")" />
+		<pair open="&apos;" close="&apos;" />
 		<pair open="&quot;" close="&quot;" />
 		<pair open="`" close="`" />
-    </surrounding-pairs>
+	</surrounding-pairs>
 
 	<scopes>
 		<include syntax="html" />
@@ -80,17 +80,14 @@
 		<include syntax="self" collection="variables" />
 	</scopes>
 
-    <collections>
+	<collections>
 
 		<!-- Comments -->
 		<collection name="comments">
 			
 			<scope name="parser3.comment.single" spell-check="true">
 				<expression>^\#(.*)$</expression>
-				<!-- <capture number="1" name="parser3.comment.text" /> -->
 			</scope>
-			
-			
 			
 			<scope name="parser3.comment.block" spell-check="true">
 				<symbol type="comment">
@@ -120,11 +117,12 @@
 					<capture number="1" name="parser3.bracket" />
 				</ends-with>
 				<subscopes>
-				
+					
+					<!-- comments to parts of expressions -->				
 					<scope name="parser3.comment.single" spell-check="true">
 						<symbol type="comment" />
 						<expression>(\#(.*))$</expression>
-						<capture number="1" name="parser3.comment" />
+						<capture number="1" name="parser3.comment.text" />
 					</scope>
 
 					<!-- boolean -->
@@ -216,9 +214,7 @@
 					<scope name="parser3.identifier.method.call">
 						<expression>\^([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\-\\\x7f-\xff]*)</expression>
 					</scope> 
-					
-					
-					
+
 				</subscopes>
 			</scope>
 			
@@ -1220,7 +1216,7 @@
 				</subscopes>
 			</scope>
 		
-			<scope name="parser3.block.hash">
+			<scope name="parser3.block.string">
 				<symbol type="block">
 					<context behavior="subtree" foldable="true" />
 				</symbol>
@@ -1590,7 +1586,7 @@
 			
 		</collection>
 
-    	<!-- Syntax -->
+		<!-- Syntax -->
 		<collection name="syntax">
 			<!-- <scope name="parser3.bracket.block.start">
 				<symbol type="block">
