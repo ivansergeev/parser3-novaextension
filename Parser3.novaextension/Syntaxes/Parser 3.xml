@@ -90,21 +90,7 @@
 				<!-- <capture number="1" name="parser3.comment.text" /> -->
 			</scope>
 			
-			<!-- <scope name="parser3.comment.block" spell-check="true">
-				<symbol type="comment" />
-				<starts-with>
-					<expression>(?&lt;=\^if\()</expression>
-				</starts-with>
-				<ends-with>
-					<expression>(?=\))</expression>
-				</ends-with>
-				<subscopes>
-					<scope name="parser3.comment.single" spell-check="true">
-						<expression>(\#(.*))$</expression>
-						<capture number="1" name="parser3.comment" />
-					</scope>
-				</subscopes>
-			</scope> -->
+			
 			
 			<scope name="parser3.comment.block" spell-check="true">
 				<symbol type="comment">
@@ -117,10 +103,8 @@
 					<expression>\}</expression>
 				</ends-with>
 			</scope>
-			
-			
 		</collection>
-		
+
 		<!--  Directives -->
 		<collection name="directives">
 
@@ -136,9 +120,13 @@
 					<capture number="1" name="parser3.bracket" />
 				</ends-with>
 				<subscopes>
-					
-					<!-- <include syntax="self" collection="blocks" /> -->
-					
+				
+					<scope name="parser3.comment.single" spell-check="true">
+						<symbol type="comment" />
+						<expression>(\#(.*))$</expression>
+						<capture number="1" name="parser3.comment" />
+					</scope>
+
 					<!-- boolean -->
 					<scope name="parser3.value.boolean">
 						<strings>

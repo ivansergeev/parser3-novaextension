@@ -1,5 +1,25 @@
 ## Version 0.4.2
 
+Added:
+* comments to parts of expressions
+
+	```
+	^if(
+		def $fruit		# Do I have any fruit?
+		&& $fruit eq banana	# Could it be a banana?
+	){
+		I have fruit!
+	}
+	
+	^eval(
+		3+2 # equal to 5
+	)
+	
+	$abc(
+		3*2 # equal to 6
+	)
+	```
+
 Changed:
 * variables `$result`,`$exception`,`$key`, `$value`, `$CLASS_PATH`, `$LIMITS`, `$MAIN`, `$MAIL`, `$MIME-TYPES` and `$SQL` no longer duplicated in auto-completion
 
@@ -22,11 +42,11 @@ Switching to deeper work with Parser 3 blocks.
 Added:
 * highlighting and completing the transformation type for the tainted context only
 
-	`^apply-taint[transformation type][...]`
-	
-	`^taint[transformation type][...]`
-	
-	`^untaint[transformation type]{...}`
+	```
+	^apply-taint[transformation type][...]
+	^taint[transformation type][...]
+	^untaint[transformation type]{...}
+	```
 
 Fix:
 * highlighting `apply-taint`, `taint` and `untaint`
