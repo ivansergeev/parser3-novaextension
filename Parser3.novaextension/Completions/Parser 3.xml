@@ -4517,7 +4517,7 @@ $[]</append>
 		</completion>
 		<completion string="create">
 			<behavior>
-				<append>[$[pattern][$[options]]</append>
+				<append>[$[pattern]][$[options]]</append>
 			</behavior>
 		</completion>
 	</set>

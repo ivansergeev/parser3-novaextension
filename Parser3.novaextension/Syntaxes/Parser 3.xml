@@ -511,7 +511,7 @@
 			
 			<!-- $foo: -->
 			<scope name="parser3.keyword.class.static">
-				<strings prefix="(?&lt;=\$)" suffix="(?=:)">
+				<strings prefix="(?&lt;=\$)" suffix="(?=:)" scope="private">
 					<string>console</string>
 					<string>cookie</string>
 					<string>env</string>
@@ -1114,7 +1114,7 @@
 		<!-- Variables -->
 		<collection name="variables">
 			<scope name="parser3.identifier.variable.core">
-				<strings word-boundary="true" scope="local" prefix="(?&lt;=\$)" suffix="\b">
+				<strings word-boundary="true" scope="private" prefix="(?&lt;=\$)" suffix="\b">
 					<string>CLASS_PATH</string>
 					<string>LIMITS</string>
 					<string>MAIN</string>
@@ -1130,11 +1130,12 @@
 
 			<scope name="parser3.identifier.variable">
 				<symbol type="variable" scope="private" />
-				<expression>(?&lt;=\$)(?!(result|exception|key|value|CLASS_PATH|LIMITS|MAIN|MAIL|MIME-TYPES|SQL)\b)([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)</expression>
-				<capture number="1" name="parser3.identifier.symbol" />
+				<!-- <expression>\$(?!(console|cookie|env|form|math|request|response|status|result|exception|key|value|CLASS_PATH|LIMITS|MAIN|MAIL|MIME-TYPES|SQL)\b)([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)</expression> -->
+				<expression>(\$)([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)</expression>
+				<capture number="1" name="parser3.symbol" />
 				<capture number="2" name="parser3.identifier.variable.name" />
 			</scope>
-
+			
 			<!-- the variable from the parameter doesn't work :-( -->
 			<!-- 
 			<scope name="parser3.identifier.variable.parameter">
@@ -1174,10 +1175,61 @@
 				<expression>q([^\\q])((?:[^\1\\]|\\.)*)(?:\1|$)</expression>
 				<capture number="1" name="parser3.string.single-quoted.text" />
 			</scope>
-			<!-- <scope name="parser3.string.regex">
-				<expression>/([^/\\]|\\.)*(?:/|$)</expression>
-				<capture number="1" name="parser3.string.regex.text" />
-			</scope> -->
+			
+			<!-- regex -->
+			<scope name="parser3.string.regex">
+				<starts-with>
+					<expression>(?&lt;=\^regex::create\[)</expression>
+				</starts-with>
+				<ends-with>
+					<expression>(?=\])</expression>
+				</ends-with>
+				<subscopes>
+					<!-- comments to parts of expressions -->				
+					<scope name="parser3.comment.single" spell-check="true">
+						<symbol type="comment" />
+						<expression>(\#(.*))$</expression>
+						<capture number="1" name="parser3.comment.text" />
+					</scope>
+					<include syntax="self" collection="blocks" />
+					
+					<include syntax="self" collection="variables" />
+					
+					<scope name="parser3.identifier.method.call">
+						<expression>\^([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\-\\\x7f-\xff]*)</expression>
+					</scope>
+					
+				</subscopes>
+			</scope>
+			
+			<!-- regex -->
+			<scope name="parser3.string.regex">
+				<!-- <symbol type="block" /> -->
+				<starts-with>
+					<expression>(?&lt;=\.match\[)</expression>
+				</starts-with>
+				<ends-with>
+					<expression>(?=\])</expression>
+				</ends-with>
+				<subscopes>
+					<!-- comments to parts of expressions -->				
+					<scope name="parser3.comment.single" spell-check="true">
+						<symbol type="comment" />
+						<expression>(\#(.*))$</expression>
+						<capture number="1" name="parser3.comment.text" />
+					</scope>
+					<include syntax="self" collection="blocks" />
+					
+					<include syntax="self" collection="variables" />
+					
+					<scope name="parser3.identifier.method.call">
+						<expression>\^([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\-\\\x7f-\xff]*)</expression>
+					</scope> 
+					
+				</subscopes>
+			</scope>
+			
+			
 		</collection>
 
 		<!-- Identifiers -->

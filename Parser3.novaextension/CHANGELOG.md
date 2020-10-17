@@ -1,3 +1,15 @@
+## Version 0.4.3
+
+Added:
+* highlighting regex string with comments to parts of expressions (complex expressions may not be highlighted correctly)
+
+Changed:
+* Parser 3 theme (brackets, regex string)
+* duplicate variables are available again (the chicken and egg problem)
+
+Fix:
+* auto-completion `^regex::create[]`
+	
 ## Version 0.4.2
 
 Added:
