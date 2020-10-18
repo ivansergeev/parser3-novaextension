@@ -1,7 +1,11 @@
 ## Version 0.4.4
 
 Added:
-* `$response:location`, `$response:refresh`
+* highlighting and completing user defined classes
+* static fields `$response:location` and `$response:refresh`
+
+Changed:
+* highlighting regex string is disabled
 
 ## Version 0.4.3
 
@@ -14,7 +18,7 @@ Changed:
 
 Fix:
 * auto-completion `^regex::create[]`
-	
+
 ## Version 0.4.2
 
 Added:

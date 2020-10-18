@@ -77,7 +77,7 @@
 	<provider name="classes">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
-		<expression>(?&lt;=\^)([a-z_-]+)</expression>
+		<expression>(?&lt;=\^)([a-zA-Z_-]+)</expression>
 		<symbols type="class" />
 		<set>parser3.core.classes</set>
 	</provider>
@@ -86,7 +86,7 @@
 	<provider name="custom.classes">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
-		<expression>(?&lt;=\^)([a-z_-]+)</expression>
+		<expression>(?&lt;=\^)([a-zA-Z_-]+)</expression>
 		<symbols type="class" />
 		<set>parser3.custom.classes.</set>
 	</provider>
@@ -95,7 +95,7 @@
 	<provider name="classes.static">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
-		<expression>(?&lt;=\$)([a-z]+)</expression>
+		<expression>(?&lt;=\$)([a-zA-Z]+)</expression>
 		<symbols type="class" />
 		<set>parser3.core.classes.static</set>
 	</provider>

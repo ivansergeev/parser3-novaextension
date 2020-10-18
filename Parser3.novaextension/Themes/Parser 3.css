@@ -318,6 +318,13 @@ value.number {
 	color: #EF705F;
 }
 
+
+definition.class.name
+{
+	font-weight: bold;
+	color: #BBD554;
+}
+
 identifier.method.name
 {
 	color: hsb(210, 60%, 100%);
