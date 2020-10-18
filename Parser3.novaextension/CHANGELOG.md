@@ -1,3 +1,8 @@
+## Version 0.4.4
+
+Added:
+* `$response:location`
+
 ## Version 0.4.3
 
 Added:

@@ -4633,6 +4633,11 @@ $[]</append>
 				<append>[$[data]]</append>
 			</behavior>
 		</completion>
+		<completion string="location">
+			<behavior>
+				<append>[$[uri]]</append>
+			</behavior>
+		</completion>
 	</set>
 
 <!-- STATUS -->
