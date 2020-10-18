@@ -629,6 +629,9 @@
 					<string>charset</string>
 					<string>download</string>
 					<string>clear</string>
+					<string>location</string>
+					<string>refresh</string>
+					
 				</strings>
 			</scope>
 
@@ -689,7 +692,7 @@
 					<!-- response -->
 					<string>status</string>
 					<string>headers</string>
-					<string>location</string>
+					
 
 					<!-- status -->
 					<string>memory</string>

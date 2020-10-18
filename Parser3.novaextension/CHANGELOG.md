@@ -1,7 +1,7 @@
 ## Version 0.4.4
 
 Added:
-* `$response:location`
+* `$response:location`, `$response:refresh`
 
 ## Version 0.4.3
 

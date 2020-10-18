@@ -4638,6 +4638,14 @@ $[]</append>
 				<append>[$[uri]]</append>
 			</behavior>
 		</completion>
+		<completion string="refresh">
+			<behavior>
+				<append>[
+	$.value(0)
+	$.url[$[uri]]
+]</append>
+			</behavior>
+		</completion>
 	</set>
 
 <!-- STATUS -->
