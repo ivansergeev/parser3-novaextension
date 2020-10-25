@@ -212,14 +212,6 @@
 					<include syntax="self" collection="strings" />
 					
 					<include syntax="self" collection="identifiers" />
-					
-					<!-- <scope name="parser3.identifier.method.call">
-						<expression>\^([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\-\\\x7f-\xff]*)</expression>
-					</scope>
-					
-					<scope name="parser3.identifier.field">
-						<expression>(?&lt;=[\:\.])[a-zA-Z_][a-zA-Z0-9_-]*</expression>
-					</scope> -->
 
 				</subscopes>
 			</scope>
@@ -546,7 +538,7 @@
 				<strings prefix="(?&lt;=:)" suffix="(?=\(|\{|\[)">
 					<string>base64</string>
 					<string>calendar</string>
-					<!-- <string>create</string> -->
+					<string>create</string>
 					<string>cos</string>
 					<string>idna</string>
 					<string>js-unescape</string>
@@ -623,7 +615,6 @@
 					<string>class_name</string>
 					<string>classes</string>
 					<string>copy</string>
-					<string>create</string>
 					<string>def</string>
 					<string>delete</string>
 					<string>dynamical</string>
@@ -1181,12 +1172,6 @@
 			<scope name="parser3.value.number">
 				<expression>\b(\-|\+)?(?:\d+(?:\.\d*)?|(?:\.\d+))(l|L|j|J)?\b</expression>
 			</scope>
-			<!-- <scope name="parser3.value.boolean">
-				<strings>
-					<string>true</string>
-					<string>false</string>
-				</strings>
-			</scope> -->
 		</collection>
 
 		<!-- Strings -->
@@ -1258,20 +1243,20 @@
 				</subscopes>
 			</scope> -->
 			
-			
 		</collection>
 
 		<!-- Identifiers -->
 		<collection name="identifiers">
 			<include syntax="self" collection="variables" />
 
+			<!-- <scope name="parser3.identifier">
+				<expression>[a-zA-Z_-\x7f-\xff][a-zA-Z0-9_-\x7f-\xff]*</expression>
+			</scope> -->
+			
 			<scope name="parser3.identifier.method.call">
 				<expression>\^([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\-\\\x7f-\xff]*)</expression>
 			</scope>
 			
-			<!-- <scope name="parser3.identifier">
-				<expression>[a-zA-Z_-\x7f-\xff][a-zA-Z0-9_-\x7f-\xff]*</expression>
-			</scope> -->
 			<scope name="parser3.identifier.field">
 				<expression>(?&lt;=[\:\.])[a-zA-Z_][a-zA-Z0-9_-]*</expression>
 			</scope>
@@ -1666,43 +1651,6 @@
 
 		<!-- Syntax -->
 		<collection name="syntax">
-			<!-- <scope name="parser3.bracket.block.start">
-				<symbol type="block">
-					<context behavior="start" />
-				</symbol>
-				<expression>\{</expression>
-			</scope>
-			<scope name="parser3.bracket.block.end">
-				<symbol type="block">
-					<context behavior="end" />
-				</symbol>
-				<expression>\}</expression>
-			</scope> -->
-			<!-- 
-			<scope name="parser3.bracket.hashblock.start">
-				<symbol type="block">
-					<context behavior="start" />
-				</symbol>
-				<expression>\[</expression>
-			</scope>
-			<scope name="parser3.bracket.hashblock.end">
-				<symbol type="block">
-					<context behavior="end" />
-				</symbol>
-				<expression>\]</expression>
-			</scope>
-			<scope name="parser3.bracket.logicblock.start">
-				<symbol type="block">
-					<context behavior="start" />
-				</symbol>
-				<expression>\(</expression>
-			</scope>
-			<scope name="parser3.bracket.logicblock.end">
-				<symbol type="block">
-					<context behavior="end" />
-				</symbol>
-				<expression>\)</expression>
-			</scope> -->
 			<scope name="parser3.bracket">
 				<expression>[\(\{\[\]\}\)]</expression>
 			</scope>
