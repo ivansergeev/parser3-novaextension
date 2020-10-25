@@ -1,5 +1,11 @@
 ## Version 0.4.5
 
+Added:
+* fields `$SQL.connect-string`, '$request:charset'
+
+Changed:
+* Parser 3 theme
+
 Fix:
 * violation of the theme when the text is adjacent to the closing bracket
 * color violation in code blocks `[]`

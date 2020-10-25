@@ -330,14 +330,20 @@ identifier.method.name
 	color: hsb(210, 60%, 100%);
 }
 
+
+keyword.class.method,
+keyword.class.instance.method,
 identifier.method.call {
 	color: #BBD554;
 }
 
+identifier.type,
+identifier.field,
 identifier.variable {
 	
 	color: #A3B7FC;
 }
+
 
 directives.block.sql 
 {

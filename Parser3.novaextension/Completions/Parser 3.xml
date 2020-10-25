@@ -23,7 +23,7 @@
 	<provider name="instance.method">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
-		<expression>(?&lt;=\w\.)([a-zA-Z-]+)</expression>
+		<expression>(?&lt;=[\w\]]\.)([a-zA-Z-]+)</expression>
 		<symbols type="method" />
 		<set>parser3.instance.method</set>
 	</provider>
