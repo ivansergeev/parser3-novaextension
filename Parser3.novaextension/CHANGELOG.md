@@ -1,3 +1,9 @@
+## Version 0.4.5
+
+Fix:
+* violation of the theme when the text is adjacent to the closing bracket
+* color violation in code blocks `[]`
+
 ## Version 0.4.4
 
 Added:
@@ -5,7 +11,7 @@ Added:
 * static fields `$response:location` and `$response:refresh`
 
 Changed:
-* highlighting regex string is disabled
+* disabled highlighting regex string
 
 ## Version 0.4.3
 
