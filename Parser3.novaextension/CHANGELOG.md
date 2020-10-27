@@ -1,7 +1,13 @@
 ## Version 0.4.6
 
+Added:
+* highlighting and completing variables in brackets, such as `${some}`
+* highlighting properties in brackets, such as `$.[Hello world][!]`
+* highlighting and completing user properties
+
 Fix:
 * highlighting variables starting with numbers
+* completion doesn't offer user methods in fields (after the dot)
 
 ## Version 0.4.5
 

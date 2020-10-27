@@ -1128,6 +1128,15 @@
 					<string>_default</string>
 				</strings>
 			</scope>
+			
+			<!-- $.[hello world][!] -->
+			<scope name="parser3.user.property">
+				<expression>(?&lt;=\$\.\[)([\w\dа-яА-Я][\w\dа-яА-Я\-\s]*)(?=\])</expression>
+				<capture number="1" name="parser3.symbol" />
+				<capture number="2" name="parser3.user.property.name" />
+				<capture number="3" name="parser3.bracket" />
+			</scope>
+			
 		</collection>
 		
 		<!-- Variables -->
@@ -1147,12 +1156,24 @@
 				</strings>
 			</scope>
 
+			<!-- $foo -->
+			
 			<scope name="parser3.identifier.variable">
 				<symbol type="variable" scope="private" />
 				<!-- <expression>\$(?!(console|cookie|env|form|math|request|response|status|result|exception|key|value|CLASS_PATH|LIMITS|MAIN|MAIL|MIME-TYPES|SQL)\b)([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)</expression> -->
 				<expression>(\$)([a-zA-Z0-9_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)</expression>
 				<capture number="1" name="parser3.symbol" />
 				<capture number="2" name="parser3.identifier.variable.name" />
+			</scope>
+			
+			<!-- ${foo} -->
+			<scope name="parser3.identifier.variable.bracket">
+				<symbol type="variable" scope="private" />
+				<expression>(\$)(\{)([a-zA-Z0-9_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)(\.?)</expression>
+				<capture number="1" name="parser3.symbol" />
+				<capture number="2" name="parser3.bracket" />
+				<capture number="3" name="parser3.identifier.variable.name" />
+				<capture number="4" name="parser3.dot" />
 			</scope>
 			
 			<!-- the variable from the parameter doesn't work :-( -->
@@ -1258,7 +1279,9 @@
 			</scope>
 			
 			<scope name="parser3.identifier.field">
-				<expression>(?&lt;=[\:\.])[a-zA-Z_][a-zA-Z0-9_-]*</expression>
+				<symbol type="property" scope="private" />
+				<expression>(?&lt;=[\:\.])([a-zA-Z_][a-zA-Z0-9_-]*)</expression>
+				<capture number="1" name="parser3.identifier.property.name" />
 			</scope>
 			
 		</collection>

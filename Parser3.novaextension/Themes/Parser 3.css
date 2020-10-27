@@ -337,6 +337,7 @@ identifier.method.call {
 	color: #BBD554;
 }
 
+identifier.property,
 identifier.type,
 identifier.field,
 identifier.variable {
@@ -354,8 +355,12 @@ sql.keyword {
 	color: hsb(268, 34%, 100%);
 }
 
-core.options {
+core.options {	
 	color: hsb(210, 60%, 100%);
+}
+
+user.property {
+	color: #A3B7FC;
 }
 
 keyword.property {
