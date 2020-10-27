@@ -1150,7 +1150,7 @@
 			<scope name="parser3.identifier.variable">
 				<symbol type="variable" scope="private" />
 				<!-- <expression>\$(?!(console|cookie|env|form|math|request|response|status|result|exception|key|value|CLASS_PATH|LIMITS|MAIN|MAIL|MIME-TYPES|SQL)\b)([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)</expression> -->
-				<expression>(\$)([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)</expression>
+				<expression>(\$)([a-zA-Z0-9_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)</expression>
 				<capture number="1" name="parser3.symbol" />
 				<capture number="2" name="parser3.identifier.variable.name" />
 			</scope>

@@ -1,7 +1,12 @@
+## Version 0.4.6
+
+Fix:
+* highlighting variables starting with numbers
+
 ## Version 0.4.5
 
 Added:
-* fields `$SQL.connect-string`, '$request:charset'
+* fields `$SQL.connect-string`, `$request:charset`
 
 Changed:
 * Parser 3 theme
