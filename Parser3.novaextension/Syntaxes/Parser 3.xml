@@ -121,8 +121,9 @@
 					<!-- comments to parts of expressions -->				
 					<scope name="parser3.comment.single" spell-check="true">
 						<symbol type="comment" />
-						<expression>(\#(.*))$</expression>
-						<capture number="1" name="parser3.comment.text" />
+						<expression>(?&lt;!\\)(\#(.*))$</expression>
+						<capture number="1" name="parser3.symbol" />
+						<capture number="2" name="parser3.comment.text" />
 					</scope>
 
 					<!-- boolean -->
@@ -206,11 +207,11 @@
 						</strings>
 					</scope>
 					
+					<include syntax="self" collection="blocks" />
 					<include syntax="self" collection="keywords" />
 					<include syntax="self" collection="variables" />
 					<include syntax="self" collection="values" />
 					<include syntax="self" collection="strings" />
-					
 					<include syntax="self" collection="identifiers" />
 
 				</subscopes>
@@ -328,34 +329,7 @@
 						<expression>(?=\b(?:@))</expression>
 					</cut-off>
 					<include syntax="self" collection="comments" />
-
-					<scope name="parser3.arguments">
-						<starts-with>
-							<expression>(?&lt;=\w)\[</expression>
-							<capture number="0" name="parser3.bracket" />
-						</starts-with>
-						<ends-with>
-							<expression>\]</expression>
-							<capture number="0" name="parser3.bracket" />
-						</ends-with>
-						<subscopes>
-							<cut-off>
-								<expression>(?=\b(?:@))</expression>
-							</cut-off>
-							<scope name="parser3.separator">
-								<expression>;</expression>
-							</scope>
-							<scope name="parser3.identifier.argument.name">
-								<symbol type="argument" />
-								<expression>\b[a-zA-Z_][A-Za-zÀ-ÖØ-öø-ÿ0-9_]*\b</expression>
-							</scope>
-							
-							<include syntax="self" collection="values" />
-							<include syntax="self" collection="identifiers" />
-							<include syntax="self" collection="syntax" />
-						</subscopes>
-					</scope>
-					
+					<include syntax="self" collection="arguments" />
 				</subscopes>
 			</scope>
 
@@ -367,7 +341,41 @@
 			</scope>
 
 		</collection>
-		
+			
+		<collection name="arguments">
+			<scope name="parser3.arguments">
+				<starts-with>
+					<expression>(?&lt;=\w)\[</expression>
+					<capture number="0" name="parser3.bracket" />
+				</starts-with>
+				<ends-with>
+					<expression>\]</expression>
+					<capture number="0" name="parser3.bracket" />
+				</ends-with>
+				<subscopes>
+					<cut-off>
+						<expression>(?=\b(?:@))</expression>
+					</cut-off>
+					<scope name="parser3.separator">
+						<expression>;</expression>
+					</scope>
+					<scope name="parser3.identifier.argument">
+						<symbol type="argument" />
+						<expression>([a-zA-Z0-9_][a-zA-Z0-9_]*)</expression>
+						<capture number="1" name="parser3.identifier.argument.name" />
+					</scope>
+					<!-- <scope name="parser3.identifier.variable">
+						<symbol type="variable" />
+						<expression>([a-zA-Z0-9_][a-zA-Z0-9_]*)</expression>
+						<capture number="1" name="parser3.identifier.variable.name" />
+					</scope> -->
+
+					<!-- <include syntax="self" collection="values" /> -->
+					<!-- <include syntax="self" collection="identifiers" /> -->
+					<!-- <include syntax="self" collection="syntax" /> -->
+				</subscopes>
+			</scope>
+		</collection>
 		<!-- LOGIC -->
 
 		<!-- <collection name="logic-operator">
@@ -1478,6 +1486,7 @@
 					<string>LEFT</string>
 					<string>LEVEL</string>
 					<string>LIKE</string>
+					<string>LIMIT</string>
 					<string>LOCAL</string>
 					<string>LOCK</string>
 					<string>LOWER</string>

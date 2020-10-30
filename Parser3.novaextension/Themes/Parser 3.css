@@ -345,6 +345,11 @@ identifier.variable {
 	color: #A3B7FC;
 }
 
+/* identifier.argument
+{
+	color: yellow;
+} */
+
 
 directives.block.sql 
 {
