@@ -238,10 +238,18 @@
 					<include syntax="self" collection="directives" />
 					<include syntax="self" collection="keywords" />
 					<include syntax="self" collection="variables" />
+					<include syntax="self" collection="identifiers" />
 
-					<scope name="parser3.identifier.method.call">
+					<!-- <scope name="parser3.identifier.method.call">
 						<expression>\^([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\\\x7f-\xff]*)</expression>
 					</scope>
+					
+					<scope name="parser3.identifier.field">
+						<symbol type="property" scope="private" />
+						<expression>(?&lt;=[\:\.])([a-zA-Z_][a-zA-Z0-9_-]*)</expression>
+						<capture number="1" name="parser3.identifier.property.name" />
+					</scope> -->
+					
 				</subscopes>
 			</scope>
 			
@@ -1283,7 +1291,7 @@
 			</scope> -->
 			
 			<scope name="parser3.identifier.method.call">
-				<expression>\^([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\-\\\x7f-\xff]*)</expression>
+				<expression>(?&lt;!\^)\^([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\-\\\x7f-\xff]*)</expression>
 			</scope>
 			
 			<scope name="parser3.identifier.field">

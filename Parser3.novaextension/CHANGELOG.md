@@ -1,5 +1,8 @@
 ## Version 0.4.7
 
+Fix:
+* minor highlighting fixes
+
 ## Version 0.4.6
 
 Added:
