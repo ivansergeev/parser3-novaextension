@@ -371,6 +371,7 @@ user.property {
 	color: #A3B7FC;
 }
 
+keyword.charset,
 keyword.property {
 	color: lightyellow;
 }
@@ -389,4 +390,5 @@ keyword.logic,
 value.boolean {
 	color: #7FF0DE;
 }
+
 

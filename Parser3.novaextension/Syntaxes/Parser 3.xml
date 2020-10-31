@@ -410,6 +410,20 @@
 		<!-- Keywords -->
 		<collection name="keywords">
 
+			<!-- foo -->
+			<scope name="parser3.keyword.charset">
+				<strings case-insensitive="true">
+					<string>UTF-8</string>
+					<string>CP866</string>
+					<string>KOI8-R</string>
+					<string>KOI8-U</string>
+					<string>windows-1250</string>
+					<string>windows-1251</string>
+					<string>windows-1254</string>
+					<string>windows-1257</string>
+				</strings>
+			</scope>
+
 			<!-- [foo] -->
 			<scope name="parser3.keyword.property">
 				<strings prefix="(?&lt;=\[)" suffix="(?=\])">
