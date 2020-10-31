@@ -361,7 +361,9 @@ sql.keyword {
 }
 
 core.options {	
-	color: hsb(210, 60%, 100%);
+	/* color: hsb(210, 60%, 100%); */
+	color: #66b3ff;
+	/* color: #D2CAFB; */
 }
 
 user.property {
@@ -374,7 +376,8 @@ keyword.property {
 
 keyword.class.property,
 keyword.class.instance.property{
-	color: #D2CAFB;
+	/* color: #D2CAFB; */
+	color: #66b3ff;
 }
 
 keyword.error.types {
