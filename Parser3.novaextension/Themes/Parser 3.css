@@ -319,7 +319,6 @@ value.number {
 	color: #ef7b38;
 }
 
-
 definition.class.name
 {
 	font-weight: bold;
@@ -391,4 +390,9 @@ value.boolean {
 	color: #7FF0DE;
 }
 
+/* CSS */
+style.attribute.name {
+	/* color: hsb(148, 35%, 70%); */
+	color: #8bd8b1;
+}
 

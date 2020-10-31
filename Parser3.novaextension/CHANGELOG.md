@@ -3,7 +3,10 @@
 Added:
 * completion for the SQL `LIMIT`
 * the `if` statement is divided into single-line and multi-line
-* highlighting Parser charsets
+* highlighting Parser 3 charsets
+
+Changed:
+* Parser 3 theme (style.attribute.name color)
 
 ## Version 0.4.7
 
