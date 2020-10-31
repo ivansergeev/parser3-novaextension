@@ -6,7 +6,7 @@ Added:
 * highlighting Parser 3 charsets
 
 Changed:
-* Parser 3 theme (style.attribute.name color)
+* Parser 3 theme
 
 ## Version 0.4.7
 

@@ -327,7 +327,12 @@ definition.class.name
 
 identifier.method.name
 {
-	color: hsb(210, 60%, 100%);
+	color: #66b3ff;
+}
+
+identifier.argument
+{
+	color: #92d3ff;
 }
 
 
@@ -337,6 +342,7 @@ identifier.method.call {
 	color: #BBD554;
 }
 
+
 identifier.property,
 identifier.type,
 identifier.field,
@@ -345,10 +351,6 @@ identifier.variable {
 	color: #A3B7FC;
 }
 
-/* identifier.argument
-{
-	color: yellow;
-} */
 
 
 directives.block.sql 
