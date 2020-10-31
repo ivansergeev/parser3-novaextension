@@ -34,9 +34,9 @@
 		<!-- doesn't work with shortcut :-( -->
 		<!-- 
 		<single>
-				<expression>#</expression>
+			<expression>#</expression>
 		</single>
-		-->
+ -->		
 		
 		<multiline>
 			<starts-with>
@@ -239,16 +239,8 @@
 					<include syntax="self" collection="keywords" />
 					<include syntax="self" collection="variables" />
 					<include syntax="self" collection="identifiers" />
-
-					<!-- <scope name="parser3.identifier.method.call">
-						<expression>\^([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\\\x7f-\xff]*)</expression>
-					</scope>
+					<include syntax="self" collection="values" />
 					
-					<scope name="parser3.identifier.field">
-						<symbol type="property" scope="private" />
-						<expression>(?&lt;=[\:\.])([a-zA-Z_][a-zA-Z0-9_-]*)</expression>
-						<capture number="1" name="parser3.identifier.property.name" />
-					</scope> -->
 					
 				</subscopes>
 			</scope>
@@ -1206,9 +1198,23 @@
 		<!-- Values -->
 		<collection name="values">
 			<include syntax="self" collection="strings" />
-			<scope name="parser3.value.number">
-				<expression>\b(\-|\+)?(?:\d+(?:\.\d*)?|(?:\.\d+))(l|L|j|J)?\b</expression>
+			
+			<!-- <scope name="parser3.value.number">
+				<expression>(\-|\+)?(?:\d+(?:\.\d*)?|(?:\.\d+))(l|L|j|J)?\b</expression>
+			</scope> -->
+			
+			<scope name="parser3.value.number.version">
+				<expression>\b(?&lt;!\.)((\d+\.)+\d*)(l|L|j|J)?\b</expression>
 			</scope>
+			
+			<scope name="parser3.value.number">
+				<expression>\b(?&lt;!\.)(\-|\+)?(\d+\.?\d*)(l|L|j|J)?\b</expression>
+			</scope>
+			
+			<scope name="parser3.value.number">
+				<expression>\b(?&lt;!\w)(\-|\+)?(\.\d+)(l|L|j|J)?\b</expression>
+			</scope>
+			
 		</collection>
 
 		<!-- Strings -->
@@ -1296,7 +1302,7 @@
 			
 			<scope name="parser3.identifier.field">
 				<symbol type="property" scope="private" />
-				<expression>(?&lt;=[\:\.])([a-zA-Z_][a-zA-Z0-9_-]*)</expression>
+				<expression>(?&lt;=[\:\.])([a-zA-Z0-9_][a-zA-Z0-9_-]*)</expression>
 				<capture number="1" name="parser3.identifier.property.name" />
 			</scope>
 			
@@ -1672,15 +1678,17 @@
 				</strings>
 			</scope>
 
-			<scope name="sql.value.number">
+			<!-- <scope name="sql.value.number">
 				<expression>\b[0-9]+(?:\.[0-9]+)?(?:(?:e|E)(?:\+|\-)?[0-9]+)?\b</expression>
-			</scope>
+			</scope> -->
+			
 			<scope name="sql.value.boolean">
 				<strings case-insensitive="true">
 					<string>TRUE</string>
 					<string>FALSE</string>
 				</strings>
 			</scope>
+			
 			<scope name="sql.value.null">
 				<strings case-insensitive="true">
 					<string>NULL</string>

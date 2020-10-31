@@ -3,6 +3,9 @@
 Fix:
 * minor highlighting fixes
 
+Changed:
+* Parser 3 theme
+
 ## Version 0.4.6
 
 Added:
