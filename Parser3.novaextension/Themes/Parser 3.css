@@ -315,7 +315,8 @@ bracket {
 }
 
 value.number {
-	color: #EF705F;
+	/* color: #EF705F; */
+	color: #ef7b38;
 }
 
 
