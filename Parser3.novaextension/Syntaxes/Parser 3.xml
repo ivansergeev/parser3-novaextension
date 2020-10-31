@@ -141,7 +141,7 @@
 					
 					<!-- class types -->
 					<scope name="parser3.keyword.class.type">
-						<strings>
+						<strings prefix="(?&lt;=\s)">
 							<string>cookie</string>
 							<string>curl</string>
 							<string>date</string>
@@ -737,7 +737,7 @@
 
 			<!-- .foo({[ -->
 			<scope name="parser3.keyword.class.instance.method">
-				<strings prefix="(?&lt;=[\w\]]\.)" suffix="(?=\(|\{|\[)">
+				<strings prefix="(?&lt;=[\w\d\]]\.)" suffix="(?=[\(\{\[])">
 					<string>save</string>
 					<string>sort</string>
 					<string>delete</string>
@@ -1203,14 +1203,17 @@
 				<expression>(\-|\+)?(?:\d+(?:\.\d*)?|(?:\.\d+))(l|L|j|J)?\b</expression>
 			</scope> -->
 			
+			<!-- 1.2.3.4.5 -->
 			<scope name="parser3.value.number.version">
 				<expression>\b(?&lt;!\.)((\d+\.)+\d*)(l|L|j|J)?\b</expression>
 			</scope>
 			
+			<!-- 1.2345 -->
 			<scope name="parser3.value.number">
 				<expression>\b(?&lt;!\.)(\-|\+)?(\d+\.?\d*)(l|L|j|J)?\b</expression>
 			</scope>
 			
+			<!-- .12345 -->
 			<scope name="parser3.value.number">
 				<expression>\b(?&lt;!\w)(\-|\+)?(\.\d+)(l|L|j|J)?\b</expression>
 			</scope>
@@ -1368,7 +1371,7 @@
 		<collection name="sql">
 			
 			<scope name="sql.keyword">
-				<strings>
+				<strings case-insensitive="false">
 					<string>ABSOLUTE</string>
 					<string>ACTION</string>
 					<string>ADA</string>
@@ -1615,7 +1618,7 @@
 			</scope>
 			
 			<scope name="sql.identifier.type.core">
-				<strings>
+				<strings prefix="(?&lt;=\s)">
 					<string>bigint</string>
 					<string>bigserial</string>
 					<string>bit</string>
