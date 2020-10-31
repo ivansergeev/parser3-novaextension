@@ -8,6 +8,16 @@ Syntax support is implemented for Parser 3.4.5
 
 Extension support: *.html, *.p, *.pt, *.p3, *.h
 
+### Parser 3 theme color concept
+
+* Parser 3: shades of green and blue
+* SQL: light purple
+* HTML: light brown
+* CSS: multicoloured yet
+* Text, strings: white and light yellow
+* Numbers: shades of orange
+
+
 # Parser 3
 
 Simple and convenient object-oriented language which allows creating good sites in short time.
