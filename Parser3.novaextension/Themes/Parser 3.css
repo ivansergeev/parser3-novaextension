@@ -394,7 +394,16 @@ value.boolean {
 
 /* CSS */
 style.attribute.name {
-	/* color: hsb(148, 35%, 70%); */
 	color: #8bd8b1;
 }
 
+style.value.number,
+style.value.color.hex {
+	color: #bcb2ff;
+}
+
+style.value.color.named,
+style.value.keyword {
+	/* color: #66b3ff; */
+	color: #E4D8CB;
+}
