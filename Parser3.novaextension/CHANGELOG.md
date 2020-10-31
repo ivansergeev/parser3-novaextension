@@ -1,10 +1,15 @@
-## Version 0.4.7
+## Version 0.4.8
 
-Fix:
-* minor highlighting fixes
+Added:
+* completion for the SQL `LIMIT`
+
+## Version 0.4.7
 
 Changed:
 * Parser 3 theme
+
+Fix:
+* minor highlighting fixes
 
 ## Version 0.4.6
 

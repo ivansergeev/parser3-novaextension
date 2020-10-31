@@ -3322,6 +3322,7 @@ $[]</append>
 		</completion>
 		<completion string="LEVEL" />
 		<completion string="LIKE" />
+		<completion string="LIMIT" />
 		<completion string="LOCAL" />
 		<completion string="LOCK" />
 		<completion string="LOWER">
