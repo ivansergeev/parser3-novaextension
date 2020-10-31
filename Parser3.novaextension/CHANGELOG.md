@@ -2,6 +2,7 @@
 
 Added:
 * completion for the SQL `LIMIT`
+* the `if` statement is divided into single-line and multi-line
 
 ## Version 0.4.7
 

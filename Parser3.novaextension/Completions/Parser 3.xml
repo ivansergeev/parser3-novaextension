@@ -5102,8 +5102,17 @@ $[]</append>
 <!-- H -->
 <!-- I -->
 		<completion string="if">
+			<description>single-line if statement</description>
 			<behavior>
 				<append>($[expression]){$[code]}</append>
+			</behavior>
+		</completion>
+		<completion string="if">
+			<description>multi-line if statement</description>
+			<behavior>
+				<append>($[expression]){
+	$[code]
+}</append>
 			</behavior>
 		</completion>
 <!-- J -->
