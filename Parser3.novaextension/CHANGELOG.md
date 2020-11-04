@@ -1,3 +1,7 @@
+## Version 0.4.9
+
+Added a donation button. Now you can support the development of the Parser 3 extension. 
+
 ## Version 0.4.8
 
 Added:
