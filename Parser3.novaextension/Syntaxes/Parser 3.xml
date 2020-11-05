@@ -85,6 +85,20 @@
 		<!-- Comments -->
 		<collection name="comments">
 			
+			<scope name="parser3.comment.todo" spell-check="true">
+				<symbol type="todo" />
+				<expression>^\#\s*(TODO|todo)\s*\:?(.*)$</expression>
+				<capture number="1" name="parser3.todo.keyword" />
+				<capture number="2" name="parser3.todo" />
+			</scope>
+			
+			<scope name="parser3.comment.fix" spell-check="true">
+				<symbol type="todo" />
+				<expression>^\#\s*(FIXME|FIX|fixme|fix)\s*\:?(.*)$</expression>
+				<capture number="1" name="parser3.fix.keyword" />
+				<capture number="2" name="parser3.fix" />
+			</scope>
+			
 			<scope name="parser3.comment.single" spell-check="true">
 				<expression>^\#(.*)$</expression>
 			</scope>
@@ -118,7 +132,23 @@
 				</ends-with>
 				<subscopes>
 					
-					<!-- comments to parts of expressions -->				
+					<!-- comments to parts of expressions -->
+					<scope name="parser3.comment.todo" spell-check="true">
+						<symbol type="todo" />
+						<expression>(?&lt;!\\)\#\s*(TODO|todo)\s*\:?(.*)$</expression>
+						<capture number="0" name="parser3.symbol" />
+						<capture number="1" name="parser3.todo.keyword" />
+						<capture number="2" name="parser3.todo" />
+					</scope>
+					
+					<scope name="parser3.comment.fix" spell-check="true">
+						<symbol type="todo" />
+						<expression>(?&lt;!\\)\#\s*(FIXME|FIX|fixme|fix)\s*\:?(.*)$</expression>
+						<capture number="0" name="parser3.symbol" />
+						<capture number="1" name="parser3.fix.keyword" />
+						<capture number="2" name="parser3.fix" />
+					</scope>
+					
 					<scope name="parser3.comment.single" spell-check="true">
 						<symbol type="comment" />
 						<expression>(?&lt;!\\)(\#(.*))$</expression>

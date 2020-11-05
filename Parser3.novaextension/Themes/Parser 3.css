@@ -407,3 +407,11 @@ style.value.keyword {
 	/* color: #66b3ff; */
 	color: #E4D8CB;
 }
+
+todo.keyword {
+	color: #a4bbd2;
+}
+
+fix.keyword {
+	color: red;
+}
