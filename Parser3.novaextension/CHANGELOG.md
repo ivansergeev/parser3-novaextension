@@ -1,7 +1,7 @@
 ## Version 0.4.10
 
 Added:
-* `TODO`, `FIX` and `FIXME` support in the single comments: display in the Symbol tree and highlighting in the code. Example of use:
+* `TODO`, `FIX` and `FIXME` in the single comments: display in the Symbol tree and highlighting in the code. Example of use:
 ```
 	# TODO: Hello, world!
 	# FIX: diseases and wars on this planet!
