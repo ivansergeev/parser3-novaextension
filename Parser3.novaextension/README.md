@@ -17,10 +17,6 @@ Extension support: _.html, _.p, _.pt, _.p3, \*.h
 -   **Text, strings**: white and light yellow
 -   **Numbers**: shades of red
 
-# Development Parser 3 extension is in your hands
-
-Extension development requires a lot of time and effort. You can support the development Parser 3 extension by sending a donation of any amount. All participants who supported development will be published on the plugin page.
-
 # Parser 3
 
 Simple and convenient object-oriented language which allows creating good sites in short time.
