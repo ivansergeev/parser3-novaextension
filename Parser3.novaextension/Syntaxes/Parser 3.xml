@@ -36,8 +36,8 @@
 		<single>
 			<expression>#</expression>
 		</single>
- -->		
-		
+	    -->		
+
 		<multiline>
 			<starts-with>
 				<expression>^rem{</expression>
@@ -79,7 +79,6 @@
 		<include syntax="self" collection="syntax" />
 		<include syntax="self" collection="properties" />
 		<include syntax="self" collection="variables" />
-		<!-- <include syntax="self" collection="arguments" /> -->
 	</scopes>
 
 	<collections>
@@ -382,15 +381,6 @@
 			
 		<collection name="arguments">
 			<scope name="parser3.arguments">
-				<!-- parse all arguments -->
-				<!-- <starts-with>
-					<expression>(?&lt;=\w\[)</expression>
-					<capture number="1" name="parser3.bracket" />
-				</starts-with>
-				<ends-with>
-					<expression>(?=\])</expression>
-					<capture number="1" name="parser3.bracket" />
-				</ends-with> -->
 				<starts-with>
 					<expression>(?&lt;=\w)(\[)</expression>
 					<capture number="1" name="parser3.bracket" />
@@ -400,9 +390,6 @@
 					<capture number="1" name="parser3.bracket" />
 				</ends-with>
 				<subscopes>
-					<!-- <cut-off>
-						<expression>(?=\b(?:@))</expression>
-					</cut-off> -->
 					<scope name="parser3.separator">
 						<expression>;</expression>
 					</scope>
@@ -411,28 +398,9 @@
 						<expression>((?&lt;!\$)\b[a-zA-Z0-9_]+)</expression>
 						<capture number="1" name="parser3.identifier.argument.name" />
 					</scope>
-					
-					<!-- <include syntax="self" /> -->
-					
-					<!-- <scope name="parser3.identifier.variable">
-						<symbol type="variable" />
-						<expression>([a-zA-Z0-9_][a-zA-Z0-9_]*)</expression>
-						<capture number="1" name="parser3.identifier.variable.name" />
-					</scope> -->
-
-					<!-- <include syntax="self" collection="values" /> -->
-					<!-- <include syntax="self" collection="identifiers" /> -->
-					<!-- <include syntax="self" collection="syntax" /> -->
 				</subscopes>
 			</scope>
 		</collection>
-		<!-- LOGIC -->
-
-		<!-- <collection name="logic-operator">
-			<scope name="parser3.keyword.logic">
-				<expression>(?&lt;=[\s\(])(eq|def|ne|is|in|lt|qt|le|ge|-[df])(?=\s)</expression>
-			</scope>
-		</collection> -->
 
 		<!-- TAINT -->
 		<collection name="taint">
@@ -1232,7 +1200,6 @@
 			
 			<scope name="parser3.identifier.variable">
 				<symbol type="variable" scope="private" />
-				<!-- <expression>\$(?!(console|cookie|env|form|math|request|response|status|result|exception|key|value|CLASS_PATH|LIMITS|MAIN|MAIL|MIME-TYPES|SQL)\b)([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)</expression> -->
 				<expression>(?&lt;!\^)(\$)([a-zA-Z0-9_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)</expression>
 				<capture number="1" name="parser3.symbol" />
 				<capture number="2" name="parser3.identifier.variable.name" />
@@ -1247,26 +1214,12 @@
 				<capture number="3" name="parser3.identifier.variable.name" />
 				<capture number="4" name="parser3.dot" />
 			</scope>
-			
-			<!-- the variable from the parameter doesn't work :-( -->
-			<!-- 
-			<scope name="parser3.identifier.variable.parameter">
-				<symbol type="variable" scope="private" />
-				<expression>^@[a-zA-Z_][a-zA-Z0-9_]*\[([a-zA-Z_]\w*)*\]$</expression>
-				<capture number="1" name="parser3.identifier.variable.name" />
-			</scope>
-			-->
-
 		</collection>
 
 		<!-- Values -->
 		<collection name="values">
 			<include syntax="self" collection="strings" />
-			
-			<!-- <scope name="parser3.value.number">
-				<expression>(\-|\+)?(?:\d+(?:\.\d*)?|(?:\.\d+))(l|L|j|J)?\b</expression>
-			</scope> -->
-			
+
 			<!-- 1.2.3.4.5 -->
 			<scope name="parser3.value.number.version">
 				<expression>\b(?&lt;!\.)((\d+\.)+\d*)(l|L|j|J)?\b</expression>
@@ -1299,70 +1252,12 @@
 				<capture number="1" name="parser3.string.single-quoted.text" />
 			</scope>
 			
-			<!-- regex -->
-			<!-- <scope name="parser3.string.regex">
-				<starts-with>
-					<expression>(?&lt;=\^regex::create\[)</expression>
-				</starts-with>
-				<ends-with>
-					<expression>(?=\])</expression>
-				</ends-with>
-				<subscopes>
-					
-					<scope name="parser3.comment.single" spell-check="true">
-						<symbol type="comment" />
-						<expression>(?&lt;!\\)(\#(.*))$</expression>
-						<capture number="1" name="parser3.comment.text" />
-					</scope>
-
-					<include syntax="self" collection="blocks" />
-					<include syntax="self" collection="variables" />
-					
-					<scope name="parser3.identifier.method.call">
-						<expression>\^([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\-\\\x7f-\xff]*)</expression>
-					</scope>
-					
-				</subscopes>
-			</scope> -->
-			
-			<!-- regex -->
-			<!-- <scope name="parser3.string.regex">
-				<starts-with>
-					<expression>(?&lt;=\.match\[)</expression>
-				</starts-with>
-				<ends-with>
-					<expression>(?=\])</expression>
-				</ends-with>
-				<subscopes>
-
-					<scope name="parser3.comment.single" spell-check="true">
-						<symbol type="comment" />
-						<expression>(?&lt;!\\)(\#(.*))$</expression>
-						<capture number="1" name="parser3.comment.text" />
-					</scope>
-					
-					<scope name="parser3.bracket">
-						<expression>[\(\{\[\]\}\)]</expression>
-					</scope>
-					<include syntax="self" collection="variables" />
-
-					<scope name="parser3.identifier.method.call">
-						<expression>\^([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\-\\\x7f-\xff]*)</expression>
-					</scope> 
-					
-				</subscopes>
-			</scope> -->
-			
 		</collection>
 
 		<!-- Identifiers -->
 		<collection name="identifiers">
 			<include syntax="self" collection="variables" />
 
-			<!-- <scope name="parser3.identifier">
-				<expression>[a-zA-Z_-\x7f-\xff][a-zA-Z0-9_-\x7f-\xff]*</expression>
-			</scope> -->
-			
 			<scope name="parser3.identifier.method.call">
 				<expression>(?&lt;!\^)\^([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\-\\\x7f-\xff]*)</expression>
 			</scope>
@@ -1744,10 +1639,6 @@
 					<string>auto_increment</string>
 				</strings>
 			</scope>
-
-			<!-- <scope name="sql.value.number">
-				<expression>\b[0-9]+(?:\.[0-9]+)?(?:(?:e|E)(?:\+|\-)?[0-9]+)?\b</expression>
-			</scope> -->
 			
 			<scope name="sql.value.boolean">
 				<strings case-insensitive="true">
@@ -1772,10 +1663,6 @@
 			<scope name="parser3.operator">
 				<expression>(\+|\-|\*|\*\*|/|%|\=|\=\=|!\=|\+\=|\-\=|\*\=|/\=|%\=|\*\*=|\&lt;|\&gt;|\&lt;\=|\&gt;=|!|&amp;&amp;|\|\|)</expression>
 			</scope>
-			<!-- <scope name="parser3.semicolon">
-				<expression>;</expression>
-			</scope> -->
-			
 		</collection>
 		
 	</collections>
