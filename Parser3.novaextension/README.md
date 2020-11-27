@@ -6,7 +6,7 @@ The extension provides Parser 3 syntax highlighting and code completion. Include
 
 Syntax support is implemented for Parser 3.4.5
 
-Extension support: _.html, _.p, _.pt, _.p3, \*.h
+Extension support: *.html, *.p, *.pt, *.p3, *.h
 
 ### Parser 3 theme color concept
 
