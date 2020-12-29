@@ -1200,7 +1200,7 @@
 			
 			<scope name="parser3.identifier.variable">
 				<symbol type="variable" scope="private" />
-				<expression>(?&lt;!\^)(\$)([a-zA-Z0-9_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)</expression>
+				<expression>(?&lt;!\^)(\$)([a-zA-Z0-9_\x7f-\xff][a-zA-Z0-9_\x7f-\xff\-]*)</expression>
 				<capture number="1" name="parser3.symbol" />
 				<capture number="2" name="parser3.identifier.variable.name" />
 			</scope>

@@ -1,9 +1,18 @@
+## Version 0.4.12
+
+Fix:
+
+-   highlighting variables with `-`
+
 ## Version 0.4.11
+
+Added:
+
+-   Escaping variables
 
 Changed:
 
 -   Colouring of the arguments separator in the methods
--   Escaping variables
 -   Numbers color
 
 ## Version 0.4.10
