@@ -1,7 +1,7 @@
 ## Version 0.4.12
 
 Added:
--	Compatible with the 4th version of the Nova
+-	Basic compatibility with Nova 4
 
 Fix:
 
