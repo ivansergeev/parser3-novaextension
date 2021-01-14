@@ -1,5 +1,8 @@
 ## Version 0.4.12
 
+Added:
+-	Compatible with the 4th version of the Nova
+
 Fix:
 
 -   highlighting variables with `-`

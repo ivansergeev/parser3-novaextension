@@ -116,218 +116,215 @@
 				</ends-with>
 			</scope>
 		</collection>
-
+	
 		<!--  Directives -->
 		<collection name="directives">
-
-			<!-- LOGIC -->
-
-			<scope name="parser3.directives.block.logic">
-				<starts-with>
-					<expression>(?&lt;=\()</expression>
-					<capture number="1" name="parser3.bracket" />
-				</starts-with>
-				<ends-with>
-					<expression>(?=\))</expression>
-					<capture number="1" name="parser3.bracket" />
-				</ends-with>
-				<subscopes>
-					
-					<!-- comments to parts of expressions -->
-					<scope name="parser3.comment.todo" spell-check="true">
-						<symbol type="todo" />
-						<expression>(?&lt;!\\)\#\s*(TODO|todo)\s*\:?(.*)$</expression>
-						<capture number="0" name="parser3.symbol" />
-						<capture number="1" name="parser3.todo.keyword" />
-						<capture number="2" name="parser3.todo" />
-					</scope>
-					
-					<scope name="parser3.comment.fix" spell-check="true">
-						<symbol type="todo" />
-						<expression>(?&lt;!\\)\#\s*(FIXME|FIX|fixme|fix)\s*\:?(.*)$</expression>
-						<capture number="0" name="parser3.symbol" />
-						<capture number="1" name="parser3.fix.keyword" />
-						<capture number="2" name="parser3.fix" />
-					</scope>
-					
-					<scope name="parser3.comment.single" spell-check="true">
-						<symbol type="comment" />
-						<expression>(?&lt;!\\)(\#(.*))$</expression>
-						<capture number="1" name="parser3.symbol" />
-						<capture number="2" name="parser3.comment.text" />
-					</scope>
-
-					<!-- boolean -->
-					<scope name="parser3.value.boolean">
-						<strings>
-							<string>true</string>
-							<string>false</string>
-						</strings>
-					</scope>
-					
-					<scope name="parser3.separator">
-						<expression>;</expression>
-					</scope>
-					
-					<!-- logic operator -->
-					<scope name="parser3.keyword.logic">
-						<expression>(?&lt;=[\s\(])!?(eq|def|ne|is|in|lt|qt|le|ge|-[df])(?=\s)</expression>
-					</scope>
-					
-					<!-- class types -->
-					<scope name="parser3.keyword.class.type">
-						<strings prefix="(?&lt;=\s)">
-							<string>cookie</string>
-							<string>curl</string>
-							<string>date</string>
-							<string>double</string>
-							<string>int</string>
-							<string>env</string>
-							<string>file</string>
-							<string>form</string>
-							<string>hash</string>
-							<string>hashfile</string>
-							<string>image</string>
-							<string>inet</string>
-							<string>json</string>
-							<string>mail</string>
-							<string>math</string>
-							<string>memcached</string>
-							<string>memory</string>
-							<string>reflection</string>
-							<string>regex</string>
-							<string>request</string>
-							<string>response</string>
-							<string>status</string>
-							<string>string</string>
-							<string>table</string>
-							<string>void</string>
-							<string>xdoc</string>
-						</strings>
-					</scope>
-					
-					<!-- exception types -->
-					<scope name="parser3.keyword.exception.types">
-						<strings>
-							<string>parser.compile</string>
-							<string>parser.runtime</string>
-							<string>parser.interrupted</string>
-							<string>number.zerodivision </string>
-							<string>number.format</string>
-							<string>file.missing</string>
-							<string>file.access</string>
-							<string>file.read</string>
-							<string>file.execute</string>
-							<string>date.range</string>
-							<string>pcre.execute</string>
-							<string>image.format</string>
-							<string>sql.connect</string>
-							<string>sql.execute</string>
-							<string>xml</string>
-							<string>smtp.connect</string>
-							<string>smtp.execute</string>
-							<string>email.format</string>
-							<string>email.send</string>
-							<string>http.host</string>
-							<string>http.connect</string>
-							<string>http.response</string>
-							<string>http.status</string>
-							<string>http.timeout</string>
-							<string>curl.host</string>
-							<string>curl.connect</string>
-							<string>curl.status</string>
-							<string>curl.ssl</string>
-							<string>curl.timeout</string>
-							<string>curl.fail</string>
-						</strings>
-					</scope>
-					
-					<include syntax="self" collection="blocks" />
-					<include syntax="self" collection="keywords" />
-					<include syntax="self" collection="variables" />
-					<include syntax="self" collection="values" />
-					<include syntax="self" collection="strings" />
-					<include syntax="self" collection="identifiers" />
-
-				</subscopes>
-			</scope>
-			
-			<!-- SQL -->
-			
-			<scope name="parser3.directives.block.sql">
-				<symbol type="block">
-					<context behavior="subtree" foldable="true" />
-				</symbol>
-				<starts-with>
-					<expression>(?&lt;=sql\{)</expression>
-					<capture number="1" name="parser3.keyword.class.method" />
-				</starts-with>
-				<ends-with>
-					<expression>(?=\})</expression>
-					<capture number="1" name="parser3.bracket" />
-				</ends-with>
-				<subscopes>
-					<include syntax="self" collection="comments" />
-					<include syntax="self" collection="blocks" />
-					<include syntax="self" collection="sql" />
-					<include syntax="self" collection="directives" />
-					<include syntax="self" collection="keywords" />
-					<include syntax="self" collection="variables" />
-					<include syntax="self" collection="identifiers" />
-					<include syntax="self" collection="values" />
-					
-					
-				</subscopes>
-			</scope>
-			
-			<!-- TAINT -->
-
-			<scope name="parser3.directives.block.apply-taint">
-				<starts-with>
-					<expression>(?&lt;=\^apply\-taint\[)</expression>
-					<capture number="1" name="parser3.keyword.operator" />
-					<!-- <capture number="2" name="parser3.bracket" /> -->
-				</starts-with>
-				<ends-with>
-					<expression>(?=\]\[)</expression>
-					<capture number="1" name="parser3.bracket" />
-				</ends-with>
-				<subscopes>
-					<include syntax="self" collection="taint" />
-				</subscopes>
-			</scope>
-			
-			<scope name="parser3.directives.block.taint">
-				<starts-with>
-					<expression>(?&lt;=\^taint\[)</expression>
-					<capture number="1" name="parser3.keyword.operator" />
-				</starts-with>
-				<ends-with>
-					<expression>(?=\]\[)</expression>
-					<capture number="1" name="parser3.bracket" />
-				</ends-with>
-				<subscopes>
-					<include syntax="self" collection="taint" />
-				</subscopes>
-			</scope>	
-			
-			<scope name="parser3.directives.block.untaint">
-				<starts-with>
-					<expression>(?&lt;=\^untaint\[)</expression>
-					<capture number="1" name="parser3.keyword.operator" />
-				</starts-with>
-				<ends-with>
-					<expression>(?=\]\{)</expression>
-					<capture number="1" name="parser3.bracket" />
-				</ends-with>
-				<subscopes>
-					<include syntax="self" collection="taint" />
-				</subscopes>
-			</scope>
-			
-		</collection>
+	
+		<!-- LOGIC -->
+	
+		<scope name="parser3.directives.block.logic">
+			<starts-with>
+				<expression>(?&lt;=\()</expression>
+				<capture number="0" name="parser3.bracket" />
+			</starts-with>
+			<ends-with>
+				<expression>(?=\))</expression>
+				<capture number="0" name="parser3.bracket" />
+			</ends-with>
+			<subscopes>
+				
+				<!-- comments to parts of expressions -->
+				<scope name="parser3.comment.todo" spell-check="true">
+					<symbol type="todo" />
+					<expression>(?&lt;!\\)\#\s*(TODO|todo)\s*\:?(.*)$</expression>
+					<capture number="0" name="parser3.symbol" />
+					<capture number="1" name="parser3.todo.keyword" />
+					<capture number="2" name="parser3.todo" />
+				</scope>
+				
+				<scope name="parser3.comment.fix" spell-check="true">
+					<symbol type="todo" />
+					<expression>(?&lt;!\\)\#\s*(FIXME|FIX|fixme|fix)\s*\:?(.*)$</expression>
+					<capture number="0" name="parser3.symbol" />
+					<capture number="1" name="parser3.fix.keyword" />
+					<capture number="2" name="parser3.fix" />
+				</scope>
+				
+				<scope name="parser3.comment.single" spell-check="true">
+					<symbol type="comment" />
+					<expression>(?&lt;!\\)(\#(.*))$</expression>
+					<capture number="1" name="parser3.symbol" />
+					<capture number="2" name="parser3.comment.text" />
+				</scope>
+	
+				<!-- boolean -->
+				<scope name="parser3.value.boolean">
+					<strings>
+						<string>true</string>
+						<string>false</string>
+					</strings>
+				</scope>
+				
+				<scope name="parser3.separator">
+					<expression>;</expression>
+				</scope>
+				
+				<!-- logic operator -->
+				<scope name="parser3.keyword.logic">
+					<expression>(?&lt;=[\s\(])!?(eq|def|ne|is|in|lt|qt|le|ge|-[df])(?=\s)</expression>
+				</scope>
+				
+				<!-- class types -->
+				<scope name="parser3.keyword.class.type">
+					<strings prefix="(?&lt;=\s)">
+						<string>cookie</string>
+						<string>curl</string>
+						<string>date</string>
+						<string>double</string>
+						<string>int</string>
+						<string>env</string>
+						<string>file</string>
+						<string>form</string>
+						<string>hash</string>
+						<string>hashfile</string>
+						<string>image</string>
+						<string>inet</string>
+						<string>json</string>
+						<string>mail</string>
+						<string>math</string>
+						<string>memcached</string>
+						<string>memory</string>
+						<string>reflection</string>
+						<string>regex</string>
+						<string>request</string>
+						<string>response</string>
+						<string>status</string>
+						<string>string</string>
+						<string>table</string>
+						<string>void</string>
+						<string>xdoc</string>
+					</strings>
+				</scope>
+				
+				<!-- exception types -->
+				<scope name="parser3.keyword.exception.types">
+					<strings>
+						<string>parser.compile</string>
+						<string>parser.runtime</string>
+						<string>parser.interrupted</string>
+						<string>number.zerodivision </string>
+						<string>number.format</string>
+						<string>file.missing</string>
+						<string>file.access</string>
+						<string>file.read</string>
+						<string>file.execute</string>
+						<string>date.range</string>
+						<string>pcre.execute</string>
+						<string>image.format</string>
+						<string>sql.connect</string>
+						<string>sql.execute</string>
+						<string>xml</string>
+						<string>smtp.connect</string>
+						<string>smtp.execute</string>
+						<string>email.format</string>
+						<string>email.send</string>
+						<string>http.host</string>
+						<string>http.connect</string>
+						<string>http.response</string>
+						<string>http.status</string>
+						<string>http.timeout</string>
+						<string>curl.host</string>
+						<string>curl.connect</string>
+						<string>curl.status</string>
+						<string>curl.ssl</string>
+						<string>curl.timeout</string>
+						<string>curl.fail</string>
+					</strings>
+				</scope>
+				
+				<include syntax="self" collection="blocks" />
+				<include syntax="self" collection="keywords" />
+				<include syntax="self" collection="variables" />
+				<include syntax="self" collection="values" />
+				<include syntax="self" collection="strings" />
+				<include syntax="self" collection="identifiers" />
+	
+			</subscopes>
+		</scope>
 		
-	<!-- Definitions -->
+		<!-- SQL -->
+		
+		<scope name="parser3.directives.block.sql">
+			<symbol type="block">
+				<context behavior="subtree" foldable="true" />
+			</symbol>
+			<starts-with>
+				<expression>(?&lt;=sql\{)</expression>
+				<capture number="0" name="parser3.keyword.class.method" />
+			</starts-with>
+			<ends-with>
+				<expression>(?=\})</expression>
+				<capture number="0" name="parser3.bracket" />
+			</ends-with>
+			<subscopes>
+				<include syntax="self" collection="comments" />
+				<include syntax="self" collection="blocks" />
+				<include syntax="self" collection="sql" />
+				<include syntax="self" collection="directives" />
+				<include syntax="self" collection="keywords" />
+				<include syntax="self" collection="variables" />
+				<include syntax="self" collection="identifiers" />
+				<include syntax="self" collection="values" />
+			</subscopes>
+		</scope>
+		
+		<!-- TAINT -->
+	
+		<scope name="parser3.directives.block.apply-taint">
+			<starts-with>
+				<expression>(?&lt;=\^apply\-taint\[)</expression>
+				<capture number="0" name="parser3.keyword.operator" />
+			</starts-with>
+			<ends-with>
+				<expression>(?=\]\[)</expression>
+				<capture number="0" name="parser3.bracket" />
+			</ends-with>
+			<subscopes>
+				<include syntax="self" collection="taint" />
+			</subscopes>
+		</scope>
+		
+		<scope name="parser3.directives.block.taint">
+			<starts-with>
+				<expression>(?&lt;=\^taint\[)</expression>
+				<capture number="0" name="parser3.keyword.operator" />
+			</starts-with>
+			<ends-with>
+				<expression>(?=\]\[)</expression>
+				<capture number="0" name="parser3.bracket" />
+			</ends-with>
+			<subscopes>
+				<include syntax="self" collection="taint" />
+			</subscopes>
+		</scope>	
+		
+		<scope name="parser3.directives.block.untaint">
+			<starts-with>
+				<expression>(?&lt;=\^untaint\[)</expression>
+				<capture number="0" name="parser3.keyword.operator" />
+			</starts-with>
+			<ends-with>
+				<expression>(?=\]\{)</expression>
+				<capture number="0" name="parser3.bracket" />
+			</ends-with>
+			<subscopes>
+				<include syntax="self" collection="taint" />
+			</subscopes>
+		</scope>
+		
+	</collection>
+		
+		<!-- Definitions -->
 		<collection name="definitions">
 		
 			<scope name="parser3.definition.class">
@@ -367,18 +364,17 @@
 					<include syntax="self" collection="arguments" />
 				</subscopes>
 			</scope>
-
+		
 			<scope name="parser3.definition.method.core">
 				<symbol type="method" />
 				<expression>^(@)(?!CLASS\b)([a-zA-Z_][a-zA-Z0-9_]*\s?)$</expression>
 				<capture number="1" name="parser3.identifiers.at" />
 				<capture number="2" name="parser3.identifier.function.name" />
 			</scope>
-
+		
 		</collection>
-			
-			
-			
+		
+		<!-- Arguments -->
 		<collection name="arguments">
 			<scope name="parser3.arguments">
 				<starts-with>
@@ -401,8 +397,8 @@
 				</subscopes>
 			</scope>
 		</collection>
-
-		<!-- TAINT -->
+		
+		<!-- Taint -->
 		<collection name="taint">
 			<scope name="parser3.keyword.property">
 				<strings prefix="(?&lt;=\[)" suffix="(?=\])">
@@ -427,7 +423,7 @@
 		
 		<!-- Keywords -->
 		<collection name="keywords">
-
+		
 			<!-- foo -->
 			<scope name="parser3.keyword.charset">
 				<strings case-insensitive="true">
@@ -441,7 +437,7 @@
 					<string>windows-1257</string>
 				</strings>
 			</scope>
-
+		
 			<!-- [foo] -->
 			<scope name="parser3.keyword.property">
 				<strings prefix="(?&lt;=\[)" suffix="(?=\])">
@@ -514,7 +510,7 @@
 					<string>USE</string>
 				</strings>
 			</scope>
-
+		
 			<!-- ^foo -->			
 			<scope name="parser3.keyword.core.variable.method">
 				<strings prefix="(?&lt;=\^)" suffix="(?=\.)" case-insensitive="false">
@@ -526,7 +522,7 @@
 					<string>MIME-TYPES</string>
 				</strings>
 			</scope>
-
+		
 			<!-- ^foo: -->
 			<scope name="parser3.keyword.class">
 				<strings prefix="(?&lt;=\^)" suffix="(?=:)">
@@ -572,7 +568,7 @@
 					<string>status</string>
 				</strings>
 			</scope>
-
+		
 			<!-- :foo({[ -->
 			<scope name="parser3.keyword.class.method">
 				<strings prefix="(?&lt;=:)" suffix="(?=\(|\{|\[)">
@@ -683,7 +679,7 @@
 					
 				</strings>
 			</scope>
-
+		
 			<!-- ::foo({[ -->
 			<scope name="parser3.keyword.class.method">
 				<strings prefix="(?&lt;=(::))" suffix="(?=\(|\{|\[)">
@@ -705,7 +701,7 @@
 					<string>load</string>
 				</strings>
 			</scope>
-
+		
 			<!-- :foo -->
 			<scope name="parser3.keyword.class.property">
 				<strings prefix="(?&lt;=:)">
@@ -721,11 +717,11 @@
 					<string>PARSER_VERSION</string>
 					<string>REMOTE_ADDR</string>
 					<string>HTTP_USER_AGENT</string>
-
+		
 					<!-- math -->
 					<string>PI</string>
 					<string>E</string>
-
+		
 					<!-- request -->
 					<string>argv</string>
 					<string>body</string>
@@ -738,18 +734,18 @@
 					<string>method</string>
 					<string>query</string>
 					<string>uri</string>
-
+		
 					<!-- response -->
 					<string>status</string>
 					<string>headers</string>
 					
-
+		
 					<!-- status -->
 					<string>memory</string>
 					<string>pid</string>
 					<string>rusage</string>
 					<string>tid</string>
-
+		
 					<!-- xdoc -->
 					<string>ELEMENT_NODE</string>
 					<string>ATTRIBUTE_NODE</string>
@@ -763,10 +759,10 @@
 					<string>DOCUMENT_TYPE_NODE</string>
 					<string>DOCUMENT_FRAGMENT_NODE</string>
 					<string>NOTATION_NODE</string>
-
+		
 				</strings>
 			</scope>
-
+		
 			<!-- .foo({[ -->
 			<scope name="parser3.keyword.class.instance.method">
 				<strings prefix="(?&lt;=[\w\d\]]\.)" suffix="(?=[\(\{\[])">
@@ -824,7 +820,7 @@
 					<string>cleanup</string>
 					<string>hash</string>
 					<string>release</string>
-
+		
 					<!-- image -->
 					<string>gif</string>
 					<string>html</string>
@@ -887,7 +883,7 @@
 					<string>delete</string>
 					<string>mget</string>
 					<string>release</string>
-
+		
 					<!-- xdoc -->
 					<string>createElement</string>
 					<string>createDocumentFragment</string>
@@ -1025,12 +1021,12 @@
 					<string>systemId</string>
 				</strings>
 			</scope>
-
+		
 		</collection>
 		
 		<!-- Property -->
 		<collection name="property">
-
+		
 			<!-- $.foo[({})] -->			
 			<scope name="parser3.core.options">
 				<strings prefix="(?&lt;=\$\.)">
@@ -1172,9 +1168,9 @@
 			<!-- $.[hello world][!] -->
 			<scope name="parser3.user.property">
 				<expression>(?&lt;=\$\.\[)([\w\dа-яА-Я][\w\dа-яА-Я\-\s]*)(?=\])</expression>
-				<capture number="1" name="parser3.symbol" />
-				<capture number="2" name="parser3.user.property.name" />
-				<capture number="3" name="parser3.bracket" />
+				<!-- <capture number="1" name="parser3.symbol" /> -->
+				<capture number="1" name="parser3.user.property.name" />
+				<!-- <capture number="2" name="parser3.bracket" /> -->
 			</scope>
 			
 		</collection>
@@ -1195,7 +1191,7 @@
 					<string>value</string>
 				</strings>
 			</scope>
-
+		
 			<!-- $foo -->
 			
 			<scope name="parser3.identifier.variable">
@@ -1215,11 +1211,11 @@
 				<capture number="4" name="parser3.dot" />
 			</scope>
 		</collection>
-
+		
 		<!-- Values -->
 		<collection name="values">
 			<include syntax="self" collection="strings" />
-
+		
 			<!-- 1.2.3.4.5 -->
 			<scope name="parser3.value.number.version">
 				<expression>\b(?&lt;!\.)((\d+\.)+\d*)(l|L|j|J)?\b</expression>
@@ -1236,7 +1232,7 @@
 			</scope>
 			
 		</collection>
-
+		
 		<!-- Strings -->
 		<collection name="strings">
 			<scope name="parser3.string.double-quoted">
@@ -1253,11 +1249,11 @@
 			</scope>
 			
 		</collection>
-
+		
 		<!-- Identifiers -->
 		<collection name="identifiers">
 			<include syntax="self" collection="variables" />
-
+		
 			<scope name="parser3.identifier.method.call">
 				<expression>(?&lt;!\^)\^([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\-\\\x7f-\xff]*)</expression>
 			</scope>
@@ -1269,10 +1265,10 @@
 			</scope>
 			
 		</collection>
-
+		
 		<!-- Blocks -->
 		<collection name="blocks">
-
+		
 			<scope name="parser3.block.code">
 				<symbol type="block">
 					<context behavior="subtree" foldable="true" />
@@ -1289,7 +1285,7 @@
 					<include syntax="self" />
 				</subscopes>
 			</scope>
-
+		
 			<scope name="parser3.block.hashstring">
 				<symbol type="block">
 					<context behavior="subtree" foldable="true" />
@@ -1306,7 +1302,7 @@
 					<include syntax="self" />
 				</subscopes>
 			</scope>
-
+		
 			<scope name="parser3.block.logic">
 				<symbol type="block">
 					<context behavior="subtree" foldable="true" />
@@ -1633,7 +1629,7 @@
 					<string>varchar</string>
 				</strings>
 			</scope>
-
+		
 			<scope name="sql.identifier.type.attribute">
 				<strings>
 					<string>auto_increment</string>
@@ -1654,7 +1650,8 @@
 			</scope>
 			
 		</collection>
-
+		
+		
 		<!-- Syntax -->
 		<collection name="syntax">
 			<scope name="parser3.bracket">
