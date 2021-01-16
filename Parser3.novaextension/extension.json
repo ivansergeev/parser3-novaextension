@@ -3,11 +3,11 @@
     "name": "Parser 3",
     "description": "Parser 3 language support",
     "organization": "Ivan Sergeev",
-    "version": "0.4.12",
-    "categories": ["languages", "completions", "themes"],
-	"keywords": ["parser 3", "parser3"],
+    "version": "0.4.13",
+    "categories": ["languages", "completions", "themes", "clips"],
+	"keywords": ["parser 3", "parser3", "nova", "panic"],
 	"license": "MIT",
 	"repository": "https://github.com/ivansergeev/parser3-novaextension",
 	"bugs": "https://github.com/ivansergeev/parser3-novaextension/issues",
-	"funding": "https://paypal.me/ivansergeev"
+	"funding": "https://paypal.me/ivansergeev/5EUR"
 }
