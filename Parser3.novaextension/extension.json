@@ -5,7 +5,7 @@
     "organization": "Ivan Sergeev",
     "version": "0.4.13",
     "categories": ["languages", "completions", "themes", "clips"],
-	"keywords": ["parser 3", "parser3", "nova", "panic"],
+	"keywords": ["parser", "parser 3", "parser3", "p3", "nova", "panic"],
 	"license": "MIT",
 	"repository": "https://github.com/ivansergeev/parser3-novaextension",
 	"bugs": "https://github.com/ivansergeev/parser3-novaextension/issues",

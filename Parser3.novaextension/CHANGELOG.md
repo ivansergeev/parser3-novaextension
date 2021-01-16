@@ -2,7 +2,7 @@
 
 Added:
 
-- Add a copyright header to your Parser 3 files. Just type `copyright` and press Enter. Supported syntaxes: Parser 3, HTML, XML, CSS, JS, SASS/SCSS, SQL. 
+- Clips: the copyright header. Just type `copyright` and press Enter. Supported syntaxes: Parser 3, HTML, XML, CSS, JS, SASS/SCSS, SQL. 
 
 ## Version 0.4.12
 
