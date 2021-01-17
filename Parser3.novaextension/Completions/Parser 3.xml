@@ -4876,6 +4876,7 @@ $[]</append>
 	
 	<set name="parser3.core.void" symbol="method">
 		<completion string="sql">
+			<description>without parameters</description>
 			<behavior>
 				<append>{
 	$[sql]
@@ -4883,6 +4884,7 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="sql">
+			<description>with parameters (bind)</description>
 			<behavior>
 				<append>{
 	$[sql]
