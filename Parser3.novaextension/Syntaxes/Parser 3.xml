@@ -1457,6 +1457,7 @@
 					<string>KEY</string>
 					<string>LANGUAGE</string>
 					<string>LAST</string>
+					<string>LAST_INSERT_ID</string>
 					<string>LEADING</string>
 					<string>LEFT</string>
 					<string>LEVEL</string>

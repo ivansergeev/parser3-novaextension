@@ -8,6 +8,10 @@ Syntax support is implemented for Parser 3.4.5
 
 Extension support: *.html, *.p, *.pt, *.p3, *.h
 
+### Parser 3 clips
+
+* **copyright**: the copyright header
+
 ### Parser 3 theme color concept
 
 * **Parser 3**: shades of green and blue

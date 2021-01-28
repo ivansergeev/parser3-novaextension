@@ -2,7 +2,7 @@
 
 Added:
 
-- Few completions description
+- Few completions description (void:sql)
 
 ## Version 0.4.13
 

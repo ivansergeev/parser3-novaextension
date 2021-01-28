@@ -3315,6 +3315,11 @@ $[]</append>
 		<completion string="KEY" />
 		<completion string="LANGUAGE" />
 		<completion string="LAST" />
+		<completion string="LAST_INSERT_ID">
+			<behavior>
+				<append>()</append>
+			</behavior>
+		</completion>
 		<completion string="LEADING" />
 		<completion string="LEFT">
 			<behavior>
