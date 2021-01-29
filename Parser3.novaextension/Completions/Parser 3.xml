@@ -4296,6 +4296,15 @@ $[]</append>
 				<append>[]</append>
 			</behavior>
 		</completion>
+		<completion string="uuid">
+			<description>with options (3.4.6)</description>
+			<behavior>
+				<append>[
+	$.lower(true)
+	$.solid(true)
+]</append>
+			</behavior>
+		</completion>
 	</set>
 			
 	<set name="parser3.core.math.static" symbol="property">

@@ -1095,6 +1095,7 @@
 					<string>limit</string>
 					<string>lineno</string>
 					<string>localport</string>
+					<string>lower</string>
 					<string>low_speed_limit</string>
 					<string>low_speed_time</string>
 					<string>main</string>
@@ -1135,6 +1136,7 @@
 					<string>skip-unknown</string>
 					<string>server</string>
 					<string>separator</string>
+					<string>solid</string>
 					<string>ssl_cipher_list</string>
 					<string>ssl_sessionid_cache</string>
 					<string>ssl_verifyhost</string>

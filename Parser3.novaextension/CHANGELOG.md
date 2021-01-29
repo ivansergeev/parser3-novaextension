@@ -1,3 +1,16 @@
+## Version 0.5
+
+	Support for the new version of Parser 3.4.6
+
+Added:
+	- math:uuid with options
+```
+	^math:uuid[
+		$.lower(true)
+		$.solid(true)
+	]
+```
+
 ## Version 0.4.14
 
 Added:
