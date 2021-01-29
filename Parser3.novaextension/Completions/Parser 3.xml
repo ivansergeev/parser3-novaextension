@@ -957,6 +957,12 @@
 				<append>($[])</append>
 			</behavior>
 		</completion>
+		<completion string="lower">
+			<description>math:uuid parameter. To output the result in lower case, upper case by default. (3.4.6)</description>
+			<behavior>
+				<append>($[false|true])</append>
+			</behavior>
+		</completion>
 		<completion string="low_speed_limit">
 			<description>curl parameter (CURLOPT_LOW_SPEED_LIMIT). The transfer speed in bytes per second during low_speed_time.</description>
 			<behavior>
@@ -1201,6 +1207,12 @@
 			<description></description>
 			<behavior>
 				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		<completion string="solid">
+			<description>math:uuid parameter. To exclude the '-' character from the result, do not exclude by default. (3.4.6)</description>
+			<behavior>
+				<append>($[false|true])</append>
 			</behavior>
 		</completion>
 		<completion string="ssl_cipher_list">
