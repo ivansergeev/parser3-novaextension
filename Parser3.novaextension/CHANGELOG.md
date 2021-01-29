@@ -3,6 +3,7 @@
 Added:
 
 - Few completions description (void:sql)
+- LAST_INSERT_ID (SQL)
 
 ## Version 0.4.13
 
