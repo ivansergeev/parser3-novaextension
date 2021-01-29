@@ -4,9 +4,9 @@ The extension provides Parser 3 syntax highlighting and code completion. Include
 
 ### Requirements
 
-Syntax support is implemented for Parser 3.4.5
+Syntax support is implemented for Parser 3.4.5 and 3.4.6 
 
-Extension support: *.html, *.p, *.pt, *.p3, *.h
+Extension support: *.html, *.p, *.pt, *.p3
 
 ### Parser 3 clips
 

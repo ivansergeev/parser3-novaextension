@@ -9,7 +9,6 @@
 	
 	<detectors>
 		<extension priority="1.0">html,p,pt,p3</extension>
-		<extension priority="0.9">h</extension>
 	</detectors>
 
 	<identifiers>
