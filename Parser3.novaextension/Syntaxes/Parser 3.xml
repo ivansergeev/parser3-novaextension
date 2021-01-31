@@ -504,7 +504,9 @@
 					<string>BASE</string>
 					<string>CLASS</string>
 					<string>create</string>
+					<string>config</string>
 					<string>main</string>
+					<string>preprocess</string>
 					<string>postprocess</string>
 					<string>OPTIONS</string>
 					<string>static</string>
@@ -1193,9 +1195,10 @@
 					<string>MIME-TYPES</string>
 					<string>SQL</string>
 					<string>STRICT-VARS</string>
-					<string>result</string>
+					<string>cfg</string>
 					<string>exception</string>
 					<string>key</string>
+					<string>result</string>
 					<string>value</string>
 				</strings>
 			</scope>

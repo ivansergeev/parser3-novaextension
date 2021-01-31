@@ -10,7 +10,8 @@ Added:
 		$.solid(true)
 	]
 ```
-	- Configuration variables: $CHARSETS, $LOCALS, $STRICT-VARS, $HTTPD
+	- Configuration variables: `$CHARSETS`, `$LOCALS`, `$STRICT-VARS`, `$HTTPD`, `$cfg`
+	- HTTPD methods: `@config[cfg]` and `@preprocess[]`
 
 ## Version 0.4.14
 

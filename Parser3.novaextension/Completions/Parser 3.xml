@@ -40,7 +40,7 @@
 	<provider name="variable">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
-		<expression>(?&lt;=\$)(?!(result|exception|key|value|CLASS_PATH|CHARSETS|HTTPD|LIMITS|LOCALS|MAIN|MAIL|MIME-TYPES|SQL|STRICT-VARS)\b)(([a-zA-Z0-9_][a-zA-Z0-9_]*)?)</expression>
+		<expression>(?&lt;=\$)(?!(result|exception|key|value|cfg|CLASS_PATH|CHARSETS|HTTPD|LIMITS|LOCALS|MAIN|MAIL|MIME-TYPES|SQL|STRICT-VARS)\b)(([a-zA-Z0-9_][a-zA-Z0-9_]*)?)</expression>
 		<symbols type="variable,argument" />
 		<set>parser3.core.variables</set>
 	</provider>
@@ -58,7 +58,7 @@
 	<provider name="variable.bracket">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
-		<expression>(?&lt;=\$\{)(?!(result|exception|key|value|CLASS_PATH|CHARSETS|HTTPD|LIMITS|LOCALS|MAIN|MAIL|MIME-TYPES|SQL|STRICT-VARS)\b)(([a-zA-Z0-9_][a-zA-Z0-9_]*\.?)?)</expression>
+		<expression>(?&lt;=\$\{)(?!(result|exception|key|value|cfg|CLASS_PATH|CHARSETS|HTTPD|LIMITS|LOCALS|MAIN|MAIL|MIME-TYPES|SQL|STRICT-VARS)\b)(([a-zA-Z0-9_][a-zA-Z0-9_]*\.?)?)</expression>
 		<symbols type="variable,argument" />
 		<set>parser3.core.variables</set>
 	</provider>
@@ -565,6 +565,30 @@
 			</behavior>
 		</completion>
 		
+		<completion string="cfg" >
+			<description>Hash of Parser web server settings (3.4.6)</description>
+			<behavior>
+				<append>[
+	$.parser[(\.html^$)]
+	$.index[index.html]
+	$.deny[(/\.ht[^^/]+|\.p|\.cfg)^$]
+	$.403[$[Permission denied string or method or html file]]
+	$.404[$[method or html file]]
+	$.memory(64000)
+^rem{
+	$.autoindex(true)
+	$.fix-trailing-slash(true)
+	$.auth[
+		$.url[^^/\.?admin/]
+		$.login[admin]
+		$.password[change me]
+		$.realm[site administration]
+	]
+	$.log[/log/access.log]
+}
+]</append>
+			</behavior>
+		</completion>
 		<completion string="key" />
 		<completion string="value" />
 		<completion string="result" />
@@ -1469,7 +1493,21 @@ $[]</append>
 $[]</append>
 			</behavior>
 		</completion>
+		<completion string="config">
+			<description>httpd method. Takes the default configuration as an argument and can change it before returning. (3.4.6)</description>
+			<behavior>
+				<append>[cfg]
+$[]</append>
+			</behavior>
+		</completion>
 		<completion string="main">
+			<behavior>
+				<append>[]
+$[]</append>
+			</behavior>
+		</completion>
+		<completion string="preprocess">
+			<description>httpd method. For handling redirects or replacing addresses. (3.4.6)</description>
 			<behavior>
 				<append>[]
 $[]</append>
