@@ -40,7 +40,7 @@
 	<provider name="variable">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
-		<expression>(?&lt;=\$)(?!(result|exception|key|value|CLASS_PATH|LIMITS|MAIN|MAIL|MIME-TYPES|SQL)\b)(([a-zA-Z0-9_][a-zA-Z0-9_]*)?)</expression>
+		<expression>(?&lt;=\$)(?!(result|exception|key|value|CLASS_PATH|CHARSETS|LIMITS|LOCALS|MAIN|MAIL|MIME-TYPES|SQL)\b)(([a-zA-Z0-9_][a-zA-Z0-9_]*)?)</expression>
 		<symbols type="variable,argument" />
 		<set>parser3.core.variables</set>
 	</provider>
@@ -58,7 +58,7 @@
 	<provider name="variable.bracket">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
-		<expression>(?&lt;=\$\{)(?!(result|exception|key|value|CLASS_PATH|LIMITS|MAIN|MAIL|MIME-TYPES|SQL)\b)(([a-zA-Z0-9_][a-zA-Z0-9_]*\.?)?)</expression>
+		<expression>(?&lt;=\$\{)(?!(result|exception|key|value|CLASS_PATH|CHARSETS|LIMITS|LOCALS|MAIN|MAIL|MIME-TYPES|SQL)\b)(([a-zA-Z0-9_][a-zA-Z0-9_]*\.?)?)</expression>
 		<symbols type="variable,argument" />
 		<set>parser3.core.variables</set>
 	</provider>
@@ -537,10 +537,23 @@
 	
 	<set name="parser3.core.variables" symbol="variable">
 		<completion string="CLASS_PATH" />
+		<completion string="CHARSETS" />
 		<completion string="MAIN" />
 		<completion string="LIMITS" />
+		<completion string="LOCALS" >
+			<description>Is specified, all the variables of the all methods of all the classes will be local (3.4.6)</description>
+			<behavior>
+				<append>(true)</append>
+			</behavior>
+		</completion>
 		<completion string="MAIL" />
 		<completion string="SQL" />
+		<completion string="STRICT-VARS" >
+			<description>Is specified every attempt to access to uninitialized variable will cause an exception.</description>
+			<behavior>
+				<append>(true)</append>
+			</behavior>
+		</completion>
 		<completion string="MIME-TYPES" />
 		<completion string="key" />
 		<completion string="value" />

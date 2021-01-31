@@ -3,13 +3,14 @@
 	Support for the new version of Parser 3.4.6
 
 Added:
-	- math:uuid with options
+	- ^math:uuid[] with options
 ```
 	^math:uuid[
 		$.lower(true)
 		$.solid(true)
 	]
 ```
+	- Configuration variables: $CHARSETS, $LOCALS, $STRICT-VARS
 
 ## Version 0.4.14
 
