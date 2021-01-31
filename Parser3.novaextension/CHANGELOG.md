@@ -10,7 +10,7 @@ Added:
 		$.solid(true)
 	]
 ```
-	- Configuration variables: $CHARSETS, $LOCALS, $STRICT-VARS
+	- Configuration variables: $CHARSETS, $LOCALS, $STRICT-VARS, $HTTPD
 
 ## Version 0.4.14
 

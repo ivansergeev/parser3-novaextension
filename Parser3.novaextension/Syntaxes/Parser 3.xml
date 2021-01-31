@@ -1185,6 +1185,7 @@
 				<strings word-boundary="true" scope="private" prefix="(?&lt;=\$)" suffix="\b">
 					<string>CLASS_PATH</string>
 					<string>CHARSETS</string>
+					<string>HTTPD</string>
 					<string>LIMITS</string>
 					<string>LOCALS</string>
 					<string>MAIN</string>
