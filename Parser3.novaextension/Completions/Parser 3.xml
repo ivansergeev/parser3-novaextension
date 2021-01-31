@@ -1028,6 +1028,12 @@
 				<append>[$[text|binary]]</append>
 			</behavior>
 		</completion>
+		<completion string="mode">
+			<description>$HTTPD parameter. Parser web server operation mode. (3.4.6)</description>
+			<behavior>
+				<append>[$[sequental|parallel|threaded]]</append>
+			</behavior>
+		</completion>
 		<completion string="method">
 			<description>The name of HTTP-method should be specified in uppercase only.</description>
 			<behavior>
@@ -1344,6 +1350,12 @@
 			<description>curl parameter (CURLOPT_TIMEOUT). Timeout in seconds.</description>
 			<behavior>
 				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="timeout">
+			<description>HTTPD parameter. The maximum timeout in seconds. (3.4.6)</description>
+			<behavior>
+				<append>($[seconds])</append>
 			</behavior>
 		</completion>
 		<completion string="timeout_ms">
