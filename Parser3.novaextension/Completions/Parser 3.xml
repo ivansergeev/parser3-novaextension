@@ -1911,7 +1911,7 @@ $[]</append>
 		<completion string="foreach">
 			<description>hash</description>
 			<behavior>
-				<append>[key;value]{
+				<append>[key;val]{
 	$[]
 }</append>
 			</behavior>
@@ -1919,7 +1919,7 @@ $[]</append>
 		<completion string="foreach">
 			<description>hash</description>
 			<behavior>
-				<append>[key;value]{
+				<append>[key;val]{
 	$[]
 }[$[separator]]</append>
 			</behavior>
@@ -1927,7 +1927,7 @@ $[]</append>
 		<completion string="foreach">
 			<description>hash</description>
 			<behavior>
-				<append>[key;value]{
+				<append>[key;val]{
 	$[]
 }{
 	$[separator]
