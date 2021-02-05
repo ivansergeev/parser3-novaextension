@@ -40,7 +40,7 @@
 	<provider name="variable">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
-		<expression>(?&lt;=\$)(?!(result|exception|key|value|cfg|CLASS_PATH|CHARSETS|HTTPD|LIMITS|LOCALS|MAIN|MAIL|MIME-TYPES|SQL|STRICT-VARS)\b)(([a-zA-Z0-9_][a-zA-Z0-9_]*)?)</expression>
+		<expression>(?&lt;=\$)(?!(result|exception|key|val|value|cfg|CLASS_PATH|CHARSETS|HTTPD|LIMITS|LOCALS|MAIN|MAIL|MIME-TYPES|SQL|STRICT-VARS)\b)(([a-zA-Z0-9_][a-zA-Z0-9_]*)?)</expression>
 		<symbols type="variable,argument" />
 		<set>parser3.core.variables</set>
 	</provider>
@@ -58,7 +58,7 @@
 	<provider name="variable.bracket">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
-		<expression>(?&lt;=\$\{)(?!(result|exception|key|value|cfg|CLASS_PATH|CHARSETS|HTTPD|LIMITS|LOCALS|MAIN|MAIL|MIME-TYPES|SQL|STRICT-VARS)\b)(([a-zA-Z0-9_][a-zA-Z0-9_]*\.?)?)</expression>
+		<expression>(?&lt;=\$\{)(?!(result|exception|key|val|value|cfg|CLASS_PATH|CHARSETS|HTTPD|LIMITS|LOCALS|MAIN|MAIL|MIME-TYPES|SQL|STRICT-VARS)\b)(([a-zA-Z0-9_][a-zA-Z0-9_]*\.?)?)</expression>
 		<symbols type="variable,argument" />
 		<set>parser3.core.variables</set>
 	</provider>
@@ -590,6 +590,7 @@
 			</behavior>
 		</completion>
 		<completion string="key" />
+		<completion string="val" />
 		<completion string="value" />
 		<completion string="result" />
 		<completion string="exception" />
@@ -1580,6 +1581,7 @@ $[]</append>
 		<completion string="first" />
 		<completion string="last" />
 		<completion string="key" />
+		<completion string="val" />
 		<completion string="value" />
 		<completion string="hash" />
 		<completion string="desc" />

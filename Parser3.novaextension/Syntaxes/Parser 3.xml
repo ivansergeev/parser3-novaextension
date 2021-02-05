@@ -466,6 +466,7 @@
 					<string>first</string>
 					<string>last</string>
 					<string>key</string>
+					<string>val</string>
 					<string>value</string>
 					<string>hash</string>
 					<string>desc</string>
@@ -1199,6 +1200,7 @@
 					<string>exception</string>
 					<string>key</string>
 					<string>result</string>
+					<string>val</string>
 					<string>value</string>
 				</strings>
 			</scope>
