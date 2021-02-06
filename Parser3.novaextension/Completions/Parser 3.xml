@@ -801,6 +801,12 @@
 				<append>[$[charset]]</append>
 			</behavior>
 		</completion>
+		<completion string="exif">
+			<description>image::measure parameter. To read the EXIF information stored in JPEG files. Before version [3.4.6] EXIF information was read always.</description>
+			<behavior>
+				<append>($[true|false])</append>
+			</behavior>
+		</completion>
 		<completion string="expires">
 			<description>hashfile, cookie, memcached parameter</description>
 			<behavior>
@@ -1389,18 +1395,7 @@
 				<append>($[])</append>
 			</behavior>
 		</completion>
-		<completion string="value">
-			<description></description>
-			<behavior>
-				<append>[$[]]</append>
-			</behavior>
-		</completion>
-		<completion string="void">
-			<description>json:string parameter. Defines format of objects of class void.</description>
-			<behavior>
-				<append>[$[null|string]]</append>
-			</behavior>
-		</completion>
+		
 		<completion string="user">
 			<description>These are request parameters to server, which uses standard HTTP-authorization.</description>
 			<behavior>
@@ -1437,24 +1432,59 @@
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
+		
+		<completion string="value">
+			<description></description>
+			<behavior>
+				<append>[$[]]</append>
+			</behavior>
+		</completion>
+		
 		<completion string="verbose">
 			<description>curl parameter (CURLOPT_VERBOSE). Display a lot of verbose information about its operations into stderr.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
+		<completion string="video">
+			<description>image::measure parameter. To measure the dimensions of MP4 (MOV) video files. (3.4.6)</description>
+			<behavior>
+				<append>($[true|false])</append>
+			</behavior>
+		</completion>
+		<completion string="void">
+			<description>json:string parameter. Defines format of objects of class void.</description>
+			<behavior>
+				<append>[$[null|string]]</append>
+			</behavior>
+		</completion>
+		
 		<completion string="z">
 			<description>date.iso-string parameter. Write the UTC time zone as 00:00 (2002-04-29T09:00:00+00:00)</description>
 			<behavior>
 				<append>($[false|true])</append>
 			</behavior>
 		</completion>
+		
 		<completion string="xdoc">
 			<description>json:string parameter. Options for converting into text.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
+		<completion string="xmp">
+			<description>image::measure parameter. To read the XMP information stored in JPEG files. (3.4.6)</description>
+			<behavior>
+				<append>($[true|false])</append>
+			</behavior>
+		</completion>
+		<completion string="xmp-charset">
+			<description>image::measure parameter. The charset of XMP information. (3.4.6)</description>
+			<behavior>
+				<append>($[charset])</append>
+			</behavior>
+		</completion>
+		
 		<completion string="_default">
 			<description>Default hash key.</description>
 			<behavior>
@@ -4131,6 +4161,17 @@ $[]</append>
 		<completion string="measure">
 			<behavior>
 				<append>[$[file]]</append>
+			</behavior>
+		</completion>
+		<completion string="measure">
+			<description>with options (3.4.6)</description>
+			<behavior>
+				<append>[$[file];
+	$.video($[true|false])
+	$.exif($[true|false])
+	$.xmp($[true|false])
+	$.xmp-charset[$[charset]]
+]</append>
 			</behavior>
 		</completion>
 	</set>

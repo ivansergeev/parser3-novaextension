@@ -1067,6 +1067,7 @@
 					<string>encloser</string>
 					<string>enctype</string>
 					<string>encoding</string>
+					<string>exif</string>
 					<string>expires</string>
 					<string>failonerror</string>
 					<string>file</string>
@@ -1166,8 +1167,11 @@
 					<string>username</string>
 					<string>userpwd</string>
 					<string>verbose</string>
+					<string>video</string>
 					<string>z</string>
 					<string>xdoc</string>
+					<string>xmp</string>
+					<string>xmp-charset</string>
 					<string>_default</string>
 				</strings>
 			</scope>

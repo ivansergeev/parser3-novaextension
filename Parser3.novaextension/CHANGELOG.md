@@ -12,6 +12,15 @@ Added:
 ```
 	- Configuration variables: `$CHARSETS`, `$LOCALS`, `$STRICT-VARS`, `$HTTPD`, `$cfg`
 	- HTTPD methods: `@config[cfg]` and `@preprocess[]`
+	- image::measure options: 
+```
+	^image::measure[file;
+		$.video(true|false) 
+		$.exif(true|false)
+		$.xmp(false|true) 
+		$.xmp-charset[charset]
+	]
+```
 
 ## Version 0.4.14
 
