@@ -945,6 +945,12 @@
 				<append>[$[text|base64|stat]]</append>
 			</behavior>
 		</completion>
+		<completion string="filter">
+			<description>file:list parameter. A regular expression string or a regex object.</description>
+			<behavior>
+				<append>[$[filter]]</append>
+			</behavior>
+		</completion>
 		<completion string="followlocation">
 			<description>curl parameter (CURLOPT_FOLLOWLOCATION). Follow any Location header.</description>
 			<behavior>
@@ -1339,6 +1345,12 @@
 			<description>curl perameter (CURLOPT_SSLVERSION). Protocol version for SSL/TLS connection: 0 - default, 1 - TLSv1 (TLS 1.x), 2 - SSLv2, 3 - SSLv3, 4 - TLSv1_0, 5 - TLSv1_1, 6 - TLSv1_2.</description>
 			<behavior>
 				<append>($[])</append>
+			</behavior>
+		</completion>
+		<completion string="stat">
+			<description>file:list parameter. if true the columns size, cdate, mdate and adate will be filled.</description>
+			<behavior>
+				<append>($[true|false])</append>
 			</behavior>
 		</completion>
 		<completion string="stderr">
@@ -4044,6 +4056,7 @@ $[]</append>
 			</behavior>
 		</completion>		
 		<completion string="list">
+			<description>with options (filter, stat)</description>
 			<behavior>
 				<append>[$[path];
 	$.filter[$[regexp]]

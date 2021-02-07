@@ -1071,6 +1071,7 @@
 					<string>expires</string>
 					<string>failonerror</string>
 					<string>file</string>
+					<string>filter</string>
 					<string>form</string>
 					<string>followlocation</string>
 					<string>forbid_reuse</string>
@@ -1152,6 +1153,7 @@
 					<string>sslkeytype</string>
 					<string>sslversion</string>
 					<string>stderr</string>
+					<string>stat</string>
 					<string>subject</string>
 					<string>taint</string>
 					<string>table</string>
