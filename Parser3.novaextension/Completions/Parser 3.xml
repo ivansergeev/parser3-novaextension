@@ -1949,7 +1949,7 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="foreach">
-			<description>hash</description>
+			<description>hash with separator [string]</description>
 			<behavior>
 				<append>[key;val]{
 	$[]
@@ -1957,7 +1957,7 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="foreach">
-			<description>hash</description>
+			<description>hash with separator {code}</description>
 			<behavior>
 				<append>[key;val]{
 	$[]
