@@ -21,8 +21,8 @@ Added:
 		$.xmp-charset[charset]
 	]
 ```
-	- Description to completions: foreach (hash), list (file)
-	- Completions file:list options: filter, stat
+	- Descriptions: foreach (hash), list (file), sql (table)
+	- Completions file:list options: `$.filter[]`, `$.stat[]`
 
 ## Version 0.4.14
 

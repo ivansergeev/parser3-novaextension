@@ -2750,7 +2750,7 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="save">
-			<description>table method, with options</description>
+			<description>table method, with options (offset, limit, reverse)</description>
 			<behavior>
 				<append>[nameless;$[path];
 	$.offset($[int])			
@@ -2767,7 +2767,7 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="save">
-			<description>table method, with options</description>
+			<description>table method, with options (offset, limit, reverse)</description>
 			<behavior>
 				<append>[append;$[path];
 	$.offset($[int])			
@@ -4177,7 +4177,7 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="measure">
-			<description>with options (3.4.6)</description>
+			<description>with options (video, exif, xmp, xmp-charset) (3.4.6)</description>
 			<behavior>
 				<append>[$[file];
 	$.video($[true|false])
@@ -4438,7 +4438,7 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="uuid">
-			<description>with options (3.4.6)</description>
+			<description>with options (lower, solid) (3.4.6)</description>
 			<behavior>
 				<append>[
 	$.lower(true)
@@ -4995,6 +4995,7 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="sql">
+			<description>with options (limit, offset, bind)</description>
 			<behavior>
 				<append>{
 	$[sql]
