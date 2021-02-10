@@ -1075,6 +1075,7 @@
 					<string>form</string>
 					<string>followlocation</string>
 					<string>forbid_reuse</string>
+					<string>format</string>
 					<string>fresh_connect</string>
 					<string>from</string>
 					<string>from-charset</string>

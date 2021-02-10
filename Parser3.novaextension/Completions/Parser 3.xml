@@ -598,7 +598,7 @@
 
 	<set name="parser3.core.options" symbol="property">
 		<completion string="array">
-			<description>json:parse parameter. If defined the specified method will be called for every parsing array.</description>
+			<description>json:parse options. If defined the specified method will be called for every parsing array.</description>
 			<behavior>
 				<append>[$[method name]]</append>
 			</behavior>
@@ -610,19 +610,19 @@
 			</behavior>
 		</completion>
 		<completion string="accept_encoding">
-			<description>curl parameter (CURLOPT_ACCEPT_ENCODING). Compresion for the request: gzip or deflate.</description>
+			<description>curl options (CURLOPT_ACCEPT_ENCODING). Compresion for the request: gzip or deflate.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="autoreferer">
-			<description>curl parameter (CURLOPT_AUTOREFERER). Set the Referer header automatically.</description>
+			<description>curl options (CURLOPT_AUTOREFERER). Set the Referer header automatically.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="bind">
-			<description>void:sql, string:sql, table::sql parameter</description>
+			<description>void:sql, string:sql, table::sql options</description>
 			<behavior>
 				<append>[hash]</append>
 			</behavior>
@@ -634,19 +634,19 @@
 			</behavior>
 		</completion>
 		<completion string="binary-protocol">
-			<description>memcached::open parameter</description>
+			<description>memcached::open options</description>
 			<behavior>
 				<append>($[true|false])</append>
 			</behavior>
 		</completion>
 		<completion string="cainfo">
-			<description>curl parameter (CURLOPT_CAINFO)</description>
+			<description>curl options (CURLOPT_CAINFO)</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="capath">
-			<description>curl parameter (CURLOPT_CAPATH)</description>
+			<description>curl options (CURLOPT_CAPATH)</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
@@ -658,43 +658,43 @@
 			</behavior>
 		</completion>
 		<completion string="class-name">
-			<description>json:string parameter. Objects of any class (including mentioned date, table and file) could be serialized with user's method.</description>
+			<description>json:string options. Objects of any class (including mentioned date, table and file) could be serialized with user's method.</description>
 			<behavior>
 				<append>[$[method name]]</append>
 			</behavior>
 		</completion>
 		<completion string="colon">
-			<description>date.iso-string parameter. Exclude the colon from the time zone. By default, do not exclude.</description>
+			<description>date.iso-string options. Exclude the colon from the time zone. By default, do not exclude.</description>
 			<behavior>
 				<append>($[true|false])</append>
 			</behavior>
 		</completion>
 		<completion string="content-type">
-			<description>curl:options, curl:load parameter</description>
+			<description>curl:options, curl:load options</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="connecttimeout">
-			<description>curl parameter (CURLOPT_CONNECTTIMEOUT). The maximum time in seconds that you allow the connection to the server to take.</description>
+			<description>curl options (CURLOPT_CONNECTTIMEOUT). The maximum time in seconds that you allow the connection to the server to take.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="connecttimeout_ms">
-			<description>curl parameter (CURLOPT_CONNECTTIMEOUT_MS). The maximum time in milliseconds that you allow the connection to the server to take.</description>
+			<description>curl options (CURLOPT_CONNECTTIMEOUT_MS). The maximum time in milliseconds that you allow the connection to the server to take.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="connect-timeout">
-			<description>memcached::open parameter</description>
+			<description>memcached::open options</description>
 			<behavior>
 				<append>($[seconds])</append>
 			</behavior>
 		</completion>
 		<completion string="cookie">
-			<description>curl parameter (CURLOPT_COOKIE). String with cookies (name1=content1; name2=content2;...).</description>
+			<description>curl options (CURLOPT_COOKIE). String with cookies (name1=content1; name2=content2;...).</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
@@ -706,37 +706,37 @@
 			</behavior>
 		</completion>
 		<completion string="cookielist">
-			<description>curl parameter (CURLOPT_COOKIELIST). String with cookies.</description>
+			<description>curl options (CURLOPT_COOKIELIST). String with cookies.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="cookiesession">
-			<description>curl parameter (CURLOPT_COOKIESESSION)</description>
+			<description>curl options (CURLOPT_COOKIESESSION)</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="copypostfields">
-			<description>curl parameter (CURLOPT_COPYPOSTFIELDS). The body of POST-request.</description>
+			<description>curl options (CURLOPT_COPYPOSTFIELDS). The body of POST-request.</description>
 			<behavior>
 				<append>[$[string or file]]</append>
 			</behavior>
 		</completion>
 		<completion string="crlfile">
-			<description>curl parameter (CURLOPT_CRLFILE)</description>
+			<description>curl options (CURLOPT_CRLFILE)</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="customrequest">
-			<description>curl parameter (CURLOPT_CUSTOMREQUEST). Custom HTTP method.</description>
+			<description>curl options (CURLOPT_CUSTOMREQUEST). Custom HTTP method.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="date">
-			<description>json:string parameter. Defines format of objects of class date (see the methods of class date with the same names).</description>
+			<description>json:string options. Defines format of objects of class date (see the methods of class date with the same names).</description>
 			<behavior>
 				<append>[$[sql-string|gmt-string|iso-string|unix-timestamp]]</append>
 			</behavior>
@@ -754,37 +754,37 @@
 			</behavior>
 		</completion>
 		<completion string="depth">
-			<description>json:parse parameter. Maximum depth. Default is 19.</description>
+			<description>json:parse options. Maximum depth. Default is 19.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="double">
-			<description>json:parse parameter. Stores real numbers as objects of class double. Default is true.</description>
+			<description>json:parse options. Stores real numbers as objects of class double. Default is true.</description>
 			<behavior>
 				<append>($[false|true])</append>
 			</behavior>
 		</completion>
 		<completion string="distinct">
-			<description>hash::sql, table.hash parameter</description>
+			<description>hash::sql, table.hash options</description>
 			<behavior>
 				<append>($[true|false])</append>
 			</behavior>
 		</completion>
 		<completion string="distinct">
-			<description>json:parse parameter. The way of processing elements with identical names.</description>
+			<description>json:parse options. The way of processing elements with identical names.</description>
 			<behavior>
 				<append>[$[first|last|al]]</append>
 			</behavior>
 		</completion>
 		<completion string="domain">
-			<description>cookie parameter. Specifies domain from which the cookie may be accessed.</description>
+			<description>cookie options. Specifies domain from which the cookie may be accessed.</description>
 			<behavior>
 				<append>[$[doman name]]</append>
 			</behavior>
 		</completion>
 		<completion string="encloser">
-			<description>table parameter. Specifies column encloser character.</description>
+			<description>table options. Specifies column encloser character.</description>
 			<behavior>
 				<append>[$[symbol]]</append>
 			</behavior>
@@ -796,73 +796,73 @@
 			</behavior>
 		</completion>
 		<completion string="encoding">
-			<description>xdoc parameter</description>
+			<description>xdoc options</description>
 			<behavior>
 				<append>[$[charset]]</append>
 			</behavior>
 		</completion>
 		<completion string="exif">
-			<description>image::measure parameter. To read the EXIF information stored in JPEG files. Before version [3.4.6] EXIF information was read always.</description>
+			<description>image::measure options. To read the EXIF information stored in JPEG files. Before version [3.4.6] EXIF information was read always.</description>
 			<behavior>
 				<append>($[true|false])</append>
 			</behavior>
 		</completion>
 		<completion string="expires">
-			<description>hashfile, cookie, memcached parameter</description>
+			<description>hashfile, cookie, memcached options</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="expires">
-			<description>hashfile, cookie parameter</description>
+			<description>hashfile, cookie options</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="ignore_content_length">
-			<description>curl parameter (CURLOPT_IGNORE_CONTENT_LENGTH). Ignore the Content-Length header. This is useful for Apache 1.x which will report incorrect content length for files over 2GB.</description>
+			<description>curl options (CURLOPT_IGNORE_CONTENT_LENGTH). Ignore the Content-Length header. This is useful for Apache 1.x which will report incorrect content length for files over 2GB.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="int">
-			<description>json:parse parameter. If true, stores integer numbers as objects of class int. If false, stores integer numbers as strings.</description>
+			<description>json:parse options. If true, stores integer numbers as objects of class int. If false, stores integer numbers as strings.</description>
 			<behavior>
 				<append>($[false|true])</append>
 			</behavior>
 		</completion>
 		<completion string="indent">
-			<description>json:string parameter. If this option is set to true the resulting JSON-string will be formatted using tab characters.</description>
+			<description>json:string options. If this option is set to true the resulting JSON-string will be formatted using tab characters.</description>
 			<behavior>
 				<append>($[false|true])</append>
 			</behavior>
 		</completion>
 		<completion string="indent">
-			<description>json:string parameter. The option is also can be specified as user-predefined indent's prefix string.</description>
+			<description>json:string options. The option is also can be specified as user-predefined indent's prefix string.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="indent">
-			<description>xdoc parameter</description>
+			<description>xdoc options</description>
 			<behavior>
 				<append>[no]</append>
 			</behavior>
 		</completion>
 		<completion string="interface">
-			<description>curl parameter (CURLOPT_INTERFACE). Interface name to use as outgoing network interface.</description>
+			<description>curl options (CURLOPT_INTERFACE). Interface name to use as outgoing network interface.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="ipresolve">
-			<description>curl parameter (CURLOPT_IPRESOLVE). 1-use IPv4 (default), 2-use IPv6.</description>
+			<description>curl options (CURLOPT_IPRESOLVE). 1-use IPv4 (default), 2-use IPv6.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="issuercert">
-			<description>curl parameter (CURLOPT_ISSUERCERT). Filename holding a CA certificate.</description>
+			<description>curl options (CURLOPT_ISSUERCERT). Filename holding a CA certificate.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
@@ -874,61 +874,61 @@
 			</behavior>
 		</completion>
 		<completion string="html">
-			<description>mail:send parameter</description>
+			<description>mail:send options</description>
 			<behavior>
 				<append>{$[]}</append>
 			</behavior>
 		</completion>
 		<completion string="httponly">
-			<description>cookie parameter</description>
+			<description>cookie options</description>
 			<behavior>
 				<append>(true)</append>
 			</behavior>
 		</completion>
 		<completion string="http_content_decoding">
-			<description>curl parameter (CURLOPT_HTTP_CONTENT_DECODING)</description>
+			<description>curl options (CURLOPT_HTTP_CONTENT_DECODING)</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="http_transfer_decoding">
-			<description>curl parameter (CURLOPT_HTTP_TRANSFER_DECODING)</description>
+			<description>curl options (CURLOPT_HTTP_TRANSFER_DECODING)</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="httpauth">
-			<description>curl parameter (CURLOPT_HTTPAUTH). HTTP-authorization method.</description>
+			<description>curl options (CURLOPT_HTTPAUTH). HTTP-authorization method.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="httpget">
-			<description>curl parameter (CURLOPT_HTTPGET). Use GET HTTP method.</description>
+			<description>curl options (CURLOPT_HTTPGET). Use GET HTTP method.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="httpheader">
-			<description>curl parameter (CURLOPT_HTTPHEADER). HTTP-headers.</description>
+			<description>curl options (CURLOPT_HTTPHEADER). HTTP-headers.</description>
 			<behavior>
 				<append>[$[hash]]</append>
 			</behavior>
 		</completion>
 		<completion string="httppost">
-			<description>curl parameter (CURLOPT_HTTPPOST). Multipart/formdata HTTP POST to be made to pass data on to the server.</description>
+			<description>curl options (CURLOPT_HTTPPOST). Multipart/formdata HTTP POST to be made to pass data on to the server.</description>
 			<behavior>
 				<append>[$[hash]]</append>
 			</behavior>
 		</completion>
 		<completion string="httpproxytunnel">
-			<description>curl parameter (CURLOPT_HTTPPROXYTUNNEL). Tunnel all operations through a given HTTP proxy.</description>
+			<description>curl options (CURLOPT_HTTPPROXYTUNNEL). Tunnel all operations through a given HTTP proxy.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="failonerror">
-			<description>curl parameter (CURLOPT_FAILONERROR). Fail if HTTP code returned is equal or larger then 400.</description>
+			<description>curl options (CURLOPT_FAILONERROR). Fail if HTTP code returned is equal or larger then 400.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
@@ -940,43 +940,49 @@
 			</behavior>
 		</completion>
 		<completion string="file">
-			<description>json:string parameter. Defines format of bodies of objects of class file.</description>
+			<description>json:string options. Defines format of bodies of objects of class file.</description>
 			<behavior>
 				<append>[$[text|base64|stat]]</append>
 			</behavior>
 		</completion>
 		<completion string="filter">
-			<description>file:list parameter. A regular expression string or a regex object.</description>
+			<description>file:list options. A regular expression string or a regex object.</description>
 			<behavior>
 				<append>[$[filter]]</append>
 			</behavior>
 		</completion>
 		<completion string="followlocation">
-			<description>curl parameter (CURLOPT_FOLLOWLOCATION). Follow any Location header.</description>
+			<description>curl options (CURLOPT_FOLLOWLOCATION). Follow any Location header.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="forbid_reuse">
-			<description>curl parameter (CURLOPT_FORBID_REUSE)</description>
+			<description>curl options (CURLOPT_FORBID_REUSE)</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
+		<completion string="format">
+			<description>math:convert options. Result format, string by default. (3.4.6)</description>
+			<behavior>
+				<append>[$[string|file]]</append>
+			</behavior>
+		</completion>
 		<completion string="form">
-			<description>Request parameters.</description>
+			<description>Request options.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="fresh_connect">
-			<description>curl parameter (CURLOPT_FRESH_CONNECT). Next transfer will use a new connection by force.</description>
+			<description>curl options (CURLOPT_FRESH_CONNECT). Next transfer will use a new connection by force.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="from">
-			<description>mail:send parameter</description>
+			<description>mail:send options</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
@@ -988,85 +994,85 @@
 			</behavior>
 		</completion>
 		<completion string="keypasswd">
-			<description>curl parameter (CURLOPT_KEYPASSWD). The password required to use the private key.</description>
+			<description>curl options (CURLOPT_KEYPASSWD). The password required to use the private key.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="library">
-			<description>curl:options, curl:load parameter. Full path to dynamical libcurl library.</description>
+			<description>curl:options, curl:load options. Full path to dynamical libcurl library.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="limit">
-			<description>*:sql, reflection:stack, table::create, table.join, table.locate, table.select parameter</description>
+			<description>*:sql, reflection:stack, table::create, table.join, table.locate, table.select options</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="lineno">
-			<description>process parameter. A line number in file, where this string cames from. May be negative.</description>
+			<description>process options. A line number in file, where this string cames from. May be negative.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="localport">
-			<description>curl parameter (CURLOPT_LOCALPORT). Local port.</description>
+			<description>curl options (CURLOPT_LOCALPORT). Local port.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="lower">
-			<description>math:uuid parameter. To output the result in lower case, upper case by default. (3.4.6)</description>
+			<description>math:uuid options. To output the result in lower case, upper case by default. (3.4.6)</description>
 			<behavior>
 				<append>($[false|true])</append>
 			</behavior>
 		</completion>
 		<completion string="low_speed_limit">
-			<description>curl parameter (CURLOPT_LOW_SPEED_LIMIT). The transfer speed in bytes per second during low_speed_time.</description>
+			<description>curl options (CURLOPT_LOW_SPEED_LIMIT). The transfer speed in bytes per second during low_speed_time.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="low_speed_time">
-			<description>curl parameter (CURLOPT_LOW_SPEED_TIME). The maxinum time in seconds that the transfer should be below the low_speed_limit for the library to consider it is too slow and abort.</description>
+			<description>curl options (CURLOPT_LOW_SPEED_TIME). The maxinum time in seconds that the transfer should be below the low_speed_limit for the library to consider it is too slow and abort.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="maxconnects">
-			<description>curl parameter (CURLOPT_MAXCONNECTS). The maximum amount of simultaneously open connections. </description>
+			<description>curl options (CURLOPT_MAXCONNECTS). The maximum amount of simultaneously open connections. </description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="maxfilesize">
-			<description>curl parameter (CURLOPT_MAXFILESIZE). If the file requested is larger than this value, the transfer will not start.</description>
+			<description>curl options (CURLOPT_MAXFILESIZE). If the file requested is larger than this value, the transfer will not start.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="maxredirs">
-			<description>curl parameter (CURLOPT_MAXREDIRS). Maximum number or redirects.</description>
+			<description>curl options (CURLOPT_MAXREDIRS). Maximum number or redirects.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="main">
-			<description>process parameter. A new name for main method, declared in code in string.</description>
+			<description>process options. A new name for main method, declared in code in string.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="mode">
-			<description>file::create, curl:options, curl:load parameter. The mode of the created file object.</description>
+			<description>file::create, curl:options, curl:load options. The mode of the created file object.</description>
 			<behavior>
 				<append>[$[text|binary]]</append>
 			</behavior>
 		</completion>
 		<completion string="mode">
-			<description>$HTTPD parameter. Parser web server operation mode. (3.4.6)</description>
+			<description>$HTTPD options. Parser web server operation mode. (3.4.6)</description>
 			<behavior>
 				<append>[$[sequental|parallel|threaded]]</append>
 			</behavior>
@@ -1078,13 +1084,13 @@
 			</behavior>
 		</completion>
 		<completion string="method">
-			<description>xdoc parameter</description>
+			<description>xdoc options</description>
 			<behavior>
 				<append>[html]</append>
 			</behavior>
 		</completion>
 		<completion string="ms">
-			<description>date.iso-string parameter. Add milliseconds, always .000  (2002-04-29T12:00:00.000+03:00). By default, do not add.</description>
+			<description>date.iso-string options. Add milliseconds, always .000  (2002-04-29T12:00:00.000+03:00). By default, do not add.</description>
 			<behavior>
 				<append>($[false|true])</append>
 			</behavior>
@@ -1096,7 +1102,7 @@
 			</behavior>
 		</completion>
 		<completion string="nobody">
-			<description>curl parameter (CURLOPT_NOBODY). Use HEAD method.</description>
+			<description>curl options (CURLOPT_NOBODY). Use HEAD method.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
@@ -1108,7 +1114,7 @@
 			</behavior>
 		</completion>
 		<completion string="to">
-			<description>mail:send parameter</description>
+			<description>mail:send options</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
@@ -1120,31 +1126,31 @@
 			</behavior>
 		</completion>
 		<completion string="tcp-keepalive">
-			<description>memcached parameter</description>
+			<description>memcached options</description>
 			<behavior>
 				<append>($[false|true])</append>
 			</behavior>
 		</completion>
 		<completion string="range">
-			<description>curl parameter (CURLOPT_RANGE). The specified range you want.</description>
+			<description>curl options (CURLOPT_RANGE). The specified range you want.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="referer">
-			<description>curl parameter (CURLOPT_REFERER). Referer header.</description>
+			<description>curl options (CURLOPT_REFERER). Referer header.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="replace">
-			<description>process parameter. The exception occurs in case of loading class if a class with the same name was already loaded</description>
+			<description>process options. The exception occurs in case of loading class if a class with the same name was already loaded</description>
 			<behavior>
 				<append>($[false|true])</append>
 			</behavior>
 		</completion>
 		<completion string="reverse">
-			<description>reflection:methods, table::create, table.join, table.locate, table.select parameter</description>
+			<description>reflection:methods, table::create, table.join, table.locate, table.select options</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
@@ -1156,13 +1162,13 @@
 			</behavior>
 		</completion>
 		<completion string="object">
-			<description>json:parse parameter. If defined the specified method will be called for every parsing object.</description>
+			<description>json:parse options. If defined the specified method will be called for every parsing object.</description>
 			<behavior>
 				<append>[$[method name]]</append>
 			</behavior>
 		</completion>
 		<completion string="offset">
-			<description>*:sql, reflection:stack, table::create, table.join, table.locate, table.select parameter</description>
+			<description>*:sql, reflection:stack, table::create, table.join, table.locate, table.select options</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
@@ -1174,7 +1180,7 @@
 			</behavior>
 		</completion>
 		<completion string="omit-xml-declaration">
-			<description>xdoc parameter</description>
+			<description>xdoc options</description>
 			<behavior>
 				<append>[yes]</append>
 			</behavior>
@@ -1186,7 +1192,7 @@
 			</behavior>
 		</completion>
 		<completion string="path">
-			<description>cookie parameter. Specifies subsection of the site from which the cookie may be accessed.</description>
+			<description>cookie options. Specifies subsection of the site from which the cookie may be accessed.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
@@ -1198,73 +1204,73 @@
 			</behavior>
 		</completion>
 		<completion string="password">
-			<description>curl parameter (CURLOPT_PASSWORD). Password.</description>
+			<description>curl options (CURLOPT_PASSWORD). Password.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="post">
-			<description>curl parameter (CURLOPT_POST). Use POST method.</description>
+			<description>curl options (CURLOPT_POST). Use POST method.</description>
 			<behavior>
 				<append>(1)</append>
 			</behavior>
 		</completion>
 		<completion string="port">
-			<description>curl parameter (CURLOPT_PORT). Port.</description>
+			<description>curl options (CURLOPT_PORT). Port.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="postfields">
-			<description>curl parameter (CURLOPT_POSTFIELDS). The body of POST-request.</description>
+			<description>curl options (CURLOPT_POSTFIELDS). The body of POST-request.</description>
 			<behavior>
 				<append>[$[string or file]]</append>
 			</behavior>
 		</completion>
 		<completion string="postredir">
-			<description>curl parameter (CURLOPT_POSTREDIR)</description>
+			<description>curl options (CURLOPT_POSTREDIR)</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="proxy">
-			<description>curl parameter (CURLOPT_PROXY). Proxy-server address.</description>
+			<description>curl options (CURLOPT_PROXY). Proxy-server address.</description>
 			<behavior>
 				<append>[$[string]]</append>
 			</behavior>
 		</completion>
 		<completion string="proxyauth">
-			<description>curl parameter (CURLOPT_PROXYAUTH). Authorization type (see httpauth).</description>
+			<description>curl options (CURLOPT_PROXYAUTH). Authorization type (see httpauth).</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="proxyport">
-			<description>curl parameter (CURLOPT_PROXYPORT). Proxy-server port.</description>
+			<description>curl options (CURLOPT_PROXYPORT). Proxy-server port.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="proxytype">
-			<description>curl parameter (CURLOPT_PROXYTYPE). Proxy type: 0 - HTTP, 1 - HTTP_1_0, 4 - SOCKS4, 5 - SOCKS5, 6 - SOCKS4A, 7 - SOCKS5_HOSTNAME. </description>
+			<description>curl options (CURLOPT_PROXYTYPE). Proxy type: 0 - HTTP, 1 - HTTP_1_0, 4 - SOCKS4, 5 - SOCKS5, 6 - SOCKS4A, 7 - SOCKS5_HOSTNAME. </description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="proxyuserpwd">
-			<description>curl parameter (CURLOPT_PROXYUSERPWD). Proxy-server user name and password.</description>
+			<description>curl options (CURLOPT_PROXYUSERPWD). Proxy-server user name and password.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="print-debug">
-			<description>mail:send parameter. The message text will be printed instead of sending message.</description>
+			<description>mail:send options. The message text will be printed instead of sending message.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="skip-unknown">
-			<description>json:string parameter. By default (false) only the objects of classes void, bool, string, int, double, date, table, hash и file are accepted.</description>
+			<description>json:string options. By default (false) only the objects of classes void, bool, string, int, double, date, table, hash и file are accepted.</description>
 			<behavior>
 				<append>($[false|true])</append>
 			</behavior>
@@ -1276,133 +1282,133 @@
 			</behavior>
 		</completion>
 		<completion string="solid">
-			<description>math:uuid parameter. To exclude the '-' character from the result, do not exclude by default. (3.4.6)</description>
+			<description>math:uuid options. To exclude the '-' character from the result, do not exclude by default. (3.4.6)</description>
 			<behavior>
 				<append>($[false|true])</append>
 			</behavior>
 		</completion>
 		<completion string="ssl_cipher_list">
-			<description>curl perameter (CURLOPT_SSL_CIPHER_LIST)</description>
+			<description>curl options (CURLOPT_SSL_CIPHER_LIST)</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="ssl_sessionid_cache">
-			<description>curl perameter (CURLOPT_SSL_SESSIONID_CACHE). Enable or disable SSL session-ID caching.</description>
+			<description>curl options (CURLOPT_SSL_SESSIONID_CACHE). Enable or disable SSL session-ID caching.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="ssl_verifyhost">
-			<description>curl perameter (CURLOPT_SSL_VERIFYHOST). Verifies that the server cert is for the server it is known as.</description>
+			<description>curl options (CURLOPT_SSL_VERIFYHOST). Verifies that the server cert is for the server it is known as.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="ssl_verifypeer">
-			<description>curl perameter (CURLOPT_SSL_VERIFYPEER). Verifies the authenticity of the peer's certificate.</description>
+			<description>curl options (CURLOPT_SSL_VERIFYPEER). Verifies the authenticity of the peer's certificate.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="sslcert">
-			<description>curl perameter (CURLOPT_SSLCERT). File name of your certificate.</description>
+			<description>curl options (CURLOPT_SSLCERT). File name of your certificate.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="sslcerttype">
-			<description>curl perameter (CURLOPT_SSLCERTTYPE). SSL-certificate type.</description>
+			<description>curl options (CURLOPT_SSLCERTTYPE). SSL-certificate type.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="sslengine">
-			<description>curl perameter (CURLOPT_SSLENGINE)</description>
+			<description>curl options (CURLOPT_SSLENGINE)</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="sslengine_default">
-			<description>curl perameter (CURLOPT_SSLENGINE_DEFAULT)</description>
+			<description>curl options (CURLOPT_SSLENGINE_DEFAULT)</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="sslkey">
-			<description>curl perameter (CURLOPT_SSLKEY). File name of your private key.</description>
+			<description>curl options (CURLOPT_SSLKEY). File name of your private key.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="sslkeytype">
-			<description>curl perameter (CURLOPT_SSLKEYTYPE). SSL-key type.</description>
+			<description>curl options (CURLOPT_SSLKEYTYPE). SSL-key type.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="sslversion">
-			<description>curl perameter (CURLOPT_SSLVERSION). Protocol version for SSL/TLS connection: 0 - default, 1 - TLSv1 (TLS 1.x), 2 - SSLv2, 3 - SSLv3, 4 - TLSv1_0, 5 - TLSv1_1, 6 - TLSv1_2.</description>
+			<description>curl options (CURLOPT_SSLVERSION). Protocol version for SSL/TLS connection: 0 - default, 1 - TLSv1 (TLS 1.x), 2 - SSLv2, 3 - SSLv3, 4 - TLSv1_0, 5 - TLSv1_1, 6 - TLSv1_2.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="stat">
-			<description>file:list parameter. if true the columns size, cdate, mdate and adate will be filled.</description>
+			<description>file:list options. if true the columns size, cdate, mdate and adate will be filled.</description>
 			<behavior>
 				<append>($[true|false])</append>
 			</behavior>
 		</completion>
 		<completion string="stderr">
-			<description>curl perameter (CURLOPT_STDERR). Redirect stderr into specified stream.</description>
+			<description>curl options (CURLOPT_STDERR). Redirect stderr into specified stream.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="separator">
-			<description>table parameter. Specifies column separator character.</description>
+			<description>table options. Specifies column separator character.</description>
 			<behavior>
 				<append>[$[symbol]]</append>
 			</behavior>
 		</completion>
 		<completion string="subject">
-			<description>mail:send parameter</description>
+			<description>mail:send options</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="taint">
-			<description>json:parse parameter. Defines the transformation type for all strings in the output.</description>
+			<description>json:parse options. Defines the transformation type for all strings in the output.</description>
 			<behavior>
 				<append>[$[type]]</append>
 			</behavior>
 		</completion>
 		<completion string="table">
-			<description>json:string parameter. Defines format of objects of class table.</description>
+			<description>json:string options. Defines format of objects of class table.</description>
 			<behavior>
 				<append>[$[object|array|compact]]</append>
 			</behavior>
 		</completion>
 		<completion string="text">
-			<description>mail:send parameter</description>
+			<description>mail:send options</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="timeout">
-			<description>curl parameter (CURLOPT_TIMEOUT). Timeout in seconds.</description>
+			<description>curl options (CURLOPT_TIMEOUT). Timeout in seconds.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="timeout">
-			<description>HTTPD parameter. The maximum timeout in seconds. (3.4.6)</description>
+			<description>HTTPD options. The maximum timeout in seconds. (3.4.6)</description>
 			<behavior>
 				<append>($[seconds])</append>
 			</behavior>
 		</completion>
 		<completion string="timeout_ms">
-			<description>curl parameter (CURLOPT_TIMEOUT_MS). Timeout in miliseconds.</description>
+			<description>curl options (CURLOPT_TIMEOUT_MS). Timeout in miliseconds.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
@@ -1415,31 +1421,31 @@
 			</behavior>
 		</completion>
 		<completion string="unrestricted_auth">
-			<description>curl parameter (CURLOPT_UNRESTRICTED_AUTH). Continue to send authentication when following locations, even when hostname changed.</description>
+			<description>curl options (CURLOPT_UNRESTRICTED_AUTH). Continue to send authentication when following locations, even when hostname changed.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="url">
-			<description>curl parameter (CURLOPT_URL)</description>
+			<description>curl options (CURLOPT_URL)</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="useragent">
-			<description>curl parameter (CURLOPT_USERAGENT). User-Agent header.</description>
+			<description>curl options (CURLOPT_USERAGENT). User-Agent header.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="username">
-			<description>curl parameter (CURLOPT_USERNAME). User name.</description>
+			<description>curl options (CURLOPT_USERNAME). User name.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="userpwd">
-			<description>curl parameter (CURLOPT_USERPWD). User name and password.</description>
+			<description>curl options (CURLOPT_USERPWD). User name and password.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
@@ -1453,45 +1459,45 @@
 		</completion>
 		
 		<completion string="verbose">
-			<description>curl parameter (CURLOPT_VERBOSE). Display a lot of verbose information about its operations into stderr.</description>
+			<description>curl options (CURLOPT_VERBOSE). Display a lot of verbose information about its operations into stderr.</description>
 			<behavior>
 				<append>($[])</append>
 			</behavior>
 		</completion>
 		<completion string="video">
-			<description>image::measure parameter. To measure the dimensions of MP4 (MOV) video files. (3.4.6)</description>
+			<description>image::measure options. To measure the dimensions of MP4 (MOV) video files. (3.4.6)</description>
 			<behavior>
 				<append>($[true|false])</append>
 			</behavior>
 		</completion>
 		<completion string="void">
-			<description>json:string parameter. Defines format of objects of class void.</description>
+			<description>json:string options. Defines format of objects of class void.</description>
 			<behavior>
 				<append>[$[null|string]]</append>
 			</behavior>
 		</completion>
 		
 		<completion string="z">
-			<description>date.iso-string parameter. Write the UTC time zone as 00:00 (2002-04-29T09:00:00+00:00)</description>
+			<description>date.iso-string options. Write the UTC time zone as 00:00 (2002-04-29T09:00:00+00:00)</description>
 			<behavior>
 				<append>($[false|true])</append>
 			</behavior>
 		</completion>
 		
 		<completion string="xdoc">
-			<description>json:string parameter. Options for converting into text.</description>
+			<description>json:string options. Options for converting into text.</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string="xmp">
-			<description>image::measure parameter. To read the XMP information stored in JPEG files. (3.4.6)</description>
+			<description>image::measure options. To read the XMP information stored in JPEG files. (3.4.6)</description>
 			<behavior>
 				<append>($[true|false])</append>
 			</behavior>
 		</completion>
 		<completion string="xmp-charset">
-			<description>image::measure parameter. The charset of XMP information. (3.4.6)</description>
+			<description>image::measure options. The charset of XMP information. (3.4.6)</description>
 			<behavior>
 				<append>($[charset])</append>
 			</behavior>
@@ -1504,7 +1510,7 @@
 			</behavior>
 		</completion>
 		<completion string="_default">
-			<description>json:string parameter</description>
+			<description>json:string options</description>
 			<behavior>
 				<append>[$[method reference or name]]</append>
 			</behavior>
@@ -4299,11 +4305,43 @@ $[]</append>
 				<append>($[])</append>
 			</behavior>
 		</completion>
+		
 		<completion string="convert">
 			<behavior>
-				<append>[$[]]($[from];$[to])</append>
+				<append>[$[number]]($[from];$[to])</append>
 			</behavior>
 		</completion>
+		<completion string="convert">
+			<description>(3.4.6)</description>
+			<behavior>
+				<append>[$[number|file]]($[from];$[to])</append>
+			</behavior>
+		</completion>
+		<completion string="convert">
+			<description>(3.4.6)</description>
+			<behavior>
+				<append>[$[number|file]][$[alphabet]]($[to])[
+	$.format[$[string|file]]
+]</append>
+			</behavior>
+		</completion>
+		<completion string="convert">
+			<description>(3.4.6)</description>
+			<behavior>
+				<append>[$[number|file]]($[from])[$[alphabet]][
+	$.format[$[string|file]]
+]</append>
+			</behavior>
+		</completion>
+		<completion string="convert">
+			<description>(3.4.6)</description>
+			<behavior>
+				<append>[$[number|file]][$[alphabet]][$[alphabet]][
+	$.format[$[string|file]]
+]</append>
+			</behavior>
+		</completion>
+		
 		<completion string="crc32">
 			<behavior>
 				<append>[$[]]</append>

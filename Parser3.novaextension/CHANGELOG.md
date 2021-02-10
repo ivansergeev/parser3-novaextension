@@ -23,6 +23,7 @@ Added:
 ```
 	- Descriptions: foreach (hash), list (file), sql (table)
 	- Completions file:list options: `$.filter[]`, `$.stat[]`
+	- New features of math:convert
 
 ## Version 0.4.14
 
