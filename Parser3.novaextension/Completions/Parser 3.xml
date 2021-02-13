@@ -1191,6 +1191,12 @@
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
+		<completion string="pad">
+			<description>string.base64, file.base64 options. Append padding characters (=), if the coded length is not divisible by 3. Append by default. (3.4.6)</description>
+			<behavior>
+				<append>($[true|false])</append>
+			</behavior>
+		</completion>
 		<completion string="path">
 			<description>cookie options. Specifies subsection of the site from which the cookie may be accessed.</description>
 			<behavior>
@@ -1450,6 +1456,12 @@
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
+		<completion string="url-safe">
+			<description>string.base64, file.base64 options. Use the modified alphabet, with all characters do not need to be converted into %XX in the URL ('-' и '_' are used instead of '+' and '/' ) . Do not use by default.  (3.4.6)</description>
+			<behavior>
+				<append>($[true|false])</append>
+			</behavior>
+		</completion>
 		
 		<completion string="value">
 			<description></description>
@@ -1474,6 +1486,13 @@
 			<description>json:string options. Defines format of objects of class void.</description>
 			<behavior>
 				<append>[$[null|string]]</append>
+			</behavior>
+		</completion>
+		
+		<completion string="wrap">
+			<description>string.base64, file.base64 options. Return the result with line breaks (by default) or as a single line. (3.4.6)</description>
+			<behavior>
+				<append>($[true|false])</append>
 			</behavior>
 		</completion>
 		
@@ -5070,7 +5089,7 @@ $[]</append>
 	
 	<set name="parser3.core.void" symbol="method">
 		<completion string="sql">
-			<description>without parameters</description>
+			<description>without options</description>
 			<behavior>
 				<append>{
 	$[sql]
@@ -5078,7 +5097,7 @@ $[]</append>
 			</behavior>
 		</completion>
 		<completion string="sql">
-			<description>with parameters (bind)</description>
+			<description>with options (bind)</description>
 			<behavior>
 				<append>{
 	$[sql]

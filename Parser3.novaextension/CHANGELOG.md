@@ -24,6 +24,7 @@ Added:
 	- Descriptions: foreach (hash), list (file), sql (table)
 	- Completions file:list options: `$.filter[]`, `$.stat[]`
 	- New features of math:convert
+	- Completions string.base64, file.base64 options: `$.pad()`, `$.url-safe()`, `$.wrap()`
 
 ## Version 0.4.14
 

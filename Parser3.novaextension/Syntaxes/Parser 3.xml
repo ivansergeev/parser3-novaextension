@@ -1121,6 +1121,7 @@
 					<string>omit-post-charset</string>
 					<string>omit-xml-declaration</string>
 					<string>options</string>
+					<string>pad</string>
 					<string>path</string>
 					<string>post</string>
 					<string>port</string>
@@ -1169,8 +1170,10 @@
 					<string>useragent</string>
 					<string>username</string>
 					<string>userpwd</string>
+					<string>url-safe</string>
 					<string>verbose</string>
 					<string>video</string>
+					<string>wrap</string>
 					<string>z</string>
 					<string>xdoc</string>
 					<string>xmp</string>
