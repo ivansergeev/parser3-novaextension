@@ -23,7 +23,7 @@
 	<provider name="instance.method">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
-		<expression>(?&lt;=[\w\]]\.)([a-zA-Z-]+)</expression>
+		<expression>(?&lt;=[\w\]]\.)([a-zA-Z0-9-]+)</expression>
 		<set>parser3.instance.method</set>
 	</provider>
 
@@ -68,7 +68,7 @@
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
 		<!-- <selector>directives.block.hash</selector> -->
-		<expression>(?&lt;=\$\.)(([a-zA-Z_][a-zA-Z_-]*)?)</expression>		
+		<expression>(?&lt;=\$\.)(([a-zA-Z_][a-zA-Z_\-]*)?)</expression>		
 		<set>parser3.core.options</set>
 	</provider>
 
