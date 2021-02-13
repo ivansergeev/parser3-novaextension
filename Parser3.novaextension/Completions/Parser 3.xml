@@ -1784,13 +1784,25 @@ $[]</append>
 			</behavior>
 		</completion>
 		
-		<!-- file -->
+		<!-- file, string -->
 		<completion string="base64">
-			<description>file</description>
+			<description>file, string method. Encoding to Base64.</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
+		<completion string="base64">
+			<description>file, string method with options. Encoding to Base64. (3.4.6)</description>
+			<behavior>
+				<append>[
+	$.wrap($[true|false])
+	$.url-safe($[true|false])
+	$.pad($[true|false])
+]</append>
+			</behavior>
+		</completion>
+		
+		<!-- file -->
 		<completion string="crc32">
 			<description>file</description>
 			<behavior>
@@ -2286,12 +2298,7 @@ $[]</append>
 		</completion>
 		
 		<!-- string -->
-		<completion string="base64">
-			<description>string</description>
-			<behavior>
-				<append>[]</append>
-			</behavior>
-		</completion>
+		
 		<completion string="format">
 			<description>string</description>
 			<behavior>
