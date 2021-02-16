@@ -647,6 +647,7 @@
 					<string>uid64</string>
 					<string>uuid</string>
 					<!-- memory -->
+					<string>auto-compact</string>
 					<string>compact</string>
 					<!-- reflection -->
 					<string>base</string>
@@ -876,10 +877,12 @@
 					<string>hash</string>
 					<string>insert</string>
 					<string>join</string>
+					<string>locate</string>
 					<string>menu</string>
 					<string>line</string>
 					<string>foreach</string>
 					<string>offset</string>
+					<string>rename</string>
 					<string>select</string>
 					
 					<!-- memcached -->

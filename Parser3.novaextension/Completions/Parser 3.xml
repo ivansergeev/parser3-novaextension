@@ -335,7 +335,7 @@
 	<provider name="memory">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
-		<expression>(?&lt;=\^memory\:)([a-z]+)</expression>
+		<expression>(?&lt;=\^memory\:)([a-z\-]+)</expression>
 		<symbols type="method" />
 		<set>parser3.core.memory</set>
 	</provider>
@@ -2758,6 +2758,20 @@ $[]</append>
 				<append>[$[cur|set]]($[int])</append>
 			</behavior>
 		</completion>
+		<completion string="rename">
+			<description>table method. Changing column name (3.4.6)</description>
+			<behavior>
+				<append>[$[old column name];$[new column name]]</append>
+			</behavior>
+		</completion>
+		<completion string="rename">
+			<description>table method with hash. Changing column name (3.4.6)</description>
+			<behavior>
+				<append>[
+	$.$[old_column_name][$[new column name]]
+]</append>
+			</behavior>
+		</completion>
 		<completion string="save">
 			<description>table</description>
 			<behavior>
@@ -4547,8 +4561,15 @@ $[]</append>
 	
 	<set name="parser3.core.memory" symbol="method">
 		<completion string="compact">
+			<description>Garbage collection</description>
 			<behavior>
 				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="auto-compact">
+			<description>Automatic garbage collection (3.4.6)</description>
+			<behavior>
+				<append>($[collection frequency, 0-5])</append>
 			</behavior>
 		</completion>
 	</set>

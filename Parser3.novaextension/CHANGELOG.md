@@ -25,6 +25,12 @@ Added:
 	- Completions file:list options: `$.filter[]`, `$.stat[]`
 	- New features of math:convert
 	- Completions string.base64, file.base64 options: `$.pad()`, `$.url-safe()`, `$.wrap()`
+	- ^memory:auto-compact()
+	- ^table.rename[]
+	
+Fix:
+	- Fix: instance method name with numbers
+
 
 ## Version 0.4.14
 
