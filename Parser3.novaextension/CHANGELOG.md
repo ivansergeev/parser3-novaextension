@@ -22,11 +22,12 @@ Added:
 	]
 ```
 	- Descriptions: foreach (hash), list (file), sql (table)
-	- Completions file:list options: `$.filter[]`, `$.stat[]`
+	- file:list options: `$.filter[]`, `$.stat[]`
 	- New features of math:convert
 	- Completions string.base64, file.base64 options: `$.pad()`, `$.url-safe()`, `$.wrap()`
 	- ^memory:auto-compact()
 	- ^table.rename[]
+	- curl option: `$.http_version[val]`
 	
 Fix:
 	- Fix: instance method name with numbers

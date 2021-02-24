@@ -897,6 +897,12 @@
 				<append>($[])</append>
 			</behavior>
 		</completion>
+		<completion string="http_version">
+			<description>curl options (CURLOPT_HTTP_VERSION). HTTP protocol varsion. Allowed values: 1.0, 1.1, 2, 2.0, 2TLS, 2ONLY. (3.4.6)</description>
+			<behavior>
+				<append>[2]</append>
+			</behavior>
+		</completion>
 		<completion string="httpauth">
 			<description>curl options (CURLOPT_HTTPAUTH). HTTP-authorization method.</description>
 			<behavior>
