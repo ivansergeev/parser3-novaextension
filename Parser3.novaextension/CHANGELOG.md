@@ -28,7 +28,9 @@ Added:
 	- ^memory:auto-compact()
 	- ^table.rename[]
 	- curl option: `$.http_version[val]`
-	
+	- file copy options: $.append(true)
+
+
 Fix:
 	- Fix: instance method name with numbers
 

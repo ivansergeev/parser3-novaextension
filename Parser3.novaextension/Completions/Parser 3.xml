@@ -615,6 +615,12 @@
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
+		<completion string="append">
+			<description>file copy options (3.4.6)</description>
+			<behavior>
+				<append>(true)</append>
+			</behavior>
+		</completion>
 		<completion string="autoreferer">
 			<description>curl options (CURLOPT_AUTOREFERER). Set the Referer header automatically.</description>
 			<behavior>

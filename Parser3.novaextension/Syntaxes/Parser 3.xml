@@ -1041,6 +1041,7 @@
 					<string>array</string>
 					<string>any-status</string>
 					<string>accept_encoding</string>
+					<string>append</string>
 					<string>autoreferer</string>
 					<string>bind</string>
 					<string>body</string>
