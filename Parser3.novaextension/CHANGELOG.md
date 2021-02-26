@@ -29,8 +29,8 @@ Added:
 	- ^table.rename[]
 	- curl option: `$.http_version[val]`
 	- file copy options: $.append(true)
-
-
+	- `locals` — method property, 'piece' — table attribute after splitting a string
+	- Completions: instance property description
 Fix:
 	- Fix: instance method name with numbers
 

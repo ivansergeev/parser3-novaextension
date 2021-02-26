@@ -446,13 +446,14 @@
 					<!-- date -->
 					<string>datetime</string>
 					<string>date</string>
-					<string>time</string>
-					<string>year</string>
-					<string>month</string>
 					<string>day</string>
-					<string>TZ</string>
-					<string>rus</string>
 					<string>eng</string>
+					<string>locals</string>
+					<string>month</string>
+					<string>rus</string>
+					<string>time</string>
+					<string>TZ</string>
+					<string>year</string>
 				</strings>
 			</scope>
 			
@@ -988,6 +989,8 @@
 					<string>width</string>
 					<string>height</string>
 					<string>exif</string>
+					<!-- table -->
+					<string>piece</string>
 					<!-- status -->
 					<string>utime</string>
 					<string>stime</string>
