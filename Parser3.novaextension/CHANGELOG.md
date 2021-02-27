@@ -25,13 +25,14 @@ Added:
 	- file:list options: `$.filter[]`, `$.stat[]`
 	- New features of math:convert
 	- Completions string.base64, file.base64 options: `$.pad()`, `$.url-safe()`, `$.wrap()`
-	- ^memory:auto-compact()
-	- ^table.rename[]
+	- `^memory:auto-compact()`
+	- `^table.rename[]`
 	- curl option: `$.http_version[val]`
 	- file copy options: $.append(true)
 	- `locals` — method property, 'piece' — table attribute after splitting a string
 	- Completions: instance property description
-	- ^hash.select[], ^hash.reverse[]
+	- `^hash.select[]`,` ^hash.reverse[]`
+	- `^date::today(shift in days)` and description of constructors
 
 Fix:
 	- Instance method name with numbers

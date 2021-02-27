@@ -3876,46 +3876,61 @@ $[]</append>
 	
 	<set name="parser3.core.date" symbol="method">
 		<completion string=":create">
+			<description>date constructor: Relative date</description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
 		<completion string=":now">
+			<description>date constructor: Current date</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
 		<completion string=":now">
+			<description>date constructor: Current date</description>
 			<behavior>
 				<append>[$[roll]]</append>
 			</behavior>
 		</completion>
 		<completion string=":today">
+			<description>date constructor: Current date</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
+		<completion string=":today">
+			<description>date constructor: Current date (3.4.6)</description>
+			<behavior>
+				<append>($[shift in days])</append>
+			</behavior>
+		</completion>
 		<completion string=":unix-timestamp">
+			<description>date constructor: Date and time in UNIX format</description>
 			<behavior>
 				<append>($[timestamp])</append>
 			</behavior>
 		</completion>
 		<completion string="calendar">
+			<description>date method: Creating calendar for specified week</description>
 			<behavior>
 				<append>[$[rus|eng]]($[year];$[month])</append>
 			</behavior>
 		</completion>
 		<completion string="calendar">
+			<description>date method: Creating calendar for specified month</description>
 			<behavior>
 				<append>[$[rus|eng]]($[year];$[month];$[day])</append>
 			</behavior>
 		</completion>
 		<completion string="last-day">
+			<description>date method: Getting last day of month</description>
 			<behavior>
 				<append>($[year];$[month])</append>
 			</behavior>
 		</completion>
 		<completion string="roll">
+			<description>date method: Setting default timezone</description>
 			<behavior>
 				<append>[TZ][$[default timezone]]</append>
 			</behavior>
