@@ -3,34 +3,20 @@
 	Support for the new version of Parser 3.4.6
 
 Added:
-	- ^math:uuid[] with options
-```
-	^math:uuid[
-		$.lower(true)
-		$.solid(true)
-	]
-```
 	- Configuration variables: `$CHARSETS`, `$LOCALS`, `$STRICT-VARS`, `$HTTPD`, `$cfg`
-	- HTTPD methods: `@config[cfg]` and `@preprocess[]`
-	- image::measure options: 
-```
-	^image::measure[file;
-		$.video(true|false) 
-		$.exif(true|false)
-		$.xmp(false|true) 
-		$.xmp-charset[charset]
-	]
-```
 	- Descriptions: foreach (hash), list (file), sql (table)
-	- file:list options: `$.filter[]`, `$.stat[]`
-	- New features of math:convert
 	- Completions string.base64, file.base64 options: `$.pad()`, `$.url-safe()`, `$.wrap()`
+	- Completions: instance property description
+	- New features of math:convert
+	- HTTPD methods: `@config[cfg]` and `@preprocess[]`
+	- `^math:uuid[]` with options
+	- `^image::measure[]` options
+	- file:list options: `$.filter[]`, `$.stat[]`
 	- `^memory:auto-compact()`
 	- `^table.rename[]`
 	- curl option: `$.http_version[val]`
 	- file copy options: $.append(true)
 	- `locals` — method property, 'piece' — table attribute after splitting a string
-	- Completions: instance property description
 	- `^hash.select[]`,` ^hash.reverse[]`
 	- `^date::today(shift in days)` and description of constructors
 	- `^use[]` with options
