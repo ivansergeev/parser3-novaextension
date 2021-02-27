@@ -33,6 +33,7 @@ Added:
 	- Completions: instance property description
 	- `^hash.select[]`,` ^hash.reverse[]`
 	- `^date::today(shift in days)` and description of constructors
+	- `^use[]` with options
 
 Fix:
 	- Instance method name with numbers

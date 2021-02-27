@@ -5695,11 +5695,17 @@ $[]</append>
 				<append>[$[file]]</append>
 			</behavior>
 		</completion>
+		
 		<completion string="use">
+			<description>with options (replace: 3.4.3, main: 3.4.6)</description>
 			<behavior>
-				<append>[$[file];$[options]]</append>
+				<append>[$[file];
+	$.replace(true)
+	$.main(true)
+]</append>
 			</behavior>
 		</completion>
+
 <!-- V -->
 <!-- W -->
 		<completion string="while">
