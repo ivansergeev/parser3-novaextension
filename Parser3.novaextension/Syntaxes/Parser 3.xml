@@ -820,6 +820,7 @@
 					<string>add</string>
 					<string>intersection</string>
 					<string>intersects</string>
+					<string>reverse</string>
 					<string>sub</string>
 					<string>union</string>
 					

@@ -2187,6 +2187,27 @@ $[]</append>
 				<append>[$[hash]]</append>
 			</behavior>
 		</completion>
+		<completion string="reverse">
+			<description>hash method (Reverse elements order) (3.4.6)</description>
+			<behavior>
+				<append>[]</append>
+			</behavior>
+		</completion>
+		<completion string="select">
+			<description>hash method (Selecting elements) (3.4.6)</description>
+			<behavior>
+				<append>[$[key];$[value]]($[boolean condition])</append>
+			</behavior>
+		</completion>
+		<completion string="select">
+			<description>hash method with options (Selecting elements) (3.4.6)</description>
+			<behavior>
+				<append>[$[key];$[value]]($[boolean condition])[
+	$.limit($[max])
+	$.reverse($[true|false])
+]</append>
+			</behavior>
+		</completion>
 		<completion string="sort">
 			<description>hash</description>
 			<behavior>

@@ -31,8 +31,10 @@ Added:
 	- file copy options: $.append(true)
 	- `locals` — method property, 'piece' — table attribute after splitting a string
 	- Completions: instance property description
+	- ^hash.select[], ^hash.reverse[]
+
 Fix:
-	- Fix: instance method name with numbers
+	- Instance method name with numbers
 
 
 ## Version 0.4.14
