@@ -1,28 +1,28 @@
 ## Version 0.5
 
-	Support for the new version of Parser 3.4.6
+Support for the new version of Parser 3.4.6
 
 Added:
-	- Configuration variables: `$CHARSETS`, `$LOCALS`, `$STRICT-VARS`, `$HTTPD`, `$cfg`
-	- Descriptions: foreach (hash), list (file), sql (table)
-	- Completions string.base64, file.base64 options: `$.pad()`, `$.url-safe()`, `$.wrap()`
-	- Completions: instance property description
-	- New features of math:convert
-	- HTTPD methods: `@config[cfg]` and `@preprocess[]`
-	- `^math:uuid[]` with options
-	- `^image::measure[]` options
-	- file:list options: `$.filter[]`, `$.stat[]`
-	- `^memory:auto-compact()`
-	- `^table.rename[]`
-	- curl option: `$.http_version[val]`
-	- file copy options: $.append(true)
-	- `locals` — method property, 'piece' — table attribute after splitting a string
-	- `^hash.select[]`,` ^hash.reverse[]`
-	- `^date::today(shift in days)` and description of constructors
-	- `^use[]` with options
+- Configuration variables: `$CHARSETS`, `$LOCALS`, `$STRICT-VARS`, `$HTTPD`, `$cfg`
+- Descriptions: foreach (hash), list (file), sql (table)
+- Completions string.base64, file.base64 options: `$.pad()`, `$.url-safe()`, `$.wrap()`
+- Completions: instance property description
+- New features of math:convert
+- HTTPD methods: `@config[cfg]` and `@preprocess[]`
+- `^math:uuid[]` with options
+- `^image::measure[]` options
+- file:list options: `$.filter[]`, `$.stat[]`
+- `^memory:auto-compact()`
+- `^table.rename[]`
+- curl option: `$.http_version[val]`
+- file copy options: $.append(true)
+- `locals` — method property, 'piece' — table attribute after splitting a string
+- `^hash.select[]`,` ^hash.reverse[]`
+- `^date::today(shift in days)` and description of constructors
+- `^use[]` with options
 
 Fix:
-	- Instance method name with numbers
+- Instance method name with numbers
 
 
 ## Version 0.4.14
