@@ -430,7 +430,7 @@
 	<provider name="taint-transformation-type">
 		<syntax>parser3</syntax>
 		<selector>directives.block.taint, directives.block.untaint, directives.block.apply-taint</selector>
-		<expression>(?&lt;=\[)[a-z\-]*(?=\])</expression>
+		<expression>(?&lt;=\[)[a-z\-]*(?=(\;|\]\[))</expression>
 		<set>parser3.core.taint.transformation-type</set>
 	</provider> 
 	
@@ -5286,6 +5286,7 @@ $[]</append>
 
 	<set name="parser3.core.taint.transformation-type" symbol="property">
 		<completion string="as-is" />
+		<completion string="clean" />
 		<completion string="file-spec" />
 		<completion string="uri" />
 		<completion string="http-header" />

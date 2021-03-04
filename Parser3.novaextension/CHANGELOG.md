@@ -1,3 +1,11 @@
+## Version 0.5.2
+
+Added:
+- `clean` transformation type
+
+Fix:
+- `^taint[transformation type;string]`
+
 ## Version 0.5
 
 Support for the new version of Parser 3.4.6
