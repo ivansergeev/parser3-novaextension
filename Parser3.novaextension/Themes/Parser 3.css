@@ -335,6 +335,7 @@ identifier.argument {
 	color: #92d3ff;
 }
 
+keyword.specialcharacter,
 keyword.class.method,
 keyword.class.instance.method,
 identifier.method.call {

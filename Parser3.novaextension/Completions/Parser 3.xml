@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <completions>
 
+	<!-- "^#09 ^#0A" -->
+	<provider name="constant.specialcharacter">
+		<syntax>parser3</syntax>
+		<selector>*:not(comment)</selector>
+		<expression>(?&lt;=\^\#)([09A]*)</expression>
+		<set>parser3.keywords.specialcharacter</set>
+	</provider>
+	
 	<!-- "[foo]" -->
 	<provider name="constant">
 		<syntax>parser3</syntax>
@@ -1651,6 +1659,15 @@ $[]</append>
 		<completion string="table" />
 		<completion string="void" />
 		<completion string="xdoc" />
+	</set>
+	
+	<set name="parser3.keywords.specialcharacter" symbol="property">
+		<completion string="0A">
+			<description>The Linefeed character</description>
+		</completion>
+		<completion string="09">
+			<description>The Tab character</description>
+		</completion>
 	</set>
 	
 	<set name="parser3.keywords.property" symbol="property">

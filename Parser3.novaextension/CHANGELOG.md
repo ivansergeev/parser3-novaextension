@@ -1,3 +1,8 @@
+## Version 0.5.3
+
+Added:
+- special charsets: `^#0A`, `^#09`
+
 ## Version 0.5.2
 
 Added:

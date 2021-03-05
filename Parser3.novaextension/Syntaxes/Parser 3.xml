@@ -440,6 +440,8 @@
 					<string>windows-1257</string>
 				</strings>
 			</scope>
+			
+			
 		
 			<!-- [foo] -->
 			<scope name="parser3.keyword.property">
@@ -1034,7 +1036,15 @@
 					<string>systemId</string>
 				</strings>
 			</scope>
-		
+			
+			<scope name="parser3.keyword.specialcharacter">
+				<!-- <strings case-insensitive="true">
+					<string>#0A</string>
+					<string>#09</string>
+				</strings> -->
+				<expression>\^\#0[A9]</expression>
+			</scope>
+			
 		</collection>
 		
 		<!-- Property -->
@@ -1280,17 +1290,16 @@
 				<expression>q([^\\q])((?:[^\1\\]|\\.)*)(?:\1|$)</expression>
 				<capture number="1" name="parser3.string.single-quoted.text" />
 			</scope>
-			
 		</collection>
 		
 		<!-- Identifiers -->
 		<collection name="identifiers">
 			<include syntax="self" collection="variables" />
-		
+
 			<scope name="parser3.identifier.method.call">
 				<expression>(?&lt;!\^)\^([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\-\\\x7f-\xff]*)</expression>
 			</scope>
-			
+
 			<scope name="parser3.identifier.field">
 				<symbol type="property" scope="private" />
 				<expression>(?&lt;=[\:\.])([a-zA-Z0-9_][a-zA-Z0-9_-]*)</expression>
