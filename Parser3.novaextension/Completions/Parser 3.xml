@@ -127,8 +127,10 @@
 <!-- "SQL" -->
 	<provider name="sql">
 		<syntax>parser3</syntax>
-		<selector>directives.block.sql</selector>
+		<!-- <selector>directives.block.sql</selector> -->
+		<selector>*:not(comment)</selector>
 		<!-- <expression>(?&lt;=\s)([a-zA-Z_][a-zA-Z0-9-_]*)</expression> -->
+		<!-- <expression>([a-zA-Z_][a-zA-Z0-9-_]*)</expression> -->
 		<expression>([a-zA-Z_][a-zA-Z0-9-_]*)</expression>
 		<set>parser3.sql</set>
 		<set>parser3.sql.types</set>

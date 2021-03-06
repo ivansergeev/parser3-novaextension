@@ -3,6 +3,9 @@
 Added:
 - special charsets: `^#0A`, `^#09`
 
+Fix:
+- SQL autocomplete (unfortunately, without sql-context)
+
 ## Version 0.5.2
 
 Added:
