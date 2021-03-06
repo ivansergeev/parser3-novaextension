@@ -258,14 +258,14 @@
 				<context behavior="subtree" foldable="true" />
 			</symbol>
 			<starts-with>
-				<expression>(sql)(\{)</expression>
-				<!-- <expression>(?&lt;=sql\{)\s?</expression> -->
-				<capture number="1" name="parser3.keyword.class.method" />
-				<capture number="2" name="parser3.bracket" />
+				<!-- <expression>(sql)(\{)</expression> -->
+				<expression>(?&lt;=(sql\{))</expression>
+				<!-- <capture number="1" name="parser3.keyword.class.method" /> -->
+				<!-- <capture number="2" name="parser3.bracket" /> -->
 			</starts-with>
 			<ends-with>
 				<!-- <expression>(\})</expression> -->
-				<expression>(?=\})</expression>
+				<expression>(?=(\}))</expression>
 				<!-- <capture number="0" name="parser3.bracket" /> -->
 			</ends-with>
 			<subscopes>

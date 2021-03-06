@@ -127,12 +127,21 @@
 <!-- "SQL" -->
 	<provider name="sql">
 		<syntax>parser3</syntax>
-		<!-- <selector>directives.block.sql</selector> -->
-		<selector>*:not(comment)</selector>
+		<selector>directives.block.sql</selector>
+		<!-- <selector>*:not(comment)</selector> -->
 		<!-- <expression>(?&lt;=\s)([a-zA-Z_][a-zA-Z0-9-_]*)</expression> -->
 		<!-- <expression>([a-zA-Z_][a-zA-Z0-9-_]*)</expression> -->
-		<expression>([a-zA-Z_][a-zA-Z0-9-_]*)</expression>
+		<expression>([A-Z][A-Z0-9_\(\)]*)</expression>
 		<set>parser3.sql</set>
+	</provider>
+
+	<provider name="sql.types">
+		<syntax>parser3</syntax>
+		<selector>directives.block.sql</selector>
+		<!-- <selector>*:not(comment)</selector> -->
+		<!-- <expression>(?&lt;=\s)([a-zA-Z_][a-zA-Z0-9-_]*)</expression> -->
+		<!-- <expression>([a-zA-Z_][a-zA-Z0-9-_]*)</expression> -->
+		<expression>([a-z][a-z0-9\s_]*)</expression>
 		<set>parser3.sql.types</set>
 	</provider>
 
@@ -3961,14 +3970,21 @@ $[]</append>
 	<set name="parser3.core.double"  symbol="method">
 		<completion string="sql">
 			<behavior>
-				<append>{
+				<append>{ $[sql] }</append>
+			</behavior>
+		</completion>
+		<completion string="sql">
+			<description>multiline (don't delete the space after the first bracket)</description>
+			<behavior>
+				<append>{ 
 	$[sql]
 }</append>
 			</behavior>
 		</completion>
 		<completion string="sql">
+			<description>with options (don't delete the space after the first bracket)</description>
 			<behavior>
-				<append>{
+				<append>{ 
 	$[sql]
 }[
 	$.limit(1)
@@ -3985,14 +4001,21 @@ $[]</append>
 	<set name="parser3.core.int" symbol="method">
 		<completion string="sql">
 			<behavior>
-				<append>{
+				<append>{ $[sql] }</append>
+			</behavior>
+		</completion>
+		<completion string="sql">
+			<description>multiline (don't delete the space after the first bracket)</description>
+			<behavior>
+				<append>{ 
 	$[sql]
 }</append>
 			</behavior>
 		</completion>
 		<completion string="sql">
+			<description>with options (don't delete the space after the first bracket)</description>
 			<behavior>
-				<append>{
+				<append>{ 
 	$[sql]
 }[
 	$.limit(1)
@@ -4218,15 +4241,22 @@ $[]</append>
 		
 		<completion string=":sql">
 			<behavior>
-				<append>{
+				<append>{ $[sql] }</append>
+			</behavior>
+		</completion>
+		<completion string=":sql">
+			<description>multiline (don't delete the space after the first bracket)</description>
+			<behavior>
+				<append>{ 
 	$[sql]
 }</append>
 			</behavior>
 		</completion>
 		
 		<completion string=":sql">
+			<description>with options (don't delete the space after the first bracket)</description>
 			<behavior>
-				<append>{
+				<append>{ 
 	$[sql]
 }[
 	$.name[$[filename]]
@@ -4377,14 +4407,21 @@ $[]</append>
 		</completion>
 		<completion string="sql">
 			<behavior>
-				<append>{
+				<append>{ $[sql] }</append>
+			</behavior>
+		</completion>
+		<completion string="sql">
+			<description>multiline (don't delete the space after the first bracket)</description>
+			<behavior>
+				<append>{ 
 	$[sql]
 }</append>
 			</behavior>
 		</completion>
 		<completion string="sql">
+			<description>with options (don't delete the space after the first bracket)</description>
 			<behavior>
-				<append>{
+				<append>{ 
 	$[sql]
 }[
 	$.limit($[limit])
@@ -5171,14 +5208,21 @@ $[]</append>
 		</completion>
 		<completion string="sql">
 			<behavior>
-				<append>{
+				<append>{ $[sql] }</append>
+			</behavior>
+		</completion>
+		<completion string="sql">
+			<description>multiline (don't delete the space after the first bracket)</description>
+			<behavior>
+				<append>{ 
 	$[sql]
 }</append>
 			</behavior>
 		</completion>
 		<completion string="sql">
+			<description>with options (don't delete the space after the first bracket)</description>
 			<behavior>
-				<append>{
+				<append>{ 
 	$[sql]
 }[
 	$.limit(1)
@@ -5282,15 +5326,21 @@ $[]</append>
 <!-- table::sql -->
 		<completion string="sql">
 			<behavior>
-				<append>{
+				<append>{ $[sql] }</append>
+			</behavior>
+		</completion>
+		<completion string="sql">
+			<description>multiline (don't delete the space after the first bracket)</description>
+			<behavior>
+				<append>{ 
 	$[sql]
 }</append>
 			</behavior>
 		</completion>
 		<completion string="sql">
-			<description>with options (limit, offset, bind)</description>
+			<description>with options (limit, offset, bind) (don't delete the space after the first bracket)</description>
 			<behavior>
-				<append>{
+				<append>{ 
 	$[sql]
 }[
 	$.limit($[limit count])
@@ -5326,17 +5376,22 @@ $[]</append>
 	
 	<set name="parser3.core.void" symbol="method">
 		<completion string="sql">
-			<description>without options</description>
 			<behavior>
-				<append>{
+				<append>{ $[sql] }</append>
+			</behavior>
+		</completion>
+		<completion string="sql">
+			<description>multiline (don't delete the space after the first bracket)</description>
+			<behavior>
+				<append>{ 
 	$[sql]
 }</append>
 			</behavior>
 		</completion>
 		<completion string="sql">
-			<description>with options (bind)</description>
+			<description>with options (bind) (don't delete the space after the first bracket)</description>
 			<behavior>
-				<append>{
+				<append>{ 
 	$[sql]
 }[
 	$.bind[$[variables hash]]

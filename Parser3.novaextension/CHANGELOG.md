@@ -2,9 +2,10 @@
 
 Added:
 - special charsets: `^#0A`, `^#09`
+- now the `sql` methods with description and variations: single-line, multi-line, multi-line w/options
 
 Fix:
-- SQL autocomplete (unfortunately, without sql-context)
+- SQL-autocomplete
 
 ## Version 0.5.2
 
