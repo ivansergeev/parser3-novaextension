@@ -5648,6 +5648,11 @@ $[]</append>
 		</completion>
 		<completion string="taint">
 			<behavior>
+				<append>[$[type of transformation];$[text]]</append>
+			</behavior>
+		</completion>
+		<completion string="taint">
+			<behavior>
 				<append>[$[type of transformation]][$[text]]</append>
 			</behavior>
 		</completion>
