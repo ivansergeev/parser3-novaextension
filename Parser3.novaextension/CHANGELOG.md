@@ -1,3 +1,8 @@
+## Version 0.5.4
+
+Added:
+- completion for the SQL `BINARY`
+
 ## Version 0.5.3
 
 Added:

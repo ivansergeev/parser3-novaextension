@@ -3579,6 +3579,7 @@ $[]</append>
 		<completion string="AVG" />
 		<completion string="BEGIN" />
 		<completion string="BETWEEN" />
+		<completion string="BINARY" />
 		<completion string="BIT" />
 		<completion string="BIT_LENGTH" />
 		<completion string="BOTH" />

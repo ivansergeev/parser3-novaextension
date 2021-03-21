@@ -1387,6 +1387,7 @@
 					<string>AVG</string>
 					<string>BEGIN</string>
 					<string>BETWEEN</string>
+					<string>BINARY</string>
 					<string>BIT</string>
 					<string>BIT_LENGTH</string>
 					<string>BOTH</string>
