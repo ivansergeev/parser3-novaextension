@@ -1475,6 +1475,10 @@
 					<string>HAVING</string>
 					<string>HOUR</string>
 					<string>IDENTITY</string>
+					<string>INET_ATON</string>
+					<string>INET6_ATON</string>
+					<string>INET_NTOA</string>
+					<string>INET6_NTOA</string>
 					<string>IF</string>
 					<string>IMMEDIATE</string>
 					<string>IN</string>

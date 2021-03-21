@@ -3671,6 +3671,10 @@ $[]</append>
 		<completion string="HAVING" />
 		<completion string="HOUR" />
 		<completion string="IDENTITY" />
+		<completion string="INET_ATON" />
+		<completion string="INET6_ATON" />
+		<completion string="INET_NTOA" />
+		<completion string="INET6_NTOA" />
 		<completion string="IF" />
 		<completion string="IMMEDIATE" />
 		<completion string="IN" />

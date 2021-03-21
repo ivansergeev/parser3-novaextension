@@ -1,7 +1,7 @@
 ## Version 0.5.4
 
 Added:
-- completion for the SQL `BINARY`
+- completion for the SQL `BINARY`, `INET_ATON`, `INET6_ATON`, `INET_NTOA`, `INET6_NTOA`
 
 ## Version 0.5.3
 
