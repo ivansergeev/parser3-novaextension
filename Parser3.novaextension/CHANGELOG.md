@@ -1,7 +1,7 @@
 ## Version 0.5.4
 
 Added:
-- completion for the SQL `BINARY`, `INET_ATON`, `INET6_ATON`, `INET_NTOA`, `INET6_NTOA`
+- completion for the SQL `BINARY`, `INET_ATON`, `INET6_ATON`, `INET_NTOA`, `INET6_NTOA`, 'IGNORE'
 
 ## Version 0.5.3
 
@@ -58,7 +58,7 @@ Added:
 
 Added:
 
-- Clips: the copyright header. Just type `copyright` and press Enter. Supported syntaxes: Parser 3, HTML, XML, CSS, JS, SASS/SCSS, SQL. 
+- Clips: the copyright header. Just type `copyright` and press Enter. Supported syntaxes: Parser 3, HTML, XML, CSS, JS, SASS/SCSS, SQL.
 
 ## Version 0.4.12
 

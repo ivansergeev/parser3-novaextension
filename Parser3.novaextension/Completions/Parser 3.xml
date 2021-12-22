@@ -8,7 +8,7 @@
 		<expression>(?&lt;=\^\#)([09A]*)</expression>
 		<set>parser3.keywords.specialcharacter</set>
 	</provider>
-	
+
 	<!-- "[foo]" -->
 	<provider name="constant">
 		<syntax>parser3</syntax>
@@ -35,7 +35,7 @@
 		<set>parser3.instance.method</set>
 	</provider>
 
-	<!-- "@foo" -->	
+	<!-- "@foo" -->
 	<provider name="core.method">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
@@ -53,8 +53,8 @@
 		<set>parser3.core.variables</set>
 	</provider>
 
-<!-- doesn't work :-( -->	
-<!-- 
+<!-- doesn't work :-( -->
+<!--
 	<provider name="arguments">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
@@ -62,7 +62,7 @@
 		<symbols type="argument" />
 	</provider>
  -->
- 
+
 	<provider name="variable.bracket">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
@@ -76,7 +76,7 @@
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
 		<!-- <selector>directives.block.hash</selector> -->
-		<expression>(?&lt;=\$\.)(([a-zA-Z_][a-zA-Z_\-]*)?)</expression>		
+		<expression>(?&lt;=\$\.)(([a-zA-Z_][a-zA-Z_\-]*)?)</expression>
 		<set>parser3.core.options</set>
 	</provider>
 
@@ -96,7 +96,7 @@
 		<symbols type="argument" />
 		<set>parser3.core.methods</set>
 	</provider>
-	
+
 <!-- "^classes" -->
 	<provider name="classes">
 		<syntax>parser3</syntax>
@@ -114,7 +114,7 @@
 		<symbols type="class" />
 		<set>parser3.custom.classes.</set>
 	</provider>
-	
+
 <!-- "$classes" -->
 	<provider name="classes.static">
 		<syntax>parser3</syntax>
@@ -146,7 +146,7 @@
 	</provider>
 
 
-<!-- Logic -->  
+<!-- Logic -->
 	<provider name="constant">
 		<syntax>parser3</syntax>
 		<selector>directives.block.logic</selector>
@@ -156,7 +156,7 @@
 		<set>parser3.keywords.exception.types</set>
 		<set>parser3.keywords.class.types</set>
 	</provider>
-	
+
 <!-- ^date -->
 
 	<provider name="date">
@@ -196,7 +196,7 @@
 		<symbols type="property" />
 		<set>parser3.core.env</set>
 	</provider>
-	
+
 	<provider name="env.method">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
@@ -224,7 +224,7 @@
 		<symbols type="property" />
 		<set>parser3.core.cookie</set>
 	</provider>
-	
+
 	<provider name="cookie.static">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
@@ -232,7 +232,7 @@
 		<symbols type="property" />
 		<set>parser3.core.cookie.static</set>
 	</provider>
-   
+
 <!-- "^curl" -->
 	<provider name="curl">
 		<syntax>parser3</syntax>
@@ -241,7 +241,7 @@
 		<symbols type="method" />
 		<set>parser3.core.curl</set>
 	</provider>
-	
+
 <!-- "^file:" -->
 	<provider name="file">
 		<syntax>parser3</syntax>
@@ -259,7 +259,7 @@
 		<symbols type="property" />
 		<set>parser3.core.form</set>
 	</provider>
-	
+
 	<provider name="form.static">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
@@ -389,7 +389,7 @@
 		<symbols type="method" />
 		<set>parser3.core.request</set>
 	</provider>
-	
+
 	<provider name="request">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
@@ -408,7 +408,7 @@
 		<symbols type="method" />
 		<set>parser3.core.response</set>
 	</provider>
-	
+
 	<provider name="response">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
@@ -427,7 +427,7 @@
 		<symbols type="method" />
 		<set>parser3.core.status</set>
 	</provider>
-	
+
 	<provider name="status">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
@@ -451,8 +451,8 @@
 		<selector>directives.block.taint, directives.block.untaint, directives.block.apply-taint</selector>
 		<expression>(?&lt;=\[)[a-z\-]*(?=(\;|\]\[))</expression>
 		<set>parser3.core.taint.transformation-type</set>
-	</provider> 
-	
+	</provider>
+
 <!-- "^table" -->
 	<provider name="table">
 		<syntax>parser3</syntax>
@@ -479,7 +479,7 @@
 		<symbols type="method" />
 		<set>parser3.core.xdoc</set>
 	</provider>
-	
+
 <!-- "$xdoc" -->
 	<provider name="xdoc">
 		<syntax>parser3</syntax>
@@ -488,14 +488,14 @@
 		<!-- <symbols type="constant" /> -->
 		<set>parser3.core.xdoc.constant</set>
 	</provider>
-	
+
 <!-- SETS -->
 
 	<set name="parser3.core.boolean" symbol="constant">
 		<completion string="true" />
 		<completion string="false" />
 	</set>
-   
+
 	<set name="parser3.core.operator.logic" symbol="constant">
 		<completion string="def">
 			<behavior>
@@ -553,7 +553,7 @@
 			</behavior>
 		</completion>
 	</set>
-	
+
 	<set name="parser3.core.variables" symbol="variable">
 		<completion string="CLASS_PATH" />
 		<completion string="CHARSETS" />
@@ -583,7 +583,7 @@
 				<append>(true)</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string="cfg" >
 			<description>Hash of Parser web server settings (3.4.6)</description>
 			<behavior>
@@ -1450,7 +1450,7 @@
 				<append>($[])</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string="user">
 			<description>These are request parameters to server, which uses standard HTTP-authorization.</description>
 			<behavior>
@@ -1493,14 +1493,14 @@
 				<append>($[true|false])</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string="value">
 			<description></description>
 			<behavior>
 				<append>[$[]]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string="verbose">
 			<description>curl options (CURLOPT_VERBOSE). Display a lot of verbose information about its operations into stderr.</description>
 			<behavior>
@@ -1519,21 +1519,21 @@
 				<append>[$[null|string]]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string="wrap">
 			<description>string.base64, file.base64 options. Return the result with line breaks (by default) or as a single line. (3.4.6)</description>
 			<behavior>
 				<append>($[true|false])</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string="z">
 			<description>date.iso-string options. Write the UTC time zone as 00:00 (2002-04-29T09:00:00+00:00)</description>
 			<behavior>
 				<append>($[false|true])</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string="xdoc">
 			<description>json:string options. Options for converting into text.</description>
 			<behavior>
@@ -1552,7 +1552,7 @@
 				<append>($[charset])</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string="_default">
 			<description>Default hash key.</description>
 			<behavior>
@@ -1642,7 +1642,7 @@ $[]</append>
 			</behavior>
 		</completion>
 	</set>
-	
+
 	<set name="parser3.keywords.class.types" symbol="constant">
 		<completion string="cookie" />
 		<completion string="curl" />
@@ -1671,7 +1671,7 @@ $[]</append>
 		<completion string="void" />
 		<completion string="xdoc" />
 	</set>
-	
+
 	<set name="parser3.keywords.specialcharacter" symbol="property">
 		<completion string="0A">
 			<description>The Linefeed character</description>
@@ -1680,7 +1680,7 @@ $[]</append>
 			<description>The Tab character</description>
 		</completion>
 	</set>
-	
+
 	<set name="parser3.keywords.property" symbol="property">
 		<completion string="text" />
 		<completion string="binary" />
@@ -1695,7 +1695,7 @@ $[]</append>
 		<completion string="desc" />
 		<completion string="asc" />
 	</set>
-	
+
 	<set name="parser3.keywords.exception.types" symbol="constant">
 		<completion string="parser.compile" />
 		<completion string="parser.runtime" />
@@ -1730,7 +1730,7 @@ $[]</append>
 	</set>
 
 	<set name="parser3.instance.property" symbol="property">
-	
+
 		<completion string="fields" />
 		<completion string="name" />
 		<!-- date -->
@@ -1770,7 +1770,7 @@ $[]</append>
 		<completion string="TZ">
 			<description>date field</description>
 		</completion>
-		
+
 		<!-- exception -->
 		<completion string="type">
 			<description>exception field</description>
@@ -1793,7 +1793,7 @@ $[]</append>
 		<completion string="handled">
 			<description>exception field</description>
 		</completion>
-		
+
 		<!-- file -->
 
 		<completion string="size">
@@ -1964,7 +1964,7 @@ $[]</append>
 				<append>(true)</append>
 			</behavior>
 		</completion>
-		
+
 		<!-- file, string -->
 		<completion string="base64">
 			<description>file, string method. Encoding to Base64.</description>
@@ -1982,7 +1982,7 @@ $[]</append>
 ]</append>
 			</behavior>
 		</completion>
-		
+
 		<!-- file -->
 		<completion string="crc32">
 			<description>file</description>
@@ -1990,7 +1990,7 @@ $[]</append>
 				<append>[]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string="md5">
 			<description>file</description>
 			<behavior>
@@ -2077,7 +2077,7 @@ $[]</append>
 				<append>[]</append>
 			</behavior>
 		</completion>
-		
+
 <!-- hash -->
 		<completion string="_at">
 			<description>hash</description>
@@ -2115,7 +2115,7 @@ $[]</append>
 				<append>[$[first|last];$[key|value|hash]]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string="_count">
 			<description>hash</description>
 			<behavior>
@@ -2317,8 +2317,8 @@ $[]</append>
 			<description>image</description>
 			<behavior>
 				<append>[
-	$.border[$[border]]		
-	$.alt[$[alter text]]				
+	$.border[$[border]]
+	$.alt[$[alter text]]
 ]</append>
 			</behavior>
 		</completion>
@@ -2460,8 +2460,8 @@ $[]</append>
 				<append>($[x];$[y])[$[text]]</append>
 			</behavior>
 		</completion>
-		
-		<!-- memcached -->		
+
+		<!-- memcached -->
 		<completion string="add">
 			<description>memcached</description>
 			<behavior>
@@ -2498,9 +2498,9 @@ $[]</append>
 				<append>[]</append>
 			</behavior>
 		</completion>
-		
+
 		<!-- string -->
-		
+
 		<completion string="format">
 			<description>string</description>
 			<behavior>
@@ -2649,7 +2649,7 @@ $[]</append>
 			<description>string</description>
 			<behavior>
 				<append>[$[path];
-	$.charset[$[charset]] 
+	$.charset[$[charset]]
 	$.append($[true|false])
 ]</append>
 			</behavior>
@@ -2708,7 +2708,7 @@ $[]</append>
 				<append>[]</append>
 			</behavior>
 		</completion>
-		
+
 		<!-- table -->
 		<completion string="append">
 			<description>table</description>
@@ -2794,7 +2794,7 @@ $[]</append>
 				<append>[$[key]][
 	$.type[$[hash|string|table]]
 	$.distinct($[0|1])
-	$.distinct[tables]				
+	$.distinct[tables]
 ]</append>
 			</behavior>
 		</completion>
@@ -2810,7 +2810,7 @@ $[]</append>
 				<append>[$[key]][$[field]][
 	$.type[$[hash|string|table]]
 	$.distinct($[0|1])
-	$.distinct[tables]				
+	$.distinct[tables]
 ]</append>
 			</behavior>
 		</completion>
@@ -2826,7 +2826,7 @@ $[]</append>
 				<append>[$[key]]{$[code]}[
 	$.type[$[hash|string|table]]
 	$.distinct($[0|1])
-	$.distinct[tables]				
+	$.distinct[tables]
 ]</append>
 			</behavior>
 		</completion>
@@ -2842,7 +2842,7 @@ $[]</append>
 				<append>[$[key]][$[table with fields]][
 	$.type[$[hash|string|table]]
 	$.distinct($[0|1])
-	$.distinct[tables]				
+	$.distinct[tables]
 ]</append>
 			</behavior>
 		</completion>
@@ -2868,7 +2868,7 @@ $[]</append>
 			<description>table</description>
 			<behavior>
 				<append>[$[table];
-	$.offset($[int])				
+	$.offset($[int])
 	$.offset[cur]
 	$.limit($[max])
 	$.reverse($[true|false])
@@ -2891,7 +2891,7 @@ $[]</append>
 			<description>table</description>
 			<behavior>
 				<append>[$[field];$[value];
-	$.offset($[int])				
+	$.offset($[int])
 	$.offset[cur]
 	$.limit($[max])
 	$.reverse($[true|false])
@@ -2902,7 +2902,7 @@ $[]</append>
 			<description>table</description>
 			<behavior>
 				<append>($[expression])[
-	$.offset($[int])				
+	$.offset($[int])
 	$.offset[cur]
 	$.limit($[max])
 	$.reverse($[true|false])
@@ -2984,7 +2984,7 @@ $[]</append>
 			<description>table</description>
 			<behavior>
 				<append>[$[path];
-					$.offset($[int])				
+					$.offset($[int])
 	$.offset[cur]
 	$.limit($[max])
 	$.reverse($[true|false])
@@ -3001,7 +3001,7 @@ $[]</append>
 			<description>table method, with options (offset, limit, reverse)</description>
 			<behavior>
 				<append>[nameless;$[path];
-	$.offset($[int])			
+	$.offset($[int])
 	$.offset[cur]
 	$.limit($[max])
 	$.reverse($[true|false])
@@ -3018,7 +3018,7 @@ $[]</append>
 			<description>table method, with options (offset, limit, reverse)</description>
 			<behavior>
 				<append>[append;$[path];
-	$.offset($[int])			
+	$.offset($[int])
 	$.offset[cur]
 	$.limit($[max])
 	$.reverse($[true|false])
@@ -3115,7 +3115,7 @@ $[]</append>
 				<append>[$[tagname]]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string="importNode">
 			<description>xdoc</description>
 			<behavior>
@@ -3146,45 +3146,45 @@ $[]</append>
 				<append>[$[element id]]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string="file">
 			<description>xdoc</description>
 			<behavior>
 				<append>[$[element id]]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string="save">
 			<description>saving xdoc to file</description>
 			<behavior>
 				<append>[$[path];
 	$.method[]
-	$.indent[$[yes|no]] 
+	$.indent[$[yes|no]]
 	$.omit-xml-declaration[$[no|yes]]
 	$.charset[$[charset]]
 ]</append>
 			</behavior>
 		</completion>
-	
+
 		<completion string="string">
 			<description>xdoc</description>
 			<behavior>
 				<append>[]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string="string">
 			<description>converting xdoc into string</description>
 			<behavior>
 				<append>[
 	$.method[]
-	$.indent[$[yes|no]] 
+	$.indent[$[yes|no]]
 	$.omit-xml-declaration[$[no|yes]]
 	$.charset[$[charset]]
 ]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string="transform">
 			<description>xdoc</description>
 			<behavior>
@@ -3197,7 +3197,7 @@ $[]</append>
 				<append>[$[template]][$[xslt-parameters]]</append>
 			</behavior>
 		</completion>
-		
+
 <!-- xnode -->
 		<completion string="insertBefore">
 			<description>xnode (DOM1-interface Node)</description>
@@ -3337,7 +3337,7 @@ $[]</append>
 				<append>[]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string="select">
 			<description>XPath search for node</description>
 			<behavior>
@@ -3671,6 +3671,7 @@ $[]</append>
 		<completion string="HAVING" />
 		<completion string="HOUR" />
 		<completion string="IDENTITY" />
+		<completion string="IGNORE" />
 		<completion string="INET_ATON" />
 		<completion string="INET6_ATON" />
 		<completion string="INET_NTOA" />
@@ -3846,7 +3847,7 @@ $[]</append>
 		<completion string="YEAR" />
 		<completion string="ZONE" />
 	</set>
-	
+
 	<set name="parser3.sql.types" symbol="constant">
 		<completion string="bigint" />
 		<completion string="bigserial" />
@@ -3902,11 +3903,11 @@ $[]</append>
 		<completion string="unsigned" />
 		<completion string="varchar" />
 	</set>
-	
+
 <!-- CORE -->
 
 <!-- ^DATE -->
-	
+
 	<set name="parser3.core.date" symbol="method">
 		<completion string=":create">
 			<description>date constructor: Relative date</description>
@@ -3971,7 +3972,7 @@ $[]</append>
 	</set>
 
 <!-- ^DOUBLE -->
-	
+
 	<set name="parser3.core.double"  symbol="method">
 		<completion string="sql">
 			<behavior>
@@ -3981,7 +3982,7 @@ $[]</append>
 		<completion string="sql">
 			<description>multiline (don't delete the space after the first bracket)</description>
 			<behavior>
-				<append>{ 
+				<append>{
 	$[sql]
 }</append>
 			</behavior>
@@ -3989,7 +3990,7 @@ $[]</append>
 		<completion string="sql">
 			<description>with options (don't delete the space after the first bracket)</description>
 			<behavior>
-				<append>{ 
+				<append>{
 	$[sql]
 }[
 	$.limit(1)
@@ -4002,7 +4003,7 @@ $[]</append>
 	</set>
 
 <!-- ^INT -->
-	
+
 	<set name="parser3.core.int" symbol="method">
 		<completion string="sql">
 			<behavior>
@@ -4012,7 +4013,7 @@ $[]</append>
 		<completion string="sql">
 			<description>multiline (don't delete the space after the first bracket)</description>
 			<behavior>
-				<append>{ 
+				<append>{
 	$[sql]
 }</append>
 			</behavior>
@@ -4020,7 +4021,7 @@ $[]</append>
 		<completion string="sql">
 			<description>with options (don't delete the space after the first bracket)</description>
 			<behavior>
-				<append>{ 
+				<append>{
 	$[sql]
 }[
 	$.limit(1)
@@ -4033,10 +4034,10 @@ $[]</append>
 	</set>
 
 <!-- $ENV -->
-	
+
 	<set name="parser3.core.env" symbol="property">
 		<completion string="fields"  />
-		
+
 		<completion string="PARSER_VERSION" />
 		<completion string="REMOTE_ADDR" />
 		<completion string="HTTP_USER_AGENT" />
@@ -4046,7 +4047,7 @@ $[]</append>
 			</behavior>
 		</completion>
 	</set>
-	
+
 	<set name="parser3.core.env.method" symbol="property">
 		<completion string="fields">
 			<behavior>
@@ -4071,7 +4072,7 @@ $[]</append>
 	<set name="parser3.core.cookie" symbol="property">
 		<completion string="fields" />
 	</set>
-	
+
 	<set name="parser3.core.cookie.static" symbol="property">
 		<completion string="fields">
 			<behavior>
@@ -4083,7 +4084,7 @@ $[]</append>
 <!-- CURL -->
 
 	<set name="parser3.core.curl"  symbol="method">
-<!-- info -->	
+<!-- info -->
 		<completion string="info">
 			<behavior>
 				<append>[]</append>
@@ -4094,8 +4095,8 @@ $[]</append>
 				<append>[$[name]]</append>
 			</behavior>
 		</completion>
-		
-<!-- load -->	
+
+<!-- load -->
 		<completion string="load">
 			<behavior>
 				<append>[]</append>
@@ -4106,19 +4107,19 @@ $[]</append>
 				<append>[$[options]]</append>
 			</behavior>
 		</completion>
-<!-- options -->	
+<!-- options -->
 		<completion string="options">
 			<behavior>
 				<append>[$[options]]</append>
 			</behavior>
 		</completion>
-<!-- session -->	
+<!-- session -->
 		<completion string="session">
 			<behavior>
 				<append>{$[code]}</append>
 			</behavior>
 		</completion>
-<!-- version -->	
+<!-- version -->
 		<completion string="version">
 			<behavior>
 				<append>[]</append>
@@ -4127,7 +4128,7 @@ $[]</append>
 	</set>
 
 <!-- FILE -->
-	
+
 	<set name="parser3.core.file" symbol="method">
 
 		<completion string=":base64">
@@ -4135,7 +4136,7 @@ $[]</append>
 				<append>[$[text]]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string=":base64">
 			<behavior>
 				<append>[$[text|binary];$[filename];$[text];
@@ -4143,49 +4144,49 @@ $[]</append>
 ]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string=":cgi">
 			<behavior>
 				<append>[$[filename]]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string=":cgi">
 			<behavior>
 				<append>[$[filename];$[env hash]]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string=":cgi">
 			<behavior>
 				<append>[$[format];$[filename];$[env hash];$[arguments]]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string=":exec">
 			<behavior>
 				<append>[$[filename]]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string=":exec">
 			<behavior>
 				<append>[$[filename];$[env hash]]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string=":exec">
 			<behavior>
 				<append>[$[text|binary];$[filename];$[env hash];$[arguments]]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string=":create">
 			<behavior>
 				<append>[$[text|binary];$[filename];$[text]]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string=":create">
 			<behavior>
 				<append>[$[text|binary];$[filename];$[text];
@@ -4195,7 +4196,7 @@ $[]</append>
 ]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string=":create">
 			<behavior>
 				<append>[$[text];
@@ -4207,7 +4208,7 @@ $[]</append>
 ]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string=":create">
 			<behavior>
 				<append>[$[file];
@@ -4219,31 +4220,31 @@ $[]</append>
 ]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string=":load">
 			<behavior>
 				<append>[$[text|binary];$[filename]]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string=":load">
 			<behavior>
 				<append>[$[text|binary];$[filename];$[options]]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string=":load">
 			<behavior>
 				<append>[$[text|binary];$[filename];$[new filename]]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string=":load">
 			<behavior>
 				<append>[$[text|binary];$[filename];$[new filename];$[options]]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string=":sql">
 			<behavior>
 				<append>{ $[sql] }</append>
@@ -4252,16 +4253,16 @@ $[]</append>
 		<completion string=":sql">
 			<description>multiline (don't delete the space after the first bracket)</description>
 			<behavior>
-				<append>{ 
+				<append>{
 	$[sql]
 }</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string=":sql">
 			<description>with options (don't delete the space after the first bracket)</description>
 			<behavior>
-				<append>{ 
+				<append>{
 	$[sql]
 }[
 	$.name[$[filename]]
@@ -4271,7 +4272,7 @@ $[]</append>
 ]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string=":stat">
 			<behavior>
 				<append>[$[filename]]</append>
@@ -4283,22 +4284,22 @@ $[]</append>
 			<behavior>
 				<append>[$[filename]]</append>
 			</behavior>
-		</completion>		
+		</completion>
 		<completion string="basename">
 			<behavior>
 				<append>[$[path]]</append>
 			</behavior>
-		</completion>		
+		</completion>
 		<completion string="copy">
 			<behavior>
 				<append>[$[from];$[to]]</append>
 			</behavior>
-		</completion>		
+		</completion>
 		<completion string="crc32">
 			<behavior>
 				<append>[$[filename]]</append>
 			</behavior>
-		</completion>		
+		</completion>
 		<completion string="delete">
 			<behavior>
 				<append>[$[path];
@@ -4306,44 +4307,44 @@ $[]</append>
 	$.exception(false)
 ]</append>
 			</behavior>
-		</completion>		
+		</completion>
 		<completion string="dirname">
 			<behavior>
 				<append>[$[path]]</append>
 			</behavior>
-		</completion>		
+		</completion>
 		<completion string="find">
 			<behavior>
 				<append>[$[path]]{
 	$[code]
 }</append>
 			</behavior>
-		</completion>		
+		</completion>
 		<completion string="fullpath">
 			<behavior>
 				<append>[$[filename]]</append>
 			</behavior>
-		</completion>		
+		</completion>
 		<completion string="justext">
 			<behavior>
 				<append>[$[path]]</append>
 			</behavior>
-		</completion>		
+		</completion>
 		<completion string="justname">
 			<behavior>
 				<append>[$[path]]</append>
 			</behavior>
-		</completion>		
+		</completion>
 		<completion string="list">
 			<behavior>
 				<append>[$[path]]</append>
 			</behavior>
-		</completion>		
+		</completion>
 		<completion string="list">
 			<behavior>
 				<append>[$[path];$[regexp filter]]</append>
 			</behavior>
-		</completion>		
+		</completion>
 		<completion string="list">
 			<description>with options (filter, stat)</description>
 			<behavior>
@@ -4352,7 +4353,7 @@ $[]</append>
 	$.stat($[true|false])
 ]</append>
 			</behavior>
-		</completion>		
+		</completion>
 		<completion string="lock">
 			<behavior>
 				<append>[$[lockfile]]{
@@ -4364,23 +4365,23 @@ $[]</append>
 			<behavior>
 				<append>[$[filename]]</append>
 			</behavior>
-		</completion>		
+		</completion>
 		<completion string="move">
 			<behavior>
 				<append>[$[from];$[to]]</append>
 			</behavior>
-		</completion>		
+		</completion>
 		<completion string="move">
 			<behavior>
 				<append>[$[from];$[to];
 	$.keep-empty-dirs(true)
 ]</append>
 			</behavior>
-		</completion>		
+		</completion>
 	</set>
 
 <!-- FORM -->
-	
+
 	<set name="parser3.core.form" symbol="property">
 		<completion string="fields" />
 		<completion string="files" />
@@ -4388,7 +4389,7 @@ $[]</append>
 		<completion string="qtail" />
 		<completion string="tables" />
 	</set>
-	
+
 	<set name="parser3.core.form.static" symbol="property">
 		<completion string="fields">
 			<behavior>
@@ -4401,7 +4402,7 @@ $[]</append>
 			</behavior>
 		</completion>
 	</set>
-	
+
 <!-- HASH -->
 
 	<set name="parser3.core.hash" symbol="method">
@@ -4418,7 +4419,7 @@ $[]</append>
 		<completion string="sql">
 			<description>multiline (don't delete the space after the first bracket)</description>
 			<behavior>
-				<append>{ 
+				<append>{
 	$[sql]
 }</append>
 			</behavior>
@@ -4426,7 +4427,7 @@ $[]</append>
 		<completion string="sql">
 			<description>with options (don't delete the space after the first bracket)</description>
 			<behavior>
-				<append>{ 
+				<append>{
 	$[sql]
 }[
 	$.limit($[limit])
@@ -4486,7 +4487,7 @@ $[]</append>
 	</set>
 
 <!-- INET -->
-	
+
 	<set name="parser3.core.inet" symbol="method">
 		<completion string="aton">
 			<behavior>
@@ -4514,7 +4515,7 @@ $[]</append>
 			<behavior>
 				<append>[$[domain];
 	$.ipv[$[4|6|any]]
-	$.table($[true|false])				
+	$.table($[true|false])
 ]</append>
 			</behavior>
 		</completion>
@@ -4526,7 +4527,7 @@ $[]</append>
 	</set>
 
 <!-- JSON -->
-	
+
 	<set name="parser3.core.json" symbol="method">
 		<completion string="parse">
 			<behavior>
@@ -4568,7 +4569,7 @@ $[]</append>
 	</set>
 
 <!-- MAIL -->
-	
+
 	<set name="parser3.core.mail" symbol="method">
 		<completion string="send">
 			<behavior>
@@ -4583,7 +4584,7 @@ $[]</append>
 	</set>
 
 <!-- MATH -->
-	
+
 	<set name="parser3.core.math" symbol="method">
 		<completion string="abs">
 			<behavior>
@@ -4595,7 +4596,7 @@ $[]</append>
 				<append>($[])</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string="convert">
 			<behavior>
 				<append>[$[number]]($[from];$[to])</append>
@@ -4631,7 +4632,7 @@ $[]</append>
 ]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string="crc32">
 			<behavior>
 				<append>[$[]]</append>
@@ -4775,7 +4776,7 @@ $[]</append>
 			</behavior>
 		</completion>
 	</set>
-			
+
 	<set name="parser3.core.math.static" symbol="property">
 		<completion string="PI" />
 		<completion string="E" />
@@ -4783,7 +4784,7 @@ $[]</append>
 
 
 <!-- MEMCACHED -->
-	
+
 	<set name="parser3.core.memcached" symbol="method">
 		<completion string="open">
 			<behavior>
@@ -4798,9 +4799,9 @@ $[]</append>
 		<completion string="open">
 			<behavior>
 				<append>[
-	$.server[$[server1:port1]] 
+	$.server[$[server1:port1]]
 	$.binary-protocol($[true|false])
-	$.connect-timeout($[timeout]) 
+	$.connect-timeout($[timeout])
 ]</append>
 			</behavior>
 		</completion>
@@ -4808,7 +4809,7 @@ $[]</append>
 
 
 <!-- MEMORY -->
-	
+
 	<set name="parser3.core.memory" symbol="method">
 		<completion string="compact">
 			<description>Garbage collection</description>
@@ -4825,7 +4826,7 @@ $[]</append>
 	</set>
 
 <!-- REFLECTION -->
-	
+
 	<set name="parser3.core.reflection" symbol="method">
 		<completion string="base">
 			<behavior>
@@ -4991,7 +4992,7 @@ $[]</append>
 		<completion string="stack">
 			<behavior>
 				<append>[
-	$.args($[false|true])				
+	$.args($[false|true])
 	$.locals($[true|false])
 	$.limit()
 	$.offset()
@@ -5084,7 +5085,7 @@ $[]</append>
 			</behavior>
 		</completion>
 	</set>
-	
+
 	<set name="parser3.core.request.static" symbol="property">
 		<completion string="argv" />
 		<completion string="body" />
@@ -5107,7 +5108,7 @@ $[]</append>
 			</behavior>
 		</completion>
 	</set>
-	
+
 <!-- RESPONSE -->
 
 	<set name="parser3.core.response" >
@@ -5122,7 +5123,7 @@ $[]</append>
 			</behavior>
 		</completion>
 	</set>
-	
+
 	<set name="parser3.core.response.static" symbol="property">
 		<completion string="status" />
 		<completion string="headers" />
@@ -5157,7 +5158,7 @@ $[]</append>
 	</set>
 
 <!-- STATUS -->
-	
+
 	<set name="parser3.core.status" symbol="property">
 		<completion string="memory">
 			<behavior>
@@ -5186,7 +5187,7 @@ $[]</append>
 		<completion string="rusage" />
 		<completion string="tid" />
 	</set>
-	
+
 <!-- STRING -->
 
 	<set name="parser3.core.string" symbol="method">
@@ -5219,7 +5220,7 @@ $[]</append>
 		<completion string="sql">
 			<description>multiline (don't delete the space after the first bracket)</description>
 			<behavior>
-				<append>{ 
+				<append>{
 	$[sql]
 }</append>
 			</behavior>
@@ -5227,7 +5228,7 @@ $[]</append>
 		<completion string="sql">
 			<description>with options (don't delete the space after the first bracket)</description>
 			<behavior>
-				<append>{ 
+				<append>{
 	$[sql]
 }[
 	$.limit(1)
@@ -5337,7 +5338,7 @@ $[]</append>
 		<completion string="sql">
 			<description>multiline (don't delete the space after the first bracket)</description>
 			<behavior>
-				<append>{ 
+				<append>{
 	$[sql]
 }</append>
 			</behavior>
@@ -5345,7 +5346,7 @@ $[]</append>
 		<completion string="sql">
 			<description>with options (limit, offset, bind) (don't delete the space after the first bracket)</description>
 			<behavior>
-				<append>{ 
+				<append>{
 	$[sql]
 }[
 	$.limit($[limit count])
@@ -5355,7 +5356,7 @@ $[]</append>
 			</behavior>
 		</completion>
 	</set>
-	
+
 <!-- TAINT -->
 
 	<set name="parser3.core.taint.transformation-type" symbol="property">
@@ -5378,7 +5379,7 @@ $[]</append>
 	</set>
 
 <!-- VOID -->
-	
+
 	<set name="parser3.core.void" symbol="method">
 		<completion string="sql">
 			<behavior>
@@ -5388,7 +5389,7 @@ $[]</append>
 		<completion string="sql">
 			<description>multiline (don't delete the space after the first bracket)</description>
 			<behavior>
-				<append>{ 
+				<append>{
 	$[sql]
 }</append>
 			</behavior>
@@ -5396,7 +5397,7 @@ $[]</append>
 		<completion string="sql">
 			<description>with options (bind) (don't delete the space after the first bracket)</description>
 			<behavior>
-				<append>{ 
+				<append>{
 	$[sql]
 }[
 	$.bind[$[variables hash]]
@@ -5407,7 +5408,7 @@ $[]</append>
 
 
 <!-- XDOC -->
-	
+
 	<set name="parser3.core.xdoc" symbol="method">
 		<completion string="create">
 			<description>Creating a document based on specified XML</description>
@@ -5446,8 +5447,8 @@ $[]</append>
 			</behavior>
 		</completion>
 	</set>
-	
-	
+
+
 	<set name="parser3.core.xdoc.constant" symbol="constant">
 		<completion string="ELEMENT_NODE"><description>1</description></completion>
 		<completion string="ATTRIBUTE_NODE"><description>2</description></completion>
@@ -5462,7 +5463,7 @@ $[]</append>
 		<completion string="DOCUMENT_FRAGMENT_NODE"><description>11</description></completion>
 		<completion string="NOTATION_NODE"><description>12</description></completion>
 	</set>
-	
+
 <!-- CORE OPERATORS -->
 
 	<set name="parser3.core.methods" symbol="function">
@@ -5529,7 +5530,7 @@ $[]</append>
 				<append>[$[file]][$[date]]{$[code]}{$[exception handled]}</append>
 			</behavior>
 		</completion>
-	   
+
 		<completion string="case">
 			<description>string to compare</description>
 			<behavior>
@@ -5553,7 +5554,7 @@ $[]</append>
 }</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string="connect">
 			<behavior>
 				<append>[$[connection string]]{
@@ -5561,7 +5562,7 @@ $[]</append>
 }</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string="continue">
 			<behavior>
 				<append>[]</append>
@@ -5610,7 +5611,7 @@ $[]</append>
 }</append>
 			</behavior>
 		</completion>
-	
+
 <!-- G -->
 <!-- H -->
 <!-- I -->
@@ -5657,7 +5658,7 @@ $[]</append>
 				<append>{$[comment]}</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string="return">
 			<behavior>
 				<append>[]</append>
@@ -5681,10 +5682,10 @@ $[]</append>
 			<behavior>
 				<append>[$[string]]{
 	^case[$[1]]{
-		
+
 	}
 	^case[$[2]]{
-		
+
 	}
 }</append>
 			</behavior>
@@ -5694,10 +5695,10 @@ $[]</append>
 			<behavior>
 				<append>($[expression]){
 	^case($[1]){
-		
+
 	}
 	^case($[2]){
-		
+
 	}
 }</append>
 			</behavior>
@@ -5718,7 +5719,7 @@ $[]</append>
 				<append>[$[type of transformation]][$[text]]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string="throw">
 			<behavior>
 				<append>[$[type]]</append>
@@ -5780,7 +5781,7 @@ $[]</append>
 				<append>[$[file]]</append>
 			</behavior>
 		</completion>
-		
+
 		<completion string="use">
 			<description>with options (replace: 3.4.3, main: 3.4.6)</description>
 			<behavior>
@@ -5822,5 +5823,5 @@ $[]</append>
 <!-- Y -->
 <!-- Z -->
 	</set>
-	
+
 </completions>
