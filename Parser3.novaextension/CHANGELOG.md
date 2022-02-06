@@ -1,7 +1,11 @@
+## Version 0.5.5
+
+Added: support slashes in methods and variables, such as `@/foo/bar[attr]` or `^/foo/bar[$attr]`
+
 ## Version 0.5.4
 
 Added:
-- completion for the SQL `BINARY`, `INET_ATON`, `INET6_ATON`, `INET_NTOA`, `INET6_NTOA`, 'IGNORE'
+- completion for the SQL `BINARY`, `INET_ATON`, `INET6_ATON`, `INET_NTOA`, `INET6_NTOA`, `IGNORE`
 
 ## Version 0.5.3
 

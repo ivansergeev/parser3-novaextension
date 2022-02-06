@@ -48,6 +48,6 @@
 	  "scope": "editor",
 	  "syntax": "sql",
 	  "trigger": "copyright"
-	},
+	}
   ]
 }

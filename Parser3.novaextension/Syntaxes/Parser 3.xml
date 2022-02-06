@@ -30,12 +30,12 @@
 
 	<comments>
 
-		<!-- doesn't work with shortcut :-( -->
-		<!--
+	<!-- doesn't work with shortcut :-( -->
+	<!-- 		
 		<single>
 			<expression>#</expression>
-		</single>
-	    -->
+		</single> 
+	 -->
 
 		<multiline>
 			<starts-with>
@@ -44,7 +44,7 @@
 			<ends-with>
 				<expression>}</expression>
 			</ends-with>
-		</multiline>
+		</multiline>		
 	</comments>
 
 	<brackets>
@@ -341,7 +341,7 @@
 				<subscopes>
 					<scope name="parser3.definition.class.name">
 						<symbol type="class" />
-						<expression>^([a-zA-Z_][a-zA-Z0-9_]*)</expression>
+						<expression>^([a-zA-Z_\/][a-zA-Z0-9_\/]*)</expression>`
 					</scope>
 				</subscopes>
 			</scope>
@@ -351,7 +351,7 @@
 					<context behavior="subtree" foldable="false" />
 				</symbol>
 				<starts-with>
-					<expression>^(@)(?!CLASS\b)\b([a-zA-Z_][a-zA-Z0-9_]*)\b</expression>
+					<expression>^(@)(?!CLASS\b)([a-zA-Z_\/][a-zA-Z0-9_\/]*)\b</expression>
 					<capture number="1" name="parser3.identifier.at" />
 					<capture number="2" name="parser3.identifier.method.name" />
 				</starts-with>
@@ -369,9 +369,9 @@
 
 			<scope name="parser3.definition.method.core">
 				<symbol type="method" />
-				<expression>^(@)(?!CLASS\b)([a-zA-Z_][a-zA-Z0-9_]*\s?)$</expression>
+				<expression>^(@)(?!CLASS\b)([a-zA-Z_\/][a-zA-Z0-9_\/]*\s?)$</expression>
 				<capture number="1" name="parser3.identifiers.at" />
-				<capture number="2" name="parser3.identifier.function.name" />
+				<capture number="2" name="parser3.identifier.method.name" />
 			</scope>
 
 		</collection>
@@ -1239,7 +1239,7 @@
 
 			<scope name="parser3.identifier.variable">
 				<symbol type="variable" scope="private" />
-				<expression>(?&lt;!\^)(\$)([a-zA-Z0-9_\x7f-\xff][a-zA-Z0-9_\x7f-\xff\-]*)</expression>
+				<expression>(?&lt;!\^)(\$)([a-zA-Z0-9_\/\x7f-\xff][a-zA-Z0-9_\/\x7f-\xff\-]*)</expression>
 				<capture number="1" name="parser3.symbol" />
 				<capture number="2" name="parser3.identifier.variable.name" />
 			</scope>
@@ -1247,7 +1247,7 @@
 			<!-- ${foo} -->
 			<scope name="parser3.identifier.variable.bracket">
 				<symbol type="variable" scope="private" />
-				<expression>(?&lt;!\^)(\$)(\{)([a-zA-Z0-9_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)(\.?)</expression>
+				<expression>(?&lt;!\^)(\$)(\{)([a-zA-Z0-9_\/\x7f-\xff][a-zA-Z0-9_\/\x7f-\xff]*)(\.?)</expression>
 				<capture number="1" name="parser3.symbol" />
 				<capture number="2" name="parser3.bracket" />
 				<capture number="3" name="parser3.identifier.variable.name" />
@@ -1297,12 +1297,12 @@
 			<include syntax="self" collection="variables" />
 
 			<scope name="parser3.identifier.method.call">
-				<expression>(?&lt;!\^)\^([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\-\\\x7f-\xff]*)</expression>
+				<expression>(?&lt;!\^)\^([a-zA-Z_\/\x7f-\xff][a-zA-Z0-9_\/\-\\\x7f-\xff]*)</expression>
 			</scope>
 
 			<scope name="parser3.identifier.field">
 				<symbol type="property" scope="private" />
-				<expression>(?&lt;=[\:\.])([a-zA-Z0-9_][a-zA-Z0-9_-]*)</expression>
+				<expression>(?&lt;=[\:\.])([a-zA-Z0-9_\/][a-zA-Z0-9_\-\/]*)</expression>
 				<capture number="1" name="parser3.identifier.property.name" />
 			</scope>
 

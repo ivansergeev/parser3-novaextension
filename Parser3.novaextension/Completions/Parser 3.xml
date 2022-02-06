@@ -13,7 +13,7 @@
 	<provider name="constant">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment, directives.block.taint, directives.block.untaint, directives.block.apply-taint)</selector>
-		<expression>(?&lt;=\[)([a-zA-Z-]+)(?=;|\])</expression>
+		<expression>(?&lt;=\[)([a-zA-Z\-]+)(?=;|\])</expression>
 		<symbols type="property" />
 		<set>parser3.keywords.property</set>
 	</provider>
@@ -22,7 +22,7 @@
 	<provider name="instance.property">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
-		<expression>(?&lt;=\.)([a-zA-Z_][a-zA-Z-_]*)</expression>
+		<expression>(?&lt;=\.)([a-zA-Z_][a-zA-Z_\-]*)</expression>
 		<symbols type="property" />
 		<set>parser3.instance.property</set>
 	</provider>
@@ -31,7 +31,7 @@
 	<provider name="instance.method">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
-		<expression>(?&lt;=[\w\]]\.)([a-zA-Z0-9-]+)</expression>
+		<expression>(?&lt;=[\w\]]\.)([a-zA-Z0-9\-]+)</expression>
 		<set>parser3.instance.method</set>
 	</provider>
 
@@ -86,7 +86,7 @@
 	<provider name="method">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
-		<expression>(?&lt;=\^)\b([a-zA-Z_][a-zA-Z0-9_-]*)</expression>
+		<expression>(?&lt;=\^)([a-zA-Z_\/][a-zA-Z0-9_\/\-]*)</expression>
 		<symbols type="method">
 			<behavior>
 				<arguments prefix="[" suffix="]" separator=";" />
@@ -101,7 +101,7 @@
 	<provider name="classes">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
-		<expression>(?&lt;=\^)([a-zA-Z_-]+)</expression>
+		<expression>(?&lt;=\^)([a-zA-Z_\-]+)</expression>
 		<symbols type="class" />
 		<set>parser3.core.classes</set>
 	</provider>
@@ -110,7 +110,7 @@
 	<provider name="custom.classes">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
-		<expression>(?&lt;=\^)([a-zA-Z_-]+)</expression>
+		<expression>(?&lt;=\^)([a-zA-Z_\-]+)</expression>
 		<symbols type="class" />
 		<set>parser3.custom.classes.</set>
 	</provider>
@@ -150,7 +150,7 @@
 	<provider name="constant">
 		<syntax>parser3</syntax>
 		<selector>directives.block.logic</selector>
-		<expression>([a-zA-Z-]+)</expression>
+		<expression>([a-zA-Z\-]+)</expression>
 		<set>parser3.core.operator.logic</set>
 		<set>parser3.core.boolean</set>
 		<set>parser3.keywords.exception.types</set>
@@ -162,7 +162,7 @@
 	<provider name="date">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
-		<expression>(?&lt;=\^date\:)(\:?[a-z-]+)</expression>
+		<expression>(?&lt;=\^date\:)(\:?[a-z\-]+)</expression>
 		<symbols type="method" />
 		<set>parser3.core.date</set>
 	</provider>
@@ -385,7 +385,7 @@
 	<provider name="request">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
-		<expression>(?&lt;=\^request\:)([a-z-]+)</expression>
+		<expression>(?&lt;=\^request\:)([a-z\-]+)</expression>
 		<symbols type="method" />
 		<set>parser3.core.request</set>
 	</provider>
@@ -393,7 +393,7 @@
 	<provider name="request">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
-		<expression>(?&lt;=\$request\:)([a-z-]+)</expression>
+		<expression>(?&lt;=\$request\:)([a-z\-]+)</expression>
 		<symbols type="method" />
 		<set>parser3.core.request.static</set>
 	</provider>
@@ -440,7 +440,7 @@
 	<provider name="string">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
-		<expression>(?&lt;=\^string\:)([a-z0-9-]+)</expression>
+		<expression>(?&lt;=\^string\:)([a-z0-9\-]+)</expression>
 		<symbols type="method" />
 		<set>parser3.core.string</set>
 	</provider>
@@ -475,7 +475,7 @@
 	<provider name="xdoc">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
-		<expression>(?&lt;=\^xdoc\:\:)([a-z0-9-]+)</expression>
+		<expression>(?&lt;=\^xdoc\:\:)([a-z0-9\-]+)</expression>
 		<symbols type="method" />
 		<set>parser3.core.xdoc</set>
 	</provider>
@@ -484,7 +484,7 @@
 	<provider name="xdoc">
 		<syntax>parser3</syntax>
 		<selector>*:not(comment)</selector>
-		<expression>(?&lt;=\$xdoc\:)([a-z0-9-]+)</expression>
+		<expression>(?&lt;=\$xdoc\:)([a-z0-9\-]+)</expression>
 		<!-- <symbols type="constant" /> -->
 		<set>parser3.core.xdoc.constant</set>
 	</provider>
