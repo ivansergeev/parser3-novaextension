@@ -1,7 +1,5 @@
 # Parser 3 extension for the Panic Nova (Mac)
 
-Current status: WIP
-
 ### Requirements
 
 Panic Nova app (https://nova.app/)
