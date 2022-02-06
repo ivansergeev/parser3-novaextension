@@ -1,49 +1,49 @@
 {
   "clips" : [
     {
-      "content" : "#\n#\t$FILENAME\n#\t$WORKSPACE_NAME\n#\n#\tCreated by $AUTHOR_NAME on $DATE\n#\tCopyright © 2021 $0. All rights reserved.\n#\n",
+      "content" : "#\n#\t$FILENAME\n#\t$WORKSPACE_NAME\n#\n#\tCreated by $AUTHOR_NAME on $DATE\n#\tCopyright © 2022 $0. All rights reserved.\n#\n",
       "name" : "Copyright - Parser 3",
       "scope" : "editor",
       "syntax" : "parser3",
       "trigger" : "copyright"
     },
 	{
-	  "content": "<!-------------------------------------\n\t$FILENAME\n\t$WORKSPACE_NAME\n\n\tCreated by $AUTHOR_NAME on $DATE\n\tCopyright © 2021 $0. All rights reserved.\n-------------------------------------->\n",
+	  "content": "<!-------------------------------------\n\t$FILENAME\n\t$WORKSPACE_NAME\n\n\tCreated by $AUTHOR_NAME on $DATE\n\tCopyright © 2022 $0. All rights reserved.\n-------------------------------------->\n",
 	  "name": "Copyright - HTML",
 	  "scope": "editor",
 	  "syntax": "html",
 	  "trigger": "copyright"
 	},
 	{
-	  "content": "<!-------------------------------------\n\t$FILENAME\n\t$WORKSPACE_NAME\n\n\tCreated by $AUTHOR_NAME on $DATE\n\tCopyright © 2021 $0. All rights reserved.\n-------------------------------------->\n",
+	  "content": "<!-------------------------------------\n\t$FILENAME\n\t$WORKSPACE_NAME\n\n\tCreated by $AUTHOR_NAME on $DATE\n\tCopyright © 2022 $0. All rights reserved.\n-------------------------------------->\n",
 	  "name": "Copyright - XML",
 	  "scope": "editor",
 	  "syntax": "xml",
 	  "trigger": "copyright"
 	},
 	{
-	  "content": "/*-------------------------------------\n\t$FILENAME\n\t$WORKSPACE_NAME\n\n\tCreated by $AUTHOR_NAME on $DATE\n\tCopyright © 2021 $0. All rights reserved.\n-------------------------------------*/\n",
+	  "content": "/*-------------------------------------\n\t$FILENAME\n\t$WORKSPACE_NAME\n\n\tCreated by $AUTHOR_NAME on $DATE\n\tCopyright © 2022 $0. All rights reserved.\n-------------------------------------*/\n",
 	  "name": "Copyright - CSS",
 	  "scope": "editor",
 	  "syntax": "css",
 	  "trigger": "copyright"
 	},
 	{
-	  "content" : "//\n//\t$FILENAME\n//\t$WORKSPACE_NAME\n//\n//\tCreated by $AUTHOR_NAME on $DATE\n//\tCopyright © 2021 $0. All rights reserved.\n//\n",
+	  "content" : "//\n//\t$FILENAME\n//\t$WORKSPACE_NAME\n//\n//\tCreated by $AUTHOR_NAME on $DATE\n//\tCopyright © 2022 $0. All rights reserved.\n//\n",
 	  "name": "Copyright - JS",
 	  "scope": "editor",
 	  "syntax": "javascript",
 	  "trigger": "copyright"
 	},
 	{
-	  "content" : "//\n//\t$FILENAME\n//\t$WORKSPACE_NAME\n//\n//\tCreated by $AUTHOR_NAME on $DATE\n//\tCopyright © 2021 $0. All rights reserved.\n//\n",
+	  "content" : "//\n//\t$FILENAME\n//\t$WORKSPACE_NAME\n//\n//\tCreated by $AUTHOR_NAME on $DATE\n//\tCopyright © 2022 $0. All rights reserved.\n//\n",
 	  "name": "Copyright - SASS",
 	  "scope": "editor",
 	  "syntax": "sass",
 	  "trigger": "copyright"
 	},
 	{
-	  "content" : "--\n--\t$FILENAME\n--\t$WORKSPACE_NAME\n--\n--\tCreated by $AUTHOR_NAME on $DATE\n--\tCopyright © 2021 $0. All rights reserved.\n--\n",
+	  "content" : "--\n--\t$FILENAME\n--\t$WORKSPACE_NAME\n--\n--\tCreated by $AUTHOR_NAME on $DATE\n--\tCopyright © 2022 $0. All rights reserved.\n--\n",
 	  "name": "Copyright - SQL",
 	  "scope": "editor",
 	  "syntax": "sql",

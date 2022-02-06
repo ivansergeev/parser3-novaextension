@@ -18,4 +18,4 @@ Licensed under the MIT License
 
 ### Author
 
-Copyright (c) Ivan Sergeev (ivansergeev@gmail.com)
+Copyright © Ivan Sergeev (ivansergeev@gmail.com)
